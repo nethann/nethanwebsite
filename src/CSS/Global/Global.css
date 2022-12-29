@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&family=Poppins:wght@300&family=Roboto&display=swap');
+
+:root {
+    --clr-evolution-card-color: #26282c;
+    --clr-evolution-card-hover: #2e2e2ece;
+    --clr-card-clr: #1c1c1c;
+
+
+    /* span colors */
+    --clr-1: #2eca9be0;
+    --clr-2: #d0bfff;
+    --clr-2: #ebb866;
+    --clr-3: #ff752d;
+    --clr-4: #F16085;
+    ---clr-5: #00b8cb;
+    --clr-6: #969c95;
+    /* span colors END */
+
+
+    --clr-green: #51ff0015;
+    --clr-purple: #a490e438;
+    /* --clr-yellow: #f6e27f54; */
+    --clr-yellow: #ffd5003e;
+    --clr-neon-pink: #ff0080d2;
+    --clr-blue: #00f7ff3f;
+
+
+    /* fonts */ 
+    --clr-green-font: #5fb03a;
+    --clr-purple-font: #7a5cdc;
+    --clr-yellow-font: #ffd500;
+    --clr-blue-font: #aafff9;
+
+    --clr-discord-color: #5865f2;
+
+    /* --clr-yellow-font: #c9b138; */
+}
+
+
+.Home-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: white;
+
+
+}
+
+::selection {
+    background: var(--clr-1);
+}

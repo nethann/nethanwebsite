@@ -1,0 +1,58 @@
+.Git-Container{
+    margin-top: 50px;
+    width: 85%;
+    background-color: transparent;
+
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    gap: 1em;
+    overflow-wrap: break-word;
+
+    margin-bottom: 50px;
+
+
+}
+
+.Git-Title{
+    font-size: 25px;
+}
+
+
+
+.Github-Grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1em;
+
+    width: 100%;
+
+}
+
+@media screen and (min-width: 1600px) {
+    .Github-Grid{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+
+@media screen and (min-width: 2000px) {
+    .Github-Grid{
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+
+@media screen and (max-width: 1200px) {
+    .Github-Grid{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+
+
+@media screen and (max-width: 700px) {
+    .Github-Grid{
+        grid-template-columns: 1fr;
+    }
+}

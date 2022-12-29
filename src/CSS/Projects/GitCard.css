@@ -1,0 +1,121 @@
+
+
+.Git-Card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+    background-color: var(--clr-card-clr);
+    /* border: 1px solid grey; */
+    border-radius: 8px;
+    padding: 20px;
+    overflow-wrap: break-word;
+
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease-in-out;
+
+}
+
+
+.Git-Card:hover{
+    background-color: var(--clr-evolution-card-hover);
+}
+
+.Git-Card:hover{
+    transform: translateY(-5px);
+    transition: all 0.2s ease-in-out;
+
+}
+
+
+.Git-Card-FirstSection{
+    display: grid;
+    grid-template-columns: 0.1fr 1fr;
+    text-align: center;
+    place-items: center;
+
+    background-color: transparent;
+
+}
+
+.Git-Img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+
+    background-color: transparent;
+}
+
+.Git-Name{
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 100%;
+    background-color: transparent;
+
+    text-decoration: none;
+    color: var(--clr-1);
+
+    font-size: 18px;
+    
+}
+
+.Git-Name:hover{
+    color: var(--clr-1);
+}
+
+.Git-Card-SecondSection{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    background-color: transparent;
+
+}
+
+.Ul{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.git-Description{
+    font-size: 15px;
+
+    color: white;
+}
+
+.Lang-Container{
+    display: flex;
+    justify-content: right;
+    background-color: transparent;
+    gap: 2em;
+
+    padding: 5px;
+
+    width: 100%;
+}
+
+.Languages{
+    margin-top: auto;
+    margin-bottom: auto;
+
+    padding: 5px;
+    border-radius: 30px;
+    width: 30%;
+
+    font-size: 10px;
+    text-align: center;
+}
+
+.Special-JS{
+    background-color:var(--clr-yellow);
+    color: var(--clr-yellow-font);
+}
+
+.Special-Py{
+    background-color: var(--clr-blue);
+    color: var(--clr-blue-font);
+}

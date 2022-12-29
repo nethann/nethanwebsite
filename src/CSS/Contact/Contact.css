@@ -1,0 +1,214 @@
+:root { 
+    --contact-form-card-transition: 0.2s ease-in
+}
+
+
+.Contact-Section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    position: relative;
+
+    gap: 2em;
+    min-height: 90vh;
+
+
+    width: 90%;
+
+    background-color: transparent;
+
+
+}
+
+
+
+.Contact-Form{
+    background-color: var(--clr-evolution-card-color);
+    display: flex;
+    flex-direction: column;
+
+    gap: 1em;
+
+    width: 600px;
+
+    padding: 20px;
+
+    color: white;
+
+    border-radius: 8px;
+
+    transition: var(--contact-form-card-transition);
+}
+
+.ContactSection-1{
+    background-color: transparent;
+}
+
+.Contact-Title{
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: left;
+
+    font-size: 18px;
+
+}
+
+
+
+.Contact-Inputs:focus{
+    border-bottom: 1px solid var(--clr-1);
+    outline: none;
+    transition: 0.2s ease-in-out;
+}
+
+.ContactSection-2{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 0em;
+}
+
+.mail-section{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 1em;
+    background-color: transparent;
+}
+
+.Contact-Inputs{
+    width: 90%;
+    padding: 5px;
+    font-size: 15px;
+
+    background-color: transparent;
+    border: 0px solid transparent;
+    border-bottom: 1px solid white;
+
+    color: white;
+
+    
+}
+
+.Contact-textarea{
+    resize: none;
+}
+
+.Contact-Submit{
+    width: 40%;
+    border: 1px solid white;
+
+    background-color: transparent;
+    padding: 5px;
+
+    font-size: 15px;
+
+    color: white;
+
+    border-radius: 5px;
+
+}
+
+.Contact-Submit:hover{
+    transition: 0.2s ease-in-out;
+    color: var(--clr-1);
+    border: 1px solid var(--clr-1);
+}
+
+
+/* contact ICONs */ 
+
+.Contact-Icons-Section{
+    display: flex;
+    flex-direction: row;
+    gap: 3em;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: transparent;
+}
+
+.contact-icon-tag{
+    text-decoration: none;
+    color: white;
+    transition: all .2s;
+}
+
+.contact-icon-tag:hover{
+    color: var(--clr-1);
+    transform: translateY(-5px);
+}
+
+
+
+.Contact-Icon{
+    font-size: 25px;
+}
+
+
+
+
+@media screen and (min-width: 1600px) {
+    .Contact-Section{
+        background-color: transparent;
+    }
+
+    .Contact-Form{
+        width: 650px;
+        transition: var(--contact-form-card-transition);
+    }
+
+    .Contact-Submit{
+        width: 250px;
+    }
+}
+
+
+
+@media screen and (max-width: 1050px) {
+    .Contact-Section{
+        width: 100%;
+        background-color: transparent;
+    }
+    .Contact-Form{
+        width: 55%;
+        transition: var(--contact-form-card-transition);
+        
+    }
+
+}
+
+@media screen and (max-width: 800px) {
+    .Contact-Section{
+        background-color: transparent;
+        width: 100%;
+    }
+
+    .Contact-Form{
+        width: 80%;
+        transition: var(--contact-form-card-transition);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .Contact-Section{
+        background-color: transparent;
+    }
+
+    .Contact-Form{
+        width: 90%;
+        transition: var(--contact-form-card-transition);
+    }
+
+    .Contact-Icons-Section{
+        gap: 2em;
+    }
+}
+
+

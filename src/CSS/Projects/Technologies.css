@@ -1,0 +1,68 @@
+
+.Tech-Container{
+    margin-top: 50px;
+    min-height: 60vh;
+    width: 90%;
+    background-color: transparent;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+
+}
+
+.Tech-Title{
+    font-size: 30px;
+}
+
+.About-Tech{
+    width: 65%;
+    background-color: transparent;
+
+    font-size: 18px;
+
+    text-align: center;
+}
+
+.About{
+    font-size: 18px;
+}
+
+
+.Tech-Grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    background-color: transparent;
+    gap: 1em;
+
+    width: 90%;
+}
+
+
+
+@media screen and (min-width: 1700px) {
+    .Tech-Grid{
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
+
+@media screen and (max-width: 1050px) {
+    .About-Tech{
+        width: 90%;
+    }
+    .Tech-Grid{
+        grid-template-columns: 1fr 1fr 1fr 1fr
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .About-Tech{
+        width: 100%;
+    }
+    .Tech-Grid{
+        width: 100%;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}

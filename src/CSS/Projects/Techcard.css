@@ -1,0 +1,36 @@
+.Tech-Card{
+    background-color:var(--clr-card-clr);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 1em;
+
+    padding: 25px;
+
+    border-radius: 10px;
+
+    transition: all 0.2s ease-in-out;
+
+}
+
+
+
+
+.Tech-Img{
+    width: 70px;
+}
+
+.Tech-Des{
+    display: flex;
+    margin-top: auto;
+    margin-bottom: auto;
+    background-color: transparent;
+
+    font-size: 16px;
+}
+
+.Tech-Card:hover{
+    transform: translateY(-7px);
+}

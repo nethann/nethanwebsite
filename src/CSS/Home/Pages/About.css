@@ -1,0 +1,366 @@
+
+:root {
+    --clr-evolution-card-color: #26282c;
+
+
+    /* span colors */
+    --clr-1: #2eca9be0;
+    --clr-2: #e2a33d;
+    --clr-3: #ff752d;
+    --clr-4: #F16085;
+    --clr-5: #00b8cb;
+    --clr-7: #8965eb;
+
+    /* span colors END */
+}
+
+.Welcome-Container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+
+.abt-txt{
+    font-size: 30px;
+}
+
+.Weather-Status{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: transparent;
+    width: 100%;
+}
+
+.weather-image-holder{
+    background-color: transparent;
+}
+
+.weather-description{
+    font-size: 18px;
+    background-color: transparent;
+}
+
+.weather-Icon{
+    background-color: transparent;
+    width: 70px;
+}
+
+.weather-span{
+    color: var(--clr-1);
+}
+
+.weather-span-2{
+    color: var(--clr-1);
+}
+
+
+
+
+
+
+
+
+.About-Container{
+    min-height: 60vh;
+    width: 90%;
+    background-color: transparent;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+
+
+
+.About-Description-Holder{
+    display: flex;
+    justify-content: center;
+
+
+
+    
+    background-color: transparent;
+}
+
+
+
+
+
+
+.About-Txt{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+
+    padding: 10px;
+    background-color: transparent;
+}
+
+
+
+
+.Nethan-Name{
+    font-size: 35px;
+
+}
+
+
+
+
+.Description-Holder{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+
+    background-color:transparent;
+
+    border-left: 3px solid white;
+
+}
+
+.List{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    list-style: none;
+}
+
+/* discord */ 
+.discord-online{color:var(--clr-1);}
+.discord-idle{color: var(--clr-2);}
+.discord-dnd{color: var(--clr-4);}
+.discord-offline{color: var(--clr-6)}
+
+
+
+
+/* discord ENDS */
+
+
+
+
+.Section{
+    font-size: 25px;
+}
+
+
+
+
+
+.Txt-Description{
+    font-size: 18px;
+}
+
+.main-color{
+    color: var(--clr-1);
+}
+
+.lang-1{
+    color: var(--clr-7);
+}
+
+.lang-2{
+    color:var(--clr-2);
+}
+
+.lang-3{
+    color:  var(--clr-4);
+}
+
+.About-Image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: transparent;
+}
+
+.Nethan-Pic{
+    width: 500px;
+    border-radius: 10px;
+}
+
+
+
+
+
+/* second */ 
+
+.About-Container-2{
+    min-height: 50vh;
+    width: 90%;
+    background-color: transparent;
+
+    display: grid;
+    grid-template-columns: 0.8fr 1fr;
+    margin-bottom: 30px;
+}
+
+.About-Image-2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: transparent;
+}
+
+.Developer{
+    width: 400px;
+    border-radius: 10px;
+}
+
+.About-Description-Holder-2{
+    display: flex;
+    justify-content: center;
+
+    
+    background-color: transparent;
+}
+
+
+
+.About-Txt-2{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1em;
+
+    padding: 10px;
+    background-color: transparent;
+}
+
+.Developer-Title{
+    font-size: 25px;
+}
+
+
+.Description-Holder-2{
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px;
+
+
+    background-color:transparent;
+
+    border-left: 3px solid white;
+
+}
+
+.Section-2{
+    font-size: 30px;
+}
+
+
+@media screen and (min-width: 1700px) {
+
+    .Nethan-Pic{
+        width: 550px;
+    }
+
+    .Developer{
+        width: 420px;
+    }
+}
+
+
+
+
+@media screen and (min-width: 1500px) {
+
+    .About-Container{
+        width: 85%;
+    }
+
+    .About-Container-2{
+        width: 85%;
+    }
+
+    .About-Container{
+        grid-template-columns: 0.7fr 1fr;
+    }
+
+    .About-Container-2{
+        grid-template-columns: 1fr 0.7fr;
+    }
+}
+
+
+
+
+
+/* section 3 */ 
+@media screen and (max-width: 1050px) {
+    .About-Container{
+        display: flex;
+        flex-direction: column;
+        background-color: transparent;
+    }
+
+    .About-Image{
+        padding: 20px;
+        background-color: transparent;
+    }
+
+    .Nethan-Pic{
+        width: 50%;
+    }
+
+    .Section{
+        background-color: transparent;
+        text-align: center;
+    }
+
+
+    /* the second section */
+
+
+    .About-Container-2{
+        display: flex;
+        flex-direction: column;
+        background-color: transparent;
+    }
+
+    .Developer-Title{
+        text-align: center;
+    }
+
+    .Developer{
+        width: 50%;
+    }
+
+    .Section-2{
+        text-align: center;
+    }
+}
+
+
+
+@media screen and (max-width: 700px) {
+    .About-Container{
+        background-color: transparent;
+        width: 95%;
+    }
+
+    .Nethan-Pic{
+        width: 70%;
+    }
+
+
+    .About-Container-2{
+        width: 95%;
+    }
+
+    .Developer{
+        width: 70%;
+    }
+
+}
+
