@@ -10,7 +10,6 @@ import JavaScriptgitCard from './GitCards/JavaScriptgitCard'
 
 
 import "../../CSS/Projects/GithubRep.css"
-import github from "../Home-Components/Technology/Icons/github.png"
 
 
 export default function GithubProjects() {

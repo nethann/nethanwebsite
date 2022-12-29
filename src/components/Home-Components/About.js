@@ -1,6 +1,5 @@
-import { React, Component } from 'react'
+import { React, } from 'react'
 import { useState, useEffect } from 'react';
-import { ThemeProvider, createUseStyles } from 'react-jss';
 
 import axios from 'axios';
 //CSS profile import
@@ -26,8 +25,6 @@ export default function About() {
 
 
 
-    const [data, setData] = useState({})
-    const [discordData, setdiscordData] = useState({})
 
 
     //weather ITEM

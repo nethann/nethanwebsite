@@ -62,19 +62,19 @@ export default function Contact() {
 
 
         <div className='Contact-Icons-Section'>
-          <a href='https://discord.gg/wZdCddU6zz' target='_blank' className='contact-icon-tag discord-icon'>
+          <a href='https://discord.gg/wZdCddU6zz' target='_blank' rel='noreferrer' className='contact-icon-tag discord-icon'>
             <FaDiscord className='Contact-Icon' />
           </a>
 
-          <a href='https://www.instagram.com/xneoryx/' target='_blank' className='contact-icon-tag instagram-icon'>
+          <a href='https://www.instagram.com/xneoryx/' target='_blank' rel='noreferrer' className='contact-icon-tag instagram-icon'>
             <FaInstagram className='Contact-Icon' />
           </a>
 
-          <a href='https://www.linkedin.com/in/nethan-nagendran/' target='_blank' className='contact-icon-tag linkedin-icon'>
+          <a href='https://www.linkedin.com/in/nethan-nagendran/' rel='noreferrer' target='_blank' className='contact-icon-tag linkedin-icon'>
             <FaLinkedinIn className='Contact-Icon' />
           </a>
 
-          <a href='https://github.com/nethann' target='_blank' className='contact-icon-tag git-icon'>
+          <a href='https://github.com/nethann' target='_blank' rel='noreferrer' className='contact-icon-tag git-icon'>
             <AiFillGithub className='Contact-Icon' />
           </a>
         </div>
