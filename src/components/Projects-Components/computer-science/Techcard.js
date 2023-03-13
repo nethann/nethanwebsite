@@ -1,7 +1,6 @@
 import React from 'react'
 
-import "../../CSS/Projects/Techcard.css"
-
+import "../../../CSS/Projects/Techcard.css"
 
 
 export default function Techcard({ name, image }) {

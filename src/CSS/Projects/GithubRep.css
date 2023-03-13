@@ -22,7 +22,7 @@
 
 .Github-Grid{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
     gap: 1em;
 
     width: 100%;

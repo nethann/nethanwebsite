@@ -58,11 +58,21 @@
 }
 
 @media screen and (max-width: 800px) {
+    .Tech-Title{
+        text-align: center;
+    }
+    
     .About-Tech{
         width: 100%;
     }
     .Tech-Grid{
         width: 100%;
         grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .Tech-Grid{
+        grid-template-columns: 1fr 1fr ;
     }
 }

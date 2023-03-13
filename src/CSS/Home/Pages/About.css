@@ -1,4 +1,3 @@
-
 :root {
     --clr-evolution-card-color: #26282c;
 
@@ -14,7 +13,7 @@
     /* span colors END */
 }
 
-.Welcome-Container{
+.Welcome-Container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,11 +22,11 @@
 }
 
 
-.abt-txt{
+.abt-txt {
     font-size: 30px;
 }
 
-.Weather-Status{
+.Weather-Status {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -36,25 +35,25 @@
     width: 100%;
 }
 
-.weather-image-holder{
+.weather-image-holder {
     background-color: transparent;
 }
 
-.weather-description{
+.weather-description {
     font-size: 18px;
     background-color: transparent;
 }
 
-.weather-Icon{
+.weather-Icon {
     background-color: transparent;
     width: 70px;
 }
 
-.weather-span{
+.weather-span {
     color: var(--clr-1);
 }
 
-.weather-span-2{
+.weather-span-2 {
     color: var(--clr-1);
 }
 
@@ -65,7 +64,7 @@
 
 
 
-.About-Container{
+.About-Container {
     min-height: 60vh;
     width: 90%;
     background-color: transparent;
@@ -77,13 +76,13 @@
 
 
 
-.About-Description-Holder{
+.About-Description-Holder {
     display: flex;
     justify-content: center;
 
 
 
-    
+
     background-color: transparent;
 }
 
@@ -92,11 +91,10 @@
 
 
 
-.About-Txt{
+.About-Txt {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 1em;
 
     padding: 10px;
     background-color: transparent;
@@ -105,38 +103,55 @@
 
 
 
-.Nethan-Name{
-    font-size: 35px;
+.Nethan-Name {
+    margin-top: auto;
+    margin-bottom: auto;
 
 }
 
 
 
 
-.Description-Holder{
+.Description-Holder {
     display: flex;
     flex-direction: column;
     padding: 20px;
 
 
-    background-color:transparent;
+    background-color: transparent;
 
     border-left: 3px solid white;
 
+    position: relative;
+
 }
 
-.List{
+.List {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 1em;
     list-style: none;
+
+    background-color: transparent;
 }
 
-/* discord */ 
-.discord-online{color:var(--clr-1);}
-.discord-idle{color: var(--clr-2);}
-.discord-dnd{color: var(--clr-4);}
-.discord-offline{color: var(--clr-6)}
+/* discord */
+.discord-online {
+    color: var(--clr-1);
+}
+
+.discord-idle {
+    color: var(--clr-2);
+}
+
+.discord-dnd {
+    color: var(--clr-4);
+}
+
+.discord-offline {
+    color: var(--clr-6)
+}
 
 
 
@@ -146,7 +161,7 @@
 
 
 
-.Section{
+.Section {
     font-size: 25px;
 }
 
@@ -154,27 +169,28 @@
 
 
 
-.Txt-Description{
+.Txt-Description {
     font-size: 18px;
 }
 
-.main-color{
+.main-color {
     color: var(--clr-1);
 }
 
-.lang-1{
+.lang-1 {
     color: var(--clr-7);
 }
 
-.lang-2{
-    color:var(--clr-2);
+.lang-2 {
+    color: var(--clr-2);
 }
 
-.lang-3{
-    color:  var(--clr-4);
+.lang-3 {
+    color: var(--clr-4);
 }
 
-.About-Image{
+.About-Image {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -182,138 +198,151 @@
     background-color: transparent;
 }
 
-.Nethan-Pic{
+.Nethan-Pic {
     width: 500px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 
 
 
 
-/* second */ 
+/* second */
 
-.About-Container-2{
+.About-Container-2 {
     min-height: 50vh;
     width: 90%;
     background-color: transparent;
 
     display: grid;
-    grid-template-columns: 0.8fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
     margin-bottom: 30px;
 }
 
-.About-Image-2{
+.About-Image-2 {
     display: flex;
     align-items: center;
     justify-content: center;
 
+    width: 90%;
+    height: 500px;
+
     background-color: transparent;
 }
 
-.Developer{
+.Developer {
     width: 400px;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
-.About-Description-Holder-2{
+.About-Description-Holder-2 {
     display: flex;
     justify-content: center;
 
-    
+    width: 100%;
+
+
     background-color: transparent;
 }
 
 
 
-.About-Txt-2{
+.About-Txt-2 {
     display: flex;
+
     flex-direction: column;
     justify-content: center;
     gap: 1em;
 
     padding: 10px;
     background-color: transparent;
+
+    width: 100%;
 }
 
-.Developer-Title{
+.Developer-Title {
     font-size: 25px;
 }
 
 
-.Description-Holder-2{
+.Description-Holder-2 {
     display: flex;
     flex-direction: column;
 
     padding: 20px;
 
 
-    background-color:transparent;
+    background-color: transparent;
 
     border-left: 3px solid white;
 
 }
 
-.Section-2{
+.Section-2 {
     font-size: 30px;
 }
 
 
 @media screen and (min-width: 1700px) {
 
-    .Nethan-Pic{
+    .Nethan-Pic {
         width: 550px;
     }
 
-    .Developer{
+    .Developer {
         width: 420px;
     }
 }
+
+
+/* Pulse animation */
+
+
+
 
 
 
 
 @media screen and (min-width: 1500px) {
 
-    .About-Container{
+    .About-Container {
         width: 85%;
     }
 
-    .About-Container-2{
-        width: 85%;
-    }
 
-    .About-Container{
+    .About-Container {
         grid-template-columns: 0.7fr 1fr;
     }
 
-    .About-Container-2{
-        grid-template-columns: 1fr 0.7fr;
+    .About-Container-2 {
+        grid-template-columns: 1fr 1fr;
     }
+
 }
 
 
 
 
 
-/* section 3 */ 
+/* section 3 */
 @media screen and (max-width: 1050px) {
-    .About-Container{
+    .About-Container {
         display: flex;
         flex-direction: column;
         background-color: transparent;
     }
 
-    .About-Image{
+    .About-Image {
         padding: 20px;
         background-color: transparent;
     }
 
-    .Nethan-Pic{
-        width: 50%;
+    .Nethan-Pic {
+        width: 60%;
     }
 
-    .Section{
+    .Section {
         background-color: transparent;
         text-align: center;
     }
@@ -321,22 +350,21 @@
 
     /* the second section */
 
-
-    .About-Container-2{
+    .About-Container-2 {
         display: flex;
         flex-direction: column;
         background-color: transparent;
     }
 
-    .Developer-Title{
+    .Developer-Title {
         text-align: center;
     }
 
-    .Developer{
-        width: 50%;
+    .Developer {
+        width: 60%;
     }
 
-    .Section-2{
+    .Section-2 {
         text-align: center;
     }
 }
@@ -344,23 +372,85 @@
 
 
 @media screen and (max-width: 700px) {
-    .About-Container{
+
+
+
+    .About-Container {
         background-color: transparent;
         width: 95%;
     }
 
-    .Nethan-Pic{
+    .Nethan-Pic {
         width: 70%;
     }
 
 
-    .About-Container-2{
+    .About-Container-2 {
         width: 95%;
     }
 
-    .Developer{
+    .Developer {
         width: 70%;
     }
 
 }
 
+@media screen and (max-width: 600px) {
+
+
+
+    .Nethan-Pic {
+        width: 80%;
+    }
+
+    .About-Container {
+        width: 95%;
+        background-color: transparent;
+        text-align: center;
+    }
+
+
+    .List {
+        padding: 0;
+    }
+
+    .About-Container-2{
+        width: 95%;
+    }
+
+    .Txt-Description{
+        text-align: center;
+    }
+
+
+
+
+    .Description-Holder {
+        position: relative;
+        background-color: transparent;
+        border-left: 0px solid transparent;
+        padding: 0;
+    }
+
+
+    .Description-Holder-2 {
+        background-color: transparent;
+        border-left: 0px solid transparent;
+        padding: 0;
+    }
+
+    .Developer {
+        width: 70%;
+    }
+
+}
+
+
+@media screen and (max-width: 400px) {
+
+    .weather-description{
+        width: 90%;
+        text-align: center;
+    }
+
+}

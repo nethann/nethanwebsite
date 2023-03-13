@@ -1,0 +1,36 @@
+:root {
+    --clr-navBackground: #222224;
+}
+.bg-background{
+    background-color: var(--clr-navBackground);
+}
+
+.nav-link{
+    text-align: center;
+    color: white;
+}
+
+#nav-link:hover{
+    color: var(--clr-1);
+}
+
+/* dropdown */
+.navbar-dark .navbar-toggler {
+    color: rgba(255, 255, 255, 0) !important;
+    border-color: rgba(255, 255, 255, 0) !important;
+}
+
+/* dropdown */
+.navbar-nav .dropdown-menu{
+    border: 0px;
+    background-color: var(--clr-navBackground);
+}
+
+#dropdown-item{
+    color: white;
+}
+
+#dropdown-item:hover{
+    background-color: var(--clr-home-container);
+    color: var(--clr-1);
+}

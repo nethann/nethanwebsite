@@ -19,13 +19,15 @@
 
     background-color: transparent;
 
+    margin-bottom: 30px;
+
 
 }
 
 
 
 .Contact-Form{
-    background-color: var(--clr-evolution-card-color);
+    background-color: var(--clr-contact-form-background);
     display: flex;
     flex-direction: column;
 
@@ -118,6 +120,104 @@
     border: 1px solid var(--clr-1);
 }
 
+/* contact discord presence  */
+
+@keyframes pulse-animation {
+    0% {
+        box-shadow: 0 0 0 0px rgba(201, 201, 201, 0.9);
+    }
+
+    100% {
+        box-shadow: 0 0 0 8px rgba(255, 0, 0, 0);
+
+    }
+}
+
+
+
+.circle {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    display: flex;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 1px 1px #0000001a;
+}
+
+.circle:hover{
+    cursor: pointer;
+}
+
+
+
+.discord-pulse-online{
+    background-color: rgb(44, 190, 44);
+}
+
+.discord-pulse-idle{
+    background-color: rgb(225, 188, 69);
+}
+
+.discord-pulse-dnd{
+    background-color: var(--clr-4);
+}
+
+.discord-pulse-offline{
+    background-color: rgb(149, 149, 149)
+}
+
+.pulse {
+    animation: pulse-animation 1.5s infinite;
+}
+
+
+
+
+.Discord-section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
+    background-color: var(--clr-card-clr);
+    border-radius: 10px;
+    width: 180px;
+    padding: 10px;
+}
+
+.discord-pfp{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.Astra-Discord-Img{
+    width: 50px;
+    border-radius: 100%;
+}
+
+.discord-tag{
+    width: 100%;
+    background-color: transparent;
+}
+
+.discord-tag-user{
+    margin-top: auto;
+    margin-bottom: auto;
+
+    text-align: center;
+
+    font-size: 15px;
+}
+
+.discord-tag-user span{
+    color: var(--clr-1);
+}
 
 /* contact ICONs */ 
 
@@ -160,7 +260,7 @@
     }
 
     .Contact-Form{
-        width: 650px;
+        width: 800px;
         transition: var(--contact-form-card-transition);
     }
 
@@ -177,7 +277,7 @@
         background-color: transparent;
     }
     .Contact-Form{
-        width: 55%;
+        width: 70%;
         transition: var(--contact-form-card-transition);
         
     }
@@ -202,8 +302,17 @@
     }
 
     .Contact-Form{
-        width: 90%;
+        width: 95%;
         transition: var(--contact-form-card-transition);
+    }
+
+    .Contact-Inputs{
+        width: 100%;
+    }
+
+
+    .Contact-Submit{
+        width: 50%;
     }
 
     .Contact-Icons-Section{

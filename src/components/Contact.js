@@ -1,19 +1,61 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 
 
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
+
 //React Icons
 import { FaDiscord, FaInstagram, FaLinkedinIn } from "react-icons/fa";
-import {AiFillGithub} from "react-icons/ai"
+import { AiFillGithub } from "react-icons/ai"
 
 
 import "../CSS/Contact/Contact.css"
 import "../CSS/Global/Global.css"
 
+import Aos from 'aos';
+import "aos/dist/aos.css"
 
+import axios from 'axios';
+
+import Astra from "./Images/AstraPfp.png"
 
 
 export default function Contact() {
+
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+        Discord Status
+    </Tooltip>
+);
+
+  const discordUrl = 'https://api.lanyard.rest/v1/users/743601359697477713';
+
+  const [discordPulse, setDiscordPulse] = useState('')
+
+  useEffect(() => {
+    axios.get(discordUrl).then((discordResponse) => {
+      const disVar = discordResponse.data.data.discord_status;
+
+
+      if (disVar === 'online') {
+        setDiscordPulse('discord-pulse-online')
+      }
+
+      else if (disVar === 'idle') {
+        setDiscordPulse('discord-pulse-idle')
+      }
+
+      else if (disVar === 'dnd') {
+        setDiscordPulse('discord-pulse-dnd')
+      }
+
+      else if (disVar === 'offline') {
+        setDiscordPulse('discord-pulse-offline')
+      }
+
+    })
+  })
 
   const form = useRef();
 
@@ -30,6 +72,12 @@ export default function Contact() {
   }
 
 
+  Aos.init({
+    duration: 500,
+    once: true
+  });
+
+
 
 
 
@@ -42,7 +90,7 @@ export default function Contact() {
 
       <section className='Contact-Section'>
 
-        {<form className='Contact-Form' ref={form} onSubmit={sendEmail}>
+        {<form className='Contact-Form' ref={form} onSubmit={sendEmail} data-aos="fade-right">
 
           <div className='ContactSection-1'>
             <p className='Contact-Title'>Get in touch</p>
@@ -59,6 +107,23 @@ export default function Contact() {
           </div>
 
         </form>}
+
+        <div className='Discord-section'>
+          <div className='discord-pfp'>
+            <img src={Astra} alt='Logo' className='Astra-Discord-Img' />
+            <OverlayTrigger
+              placement="top"
+              delay={{ show: 250, hide: 400 }}
+              overlay={renderTooltip}
+            >
+              <div className={`circle pulse ${discordPulse}`}></div>
+            </OverlayTrigger>
+          </div>
+
+          <div className='discord-tag'>
+            <p className='discord-tag-user'>Astra<span >#1805</span></p>
+          </div>
+        </div>
 
 
         <div className='Contact-Icons-Section'>

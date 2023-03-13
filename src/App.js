@@ -2,6 +2,7 @@
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 
 import {
   BrowserRouter,
@@ -15,25 +16,32 @@ import Home from "./components/Home";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 
-import "./CSS/Nav.css"
+import { useState } from 'react';
+
+import "./CSS/Global/Nav.css"
 
 
 function App() {
+  const [expanded, setExpanded] = useState(false)
   return (
     <BrowserRouter>
       <div className="App">
         <>
-          <Navbar collapseOnSelect expand="lg" bg="background" variant="dark">
+          <Navbar expanded={expanded} collapseOnSelect expand="lg" bg="background" variant="dark">
             <Container>
               <Navbar.Brand as={Link} variant="light" to="/">Nethan Nagendran</Navbar.Brand>
-              <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+              <Navbar.Toggle onClick={() => setExpanded(expanded ? false : "expanded")} aria-controls="responsive-navbar-nav" />
               <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
                 </Nav>
                 <Nav>
-                  <Nav.Link as={Link} to="/">Home</Nav.Link>
-                  <Nav.Link as={Link} to="/projects">Projects</Nav.Link>
-                  <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
+                  <Nav.Link id='nav-link' onClick={() => setExpanded(false)} as={Link} to="/">Home</Nav.Link>
+                  <NavDropdown  title="Projects" id="basic-nav-dropdown">
+                    <NavDropdown.Item id='dropdown-item'   onClick={() => setExpanded(false)} as={Link} to="/projects">Computer Science</NavDropdown.Item>
+                    <NavDropdown.Item id='dropdown-item'   onClick={() => setExpanded(false)} as={Link} to="/3dmodeling">3-D modeling</NavDropdown.Item>
+                    <NavDropdown.Item id='dropdown-item'  onClick={() => setExpanded(false)} as={Link} to="/music">Music</NavDropdown.Item>
+                  </NavDropdown>
+                  <Nav.Link id='nav-link' onClick={() => setExpanded(false)} as={Link} to="/contact">Contact</Nav.Link>
                 </Nav>
               </Navbar.Collapse>
             </Container>

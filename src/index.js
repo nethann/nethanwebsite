@@ -4,7 +4,8 @@ import App from './App';
 
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./Global.css"
+import "./CSS/Global/Nav.css"
+import "./CSS/Global/Global.css"
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

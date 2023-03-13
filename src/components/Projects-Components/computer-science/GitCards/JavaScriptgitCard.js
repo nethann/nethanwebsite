@@ -1,12 +1,13 @@
 import React from 'react'
 
-import github from "../../Home-Components/Technology/Icons/github.png"
-import "../../../CSS/Projects/GitCard.css"
+import "../../../../CSS/Projects/GitCard.css"
+import github from "../../../Home-Components/Technology/Icons/github.png"
+
 
 export default function JavaScriptgitCard({ gitName, description, Git_Link}) {
   return (
     <>
-      <a href={Git_Link} target="_blank" className='Git-Card'>
+      <a href={Git_Link} target="_blank" rel='noreferrer' className='Git-Card'>
 
         <div className='Git-Card-FirstSection'>
           <img src={github} className='Git-Img' alt='Logo' />

@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Nerko+One&family=Poppins:wght@300&family=Roboto&display=swap');
 
 :root {
-    --clr-evolution-card-color: #26282c;
-    --clr-evolution-card-hover: #2e2e2ece;
-    --clr-card-clr: #1c1c1c;
+    --clr-evolution-card-hover: #27272a;
+    /* --clr-evolution-card-hover: #2e2e2ece; */
+    --clr-card-clr: #222224;
+    --clr-contact-form-background : #222224;
 
 
     /* span colors */
@@ -33,7 +34,13 @@
 
     --clr-discord-color: #5865f2;
 
+    --clr-home-container: #1b1d20;
+
     /* --clr-yellow-font: #c9b138; */
+}
+
+body, html{
+    background-color: #141618;
 }
 
 
@@ -43,9 +50,10 @@
     justify-content: center;
     flex-direction: column;
     color: white;
-
-
+    background-color: var(--clr-home-container);
+    /* background-color: #0d1217; */
 }
+
 
 ::selection {
     background: var(--clr-1);
