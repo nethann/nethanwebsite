@@ -7,7 +7,7 @@ import Tilt from 'react-parallax-tilt';
 
 export default function JavaScriptgitCard({ gitName, description, Git_Link }) {
   return (
-    <Tilt glareEnable={true} glareMaxOpacity={0.2} glareColor="#ffffff" glarePosition="bottom" glareBorderRadius='8px'>
+    <Tilt glareEnable={true} glareMaxOpacity={0.2} glareColor="#ffffff" glarePosition="bottom" glareBorderRadius='8px' tiltMaxAngleX={5} tiltMaxAngleY={5}>
       <div>
         <a href={Git_Link} target="_blank" rel='noreferrer' className='Git-Card'>
 

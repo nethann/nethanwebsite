@@ -39,7 +39,7 @@ function App() {
                   <Nav.Link id='nav-link' onClick={() => setExpanded(false)} as={Link} to="/">Home</Nav.Link>
                   <NavDropdown  title="Projects" id="basic-nav-dropdown">
                     <NavDropdown.Item id='dropdown-item'   onClick={() => setExpanded(false)} as={Link} to="/projects">Computer Science</NavDropdown.Item>
-                    <NavDropdown.Item id='dropdown-item'   onClick={() => setExpanded(false)} as={Link} to="/3dmodeling">3-D modeling</NavDropdown.Item>
+                    <NavDropdown.Item id='dropdown-item'   onClick={() => setExpanded(false)} as={Link} to="/3dmodeling">3-D Modeling</NavDropdown.Item>
                     <NavDropdown.Item id='dropdown-item'  onClick={() => setExpanded(false)} as={Link} to="/music">Music</NavDropdown.Item>
                   </NavDropdown>
                   <Nav.Link id='nav-link' onClick={() => setExpanded(false)} as={Link} to="/contact">Contact</Nav.Link>

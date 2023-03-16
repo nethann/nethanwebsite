@@ -37,12 +37,21 @@ import Arduino_Motor from "../computer-science/CompletedProjects/videos/Arduino_
 import JelloAnimation from "./Videos/JelloAnimation.mp4"
 import WaterMolecule from "./Videos/WaterMolecule.mp4"
 
+//animation
+import Aos from 'aos';
+import "aos/dist/aos.css"
+
 export default function Modeling() {
+
+    Aos.init({
+        duration: 500,
+        once: true
+    });
     return (
         <div className='Home-container'>
             <section className='Models-section'>
 
-                <div className='Rendered-Models'>
+                <div className='Rendered-Models' data-aos="fade-right">
                     <div className='Models-CardTitle'>
                         <p>Rendered <span className='first-models-container'>Models</span></p>
                     </div>
@@ -72,7 +81,7 @@ export default function Modeling() {
                 </div>
 
 
-                <div className='Rendered-Models'>
+                <div className='Rendered-Models' data-aos="fade-right">
                     <div className='Models-CardTitle'>
                         <p>Rendered <span className='second-models-container'>Videos</span></p>
                     </div>

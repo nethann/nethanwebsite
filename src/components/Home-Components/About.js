@@ -159,6 +159,15 @@ export default function About() {
 
             <section className='Welcome-Container'>
 
+
+                <div className='Weather-Status'>
+                    <img className='weather-Icon' src={weatherIcon} />
+                    {/* <p className='weather-description'>Software Developer, 3-D modeler & Musician</p> */}
+                    {/* <p className='weather-description'>It's currently <span className='weather-span'>{weatherInfo}</span> with <span className='weather-span-2'>{weatherDescription} here.</span></p> */}
+                    {/* <p className='weather-Fahrenheit'>{Fahrenheit}°F</p> */}
+                </div>
+
+
                 <p className='abt-txt'>
 
                     <TypeWriterEffect
@@ -170,19 +179,12 @@ export default function About() {
                         }}
                         cursorColor="#3F3D56"
                         multiText={[
-                            "Nethan Nagendran.",
+                            "Nethan Nagendran",
                         ]}
                         typeSpeed={90}
                     />
 
                 </p>
-
-                <div className='Weather-Status'>
-                    <img className='weather-Icon' src={weatherIcon} />
-                    <p className='weather-description'>Software Developer, 3-D modeler & Musician</p>
-                    {/* <p className='weather-description'>It's currently <span className='weather-span'>{weatherInfo}</span> with <span className='weather-span-2'>{weatherDescription} here.</span></p> */}
-                    {/* <p className='weather-Fahrenheit'>{Fahrenheit}°F</p> */}
-                </div>
 
 
             </section>
