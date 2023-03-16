@@ -15,6 +15,7 @@ import { Link } from 'react-router-dom';
 import Home from "./components/Home";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
+import Modeling from './components/Projects-Components/3d-modeling/Modeling';
 
 import { useState } from 'react';
 
@@ -52,6 +53,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/3dmodeling" element={<Modeling />} /> 
 
           </Routes>
         </div>

@@ -25,11 +25,7 @@
     background-color: var(--clr-evolution-card-hover);
 }
 
-.Git-Card:hover{
-    transform: translateY(-5px);
-    transition: all 0.2s ease-in-out;
 
-}
 
 
 .Git-Card-FirstSection{
@@ -109,6 +105,8 @@
     font-size: 10px;
     text-align: center;
 }
+
+
 
 .Special-JS{
     background-color:var(--clr-yellow);

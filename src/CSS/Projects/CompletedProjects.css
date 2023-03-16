@@ -1,0 +1,104 @@
+.CompSciProjects_Grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+    gap: 0.5em
+}
+
+
+.CompSciProjectCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 0.5em;
+
+    border-radius: 10px;
+
+    width: 95%;
+
+    padding: 20px;
+    background-color: var(--clr-card-clr);
+
+    transition: all 0.1s ease-in;
+}
+
+.CompSciProjectCard:hover{
+    transform: translateY(-3px);
+    background-color: var(--clr-evolution-card-hover);
+}
+
+.CompSciProjectCard p {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.CompletedProject_Vid {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.CompSciProjectCard_Img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.CompSciProject_Description_Holder {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.CompSciCompletedProject_Title {
+    font-size: 18px;
+    color: var(--clr-1);
+    overflow-wrap: break-word;
+}
+
+.CompSciCompletedProject_Description {
+    overflow-wrap: break-word;
+}
+
+.CompSciProject_Date {
+    margin-left: auto;
+    background-color: var(--clr-green);
+    color: var(--clr-green-font);
+    width: 30%;
+    text-align: center;
+
+    border-radius: 15px;
+    padding: 3px;
+}
+
+.CompSciProject_Date p {
+    font-size: 13px;
+
+}
+
+@media screen and (min-width: 1800px) {
+    .CompSciProjects_Grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+}
+
+@media screen and (max-width: 1300px) {
+    .CompSciProjects_Grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+
+@media screen and (max-width: 800px) {
+    .CompSciProjects_Grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 400px) {
+
+    .CompSciProjectCard {
+        width: 100%;
+    }
+}

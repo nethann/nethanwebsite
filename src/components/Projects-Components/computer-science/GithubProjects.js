@@ -4,9 +4,9 @@ import { React, useEffect } from 'react'
 import PythongitCard from "../computer-science/GitCards/PythongitCard"
 import JavaScriptgitCard from '../computer-science/GitCards/JavaScriptgitCard';
 
+
 import Aos from 'aos';
 import "aos/dist/aos.css"
-
 
 import "../../../CSS/Projects/GithubRep.css"
 

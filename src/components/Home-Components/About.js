@@ -17,6 +17,9 @@ import TypeWriterEffect from 'react-typewriter-effect';
 //IMAGE import 
 import Nethan from "../../images/Home/Nethan.png";
 
+import Tilt from 'react-parallax-tilt';
+
+
 //animation
 import Aos from 'aos';
 import "aos/dist/aos.css"
@@ -197,7 +200,7 @@ export default function About() {
                         {/* <h2 className='Nethan-Name'>About me</h2> */}
 
                         <div className='Description-Holder'>
-                            <p className='Section'>My experience 👋</p>
+                            <p className='Section'>About me 👋</p>
 
 
                             <ul className='List'>

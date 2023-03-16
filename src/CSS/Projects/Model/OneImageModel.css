@@ -1,0 +1,117 @@
+.OneImageModelCard{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+
+    background-color: var(--clr-card-clr);
+    padding: 20px;
+    width: 100%;
+
+    border-radius: 8px;
+}
+
+.OneImageModel_Img{
+    width: 100%;
+
+    border-radius: 5px;
+}
+
+.VidModel{
+    width: 100%;
+    border-radius: 5px;
+}
+
+.OneImageModelCard p{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.OneImageModel-Title{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.OneImageModel-Title p{
+    font-size: 18px;
+    color: var(--clr-2);
+    overflow-wrap: break-word;
+}
+
+.OneImageModel-Title-vids p{
+    font-size: 18px;
+    color: var(--clr-4);
+    overflow-wrap: break-word;
+}
+
+.OneImageModel-Title li{
+    overflow-wrap: break-word;
+}
+
+/* .OneImageModel-Year{
+    margin-left: auto;
+    background-color: var(--clr-yellow);
+    color: var(--clr-yellow-font);
+    width: 50%;
+    text-align: center;
+
+    border-radius: 15px;
+    padding: 3px;
+} */
+
+.OneImageModel-Year{
+    margin-left: auto;
+    width: 50%;
+}
+
+.Data-type-holder{
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    background-color: transparent;
+}
+
+.render-model{
+    background-color: var(--clr-green);
+    color: var(--clr-green-font);
+    width: 70%;
+    text-align: center;
+
+    overflow-wrap: break-word;
+
+
+    border-radius: 15px;
+    padding: 3px;
+}
+
+.year-model{
+    background-color: var(--clr-yellow);
+    color: var(--clr-yellow-font);
+    width: 50%;
+    text-align: center;
+
+    border-radius: 15px;
+    padding: 3px;
+}
+
+
+
+.OneImageModel-Year-vids{
+    margin-left: auto;
+    background-color: var(--clr-pink);
+    color: var(--clr-pink-font);
+    width: 50%;
+    text-align: center;
+
+    border-radius: 15px;
+    padding: 3px;
+}
+
+.OneImageModel-Year p{
+    font-size: 13px;
+}
+
+.OneImageModel-Year-vids p{
+    font-size: 13px;
+}
+

@@ -9,6 +9,7 @@ import Tooltip from 'react-bootstrap/Tooltip';
 import { FaDiscord, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { AiFillGithub } from "react-icons/ai"
 
+import Tilt from 'react-parallax-tilt';
 
 import "../CSS/Contact/Contact.css"
 import "../CSS/Global/Global.css"
@@ -25,9 +26,9 @@ export default function Contact() {
 
   const renderTooltip = (props) => (
     <Tooltip id="button-tooltip" {...props}>
-        Discord Status
+      Discord Status
     </Tooltip>
-);
+  );
 
   const discordUrl = 'https://api.lanyard.rest/v1/users/743601359697477713';
 

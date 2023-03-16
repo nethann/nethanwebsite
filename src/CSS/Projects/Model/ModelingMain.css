@@ -1,0 +1,80 @@
+.Models-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2em;
+
+    width: 90%;
+    min-height: 100vh;
+    background-color: transparent;
+    margin-top: 20px;
+    padding: 15px;
+}
+
+.Rendered-Models{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    background-color: transparent;
+
+    width: 100%;
+}
+
+.first-models-container{
+    color: var(--clr-2)
+}
+
+.second-models-container{
+    color: var(--clr-4)
+}
+
+.Models-CardTitle p {
+    font-size: 25px;
+    
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
+
+.Models-grid {
+    display: grid;
+    place-items: center;
+    width: 100%;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1em;
+
+    background-color: transparent;
+
+}
+
+@media screen and (min-width: 1800px) {
+    .Models-grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+}
+
+@media screen and (max-width: 1600px) {
+    .Models-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+}
+
+
+
+
+@media screen and (max-width: 1200px) {
+    .Models-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    .Models-grid {
+        grid-template-columns: 1fr;
+    }
+}
