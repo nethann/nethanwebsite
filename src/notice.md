@@ -16,3 +16,6 @@ This file was created to keep in track of the website for Icons
 
 
 > Typewriter Effect Website: https://www.npmjs.com/package/typewriter-effect
+
+
+>https://nethan.dev?1

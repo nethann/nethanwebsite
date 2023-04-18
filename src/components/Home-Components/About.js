@@ -175,7 +175,7 @@ export default function About() {
                             fontFamily: 'Arial',
                             color: 'white',
                             fontWeight: 500,
-                            fontSize: '1.2em',
+                            fontSize: '1em',
                         }}
                         cursorColor="#3F3D56"
                         multiText={[
