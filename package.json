@@ -20,7 +20,7 @@
     "react-jss": "^10.9.2",
     "react-parallax-tilt": "^1.7.115",
     "react-router-dom": "^6.4.5",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "react-typewriter-effect": "^1.1.0",
     "three": "^0.150.1",
     "typewriter-effect": "^2.19.0",
@@ -49,5 +49,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }

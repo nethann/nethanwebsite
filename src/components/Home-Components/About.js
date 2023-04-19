@@ -16,6 +16,7 @@ import TypeWriterEffect from 'react-typewriter-effect';
 
 //IMAGE import 
 import Nethan from "../../images/Home/Nethan.png";
+import NethanPC from "../../images/Home/Pc.jpg"
 
 import Tilt from 'react-parallax-tilt';
 
@@ -194,7 +195,7 @@ export default function About() {
             <section className='About-Container' data-aos="fade-right">
 
                 <div className='About-Image'>
-                    <img alt='Nethan' className='Nethan-Pic' src={Nethan} />
+                    <img alt='Nethan' className='Nethan-Pic' src={NethanPC} />
                 </div>
 
                 <div className='About-Description-Holder'>
