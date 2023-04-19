@@ -197,11 +197,12 @@
     justify-content: center;
 
     background-color: transparent;
+
 }
 
 .Nethan-Pic {
     width: 500px;
-    border-radius: 5px;
+    border-radius: 8px;
 }
 
 
@@ -284,7 +285,6 @@
     font-size: 30px;
 }
 
-
 @media screen and (min-width: 1700px) {
 
     .Nethan-Pic {
@@ -298,12 +298,6 @@
 
 
 /* Pulse animation */
-
-
-
-
-
-
 
 @media screen and (min-width: 1500px) {
 
