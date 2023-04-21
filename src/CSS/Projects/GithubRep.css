@@ -22,13 +22,19 @@
 
 .Github-Grid{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr ;
     gap: 1em;
+
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+
+
 
     height: 100%;
     width: 100%;
 
 }
+
+
 
 @media screen and (min-width: 1600px) {
     .Github-Grid{
@@ -40,6 +46,7 @@
 @media screen and (min-width: 2000px) {
     .Github-Grid{
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+
     }
 }
 
@@ -47,6 +54,7 @@
 @media screen and (max-width: 1300px) {
     .Github-Grid{
         grid-template-columns: 1fr 1fr;
+
     }
 }
 
@@ -55,5 +63,6 @@
 @media screen and (max-width: 700px) {
     .Github-Grid{
         grid-template-columns: 1fr;
+
     }
 }
