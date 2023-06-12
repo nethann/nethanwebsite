@@ -208,7 +208,7 @@ export default function About() {
 
                             <ul className='List'>
                                 <li className='Txt-Description'>I am a {age_now} year old Software Developer living in America.</li>
-                                <li className='Txt-Description'>I have over <span className='main-color'>3 years of experience</span> in software development, and I am currently working with <span className='lang-1'>ReactJS</span>, <span className='lang-2'>Python</span>, and <span className='lang-3'>R</span>.</li>
+                                <li className='Txt-Description'>I have over <span className='main-color'>3 years of experience</span> in software development and have gained valuable experience working on diverse projects, from front-end projects to  backend projects. This has allowed me to develop a versatile skill set and a keen eye for problem-solving. </li>
                                 <p className={`Txt-Description`}>Right now, I'm <span className={discordStatusClass}>{discordStatus}</span></p>
                             </ul>
 
@@ -236,7 +236,7 @@ export default function About() {
 
 
                             <ul className='List'>
-                                <li className='Txt-Description'>Hello there! I'm a full-stack developer with a passion for building <span className='main-color'>software</span> and web applications. With a background in JavaScript, Python, and R. I'm currently learning ReactJS and c++.</li>
+                                <li className='Txt-Description'>Hello there! I'm a full-stack developer with a passion for building <span className='main-color'>software</span> and web applications. With a background in JavaScript, Python, Lua, ReactJS, and R.</li>
                                 <li className='Txt-Description'>I like to build <span className='main-color'>full-stack applications</span> with scalable and responsive technologies. I'm also a fan of the <span className='main-color'>open-source community</span> and always looking for new ways to improve my skills.</li>
 
                             </ul>

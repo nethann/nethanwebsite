@@ -38,7 +38,7 @@ export default function Technologies() {
                 <p className='Tech-Title'>Technologies I use & Support</p>
 
                 <div className='About-Tech'>
-                    <p className='About'>I highly leverage new bleeding-edge technologies and languages like Typescript to stay on top of the game. You can find a list of my most-used technologies below. I use these technologies to build my own projects and to support my work.</p>
+                    <p className='About'>I actively embrace and leverage cutting-edge technologies and programming languages, such as Typescript, to remain at the forefront of the industry. Below, you will find a curated list of the technologies I frequently utilize in my work. These technologies not only empower me to develop my own projects but also enable me to provide robust support in my professional endeavors</p>
                 </div>
 
 

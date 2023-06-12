@@ -7,6 +7,7 @@ import Tilt from 'react-parallax-tilt';
 
 export default function JavaScriptgitCard({ gitName, description, Git_Link }) {
   return (
+    
 
       <div>
         <a href={Git_Link} target="_blank" rel='noreferrer' className='Git-Card'>
