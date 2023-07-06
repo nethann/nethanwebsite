@@ -1,16 +1,20 @@
 import { React, Suspense } from 'react'
 import { useState, useEffect } from 'react';
 
+// component files 
+import StickerWithPosition from './StickerWithPosition';
+
 //THREE JS FIBER
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, Stage } from '@react-three/drei';
 
 //importing 3-D model 
 import DesktopSetup from "./Desktop"
+import Pickleball from "./Pickleball1"
 
 import axios from 'axios';
 //CSS profile import
-import "../../CSS/Home/Pages/About.css"
+import "../../CSS/Home/About.css"
 
 import TypeWriterEffect from 'react-typewriter-effect';
 
@@ -19,6 +23,13 @@ import Nethan from "../../images/Home/Nethan.png";
 import NethanPC from "../../images/Home/Pc.jpg"
 
 import Tilt from 'react-parallax-tilt';
+
+// Stickers
+import SunGlassSticker from "../Home-Components/Stickers/SunGlassSticker.gif"
+import WonderSticker from "./Stickers/WonderSticker.gif"
+import MonkeySticker from "./Stickers/MonkeySticker.png"
+import FishSticker from "./Stickers/FishSticker.png"
+import PeaceSticker from "./Stickers/PeaceSticker.png"
 
 
 //animation
@@ -147,11 +158,6 @@ export default function About() {
 
     }, [])
 
-
-
-
-
-
     const weatherIcon = `http://openweathermap.org/img/wn/${weatherLogo}@2x.png`;
 
 
@@ -203,13 +209,14 @@ export default function About() {
                 <div className='About-Description-Holder'>
                     <div className='About-Txt'>
                         {/* <h2 className='Nethan-Name'>About me</h2> */}
-
                         <div className='Description-Holder'>
-                            <p className='Section'>About me 👋</p>
+                            <img className='StickerPosition' src={SunGlassSticker} />
+                            <p className='Section'>About me </p>
 
 
                             <ul className='List'>
-                                <li className='Txt-Description'>I am a {age_now} year old Software Developer living in America.</li>
+                                <li className='Txt-Description'>I am a Software Developer living in America.</li>
+                                {/* <li className='Txt-Description'>I am a {age_now} year old Software Developer living in America.</li> */}
                                 <li className='Txt-Description'>I have over <span className='main-color'>3 years of experience</span> in software development and have gained valuable experience working on diverse projects, from front-end projects to  backend projects. This has allowed me to develop a versatile skill set and a keen eye for problem-solving. </li>
                                 <p className={`Txt-Description`}>Right now, I'm <span className={discordStatusClass}>{discordStatus}</span></p>
                             </ul>
@@ -229,11 +236,24 @@ export default function About() {
 
             <section className='About-Container-2' data-aos="fade-right">
 
+                {/* <img className='Sticker' src={MonkeySticker} style={imageStyle} />  */}
+
+
                 <div className='About-Description-Holder-2'>
+                    <StickerWithPosition
+                        position="absolute"
+                        top="0px"
+                        right="0px"
+                        src={MonkeySticker}
+                        rotation={20}
+                        alt="something"
+
+                    />
                     <div className='About-Txt-2'>
                         <h2 className="Developer-Title main-color">Being a Developer...</h2>
 
                         <div className='Description-Holder-2'>
+
                             <p className='Section-2'>Who am I <span className='main-color'>&</span> How did I get here?</p>
 
 
@@ -253,16 +273,73 @@ export default function About() {
                 <div className='About-Image-2'>
                     <Canvas camera={{ fov: 40, position: [10, 3, 10] }}>
 
-                    <pointLight position={[0, 20, 10]} intensity={1.5} />
+                        <pointLight position={[0, 20, 10]} intensity={1.5} />
 
 
                         <Suspense fallback={null}>
-                                <DesktopSetup />
-                                <OrbitControls autoRotate enableZoom={false} />
+                            <DesktopSetup />
+                            <OrbitControls autoRotate enableZoom={false} />
 
                         </Suspense>
 
                     </Canvas>
+                </div>
+
+            </section>
+
+
+            <section className='About-Container-2' data-aos="fade-right">
+
+
+
+                <div className='About-Image-2'>
+                    <StickerWithPosition
+                        position="absolute"
+                        top="0px"
+                        left="0px"
+                        src={PeaceSticker}
+                        rotation={-30}
+                        alt="something"
+
+                    />
+                    <Canvas camera={{ fov: 20, position: [10, 3, 10] }} shadows>
+
+                        <pointLight position={[0, 20, 10]} intensity={2} />
+                        {/* <pointLight position={[-70, -90, -80]} intensity={1.5} /> */}
+                        <pointLight position={[-0, -20, -10]} intensity={2} />
+
+
+                        <Suspense fallback={null}>
+                            <Pickleball />
+                            <OrbitControls autoRotate enableZoom={false} />
+                        </Suspense>
+
+                    </Canvas>
+                </div>
+
+
+
+
+
+                <div className='About-Description-Holder-2'>
+                    <div className='About-Txt-2'>
+                        <h2 className="Developer-Title main-color">Being a Pickleball Player...</h2>
+
+                        <div className='Description-Holder-2'>
+                            {/* <p className='Section-2'>Who am I <span className='main-color'>&</span> How did I get here?</p> */}
+
+
+                            <ul className='List'>
+                                <li className='Txt-Description'>I am a passionate <span className='main-color'>pickleball player</span> who loves the sport and is determined to improve my performance on the court. I have learned and practiced various pickleball techniques, strategies, and rules, refining my skills and cultivating a strong affection for the game.</li>
+                                <li className='Txt-Description'>My journey as a pickleball player began with a curiosity and a desire to try something new. I started by playing casually with friends and soon realized the <span className='main-color'>incredible fun and excitement</span> the sport has to offer. I became hooked and decided to dedicate myself to mastering the game.</li>
+                                <li className='Txt-Description'>I strive to cultivate a vibrant pickleball community in my city, bringing players together and promoting the sport for everyone to enjoy.</li>
+
+                            </ul>
+                        </div>
+
+
+                    </div>
+
                 </div>
 
             </section>
