@@ -283,19 +283,8 @@
 
 }
 
-.StickerPosition{
-    height: 40px;
-    position: absolute;
-    top: 0;
-    right: 0;
-    background-color: transparent;
-}
 
-  
 
-.sticker-container img {
-    height: 170px;
-}
 
 
 .Section-2 {
@@ -382,12 +371,6 @@
     
 }
 
-@media screen and (max-width: 850px){
-    .sticker-container img {
-        height: 15%;
-        /* background-color: pink; */
-    }
-}
 
 
 
@@ -442,16 +425,6 @@
     .Txt-Description{
         text-align: center;
     }
-
-    .StickerPosition{
-        height: 10%;
-    }
-
-    .sticker-container img {
-        height: 8%;
-    }
-
-
 
 
     .Description-Holder {

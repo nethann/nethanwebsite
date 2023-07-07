@@ -1,5 +1,5 @@
 import React from 'react';
-import "../../CSS/Home/About.css"
+import "../CSS/Global/Stickers.css"
 
 const StickerWithPosition = ({ position, top, bottom, left, right, rotation, src, alt, className }) => {
   const stickerClassName = `sticker-container ${className || ""}`;

@@ -11,16 +11,23 @@ import { AiFillGithub } from "react-icons/ai"
 
 import Tilt from 'react-parallax-tilt';
 
+// importing CSS
 import "../CSS/Contact/Contact.css"
 import "../CSS/Global/Global.css"
+import "../CSS/Global/Stickers.css"
+
 
 import Aos from 'aos';
 import "aos/dist/aos.css"
-
 import axios from 'axios';
 
 import Astra from "./Images/AstraPfp.png"
 
+// importing components
+import StickerWithPosition from './StickerWithPosition';
+
+// importing stickers
+import FishSticker from "./Stickers/FishSticker.png"
 
 export default function Contact() {
 
@@ -91,7 +98,20 @@ export default function Contact() {
 
       <section className='Contact-Section'>
 
+        <StickerWithPosition
+          position="absolute"
+          top="0px"
+          right="0px"
+          src={FishSticker}
+          rotation={30}
+          alt="something"
+
+        />
+
+
+
         {<form className='Contact-Form' ref={form} onSubmit={sendEmail} data-aos="fade-right">
+
 
           <div className='ContactSection-1'>
             <p className='Contact-Title'>Get in touch</p>
@@ -122,7 +142,7 @@ export default function Contact() {
           </div>
 
           <div className='discord-tag'>
-            <p className='discord-tag-user'>Astra<span >#1805</span></p>
+            <p className='discord-tag-user'>Astra<span>180</span></p>
           </div>
         </div>
 

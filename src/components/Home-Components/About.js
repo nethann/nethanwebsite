@@ -2,7 +2,7 @@ import { React, Suspense } from 'react'
 import { useState, useEffect } from 'react';
 
 // component files 
-import StickerWithPosition from './StickerWithPosition';
+import StickerWithPosition from '../StickerWithPosition';
 
 //THREE JS FIBER
 import { Canvas } from '@react-three/fiber';
@@ -13,8 +13,10 @@ import DesktopSetup from "./Desktop"
 import Pickleball from "./Pickleball1"
 
 import axios from 'axios';
+
 //CSS profile import
 import "../../CSS/Home/About.css"
+import "../../CSS/Global/Stickers.css"
 
 import TypeWriterEffect from 'react-typewriter-effect';
 
@@ -25,11 +27,11 @@ import NethanPC from "../../images/Home/Pc.jpg"
 import Tilt from 'react-parallax-tilt';
 
 // Stickers
-import SunGlassSticker from "../Home-Components/Stickers/SunGlassSticker.gif"
-import WonderSticker from "./Stickers/WonderSticker.gif"
-import MonkeySticker from "./Stickers/MonkeySticker.png"
-import FishSticker from "./Stickers/FishSticker.png"
-import PeaceSticker from "./Stickers/PeaceSticker.png"
+import SunGlassSticker from "../Stickers/SunGlassSticker.gif"
+import WonderSticker from "../Stickers/WonderSticker.gif"
+import MonkeySticker from "../Stickers/MonkeySticker.png"
+import FishSticker from "../Stickers/FishSticker.png"
+import PeaceSticker from "../Stickers/PeaceSticker.png"
 
 
 //animation
@@ -323,16 +325,15 @@ export default function About() {
 
                 <div className='About-Description-Holder-2'>
                     <div className='About-Txt-2'>
-                        <h2 className="Developer-Title main-color">Being a Pickleball Player...</h2>
+                        <h2 className="Developer-Title main-color">Love for Pickleball..</h2>
 
                         <div className='Description-Holder-2'>
                             {/* <p className='Section-2'>Who am I <span className='main-color'>&</span> How did I get here?</p> */}
 
 
                             <ul className='List'>
-                                <li className='Txt-Description'>I am a passionate <span className='main-color'>pickleball player</span> who loves the sport and is determined to improve my performance on the court. I have learned and practiced various pickleball techniques, strategies, and rules, refining my skills and cultivating a strong affection for the game.</li>
-                                <li className='Txt-Description'>My journey as a pickleball player began with a curiosity and a desire to try something new. I started by playing casually with friends and soon realized the <span className='main-color'>incredible fun and excitement</span> the sport has to offer. I became hooked and decided to dedicate myself to mastering the game.</li>
-                                <li className='Txt-Description'>I strive to cultivate a vibrant pickleball community in my city, bringing players together and promoting the sport for everyone to enjoy.</li>
+                                <li className='Txt-Description'>As a passionate <span className='main-color'>pickleball player</span>, I love the sport and am determined to improve my performance on the court. I started playing casually with friends and quickly became hooked, realizing the incredible fun and excitement the game offers. I decided to dedicate myself to mastering pickleball and have learned various techniques, strategies, and rules. </li>
+                                <li className='Txt-Description'>I strive to cultivate a vibrant <span className='main-color'>pickleball community</span> in my city, bringing players together and promoting the sport for everyone to enjoy.</li>
 
                             </ul>
                         </div>

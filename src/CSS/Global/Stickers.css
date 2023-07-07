@@ -1,0 +1,32 @@
+.sticker-container img {
+    height: 170px;
+}
+
+.StickerPosition{
+    height: 40px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+}
+
+
+@media screen and (max-width: 850px){
+    .sticker-container img {
+        height: 15%;
+        /* background-color: pink; */
+    }
+}
+
+
+
+@media screen and (max-width: 600px) {
+    .StickerPosition{
+        height: 10%;
+    }
+
+    .sticker-container img {
+        height: 8%;
+    }
+
+}
