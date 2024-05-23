@@ -212,12 +212,11 @@ export default function About() {
                     <div className='About-Txt'>
                         {/* <h2 className='Nethan-Name'>About me</h2> */}
                         <div className='Description-Holder'>
-                            <img className='StickerPosition' src={SunGlassSticker} />
                             <p className='Section'>About me </p>
 
 
                             <ul className='List'>
-                                <li className='Txt-Description'>I am a Software Developer living in America.</li>
+                                <li className='Txt-Description'>I am a Computer Science Major living in America.</li>
                                 {/* <li className='Txt-Description'>I am a {age_now} year old Software Developer living in America.</li> */}
                                 <li className='Txt-Description'>I have over <span className='main-color'>3 years of experience</span> in software development and have gained valuable experience working on diverse projects, from front-end projects to  backend projects. This has allowed me to develop a versatile skill set and problem-solve. </li>
                                 <p className={`Txt-Description`}>Right now, I'm <span className={discordStatusClass}>{discordStatus}</span></p>

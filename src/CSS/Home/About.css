@@ -220,7 +220,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     place-items: center;
-    margin-bottom: 30px;
 }
 
 .About-Image-2 {
