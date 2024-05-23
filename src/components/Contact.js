@@ -98,17 +98,6 @@ export default function Contact() {
 
       <section className='Contact-Section'>
 
-        <StickerWithPosition
-          position="absolute"
-          top="0px"
-          right="0px"
-          src={FishSticker}
-          rotation={30}
-          alt="something"
-
-        />
-
-
 
         {<form className='Contact-Form' ref={form} onSubmit={sendEmail} data-aos="fade-right">
 

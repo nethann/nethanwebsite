@@ -219,7 +219,7 @@ export default function About() {
                             <ul className='List'>
                                 <li className='Txt-Description'>I am a Software Developer living in America.</li>
                                 {/* <li className='Txt-Description'>I am a {age_now} year old Software Developer living in America.</li> */}
-                                <li className='Txt-Description'>I have over <span className='main-color'>3 years of experience</span> in software development and have gained valuable experience working on diverse projects, from front-end projects to  backend projects. This has allowed me to develop a versatile skill set and a keen eye for problem-solving. </li>
+                                <li className='Txt-Description'>I have over <span className='main-color'>3 years of experience</span> in software development and have gained valuable experience working on diverse projects, from front-end projects to  backend projects. This has allowed me to develop a versatile skill set and problem-solve. </li>
                                 <p className={`Txt-Description`}>Right now, I'm <span className={discordStatusClass}>{discordStatus}</span></p>
                             </ul>
 
@@ -242,21 +242,13 @@ export default function About() {
 
 
                 <div className='About-Description-Holder-2'>
-                    <StickerWithPosition
-                        position="absolute"
-                        top="0px"
-                        right="0px"
-                        src={MonkeySticker}
-                        rotation={20}
-                        alt="something"
 
-                    />
                     <div className='About-Txt-2'>
                         <h2 className="Developer-Title main-color">Being a Developer...</h2>
 
                         <div className='Description-Holder-2'>
 
-                            <p className='Section-2'>Who am I <span className='main-color'>&</span> How did I get here?</p>
+                            <p className='Section-2'>More about <span className='main-color'>ME</span></p>
 
 
                             <ul className='List'>
@@ -295,15 +287,7 @@ export default function About() {
 
 
                 <div className='About-Image-2'>
-                    <StickerWithPosition
-                        position="absolute"
-                        top="0px"
-                        left="0px"
-                        src={PeaceSticker}
-                        rotation={-30}
-                        alt="something"
-
-                    />
+ 
                     <Canvas camera={{ fov: 20, position: [10, 3, 10] }} shadows>
 
                         <pointLight position={[0, 20, 10]} intensity={2} />

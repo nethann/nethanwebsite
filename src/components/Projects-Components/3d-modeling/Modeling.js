@@ -37,6 +37,12 @@ import Arduino_Motor from "../computer-science/CompletedProjects/videos/Arduino_
 import JelloAnimation from "./Videos/JelloAnimation.mp4"
 import WaterMolecule from "./Videos/WaterMolecule.mp4"
 
+import VintageComputer1 from "./Images/VintageComputer/VintageComputer1.png"
+import VintageComputer2 from "./Images/VintageComputer/VintageComputer2.png"
+
+import Bulkville1 from "./Images/Bulkville/Bulkville1.png"
+import Bulkville2 from "./Images/Bulkville/Bulkville2.png"
+
 //animation
 import Aos from 'aos';
 import "aos/dist/aos.css"
@@ -76,6 +82,8 @@ export default function Modeling() {
                         <TwoImageModel Img1={Windmill} Img2={Boat} Title="Beach Models" Description="Modeled a low-poly windmill and a low-poly boat for commission for a roblox project" RenderType="Blender" Year="2022" />
 
                         <TwoImageModel Img1={BeachRender} Img2={BeachRender2} Title="Low-Poly Beach" Description="Added the windmill, boat and palm tree models from blender and made a scene from roblox studio" RenderType="Roblox Studio" Year="2022" />
+                        <TwoImageModel Img1={VintageComputer1} Img2={VintageComputer2} Title="Vintage Computer" Description="Vintager computer build" RenderType="Blender" Year="2023" />
+                        <TwoImageModel Img1={Bulkville1} Img2={Bulkville2} Title="Bulkville (Roblox game)" Description="Built a roblox game using my own created models/meshes https://www.roblox.com/games/8764010653/Bulkville" RenderType="Roblox Studio" Year="2023" />
 
                     </div>
                 </div>
