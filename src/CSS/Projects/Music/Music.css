@@ -1,8 +1,16 @@
 .Music{
-    display: flex;
     min-height: 100vh;
-    align-items: center;
-    justify-content: center;
+    width: 90%;
 
-    font-size: 20px;
+}
+
+.instruments-div{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 1em;
+    /* background-color: pink; */
+
+    height: 100%;
+
+    object-fit: cover;
 }
