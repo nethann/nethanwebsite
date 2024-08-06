@@ -9,6 +9,8 @@ import bongo from "../Music/Music_Pics/Instruments/bongo.png"
 import piano from "../Music/Music_Pics/Instruments/piano.png"
 import mic from "../Music/Music_Pics/Instruments/mic.png"
 
+import BarChart from './Music_components/BarChart'
+
 export default function Music() {
   return (
     <div className='Home-container'>
@@ -23,6 +25,9 @@ export default function Music() {
             <InstrumentCard name="Bongo" image={bongo} /> 
             <InstrumentCard name="Singing" image={mic} /> 
           </div>
+
+          <BarChart />
+
         </div>
 
 
