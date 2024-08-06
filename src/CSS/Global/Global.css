@@ -59,3 +59,9 @@ body, html{
 ::selection {
     background: var(--clr-1);
 }
+
+
+.margin-fix{
+    margin-top: auto;
+    margin-bottom: auto;
+}

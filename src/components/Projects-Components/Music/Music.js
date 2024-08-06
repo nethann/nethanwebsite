@@ -11,24 +11,66 @@ import mic from "../Music/Music_Pics/Instruments/mic.png"
 
 import BarChart from './Music_components/BarChart'
 
+
+import MusicVids from './Music_components/MusicVids'
+
+import Typewriter from 'typewriter-effect';
+
+
+//importing music videos
+import Birds_of_feather from "./Music_Vids/Birds_of_a_feather.mp4"
+import JamTrack1_bossa_nova from "./Music_Vids/JamTrack1_BossaNova.mp4"
+
 export default function Music() {
   return (
     <div className='Home-container'>
       <div className='Music'>
-        <h1 className='Music-title'>My other half</h1>
+        <h2 className='Music-title'>
+          <Typewriter
+            onInit={(typewriter) => {
+              typewriter
+                .typeString('Where you will find me if I am not programming...')
+                .pauseFor(2500) // Optional pause after typing
+                .start();
+            }}
+            options={{
+              delay: 35, //lower the number, the higher
+            }}
+          />
+        </h2>
+
+
+
+
+
+
+
 
         <div className='my-instruments-section'>
-          <h3>Instruments I play</h3>
+          <h3 >Instruments I play</h3>
           <div className='instruments-div'>
-            <InstrumentCard name="Accoustic & Electric" image={guitar} /> 
-            <InstrumentCard name="Piano" image={piano} /> 
-            <InstrumentCard name="Bongo" image={bongo} /> 
-            <InstrumentCard name="Singing" image={mic} /> 
+            <InstrumentCard name="Accoustic & Electric" image={guitar} />
+            <InstrumentCard name="Piano" image={piano} />
+            <InstrumentCard name="Bongo" image={bongo} />
+            <InstrumentCard name="Singing" image={mic} />
           </div>
 
-          <BarChart />
-
         </div>
+
+        <div className='music-experience-chart'>
+          <BarChart />
+        </div>
+
+        <div className='recorded-instruments'>
+          <h3>My Recorded Covers</h3>
+          <div className='created-music-cards-holder'>
+            <MusicVids Title='Birds of a feather' Instrument='Electric Guitar' Video={Birds_of_feather} />
+            <MusicVids Title='Bossa Nova Jam' Instrument='Accoustic Guitar ' Video={JamTrack1_bossa_nova} />
+            <MusicVids Title='Bossa Nova Jam' Instrument='Accoustic Guitar ' Video={JamTrack1_bossa_nova} />
+
+          </div>
+        </div>
+
 
 
       </div>

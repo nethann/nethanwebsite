@@ -9,7 +9,7 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 const BarChart = () => {
   // Sample data for the horizontal bar chart
   const data = {
-    labels: ['Developer', 'Designer', 'Manager', 'Analyst'], // Example labels
+    labels: ['Guitar', 'Piano', 'Bongo', 'Singing'], // Example labels
     datasets: [
       {
         data: [8, 1.5, 10, 10.5], // Values for each label

@@ -1,16 +1,93 @@
 .Music{
-    min-height: 100vh;
-    width: 90%;
+    min-height: 150vh;
+    width: 95%;
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* background-color: pink; */
+
+    gap: 2em;
+
+    /* margin-top: 20px; */
+
+}
+
+.my-instruments-section{
+    /* background-color: blue; */
+    width: 80%;
 }
 
 .instruments-div{
     display: grid;
     grid-template-columns: repeat(4,1fr);
     gap: 1em;
-    /* background-color: pink; */
+    /* background-color: blue; */
+
+
 
     height: 100%;
 
     object-fit: cover;
+
+
 }
+
+.music-experience-chart{
+    background-color: var(--clr-card-clr);
+    width: 80%;
+    padding: 20px 40px;
+
+    border-radius: 10px;
+
+}
+
+.recorded-instruments{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    /* background-color: pink; */
+
+    width: 95%;
+}
+
+.created-music-cards-holder{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* background-color: pink; */
+    /* place-items: center; */
+    gap: 2em;
+
+    width: 100%;
+}
+
+.music-card{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--clr-card-clr);
+
+    border-radius: 10px;
+
+}
+
+.music-vid-model{
+    width: 100%;
+    /* height: 600px; */
+
+    border-radius: 10px 10px 0 0;
+
+}
+
+.about-music-card-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20px;
+
+    text-align: center;
+
+    /* background: pink; */
+}
+
