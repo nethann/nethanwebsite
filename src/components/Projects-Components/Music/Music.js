@@ -17,6 +17,10 @@ import MusicVids from './Music_components/MusicVids'
 import Typewriter from 'typewriter-effect';
 
 
+//animation
+import Aos from 'aos';
+import "aos/dist/aos.css"
+
 //importing music videos
 import Birds_of_feather from "./Music_Vids/Birds_of_a_feather.mp4"
 import JamTrack1_bossa_nova from "./Music_Vids/JamTrack1_BossaNova.mp4"
@@ -41,12 +45,6 @@ export default function Music() {
         </h2>
 
 
-
-
-
-
-
-
         <div className='my-instruments-section'>
           <h3 >Instruments I play</h3>
           <div className='instruments-div'>
@@ -58,11 +56,11 @@ export default function Music() {
 
         </div>
 
-        <div className='music-experience-chart'>
+        <div className='music-experience-chart' >
           <BarChart />
         </div>
 
-        <div className='recorded-instruments'>
+        <div className='recorded-instruments' >
           <h3>My Recorded Covers</h3>
           <div className='created-music-cards-holder'>
             <MusicVids Title='Birds of a feather' Instrument='Electric Guitar' Video={Birds_of_feather} />
