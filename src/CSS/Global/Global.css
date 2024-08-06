@@ -9,12 +9,13 @@
 
     /* span colors */
     --clr-1: #2eca9be0;
-    --clr-2: #d0bfff;
+
     --clr-2: #ebb866;
     --clr-3: #ff752d;
     --clr-4: #F16085;
     ---clr-5: #00b8cb;
     --clr-6: #969c95;
+    --clr-52: #c3afff;
     /* span colors END */
 
 
@@ -65,3 +66,4 @@ body, html{
     margin-top: auto;
     margin-bottom: auto;
 }
+

@@ -18,14 +18,7 @@ const BarChart = () => {
           'rgba(255, 159, 64, 0.2)',
           'rgba(255, 205, 86, 0.2)',
           'rgba(75, 192, 192, 0.2)',
-        ],
-        borderColor: [
-          'rgb(255, 99, 132)',
-          'rgb(255, 159, 64)',
-          'rgb(255, 205, 86)',
-          'rgb(75, 192, 192)',
-        ],
-        borderWidth: 1,
+        ]
       },
     ],
   };
@@ -33,7 +26,7 @@ const BarChart = () => {
   // Chart options
   const options = {
     responsive: true,
-    indexAxis: 'y', // This makes the chart horizontal
+    indexAxis: 'x', // This makes the chart horizontal
     plugins: {
       legend: {
         display: false, // This hides the legend
@@ -55,8 +48,8 @@ const BarChart = () => {
   };
 
   return (
-    <div>
-      <h2>Years of Experience</h2>
+    <div className='height-of-music-bar-graph'>
+      <h3>Years of Experience</h3>
       <Bar data={data} options={options} />
     </div>
   );

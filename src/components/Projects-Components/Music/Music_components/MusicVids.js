@@ -9,7 +9,7 @@ export default function MusicVids({ Title, Video,Instrument }) {
 
             <div className='about-music-card-info'>
                 <p className='margin-fix'>{Title}</p>
-                <p className='margin-fix'>{Instrument}</p>
+                <p className='margin-fix Instrument-played'>{Instrument}</p>
             </div>
         </div>
     )

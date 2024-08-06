@@ -36,6 +36,7 @@ export default function Music() {
             options={{
               delay: 35, //lower the number, the higher
             }}
+
           />
         </h2>
 
@@ -65,7 +66,6 @@ export default function Music() {
           <h3>My Recorded Covers</h3>
           <div className='created-music-cards-holder'>
             <MusicVids Title='Birds of a feather' Instrument='Electric Guitar' Video={Birds_of_feather} />
-            <MusicVids Title='Bossa Nova Jam' Instrument='Accoustic Guitar ' Video={JamTrack1_bossa_nova} />
             <MusicVids Title='Bossa Nova Jam' Instrument='Accoustic Guitar ' Video={JamTrack1_bossa_nova} />
 
           </div>

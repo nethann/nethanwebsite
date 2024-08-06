@@ -1,5 +1,5 @@
 .Music{
-    min-height: 150vh;
+    min-height: 100vh;
     width: 95%;
 
     display: flex;
@@ -8,10 +8,15 @@
     justify-content: center;
     /* background-color: pink; */
 
-    gap: 2em;
+    gap: 4em;
 
-    /* margin-top: 20px; */
+    margin-top: 60px;
+    margin-bottom: 40px;
 
+}
+
+.Music-title{
+    color: var(--clr-1);
 }
 
 .my-instruments-section{
@@ -35,13 +40,27 @@
 }
 
 .music-experience-chart{
-    background-color: var(--clr-card-clr);
-    width: 80%;
-    padding: 20px 40px;
+    /* background-color: var(--clr-card-clr); */
+    width: 50%;
+
+    /* padding: 20px 30px; */
 
     border-radius: 10px;
 
+    /* background-color: pink; */
+
 }
+
+.height-of-music-bar-graph{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.height-of-music-bar-graph h3{
+    color: var(--clr-1);
+}
+
 
 .recorded-instruments{
     display: flex;
@@ -91,3 +110,9 @@
     /* background: pink; */
 }
 
+
+.Instrument-played{
+    background-color: rgba(0, 0, 0, 0.226);
+    border-radius: 8px;
+    padding: 10px;
+}
