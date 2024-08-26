@@ -62,7 +62,7 @@ export default function Modeling() {
                         <p>Rendered <span className='first-models-container'>Models</span></p>
                     </div>
 
-                    <div className='Models-grid'>
+                    <div className='models-pic-grid'>
                         <OneImageModel Img={FunkoPop1} Title="Funko Pop" Description="My first model of Funko Pops" RenderType="Blender" Year="2020" />
                         <OneImageModel Img={FirstRoom} Title="Room 1001" Description="One of my first renders where I learned how to use materials on surfaces & use lighting for scene renders" RenderType="Blender" Year="2020" />
                         <OneImageModel Img={Motor} Title="Servo Motor" Description="Modeled the motor for my distance sensing robot which spins the tires" RenderType="Blender" Year="2020" />

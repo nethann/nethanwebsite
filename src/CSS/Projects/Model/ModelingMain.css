@@ -12,6 +12,14 @@
     padding: 15px;
 }
 
+
+.models-pic-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+    /* background-color: blue; */
+}
+
 .Rendered-Models{
     display: flex;
     flex-direction: column;
@@ -81,11 +89,18 @@
     .Models-grid {
         grid-template-columns: 1fr;
     }
+
+    .models-pic-grid{
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+    }
 }
 
 @media screen and (max-width: 500px){
     .Models-section{
         width: 100%;
+        /* background-color: blue; */
     }
 }
 
