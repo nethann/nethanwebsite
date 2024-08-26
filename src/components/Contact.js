@@ -141,7 +141,7 @@ export default function Contact() {
             <FaDiscord className='Contact-Icon' />
           </a>
 
-          <a href='https://www.instagram.com/nnagendran_/' target='_blank' rel='noreferrer' className='contact-icon-tag instagram-icon'>
+          <a href='https://www.instagram.com/nethan_journey/' target='_blank' rel='noreferrer' className='contact-icon-tag instagram-icon'>
             <FaInstagram className='Contact-Icon' />
           </a>
 
