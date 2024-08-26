@@ -13,6 +13,8 @@
     /* span colors END */
 }
 
+
+
 .Welcome-Container {
     display: flex;
     align-items: center;
@@ -110,7 +112,12 @@
 
 }
 
-
+.my-brief-info{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    gap:0.5em;
+}
 
 
 .Description-Holder {

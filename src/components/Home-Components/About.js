@@ -197,6 +197,11 @@ export default function About() {
 
                 </p>
 
+                <div className='my-brief-info'>
+                    <p className='margin-fix'>Computer science major ~ Class of '27</p>
+                    <p className='margin-fix'>📌 Atlanta Georgia</p>
+                </div>
+
 
             </section>
 
@@ -212,11 +217,10 @@ export default function About() {
                     <div className='About-Txt'>
                         {/* <h2 className='Nethan-Name'>About me</h2> */}
                         <div className='Description-Holder'>
-                            <p className='Section'>About me </p>
+                            <p className='Section main-color'>About me </p>
 
 
                             <ul className='List'>
-                                <li className='Txt-Description'>I am a Computer Science Major living in America.</li>
                                 {/* <li className='Txt-Description'>I am a {age_now} year old Software Developer living in America.</li> */}
                                 <li className='Txt-Description'>I have over <span className='main-color'>3 years of experience</span> in software development and have gained valuable experience working on diverse projects, from front-end projects to  backend projects. This has allowed me to develop a versatile skill set and problem-solve. </li>
                                 <p className={`Txt-Description`}>Right now, I'm <span className={discordStatusClass}>{discordStatus}</span></p>
@@ -251,7 +255,7 @@ export default function About() {
 
 
                             <ul className='List'>
-                                <li className='Txt-Description'>Hello there! I'm a full-stack developer with a passion for building <span className='main-color'>software</span> and web applications. With a background in JavaScript, Python, Lua, ReactJS, and R.</li>
+                                <li className='Txt-Description'>I'm a full-stack developer with a passion for building <span className='main-color'>software</span> and web applications with a background in JavaScript, Python, Lua, ReactJS, and R.</li>
                                 <li className='Txt-Description'>I like to build <span className='main-color'>full-stack applications</span> with scalable and responsive technologies. I'm also a fan of the <span className='main-color'>open-source community</span> and always looking for new ways to improve my skills.</li>
 
                             </ul>
@@ -286,7 +290,7 @@ export default function About() {
 
 
                 <div className='About-Image-2'>
- 
+
                     <Canvas camera={{ fov: 20, position: [10, 3, 10] }} shadows>
 
                         <pointLight position={[0, 20, 10]} intensity={2} />
@@ -308,15 +312,16 @@ export default function About() {
 
                 <div className='About-Description-Holder-2'>
                     <div className='About-Txt-2'>
-                        <h2 className="Developer-Title main-color">Love for Pickleball..</h2>
+                        <h2 className="Developer-Title main-color">Love for Racket sports..</h2>
 
                         <div className='Description-Holder-2'>
                             {/* <p className='Section-2'>Who am I <span className='main-color'>&</span> How did I get here?</p> */}
 
 
                             <ul className='List'>
-                                <li className='Txt-Description'>As a passionate <span className='main-color'>pickleball player</span>, I love the sport and am determined to improve my performance on the court. I started playing casually with friends and quickly became hooked, realizing the incredible fun and excitement the game offers. I decided to dedicate myself to mastering pickleball and have learned various techniques, strategies, and rules. </li>
-                                <li className='Txt-Description'>I strive to cultivate a vibrant <span className='main-color'>pickleball community</span> in my city, bringing players together and promoting the sport for everyone to enjoy.</li>
+                                <li className='Txt-Description'>I’m a passionate <span className='main-color'>pickleball</span> & <span className='main-color'>badminton player</span> who enjoys the sport in my free time. It’s a fun and exciting way to stay active and unwind. I love the challenge these sports brings, and I always look forward to my next game. </li>
+                                <li className='Txt-Description'>Let me know if you are around my area so we can play. </li>
+                                {/* <li className='Txt-Description'>I strive to cultivate a vibrant <span className='main-color'>pickleball community</span> in my city, bringing players together and promoting the sport for everyone to enjoy.</li> */}
 
                             </ul>
                         </div>
