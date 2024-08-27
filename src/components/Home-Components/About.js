@@ -199,7 +199,7 @@ export default function About() {
 
                 <div className='my-brief-info'>
                     <p className='margin-fix'>Computer science major ~ Class of '27</p>
-                    <p className='margin-fix'>📌 Atlanta Georgia</p>
+                    <p className='margin-fix'>📌 Atlanta, Georgia</p>
                 </div>
 
 

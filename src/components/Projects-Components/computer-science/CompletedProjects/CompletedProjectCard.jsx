@@ -7,36 +7,36 @@ import Tilt from 'react-parallax-tilt';
 
 export default function CompletedProjectCard({ img1, img2, title, description, date }) {
     return (
-        <div className='CompSciProjectCard'>
-            <Carousel interval={null}>
-                <Carousel.Item>
-                    <img
-                        className="CompSciProjectCard_Img"
-                        src={img1}
-                        alt="First slide"
-                    />
-                </Carousel.Item>
-                <Carousel.Item>
-                    <img
-                        className="CompSciProjectCard_Img"
-                        src={img2}
-                        alt="Second slide"
-                    />
-                </Carousel.Item>
 
-            </Carousel>
+            <div className='CompSciProjectCard'>
+                <Carousel interval={null}>
+                    <Carousel.Item>
+                        <img
+                            className="CompSciProjectCard_Img"
+                            src={img1}
+                            alt="First slide"
+                        />
+                    </Carousel.Item>
+                    <Carousel.Item>
+                        <img
+                            className="CompSciProjectCard_Img"
+                            src={img2}
+                            alt="Second slide"
+                        />
+                    </Carousel.Item>
 
-            <div className='CompSciProject_Description_Holder'>
-                <p className='CompSciCompletedProject_Title'>{title}</p>
-                <ul>
-                    <li className='CompSciCompletedProject_Description'>{description}</li>
-                </ul>
+                </Carousel>
+
+                <div className='CompSciProject_Description_Holder'>
+                    <p className='CompSciCompletedProject_Title'>{title}</p>
+                    <ul>
+                        <li className='CompSciCompletedProject_Description'>{description}</li>
+                    </ul>
+                </div>
+
+                <div className='CompSciProject_Date'>
+                    <p>{date}</p>
+                </div>
             </div>
-
-            <div className='CompSciProject_Date'>
-                <p>{date}</p>
-            </div>
-        </div>
-
     )
 }
