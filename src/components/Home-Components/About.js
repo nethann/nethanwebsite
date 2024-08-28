@@ -33,6 +33,7 @@ import MonkeySticker from "../Stickers/MonkeySticker.png"
 import FishSticker from "../Stickers/FishSticker.png"
 import PeaceSticker from "../Stickers/PeaceSticker.png"
 
+import { Link } from 'react-router-dom';
 
 //animation
 import Aos from 'aos';
@@ -222,7 +223,8 @@ export default function About() {
 
                             <ul className='List'>
                                 {/* <li className='Txt-Description'>I am a {age_now} year old Software Developer living in America.</li> */}
-                                <li className='Txt-Description'>I have over <span className='main-color'>3 years of experience</span> in software development and have gained valuable experience working on diverse projects, from front-end projects to  backend projects. This has allowed me to develop a versatile skill set and problem-solve. </li>
+                                <li className='Txt-Description'>I have over <span className='main-color'>3 years of experience</span> in software development and have gained valuable experience working on diverse projects, from front-end projects to  backend projects.  </li>
+                                <li className='Txt-Description'>I enjoy playing <Link className='main-color' to="/music">music</Link>, <Link className='main-color' to="/gameDevelopment">3-d modeling/game-development</Link>, playing racket sports, and hanging out with friends.  </li>
                                 <p className={`Txt-Description`}>Right now, I'm <span className={discordStatusClass}>{discordStatus}</span></p>
                             </ul>
 
@@ -255,7 +257,7 @@ export default function About() {
 
 
                             <ul className='List'>
-                                <li className='Txt-Description'>I'm a full-stack developer with a passion for building <span className='main-color'>software</span> and web applications with a background in JavaScript, Python, Lua, ReactJS, and R.</li>
+                                <li className='Txt-Description'>I'm a developer with a passion for building <span className='main-color'>software</span> and web applications with a background in JavaScript, Python, Lua, ReactJS, and R.</li>
                                 <li className='Txt-Description'>I like to build <span className='main-color'>full-stack applications</span> with scalable and responsive technologies. I'm also a fan of the <span className='main-color'>open-source community</span> and always looking for new ways to improve my skills.</li>
 
                             </ul>
@@ -320,7 +322,6 @@ export default function About() {
 
                             <ul className='List'>
                                 <li className='Txt-Description'>I’m a passionate <span className='main-color'>pickleball</span> & <span className='main-color'>badminton player</span> who enjoys the sport in my free time. It’s a fun and exciting way to stay active and unwind. I love the challenge these sports brings, and I always look forward to my next game. </li>
-                                <li className='Txt-Description'>Let me know if you are around my area so we can play. </li>
                                 {/* <li className='Txt-Description'>I strive to cultivate a vibrant <span className='main-color'>pickleball community</span> in my city, bringing players together and promoting the sport for everyone to enjoy.</li> */}
 
                             </ul>

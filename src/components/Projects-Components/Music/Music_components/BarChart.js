@@ -9,15 +9,15 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 const BarChart = () => {
   // Sample data for the horizontal bar chart
   const data = {
-    labels: ['Guitar', 'Piano', 'Bongo', 'Singing'], // Example labels
+    labels: ['Guitar', 'Piano', 'Bongo', 'Vocals'], // Example labels
     datasets: [
       {
         data: [8, 1.5, 10, 10.5], // Values for each label
         backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(255, 159, 64, 0.2)',
-          'rgba(255, 205, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
+          '#1E96FC',
+          '#FFFCF9',
+          '#EF476F',
+          '#FFD166',
         ]
       },
     ],

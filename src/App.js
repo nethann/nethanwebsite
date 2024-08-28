@@ -41,7 +41,7 @@ function App() {
                   <NavDropdown  title="Projects" id="basic-nav-dropdown">
                     <NavDropdown.Item id='dropdown-item'   onClick={() => setExpanded(false)} as={Link} to="/projects">Computer Science</NavDropdown.Item>
                     <NavDropdown.Item id='dropdown-item'  onClick={() => setExpanded(false)} as={Link} to="/music">Music</NavDropdown.Item>
-                    <NavDropdown.Item id='dropdown-item'   onClick={() => setExpanded(false)} as={Link} to="/3dmodeling">3-D Models</NavDropdown.Item>
+                    <NavDropdown.Item id='dropdown-item'   onClick={() => setExpanded(false)} as={Link} to="/gameDevelopment">Game Dev</NavDropdown.Item>
 
                   </NavDropdown>
                   <Nav.Link id='nav-link' onClick={() => setExpanded(false)} as={Link} to="/contact">Contact</Nav.Link>
@@ -56,7 +56,7 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/music" element={<Music />} />
-            <Route path="/3dmodeling" element={<Modeling />} /> 
+            <Route path="/gameDevelopment" element={<Modeling />} /> 
 
           </Routes>
         </div>

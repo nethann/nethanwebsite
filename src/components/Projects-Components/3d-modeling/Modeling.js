@@ -47,7 +47,13 @@ import Bulkville2 from "./Images/Bulkville/Bulkville2.png"
 import Aos from 'aos';
 import "aos/dist/aos.css"
 
+import { useEffect } from 'react';
+
 export default function Modeling() {
+
+    useEffect(() => {
+        window.scrollTo(0, 0); // Scrolls to the top of the page
+    }, []);
 
     Aos.init({
         duration: 500,

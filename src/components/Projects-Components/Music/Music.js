@@ -16,6 +16,8 @@ import MusicVids from './Music_components/MusicVids'
 
 import Typewriter from 'typewriter-effect';
 
+import { useEffect } from 'react';
+
 
 //animation
 import Aos from 'aos';
@@ -26,6 +28,10 @@ import Birds_of_feather from "./Music_Vids/Birds_of_a_feather.mp4"
 import JamTrack1_bossa_nova from "./Music_Vids/JamTrack1_BossaNova.mp4"
 
 export default function Music() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Scrolls to the top of the page
+  }, []);
   return (
     <div className='Home-container'>
       <div className='Music'>
@@ -33,12 +39,12 @@ export default function Music() {
           <Typewriter
             onInit={(typewriter) => {
               typewriter
-                .typeString('Where you will find me if I am not programming...')
+                .typeString('React out through the contact page if you would like to book me for a gig.')
                 .pauseFor(2500) // Optional pause after typing
                 .start();
             }}
             options={{
-              delay: 35, //lower the number, the higher
+              delay: 0, //lower the number, the higher
             }}
 
           />
@@ -51,13 +57,32 @@ export default function Music() {
             <InstrumentCard name="Accoustic & Electric" image={guitar} />
             <InstrumentCard name="Piano" image={piano} />
             <InstrumentCard name="Bongo" image={bongo} />
-            <InstrumentCard name="Singing" image={mic} />
+            <InstrumentCard name="Vocals" image={mic} />
           </div>
 
         </div>
 
-        <div className='music-experience-chart' >
-          <BarChart />
+        <div className='experience-charts-holder'>
+          <div className='music-experience-chart' >
+            <BarChart />
+          </div>
+
+          <div className='where-i-played'>
+
+            <h3>Where I played</h3>
+
+            {/* <div>
+              <div className='places-Played-card-holder'>
+                <img src={logo} />
+                  
+
+                <div>
+
+                </div>
+              </div>
+            </div> */}
+
+          </div>
         </div>
 
         <div className='recorded-instruments' >
