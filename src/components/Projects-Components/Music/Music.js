@@ -17,8 +17,9 @@ import MusicVids from './Music_components/MusicVids'
 import Typewriter from 'typewriter-effect';
 
 import { useEffect } from 'react';
+import PlacesPlayed from './PlacesPlayed'
 
-
+// import MusicPlayedPlaces from "./Music_components/MusicPlayedPlaces"
 //animation
 import Aos from 'aos';
 import "aos/dist/aos.css"
@@ -71,16 +72,14 @@ export default function Music() {
 
             <h3>Where I played</h3>
 
-            {/* <div>
-              <div className='places-Played-card-holder'>
-                <img src={logo} />
-                  
+            <div className='music-played-places-grid'>
 
-                <div>
 
-                </div>
-              </div>
-            </div> */}
+            <PlacesPlayed /> 
+
+
+            </div>
+
 
           </div>
         </div>

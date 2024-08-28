@@ -41,7 +41,7 @@
 }
 
 .experience-charts-holder{
-    background-color: blue;
+    background-color: orange;
     width: 90%;
 
     display: flex;
@@ -61,10 +61,7 @@
 
 }
 
-.where-i-played{
-    background-color: yellow;
-    width: 100%;
-}
+
 
 .height-of-music-bar-graph{
     display: flex;
@@ -75,6 +72,54 @@
 /* .height-of-music-bar-graph h3{
     color: var(--clr-1);
 } */
+
+.where-i-played{
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    background-color: yellow;
+    width: 100%;
+
+    padding: 10px;
+}
+
+.music-played-places-grid{ 
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+
+    background-color: pink;
+}
+
+.places-Played-card-holder{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    background-color: blue;
+
+    width: 100%;
+
+    padding: 3px 10px ;
+}
+
+.places-played-image{
+    max-width: 100%;
+    max-height: 60px; /* Set a consistent max height */
+    height: auto;
+    object-fit: contain; /* Ensures the image scales while maintaining aspect ratio */
+    border-radius: 5px; /* Optional: To add a border radius to the images */
+}
+
+.places-played-title{
+    font-size: 13px;
+}
+
+.places-played-card-description ul{
+    font-size: 12px;
+}
 
 
 .recorded-instruments{
