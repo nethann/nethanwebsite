@@ -40,7 +40,7 @@ export default function Music() {
           <Typewriter
             onInit={(typewriter) => {
               typewriter
-                .typeString('React out through the contact page if you would like to book me for a gig.')
+                .typeString('Reach out through the contact page if you would like to book me for a gig.')
                 .pauseFor(2500) // Optional pause after typing
                 .start();
             }}
