@@ -70,12 +70,12 @@ export default function Music() {
 
           <div className='where-i-played'>
 
-            <h3>Where I played</h3>
+            <h3 className='margin-fix'>Where I played</h3>
 
             <div className='music-played-places-grid'>
 
+              <PlacesPlayed />
 
-            <PlacesPlayed /> 
 
 
             </div>

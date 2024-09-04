@@ -6,6 +6,8 @@ export default function PlacesPlayed() {
     return (
 
         <>
+
+
             <div className='places-Played-card-holder'>
                 <img className='places-played-image' src={guitar} />
 
@@ -46,16 +48,10 @@ export default function PlacesPlayed() {
                     </div>
                 </div>
 
-                
+
 
 
             </div>
-
-
-
         </>
-
-
-
     )
 }
