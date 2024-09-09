@@ -1,4 +1,4 @@
-.Music{
+.Music {
     min-height: 100vh;
     width: 95%;
 
@@ -15,19 +15,19 @@
 
 }
 
-.Music-title{
+.Music-title {
     color: var(--clr-1);
     text-align: center;
     font-size: 21px;
 }
 
-.my-instruments-section{
+.my-instruments-section {
     width: 80%;
 }
 
-.instruments-div{
+.instruments-div {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1em;
     /* background-color: blue; */
 
@@ -40,7 +40,7 @@
 
 }
 
-.experience-charts-holder{
+.experience-charts-holder {
     /* background-color: orange; */
     width: 90%;
 
@@ -49,9 +49,10 @@
     gap: 1em;
 }
 
-.music-experience-chart{
+.music-experience-chart {
     background-color: var(--clr-card-clr);
     width: 100%;
+
 
     padding: 20px 30px;
 
@@ -63,7 +64,7 @@
 
 
 
-.height-of-music-bar-graph{
+.height-of-music-bar-graph {
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -73,7 +74,7 @@
     color: var(--clr-1);
 } */
 
-.where-i-played{
+.where-i-played {
 
     display: flex;
     flex-direction: column;
@@ -85,21 +86,22 @@
     border-radius: 10px;
 }
 
-.where-i-played h3{
+.where-i-played h3 {
     text-align: center;
 }
 
-.music-played-places-grid{ 
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+.music-played-places-grid {
+    display: flex;
+    /* Align child items horizontally */
     gap: 1em;
-    place-items: center;
-
-    /* background-color: pink; */
-    height: 100%;
+    /* Space between items */
+    padding: 10px;
+    /* Optional padding */
 }
 
-.places-Played-card-holder{
+
+
+.places-Played-card-holder {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -114,23 +116,26 @@
     border-radius: 5px;
 }
 
-.places-played-image{
+.places-played-image {
     max-width: 100%;
-    max-height: 60px; /* Set a consistent max height */
+    max-height: 60px;
+    /* Set a consistent max height */
     height: auto;
-    object-fit: contain; /* Ensures the image scales while maintaining aspect ratio */
-    border-radius: 5px; /* Optional: To add a border radius to the images */
+    object-fit: contain;
+    /* Ensures the image scales while maintaining aspect ratio */
+    border-radius: 5px;
+    /* Optional: To add a border radius to the images */
 }
 
-.places-played-title{
+.places-played-title {
     font-size: 13px;
 }
 
-.places-played-card-description ul{
+.places-played-card-description ul {
     font-size: 11px;
 }
 
-.music-year-counter-holder{
+.music-year-counter-holder {
     /* background-color: pink; */
     text-align: center;
     font-size: 12px;
@@ -138,7 +143,7 @@
 
 
 
-.recorded-instruments{
+.recorded-instruments {
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -148,7 +153,7 @@
     width: 95%;
 }
 
-.created-music-cards-holder{
+.created-music-cards-holder {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     /* background-color: pink; */
@@ -158,7 +163,7 @@
     width: 100%;
 }
 
-.music-card{
+.music-card {
     display: flex;
     flex-direction: column;
     background-color: var(--clr-card-clr);
@@ -167,7 +172,7 @@
 
 }
 
-.music-vid-model{
+.music-vid-model {
     width: 100%;
     /* height: 600px; */
 
@@ -175,7 +180,7 @@
 
 }
 
-.about-music-card-info{
+.about-music-card-info {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -187,7 +192,7 @@
 }
 
 
-.Instrument-played{
+.Instrument-played {
     background-color: rgba(0, 0, 0, 0.226);
     border-radius: 8px;
     padding: 10px;
@@ -198,8 +203,8 @@
 
 
 /* external instrument card  */
-.InstrumentCard{
-    background-color:var(--clr-card-clr);
+.InstrumentCard {
+    background-color: var(--clr-card-clr);
 
     display: flex;
     align-items: center;
@@ -218,15 +223,18 @@
 
 
 
-.Instrument-Img{
+.Instrument-Img {
     max-width: 100%;
-    max-height: 70px; /* Set a consistent max height */
+    max-height: 70px;
+    /* Set a consistent max height */
     height: auto;
-    object-fit: contain; /* Ensures the image scales while maintaining aspect ratio */
-    border-radius: 5px; /* Optional: To add a border radius to the images */
+    object-fit: contain;
+    /* Ensures the image scales while maintaining aspect ratio */
+    border-radius: 5px;
+    /* Optional: To add a border radius to the images */
 }
 
-.Instrument-Des{
+.Instrument-Des {
     display: flex;
     margin-top: auto;
     margin-bottom: auto;
@@ -235,7 +243,7 @@
     font-size: 16px;
 }
 
-.InstrumentCard:hover{
+.InstrumentCard:hover {
     transform: translateY(-7px);
 }
 
@@ -243,35 +251,55 @@
 
 
 @media screen and (max-width: 1050px) {
-    .instruments-div{
-        grid-template-columns: repeat(2,1fr);
+    .instruments-div {
+        grid-template-columns: repeat(2, 1fr);
 
     }
 
-    .music-experience-chart{
+    .music-experience-chart {
         width: 70%;
     }
 
-    .recorded-instruments{
+    .recorded-instruments {
         width: 90%;
         /* background-color: blue; */
     }
 
-    .created-music-cards-holder{
-        grid-template-columns: repeat(2,1fr);
+    .created-music-cards-holder {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .experience-charts-holder {
+        grid-template-columns: 1fr 1fr;
+        gap: 1m;
+    }
+
+    .music-experience-chart {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        text-align: center;
     }
 }
 
 
+@media screen and (max-width: 900px) {
+    .experience-charts-holder {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 
 @media screen and (max-width: 700px) {
 
-    .recorded-instruments{
+    .recorded-instruments {
         width: 100%;
         /* background-color: blue; */
     }
 
-    .created-music-cards-holder{
+    .created-music-cards-holder {
         display: flex;
         flex-direction: column;
 
@@ -281,7 +309,7 @@
         justify-content: center;
     }
 
-    .music-card{
+    .music-card {
         /* background-color: pink; */
         width: 95%;
 
@@ -291,16 +319,26 @@
         justify-content: center;
     }
 
-    .music-vid-model{
+    .music-vid-model {
         width: 100%;
 
         height: 400px;
+    }
+
+
+}
+
+@media screen and (max-width: 600px) {
+
+    .music-played-places-grid {
+        display: flex;
+        flex-direction: column;
     }
 }
 
 
 @media screen and (max-width: 500px) {
-    .my-instruments-section{
+    .my-instruments-section {
         /* background-color: pink; */
 
         display: flex;
@@ -312,16 +350,16 @@
 
     }
 
-    .music-experience-chart{
+    .music-experience-chart {
         width: 90%;
     }
 
-    .InstrumentCard{
+    .InstrumentCard {
         width: 100%;
     }
 
 
-    .instruments-div{
+    .instruments-div {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -333,14 +371,17 @@
     }
 
 
+
+
 }
 
 
 
 @media screen and (max-width: 300px) {
-    .music-card{
+    .music-card {
         width: 100%;
     }
+
 }
 
 
@@ -349,15 +390,7 @@
 
 
 @media screen and (min-width: 1500px) {
-    .created-music-cards-holder{
-        grid-template-columns: repeat(4,1fr);
+    .created-music-cards-holder {
+        grid-template-columns: repeat(4, 1fr);
     }
 }
-
-
-
-
-
-
-
-

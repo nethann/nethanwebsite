@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Nerko+One&family=Poppins:wght@300&family=Roboto&display=swap');
 
+html{
+    scroll-behavior: smooth;
+}
+
+
 :root {
     --clr-evolution-card-hover: #27272a;
     /* --clr-evolution-card-hover: #2e2e2ece; */
     --clr-card-clr: #222224;
     --clr-contact-form-background : #222224;
-    --clr-card-inside-card: rgba(42, 42, 46, 0.757);
+    --clr-card-inside-card: rgba(0, 0, 0, 0.094);
 
 
     /* span colors */

@@ -48,10 +48,11 @@ export default function PlacesPlayed() {
                     </div>
                 </div>
 
-
-
-
             </div>
+
+
+
+
         </>
     )
 }

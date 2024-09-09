@@ -74,7 +74,11 @@ export default function Music() {
 
             <div className='music-played-places-grid'>
 
-              <PlacesPlayed />
+              {/* <div className='scroll-x'> */}
+                <PlacesPlayed />
+
+              {/* </div> */}
+
 
 
 
