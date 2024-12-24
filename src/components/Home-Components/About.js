@@ -223,7 +223,7 @@ export default function About() {
                             <ul className='List'>
                                 {/* <li className='Txt-Description'>I am a {age_now} year old Software Developer living in America.</li> */}
                                 <li className='Txt-Description'>Hi, I’m Nethan Nagendran, a {age_now}-year-old computer science student and passionate programmer with a love for creating impactful projects</li>
-                                <li className='Txt-Description'>When I’m not coding, you’ll find me singing, strumming my guitar, playing pickleball, badminton, or singing in the shower.</li>
+                                <li className='Txt-Description'>When I’m not coding, you’ll find me singing, strumming my guitar, playing pickleball, or badminton.</li>
                                 <p className={`Txt-Description`}>Right now, I'm <span className={discordStatusClass}>{discordStatus}</span></p>
                             </ul>
 
