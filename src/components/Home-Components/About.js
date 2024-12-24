@@ -10,8 +10,7 @@ import { OrbitControls, Stage } from '@react-three/drei';
 
 //importing 3-D model 
 import DesktopSetup from "./Desktop"
-import Pickleball from "./Pickleball1"
-
+import PickleballBadminton from "./Pickleball_badminton"
 import axios from 'axios';
 
 //CSS profile import
@@ -301,7 +300,7 @@ export default function About() {
 
 
                         <Suspense fallback={null}>
-                            <Pickleball />
+                            <PickleballBadminton />
                             <OrbitControls autoRotate enableZoom={false} />
                         </Suspense>
 
@@ -314,14 +313,14 @@ export default function About() {
 
                 <div className='About-Description-Holder-2'>
                     <div className='About-Txt-2'>
-                        <h2 className="Developer-Title main-color">Pickleball 🏓</h2>
+                        <h2 className="Developer-Title main-color">Pickleball & Badminton 🏸</h2>
 
                         <div className='Description-Holder-2'>
                             {/* <p className='Section-2'>Who am I <span className='main-color'>&</span> How did I get here?</p> */}
 
 
                             <ul className='List'>
-                                <li className='Txt-Description Section-description-card'> Love playing pickleball in my free time—it’s a fun way to stay active and hang out with friends.</li>
+                                <li className='Txt-Description Section-description-card'>I play badminton in my college club and pickleball @YMCA. </li>
                                 {/* <li className='Txt-Description'>I strive to cultivate a vibrant <span className='main-color'>pickleball community</span> in my city, bringing players together and promoting the sport for everyone to enjoy.</li> */}
 
                             </ul>
