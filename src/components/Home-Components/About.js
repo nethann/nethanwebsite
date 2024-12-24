@@ -199,7 +199,7 @@ export default function About() {
                 </p>
 
                 <div className='my-brief-info'>
-                    <p className='margin-fix'>Computer science major ~ Class of '27</p>
+                    <p className='margin-fix college-info'>Computer Science @ Georgia Institue of Technology</p>
                     <p className='margin-fix'>📌 Atlanta, Georgia</p>
                 </div>
 
@@ -223,8 +223,8 @@ export default function About() {
 
                             <ul className='List'>
                                 {/* <li className='Txt-Description'>I am a {age_now} year old Software Developer living in America.</li> */}
-                                <li className='Txt-Description'>I have over <span className='main-color'>3 years of experience</span> in software development and have gained valuable experience working on diverse projects, from front-end projects to  backend projects.  </li>
-                                <li className='Txt-Description'>I enjoy playing <Link className='main-color' to="/music">music</Link>, <Link className='main-color' to="/gameDevelopment">3-d modeling/game-development</Link>, playing racket sports, and hanging out with friends.  </li>
+                                <li className='Txt-Description'>Hi, I’m Nethan Nagendran, a {age_now}-year-old computer science student and passionate programmer with a love for creating impactful projects</li>
+                                <li className='Txt-Description'>When I’m not coding, you’ll find me singing, strumming my guitar, playing pickleball, badminton, or singing in the shower.</li>
                                 <p className={`Txt-Description`}>Right now, I'm <span className={discordStatusClass}>{discordStatus}</span></p>
                             </ul>
 
@@ -249,7 +249,7 @@ export default function About() {
                 <div className='About-Description-Holder-2'>
 
                     <div className='About-Txt-2'>
-                        <h2 className="Developer-Title main-color">Being a Developer...</h2>
+                        <h2 className="Developer-Title main-color">Being a Developer... 🛠️</h2>
 
                         <div className='Description-Holder-2'>
 
@@ -314,14 +314,14 @@ export default function About() {
 
                 <div className='About-Description-Holder-2'>
                     <div className='About-Txt-2'>
-                        <h2 className="Developer-Title main-color">Love for Racket sports..</h2>
+                        <h2 className="Developer-Title main-color">Pickleball 🏓</h2>
 
                         <div className='Description-Holder-2'>
                             {/* <p className='Section-2'>Who am I <span className='main-color'>&</span> How did I get here?</p> */}
 
 
                             <ul className='List'>
-                                <li className='Txt-Description'>I’m a passionate <span className='main-color'>pickleball</span> & <span className='main-color'>badminton player</span> who enjoys the sport in my free time. It’s a fun and exciting way to stay active and unwind. I love the challenge these sports brings, and I always look forward to my next game. </li>
+                                <li className='Txt-Description Section-description-card'> Love playing pickleball in my free time—it’s a fun way to stay active and hang out with friends.</li>
                                 {/* <li className='Txt-Description'>I strive to cultivate a vibrant <span className='main-color'>pickleball community</span> in my city, bringing players together and promoting the sport for everyone to enjoy.</li> */}
 
                             </ul>

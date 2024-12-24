@@ -1,5 +1,7 @@
 :root {
-    --clr-navBackground: #222224;
+    --clr-navBackground: #020409
+
+    ;
 }
 .bg-background{
     background-color: var(--clr-navBackground);

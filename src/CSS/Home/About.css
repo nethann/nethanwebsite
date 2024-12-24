@@ -26,7 +26,7 @@
 
 
 .abt-txt {
-    font-size: 30px;
+    font-size: 35px;
 }
 
 .Weather-Status {
@@ -68,9 +68,9 @@
 
 
 .About-Container {
-    min-height: 60vh;
+    min-height: 30vh;
     width: 90%;
-    background-color: transparent;
+    /* background-color: blue; */
 
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -82,10 +82,6 @@
 .About-Description-Holder {
     display: flex;
     justify-content: center;
-
-
-
-
     background-color: transparent;
 }
 
@@ -101,9 +97,8 @@
 
     padding: 10px;
     background-color: transparent;
+
 }
-
-
 
 
 .Nethan-Name {
@@ -117,6 +112,15 @@
     text-align: center;
     flex-direction: column;
     gap:0.5em;
+
+    font-size: 20px;
+}
+
+.college-info{
+    background-color: var(--clr-yellow);
+    color: var(--clr-2);
+    border-radius: 5px;
+    padding: 1px 15px;
 }
 
 
@@ -126,7 +130,7 @@
     padding: 20px;
 
 
-    background-color: transparent;
+    /* background-color: blue; */
 
     border-left: 3px solid white;
 
@@ -181,6 +185,12 @@
     font-size: 18px;
 }
 
+.Section-description-card{
+    background-color: var(--clr-card-clr);
+    padding: 15px;
+    border-radius: 8px;
+}
+
 .main-color {
     color: var(--clr-1);
 }
@@ -220,9 +230,9 @@
 
 .About-Container-2 {
     position: relative;
-    min-height: 50vh;
+    /* min-height: 30vh; */
     width: 90%;
-    background-color: transparent;
+    /* background-color: pink; */
 
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -252,7 +262,7 @@
     width: 100%;
 
 
-    background-color: transparent;
+    /* background-color: pink; */
 }
 
 
@@ -264,8 +274,8 @@
     justify-content: center;
     gap: 1em;
 
-    padding: 10px;
-    background-color: transparent;
+    /* padding: 10px; */
+    /* background-color: blue; */
 
     width: 100%;
 }
@@ -280,10 +290,10 @@
     display: flex;
     flex-direction: column;
 
-    padding: 20px;
+    padding: 15px;
 
 
-    background-color: transparent;
+    /* background-color: blue; */
 
     border-left: 3px solid white;
 
@@ -297,37 +307,29 @@
     font-size: 30px;
 }
 
-@media screen and (min-width: 1700px) {
+
+
+
+
+@media screen and (min-width: 1500px) {
 
     .Nethan-Pic {
-        width: 80%;
+        width: 500px;
     }
 
     .Developer {
         width: 420px;
     }
-}
 
-
-/* Pulse animation */
-
-@media screen and (min-width: 1500px) {
-
-    .About-Container {
-        width: 85%;
+    .About-Container{
+        width: 1500px;
     }
 
-
-    .About-Container {
-        grid-template-columns: 0.7fr 1fr;
-    }
-
-    .About-Container-2 {
-        grid-template-columns: 1fr 1fr;
+    .About-Container-2{
+        width: 1500px;
     }
 
 }
-
 
 
 
@@ -406,7 +408,9 @@
 }
 
 @media screen and (max-width: 600px) {
-
+    .college-info{
+        background-color: transparent;
+    }
 
 
     .Nethan-Pic {
