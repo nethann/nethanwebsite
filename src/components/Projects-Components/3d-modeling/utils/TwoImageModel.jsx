@@ -43,37 +43,42 @@ export default function TwoImageModel({ Img1, Img2, Title, Description, RenderTy
 
       </Carousel>
 
-      <div className='OneImageModel-Title'>
-        <p>{Title}</p>
-        <ul>
-          <li>{Description}</li>
-        </ul>
-      </div>
 
-      <div className='OneImageModel-Year'>
-        <div className='Data-type-holder'>
-
-
-          <OverlayTrigger
-            placement="bottom"
-            delay={{ show: 250, hide: 400 }}
-            overlay={renderTooltip}
-          >
-            <p className='render-model'>{RenderType}</p>
-          </OverlayTrigger>
-
-          <OverlayTrigger
-            placement="bottom"
-            delay={{ show: 250, hide: 400 }}
-            overlay={yearTooltip}
-          >
-
-            <p className='year-model'>{Year}</p>
-
-          </OverlayTrigger>
-
+      <section className='models-center-items'>
+        <div className='OneImageModel-Title'>
+          <p>{Title}</p>
+          <ul>
+            <li>{Description}</li>
+          </ul>
         </div>
-      </div>
+
+        <div className='OneImageModel-Year'>
+          <div className='Data-type-holder'>
+
+
+            <OverlayTrigger
+              placement="bottom"
+              delay={{ show: 250, hide: 400 }}
+              overlay={renderTooltip}
+            >
+              <p className='render-model'>{RenderType}</p>
+            </OverlayTrigger>
+
+            <OverlayTrigger
+              placement="bottom"
+              delay={{ show: 250, hide: 400 }}
+              overlay={yearTooltip}
+            >
+
+              <p className='year-model'>{Year}</p>
+
+            </OverlayTrigger>
+
+          </div>
+        </div>
+      </section>
+
+      
 
     </div>
   )

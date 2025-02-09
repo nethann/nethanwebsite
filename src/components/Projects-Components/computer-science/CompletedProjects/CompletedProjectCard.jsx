@@ -5,7 +5,7 @@ import "../../../../CSS/Projects/CompletedProjects.css"
 
 import Tilt from 'react-parallax-tilt';
 
-export default function CompletedProjectCard({ img1, img2, title, description, date }) {
+export default function CompletedProjectCard({ img1, img2, title, description }) {
     return (
 
             <div className='CompSciProjectCard'>
@@ -32,10 +32,6 @@ export default function CompletedProjectCard({ img1, img2, title, description, d
                     <ul>
                         <li className='CompSciCompletedProject_Description'>{description}</li>
                     </ul>
-                </div>
-
-                <div className='CompSciProject_Date'>
-                    <p>{date}</p>
                 </div>
             </div>
     )

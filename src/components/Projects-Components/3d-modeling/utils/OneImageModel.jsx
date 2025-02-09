@@ -26,6 +26,9 @@ export default function OneImageModel({ Img, Title, Description, RenderType, Yea
                 src={Img}
                 alt="One Image Model" />
 
+
+            <section className='models-center-items'>
+
             <div className='OneImageModel-Title'>
                 <p>{Title}</p>
                 <ul>
@@ -42,7 +45,7 @@ export default function OneImageModel({ Img, Title, Description, RenderType, Yea
                         delay={{ show: 250, hide: 400 }}
                         overlay={renderTooltip}
                     >
-                        <p className='render-model'>{RenderType}</p>
+                    <p className='render-model'>{RenderType}</p>
                     </OverlayTrigger>
 
                     <OverlayTrigger
@@ -51,12 +54,16 @@ export default function OneImageModel({ Img, Title, Description, RenderType, Yea
                         overlay={yearTooltip}
                     >
 
-                        <p className='year-model'>{Year}</p>
+                    <p className='year-model'>{Year}</p>
 
                     </OverlayTrigger>
 
                 </div>
             </div>
+
+            </section>
+
+            
 
         </div>
     )

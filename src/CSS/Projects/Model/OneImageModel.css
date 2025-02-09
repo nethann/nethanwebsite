@@ -4,11 +4,17 @@
     gap: 0.5em;
 
     background-color: var(--clr-card-clr);
-    padding: 20px;
-    /* width: 80%; */
-
+    padding: 10px 15px;
     border-radius: 8px;
     transition: all 0.1s ease-in;
+}
+
+
+.models-center-items{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
 }
 
 .OneImageModelCard:hover{
@@ -39,7 +45,7 @@
 }
 
 .OneImageModel-Title p{
-    font-size: 18px;
+    font-size: 20px;
     color: var(--clr-2);
     overflow-wrap: break-word;
 }
@@ -88,6 +94,7 @@
 
     border-radius: 15px;
     padding: 3px;
+
 }
 
 .year-model{

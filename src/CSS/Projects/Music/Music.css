@@ -250,6 +250,84 @@
 
 
 
+
+
+
+
+/* Timeline container */
+.timeline {
+    position: relative;
+    padding: 20px;
+    margin-left: 40px;  /* Indentation for the timeline items */
+}
+
+/* Timeline item */
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+    cursor: pointer;
+}
+
+.timeline-item:hover{
+    transform: translateY(-5px);
+}
+
+/* Timeline content styling */
+.timeline-content {
+    background-color: var(--clr-card-clr);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;  /* Adjust the width of the content box */
+    margin-left: 50px;  /* Indentation for the timeline content */
+}
+
+/* Timeline dot */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: -18px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--clr-2);
+    border: 3px solid #fff;
+}
+
+/* Optional line connecting items */
+.timeline::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 5px;
+    bottom: 0;
+    width: 2px;
+    background-color: var(--clr-1);
+}
+
+/* Timeline details styling */
+.timeline-details {
+    margin-top: 10px;
+}
+
+/* Title styling */
+.timeline-title {
+    display: block;
+    font-weight: 600;
+    font-size: 1.1em;
+    margin-bottom: 5px;
+    color: var(--clr-2);  /* Customize color */
+}
+
+/* Description styling */
+.timeline-description {
+    font-size: 0.9em;
+    color: rgb(177, 177, 177);
+    line-height: 1.5;
+}
+
+
 @media screen and (max-width: 1050px) {
     .instruments-div {
         grid-template-columns: repeat(2, 1fr);

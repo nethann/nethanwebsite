@@ -40,12 +40,12 @@ export default function Music() {
           <Typewriter
             onInit={(typewriter) => {
               typewriter
-                .typeString('Reach out through the contact page if you would like to book me for a gig.')
-                .pauseFor(2500) // Optional pause after typing
+                .typeString('Contact me if you would like to book me for a gig.')
+                // .pauseFor(1500) // Optional pause after typing
                 .start();
             }}
             options={{
-              delay: 0, //lower the number, the higher
+              delay: 50, //lower the number, the higher
             }}
 
           />
@@ -63,7 +63,36 @@ export default function Music() {
 
         </div>
 
-        <div className='experience-charts-holder'>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h4>2017 - 2020</h4>
+              <div class="timeline-details">
+                <span class="timeline-title">United Church Atlanta</span>
+                <p class="timeline-description">Served as the guitarist for the morning band, contributing to the musical worship experience. I also had the privilege of leading communion songs.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <h4>2020 - Present</h4>
+              <div class="timeline-details">
+                <span class="timeline-title">Atlanta Church of Christ Gwinetee</span>
+                <p class="timeline-description">Served as the guitarist for the morning band and took the lead in several communion songs. Additionally, I had the opportunity to sing and play for the children's ministry.</p>
+              </div>
+            </div>
+
+
+          </div>
+
+        </div>
+
+
+
+
+        {/* <div className='experience-charts-holder'>
           <div className='music-experience-chart' >
             <BarChart />
           </div>
@@ -74,10 +103,8 @@ export default function Music() {
 
             <div className='music-played-places-grid'>
 
-              {/* <div className='scroll-x'> */}
-                <PlacesPlayed />
+              <PlacesPlayed />
 
-              {/* </div> */}
 
 
 
@@ -86,7 +113,7 @@ export default function Music() {
 
 
           </div>
-        </div>
+        </div> */}
 
         <div className='recorded-instruments' >
           <h3>My Recorded Covers</h3>

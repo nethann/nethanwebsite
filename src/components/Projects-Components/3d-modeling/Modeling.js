@@ -84,7 +84,7 @@ export default function Modeling() {
 
 
                         <TwoImageModel Img1={AmongFinisherd} Img2={AmongUnfinished} Title="Among Us" Description="Ok, so who's the imposter? Modeled some peeps from Among Us " RenderType="Blender" Year="2022" />
-                        <TwoImageModel Img1={ObbyRender} Img2={ObbyRender2} Title="Low-Poly Obby" Description="Finished buildnig the final spawn of the obby where players spawn" RenderType="Roblox Studio" Year="2022" />
+                        <TwoImageModel Img1={ObbyRender} Img2={ObbyRender2} Title="Low-Poly Obby" Description="Spawn location of a Low Poly Obby in Roblox Studio. I made it to give beach vibes in an open area incoporating trees, sand, etc. " RenderType="Roblox Studio" Year="2022" />
                         <TwoImageModel Img1={Windmill} Img2={Boat} Title="Beach Models" Description="Modeled a low-poly windmill and a low-poly boat for commission for a roblox project" RenderType="Blender" Year="2022" />
 
                         <TwoImageModel Img1={BeachRender} Img2={BeachRender2} Title="Low-Poly Beach" Description="Added the windmill, boat and palm tree models from blender and made a scene from roblox studio" RenderType="Roblox Studio" Year="2022" />

@@ -41,7 +41,6 @@ export default function completedProjects() {
 
         </div>
 
-        {/* sense the distance ahead */}
     </section>
 </>
   )

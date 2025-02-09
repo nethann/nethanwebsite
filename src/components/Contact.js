@@ -73,6 +73,7 @@ export default function Contact() {
     emailjs.sendForm('service_cce2tzg', 'template_i3gb2es', form.current, 'CIjfNKb1UjuFlNTVl')
       .then((result) => {
         alert("Email Sent")
+        form.current.reset();
       }, (error) => {
         alert(error.text)
       })

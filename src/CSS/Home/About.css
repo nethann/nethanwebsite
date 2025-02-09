@@ -113,7 +113,7 @@
     flex-direction: column;
     gap:0.5em;
 
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .college-info{
@@ -186,9 +186,10 @@
 }
 
 .Section-description-card{
-    background-color: var(--clr-card-clr);
     padding: 15px;
     border-radius: 8px;
+
+    background-color: var(--clr-card-clr);
 }
 
 .main-color {

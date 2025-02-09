@@ -11,6 +11,9 @@ import { OrbitControls, Stage } from '@react-three/drei';
 //importing 3-D model 
 import DesktopSetup from "./Desktop"
 import PickleballBadminton from "./Pickleball_badminton"
+import Monitor from "./Monitor"
+import Pikachu from "./Pikachu"
+
 import axios from 'axios';
 
 //CSS profile import
@@ -39,6 +42,8 @@ import Aos from 'aos';
 import "aos/dist/aos.css"
 
 export default function About() {
+    const [enableRotate, setEnableRotate] = useState(true);
+
 
     var today = new Date();
     var birthDate = new Date('6/25/2005');  // create a date object directly from `dob1` argument
@@ -65,6 +70,8 @@ export default function About() {
 
     const [discordStatusClass, setdiscordStatusClass] = useState('');
     const [discordPulse, setDiscordPulse] = useState('')
+
+
 
     useEffect(() => {
 
@@ -119,6 +126,8 @@ export default function About() {
         //     })
         // }, 5000)
 
+
+
         axios.get(discordUrl).then((discordResponse) => {
             const disVar = discordResponse.data.data.discord_status;
 
@@ -156,11 +165,33 @@ export default function About() {
 
         })
 
+
+        //For the 3-d models if the size is less than given value, it will disable rotation for webflow
+        const handleResize = () => {
+            if (window.innerWidth <= 800) {
+                setEnableRotate(false); // Disable rotation for smaller screens
+            } else {
+                setEnableRotate(true); // Enable rotation for larger screens
+            }
+        };
+
+        // Initial check on load
+        handleResize();
+
+        // Add resize event listener
+        window.addEventListener('resize', handleResize);
+
+        // Cleanup the event listener on component unmount
+        return () => window.removeEventListener('resize', handleResize);
+
         // return () => clearInterval(presenceInterval);
 
     }, [])
 
     const weatherIcon = `http://openweathermap.org/img/wn/${weatherLogo}@2x.png`;
+
+
+
 
 
     return (
@@ -223,7 +254,7 @@ export default function About() {
                             <ul className='List'>
                                 {/* <li className='Txt-Description'>I am a {age_now} year old Software Developer living in America.</li> */}
                                 <li className='Txt-Description'>Hi, I’m Nethan Nagendran, a {age_now}-year-old computer science student and passionate programmer with a love for creating impactful projects</li>
-                                <li className='Txt-Description'>When I’m not coding, you’ll find me singing, strumming my guitar, playing pickleball, or badminton.</li>
+                                <li className='Txt-Description'>When I’m not coding, you’ll find me singing, strumming my guitar, gaming, playing pickleball, or badminton.</li>
                                 <p className={`Txt-Description`}>Right now, I'm <span className={discordStatusClass}>{discordStatus}</span></p>
                             </ul>
 
@@ -256,8 +287,9 @@ export default function About() {
 
 
                             <ul className='List'>
-                                <li className='Txt-Description'>I'm a developer with a passion for building <span className='main-color'>software</span> and web applications with a background in JavaScript, Python, Lua, ReactJS, and R.</li>
+                                <li className='Txt-Description'>I'm a developer with a passion for building <span className='main-color'>software</span> and web applications with a background in JavaScript, Python, Lua, ReactJS, CSS, and R.</li>
                                 <li className='Txt-Description'>I like to build <span className='main-color'>full-stack applications</span> with scalable and responsive technologies. I'm also a fan of the <span className='main-color'>open-source community</span> and always looking for new ways to improve my skills.</li>
+                                <li className='Txt-Description'>This website was developed using <span className='main-color'>ReactJS</span> by Nethan. </li>
 
                             </ul>
 
@@ -276,7 +308,7 @@ export default function About() {
 
                         <Suspense fallback={null}>
                             <DesktopSetup />
-                            <OrbitControls autoRotate enableZoom={false} />
+                            <OrbitControls autoRotate enableRotate={enableRotate} autoRotateSpeed={1.0} enableZoom={false} />
 
                         </Suspense>
 
@@ -295,16 +327,16 @@ export default function About() {
                     <Canvas camera={{ fov: 20, position: [10, 3, 10] }} shadows>
 
                         <pointLight position={[0, 20, 10]} intensity={2} />
-                        {/* <pointLight position={[-70, -90, -80]} intensity={1.5} /> */}
                         <pointLight position={[-0, -20, -10]} intensity={2} />
 
 
                         <Suspense fallback={null}>
                             <PickleballBadminton />
-                            <OrbitControls autoRotate enableZoom={false} />
+                            <OrbitControls autoRotate enableRotate={enableRotate} autoRotateSpeed={2.0} enableZoom={false} />
                         </Suspense>
 
                     </Canvas>
+
                 </div>
 
 
@@ -332,6 +364,7 @@ export default function About() {
                 </div>
 
             </section>
+
 
 
 

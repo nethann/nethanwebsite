@@ -3,7 +3,7 @@ import React from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 
 
-export default function CompletedProjectswithVid({ vid, img1, title, description, date }) {
+export default function CompletedProjectswithVid({ vid, img1, title, description }) {
     return (
         <div className='CompSciProjectCard'>
             <Carousel interval={null}>
@@ -27,10 +27,6 @@ export default function CompletedProjectswithVid({ vid, img1, title, description
                 <ul>
                     <li className='CompSciCompletedProject_Description'>{description}</li>
                 </ul>
-            </div>
-
-            <div className='CompSciProject_Date'>
-                <p>{date}</p>
             </div>
         </div>
     )
