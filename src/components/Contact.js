@@ -138,9 +138,6 @@ export default function Contact() {
 
 
         <div className='Contact-Icons-Section'>
-          <a href='https://discord.gg/wZdCddU6zz' target='_blank' rel='noreferrer' className='contact-icon-tag discord-icon'>
-            <FaDiscord className='Contact-Icon' />
-          </a>
 
           <a href='https://www.instagram.com/nethan_journey/' target='_blank' rel='noreferrer' className='contact-icon-tag instagram-icon'>
             <FaInstagram className='Contact-Icon' />
