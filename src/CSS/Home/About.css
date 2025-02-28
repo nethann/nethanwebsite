@@ -117,10 +117,12 @@
 }
 
 .college-info{
-    background-color: var(--clr-yellow);
-    color: var(--clr-2);
+    /* background-color: var(--clr-yellow);
+    color: var(--clr-2); */
+    border: 1px solid var(--clr-border-clr);
+    color: var(--clr-2); 
     border-radius: 5px;
-    padding: 1px 15px;
+    padding: 3px 15px;
 }
 
 .current-location{
