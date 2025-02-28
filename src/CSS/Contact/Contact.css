@@ -27,7 +27,8 @@
 
 
 .Contact-Form{
-    background-color: var(--clr-contact-form-background);
+    /* background-color: var(--clr-contact-form-background); */
+    border: 1px solid var(--clr-border-clr);
     display: flex;
     flex-direction: column;
 
@@ -88,7 +89,7 @@
 
     background-color: transparent;
     border: 0px solid transparent;
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid var(--clr-border-clr);
 
     color: white;
 
@@ -101,7 +102,7 @@
 
 .Contact-Submit{
     width: 40%;
-    border: 1px solid white;
+    border: 1px solid var(--clr-border-clr);
 
     background-color: transparent;
     padding: 5px;

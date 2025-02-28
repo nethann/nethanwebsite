@@ -35,7 +35,7 @@ export default function Technologies() {
     return (
         <>
             <section className='Tech-Container'>
-                <p className='Tech-Title'>Technologies I use</p>
+                <p className='Tech-Title'>Technologies I use 👀 :</p>
 
                 <div className='About-Tech'>
                     <p className='About'>I work with the latest technologies and programming languages to stay up-to-date in the field. These tools help me develop my own projects and tasks. Here’s a list of the key technologies I use and support regularly.
