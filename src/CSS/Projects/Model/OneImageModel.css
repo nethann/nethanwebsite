@@ -4,9 +4,10 @@
     gap: 0.5em;
 
     background-color: var(--clr-card-clr);
-    padding: 10px 15px;
+    padding: 5px 10px;
     border-radius: 8px;
     transition: all 0.1s ease-in;
+    overflow: hidden;
 }
 
 
@@ -15,6 +16,7 @@
     flex-direction: column;
     justify-content: center;
     height: 100%;
+    padding: 10px;
 }
 
 .OneImageModelCard:hover{
