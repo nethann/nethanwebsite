@@ -84,11 +84,17 @@
 
 /* JavaScript and Python Badge Styling */
 .Special-JS {
-    background-color: var(--clr-yellow);
-    color: var(--clr-yellow-font);
+    /* background-color: var(--clr-card-clr-pill); */
+    border: 1px solid var(--clr-border-clr);
+    color: white;
 }
 
 .Special-Py {
-    background-color: var(--clr-blue);
-    color: var(--clr-blue-font);
+    /* background-color: var(--clr-blue);
+    color: var(--clr-blue-font); */
+
+    /* background-color: var(--clr-card-clr-pill); */
+    border: 1px solid var(--clr-border-clr);
+    color: white;
+
 }

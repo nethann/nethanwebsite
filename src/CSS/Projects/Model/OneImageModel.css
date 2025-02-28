@@ -86,40 +86,43 @@
 }
 
 .render-model{
-    background-color: var(--clr-green);
-    color: var(--clr-green-font);
+    /* background-color: var(--clr-green); */
+    color: var(--clr-52);
+    border: 1px solid var(--clr-border-clr);
     width: 70%;
     text-align: center;
 
     overflow-wrap: break-word;
 
 
-    border-radius: 15px;
-    padding: 3px;
+    border-radius: 8px;
+    padding: 5px;
 
 }
 
 .year-model{
-    background-color: var(--clr-yellow);
-    color: var(--clr-yellow-font);
+    /* background-color: var(--clr-yellow);
+    /* color: white; */
+    color: var(--clr-5);
+    border: 1px solid var(--clr-border-clr);
     width: 50%;
     text-align: center;
 
-    border-radius: 15px;
-    padding: 3px;
+    border-radius: 8px;
+    padding: 5px;
 }
 
 
 
 .OneImageModel-Year-vids{
     margin-left: auto;
-    background-color: var(--clr-pink);
-    color: var(--clr-pink-font);
+    color: var(--clr-5);
+    border: 1px solid var(--clr-border-clr);
     width: 50%;
     text-align: center;
 
-    border-radius: 15px;
-    padding: 3px;
+    border-radius: 8px;
+    padding: 5px;
 }
 
 .OneImageModel-Year p{
