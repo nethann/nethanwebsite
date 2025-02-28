@@ -271,7 +271,7 @@ export default function Home() {
                 <div className='About-Description-Holder-2'>
 
                     <div className='About-Txt-2'>
-                        <h2 className="Developer-Title main-color">Building the Future, One Line at a Time 💯</h2>
+                        <h2 className="Developer-Title main-color">Building my future one line at a time 💯</h2>
 
                         <div className='Description-Holder-2'>
 
