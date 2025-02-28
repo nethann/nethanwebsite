@@ -21,7 +21,7 @@ export default function GithubProjects() {
     return (
         <>
             <section className='Git-Container' data-aos="fade-right">
-                <p className='Git-Title'>Github Repositories:</p>
+                <p className='Git-Title'>Github Repositories 🍁 : </p>
 
 
 

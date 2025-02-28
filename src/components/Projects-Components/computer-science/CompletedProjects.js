@@ -27,7 +27,7 @@ export default function completedProjects() {
   return (
     <>
     <section className='Git-Container' data-aos="fade-right">
-        <p className='Git-Title'>Engineering Journey:</p>
+        <p className='Git-Title'>Engineering Journey 🍏 : </p>
 
 
 

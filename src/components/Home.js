@@ -240,7 +240,7 @@ export default function Home() {
                     <div className='About-Txt'>
                         {/* <h2 className='Nethan-Name'>About me</h2> */}
                         <div className='Description-Holder'>
-                            <p className='Section main-color'>About me </p>
+                            <p className='Section main-color'>About me 🐊 </p>
 
 
                             <ul className='List'>
@@ -275,7 +275,7 @@ export default function Home() {
 
                         <div className='Description-Holder-2'>
 
-                            <p className='Section-2'>More about <span className='main-color'>ME</span></p>
+                            <p className='Section-2'>More about <span className='main-color'>ME</span> 🍀 </p>
 
 
                             <ul className='List'>
@@ -337,7 +337,7 @@ export default function Home() {
 
                 <div className='About-Description-Holder-2'>
                     <div className='About-Txt-2'>
-                        <h2 className="Developer-Title main-color">Pickleball & Badminton 🏸</h2>
+                        <h2 className="Developer-Title main-color">Pickleball & Badminton 👻</h2>
 
                         <div className='Description-Holder-2'>
                             {/* <p className='Section-2'>Who am I <span className='main-color'>&</span> How did I get here?</p> */}

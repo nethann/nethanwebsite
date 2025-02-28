@@ -65,7 +65,7 @@ export default function Modeling() {
 
                 <div className='Rendered-Models' data-aos="fade-right">
                     <div className='Models-CardTitle'>
-                        <p>Rendered <span className='first-models-container'>Models</span></p>
+                        <p>Rendered <span className='first-models-container'>Models</span> 🌵 : </p>
                     </div>
 
                     <div className='models-pic-grid'>

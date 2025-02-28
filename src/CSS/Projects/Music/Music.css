@@ -276,7 +276,8 @@
 
 /* Timeline content styling */
 .timeline-content {
-    background-color: var(--clr-card-clr);
+    /* background-color: var(--clr-card-clr); */
+    border: 1px solid var(--clr-border-clr);
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
