@@ -29,9 +29,7 @@ export default function CompletedProjectCard({ img1, img2, title, description })
 
                 <div className='CompSciProject_Description_Holder'>
                     <p className='CompSciCompletedProject_Title'>{title}</p>
-                    <ul>
-                        <li className='CompSciCompletedProject_Description'>{description}</li>
-                    </ul>
+                    <p className='CompSciCompletedProject_Description'>{description}</p>
                 </div>
             </div>
     )

@@ -271,7 +271,7 @@ export default function Home() {
                 <div className='About-Description-Holder-2'>
 
                     <div className='About-Txt-2'>
-                        <h2 className="Developer-Title main-color">Being a Developer... 🛠️</h2>
+                        <h2 className="Developer-Title main-color">Building the Future, One Line at a Time 💯</h2>
 
                         <div className='Description-Holder-2'>
 
@@ -279,9 +279,9 @@ export default function Home() {
 
 
                             <ul className='List'>
-                                <li className='Txt-Description'>I'm a developer with a passion for building <span className='main-color'>software</span> and web applications with a background in JavaScript, Python, Lua, ReactJS, CSS, and R.</li>
+                                <li className='Txt-Description'>I'm a developer with a passion for building <span className='main-color'>software</span> and web applications with a background in JavaScript, Python, Java, Lua, ReactJS, CSS, and R.</li>
                                 <li className='Txt-Description'>I like to build <span className='main-color'>full-stack applications</span> with scalable and responsive technologies. I'm also a fan of the <span className='main-color'>open-source community</span> and always looking for new ways to improve my skills.</li>
-                                <li className='Txt-Description'>This website was developed using <span className='main-color'>ReactJS</span> by Nethan. </li>
+                                <li className='Txt-Description'>This website was developed using <span className='main-color'>ReactJS</span> by <span className='main-color'>Nethan</span>. </li>
 
                             </ul>
 
@@ -344,7 +344,7 @@ export default function Home() {
 
 
                             <ul className='List'>
-                                <li className='Txt-Description Section-description-card'>I play badminton in my college club and pickleball @YMCA. </li>
+                                <li className='Txt-Description Section-description-card'>I play badminton at ARC club, college & pickleball @YMCA. </li>
                                 {/* <li className='Txt-Description'>I strive to cultivate a vibrant <span className='main-color'>pickleball community</span> in my city, bringing players together and promoting the sport for everyone to enjoy.</li> */}
 
                             </ul>
