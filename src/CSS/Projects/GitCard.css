@@ -86,7 +86,7 @@
 .Special-JS {
     /* background-color: var(--clr-card-clr-pill); */
     border: 1px solid var(--clr-border-clr);
-    color: white;
+    color: var(--clr-5);
 }
 
 .Special-Py {
@@ -95,6 +95,6 @@
 
     /* background-color: var(--clr-card-clr-pill); */
     border: 1px solid var(--clr-border-clr);
-    color: white;
+    color: var(--clr-52);
 
 }
