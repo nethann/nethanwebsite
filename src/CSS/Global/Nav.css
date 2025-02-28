@@ -1,18 +1,13 @@
-:root {
-    --clr-navBackground: #020409
-
-    ;
-}
-.bg-background{
-    background-color: var(--clr-navBackground);
+.bg-background {
+    background-color: var(--clr-home-container);
 }
 
-.nav-link{
+.nav-link {
     text-align: center;
     color: white;
 }
 
-#nav-link:hover{
+#nav-link:hover {
     color: var(--clr-1);
 }
 
@@ -23,16 +18,16 @@
 }
 
 /* dropdown */
-.navbar-nav .dropdown-menu{
+.navbar-nav .dropdown-menu {
     border: 0px;
-    background-color: var(--clr-navBackground);
+    background-color: var(--clr-home-container);
 }
 
-#dropdown-item{
+#dropdown-item {
     color: white;
 }
 
-#dropdown-item:hover{
+#dropdown-item:hover {
     background-color: var(--clr-home-container);
     color: var(--clr-1);
 }
