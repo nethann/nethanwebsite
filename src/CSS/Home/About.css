@@ -123,6 +123,10 @@
     padding: 1px 15px;
 }
 
+.current-location{
+    color: white;
+}
+
 
 .Description-Holder {
     display: flex;
@@ -183,6 +187,7 @@
 
 .Txt-Description {
     font-size: 18px;
+    color: white;
 }
 
 .Section-description-card{
@@ -306,6 +311,7 @@
 
 .Section-2 {
     font-size: 30px;
+    color: white;
 }
 
 
