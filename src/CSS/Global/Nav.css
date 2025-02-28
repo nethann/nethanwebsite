@@ -11,6 +11,10 @@
     color: var(--clr-1);
 }
 
+#basic-nav-dropdown:hover{
+    color: var(--clr-1) !important;
+}
+
 /* dropdown */
 .navbar-dark .navbar-toggler {
     color: rgba(255, 255, 255, 0) !important;
@@ -26,6 +30,8 @@
 #dropdown-item {
     color: white;
 }
+
+
 
 #dropdown-item:hover {
     background-color: var(--clr-home-container);
