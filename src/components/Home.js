@@ -11,11 +11,12 @@ import { useState, useEffect } from 'react';
 
 //THREE JS FIBER
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Stage } from '@react-three/drei';
+import { Bounds, OrbitControls, Stage } from '@react-three/drei';
 
 //importing 3-D model 
-import DesktopSetup from "./Home-Components/Desktop"
-import PickleballBadminton from "./Home-Components/Pickleball_badminton"
+import DesktopSetup from "./Global-Components/3-D_Models/Desktop"
+import PickleballBadminton from "./Global-Components/3-D_Models/Pickleball_badminton"
+import Nethan_Avatar from "./Global-Components/3-D_Models/Nethan_Avatar"
 
 import axios from 'axios';
 
@@ -33,6 +34,10 @@ import { Link } from 'react-router-dom';
 //animation
 import Aos from 'aos';
 import "aos/dist/aos.css"
+
+
+// Importing orbit controls 
+import ControlledOrbitControls from './Global-Components/ControlledOrbitControls';
 
 export default function Home() {
     const [enableRotate, setEnableRotate] = useState(true);
@@ -183,47 +188,62 @@ export default function Home() {
 
     const weatherIcon = `http://openweathermap.org/img/wn/${weatherLogo}@2x.png`;
 
-
-
-
-
     return (
         <div className='Home-container'>
             <section className='Welcome-Container'>
 
 
-                <div className='Weather-Status'>
-                    <img className='weather-Icon' src={weatherIcon} />
+                <div className='welcome-side-1'>
+                    <div className='Weather-Status'>
+                        <img className='weather-Icon' src={weatherIcon} />
 
 
-                    {/* <p className='weather-description'>Software Developer, 3-D modeler & Musician</p> */}
-                    {/* <p className='weather-description'>It's currently <span className='weather-span'>{weatherInfo}</span> with <span className='weather-span-2'>{weatherDescription} here.</span></p> */}
-                    {/* <p className='weather-Fahrenheit'>{Fahrenheit}°F</p> */}
+                        {/* <p className='weather-description'>Software Developer, 3-D modeler & Musician</p> */}
+                        {/* <p className='weather-description'>It's currently <span className='weather-span'>{weatherInfo}</span> with <span className='weather-span-2'>{weatherDescription} here.</span></p> */}
+                        {/* <p className='weather-Fahrenheit'>{Fahrenheit}°F</p> */}
+                    </div>
+
+
+                    <p className='margin-fix abt-txt'>
+
+                        <TypeWriterEffect
+                            textStyle={{
+                                fontFamily: 'Arial',
+                                color: 'white',
+                                fontWeight: 500,
+                                fontSize: '1em',
+                            }}
+                            cursorColor="#3F3D56"
+                            multiText={[
+                                "Nethan Nagendran",
+                            ]}
+                            typeSpeed={90}
+                        />
+
+                    </p>
+
+                    <div className='my-brief-info'>
+                        <p className='margin-fix college-info'>Computer Science @ Georgia Institute of Technology</p>
+                        <p className='margin-fix current-location'>📌 Atlanta, Georgia</p>
+                    </div>
                 </div>
 
 
-                <p className='abt-txt'>
+                <div className='welcome-side-2'>
 
-                    <TypeWriterEffect
-                        textStyle={{
-                            fontFamily: 'Arial',
-                            color: 'white',
-                            fontWeight: 500,
-                            fontSize: '1em',
-                        }}
-                        cursorColor="#3F3D56"
-                        multiText={[
-                            "Nethan Nagendran",
-                        ]}
-                        typeSpeed={90}
-                    />
+                    <Canvas>
+                        <ambientLight intensity={0.5} />
+                        <directionalLight position={[5, 5, 5]} intensity={1} />
+                        <Suspense fallback={null}>
 
-                </p>
+                            <Nethan_Avatar scale={[0.5, 0.5, 0.5]} />
 
-                <div className='my-brief-info'>
-                    <p className='margin-fix college-info'>Computer Science @ Georgia Institute of Technology</p>
-                    <p className='margin-fix current-location'>📌 Atlanta, Georgia</p>
+                            <ControlledOrbitControls enableRotate={true} enableZoom={true} />
+                        </Suspense>
+                    </Canvas>
+
                 </div>
+
 
 
             </section>
@@ -295,12 +315,13 @@ export default function Home() {
                 <div className='About-Image-2'>
                     <Canvas camera={{ fov: 40, position: [10, 3, 10] }}>
 
-                        <pointLight position={[0, 20, 10]} intensity={1.5} />
+                        <ambientLight intensity={0.5} />
+                        <directionalLight position={[5, 5, 5]} intensity={1} />
 
 
                         <Suspense fallback={null}>
                             <DesktopSetup />
-                            <OrbitControls autoRotate enableRotate={enableRotate} autoRotateSpeed={1.0} enableZoom={false} />
+                            <ControlledOrbitControls enableRotate={true} enableZoom={true} />
 
                         </Suspense>
 
@@ -316,18 +337,23 @@ export default function Home() {
 
                 <div className='About-Image-2'>
 
-                    <Canvas camera={{ fov: 20, position: [10, 3, 10] }} shadows>
-
-                        <pointLight position={[0, 20, 10]} intensity={2} />
-                        <pointLight position={[-0, -20, -10]} intensity={2} />
-
-
+                    <Canvas>
+                        <ambientLight intensity={0.5} />
+                        <directionalLight position={[5, 5, 5]} intensity={1} />
                         <Suspense fallback={null}>
                             <PickleballBadminton />
+                            <ControlledOrbitControls enableRotate={true} enableZoom={true}  />
+                        </Suspense>
+                    </Canvas>
+
+                    {/* <Canvas>
+                        <ambientLight intensity={0.5} />
+                        <directionalLight position={[5, 5, 5]} intensity={1} />
+                        <Suspense fallback={null}>
+                            <Nethan_Avatar />
                             <OrbitControls autoRotate enableRotate={enableRotate} autoRotateSpeed={2.0} enableZoom={false} />
                         </Suspense>
-
-                    </Canvas>
+                    </Canvas> */}
 
                 </div>
 
