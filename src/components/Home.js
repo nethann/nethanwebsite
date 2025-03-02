@@ -7,8 +7,6 @@ import "../CSS/Global/Global.css"
 import { Suspense } from 'react'
 import { useState, useEffect } from 'react';
 
-
-
 //THREE JS FIBER
 import { Canvas } from '@react-three/fiber';
 import { Bounds, OrbitControls, Stage } from '@react-three/drei';
@@ -20,7 +18,7 @@ import Nethan_Avatar from "./Global-Components/3-D_Models/Nethan_Avatar"
 
 import axios from 'axios';
 
-import "../CSS/Home/About.css"
+import "../CSS/Home/Home.css"
 import "../CSS/Global/Stickers.css"
 
 import TypeWriterEffect from 'react-typewriter-effect';
