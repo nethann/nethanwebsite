@@ -23,12 +23,6 @@ import axios from 'axios';
 
 import Astra from "./Images/AstraPfp.png"
 
-// importing components
-import StickerWithPosition from './StickerWithPosition';
-
-// importing stickers
-import FishSticker from "./Stickers/FishSticker.png"
-
 export default function Contact() {
 
   const renderTooltip = (props) => (
