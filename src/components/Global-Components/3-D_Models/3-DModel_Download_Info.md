@@ -1,4 +1,4 @@
-# How to imoprt 3-D models to react? 
+# How to import 3-D models to react? 
 
 1. Download the blender model as **.glb file**. (Make sure you apply the modifiers & only selection)
 2. Drag & drop your .glb file to the **public folder** in React
