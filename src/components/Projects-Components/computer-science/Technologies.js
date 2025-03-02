@@ -6,20 +6,22 @@ import "../../../CSS/Projects/Technologies.css"
 import Techcard from './Techcard'
 
 //ICONS IMPORT 
-import c from "../../Home-Components/Technology/Icons/c.png"
-import css3 from "../../Home-Components/Technology/Icons/css3.png"
-import git from "../../Home-Components/Technology/Icons/git.png"
-import github from "../../Home-Components/Technology/Icons/github.png"
-import html5 from "../../Home-Components/Technology/Icons/html5.png"
-import node from "../../Home-Components/Technology/Icons/node.png"
-import python from "../../Home-Components/Technology/Icons/python.png"
-import r from "../../Home-Components/Technology/Icons/r.png"
-import react from "../../Home-Components/Technology/Icons/react.png"
-import swift from "../../Home-Components/Technology/Icons/swift.png"
-import vscode from "../../Home-Components/Technology/Icons/vscode.png"
-import blender from "../../Home-Components/Technology/Icons/blender.png"
-import firebase from "../../Home-Components/Technology/Icons/firebase.png"
-import arduino from "../../Home-Components/Technology/Icons/Arduino.png"
+
+import c from "../Icons/c.png"
+import css3 from "../Icons/css3.png"
+import git from "../Icons/git.png"
+import github from "../Icons/github.png"
+import html5 from "../Icons/html5.png"
+import node from "../Icons/node.png"
+import python from "../Icons/python.png"
+import r from "../Icons/react.png"
+import swift from "../Icons/swift.png"
+import vscode from "../Icons/vscode.png"
+import blender from "../Icons/blender.png"
+import firebase from "../Icons/firebase.png"
+import arduino from "../Icons/Arduino.png"
+import react from "../Icons/react.png"
+
 
 
 import Aos from 'aos';

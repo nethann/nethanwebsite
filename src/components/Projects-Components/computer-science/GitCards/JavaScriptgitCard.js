@@ -1,7 +1,7 @@
 import React from 'react'
 
 import "../../../../CSS/Projects/GitCard.css"
-import github from "../../../Home-Components/Technology/Icons/github.png"
+import github from "../../Icons/github.png"
 
 import Tilt from 'react-parallax-tilt';
 
