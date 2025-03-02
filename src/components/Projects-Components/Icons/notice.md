@@ -11,11 +11,6 @@ This file was created to keep in track of the website for Icons
 > More documentation on how MD words : https://medium.com/@saumya.ranjan/how-to-write-a-readme-md-file-markdown-file-20cb7cbcd6f
 
 
-
-
-
-
 > Typewriter Effect Website: https://www.npmjs.com/package/typewriter-effect
-
 
 >https://nethan.dev?1
