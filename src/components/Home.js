@@ -90,98 +90,6 @@ export default function Home() {
             once: true
         });
 
-        // const presenceInterval = setInterval(() => {
-        //     axios.get(discordUrl).then((discordResponse) => {
-        //         const disVar = discordResponse.data.data.discord_status;
-
-
-        //         if (disVar === 'online') {
-        //             setdiscordStatus("online");
-        //             setdiscordStatusClass('discord-online')
-        //         }
-
-        //         else if (disVar === 'idle') {
-        //             setdiscordStatus("online");
-        //             // setdiscordStatus("on idle");
-        //             setdiscordStatusClass('discord-online')
-        //             // setdiscordStatusClass('discord-idle')
-        //         }
-
-        //         else if (disVar === 'dnd') {
-        //             setdiscordStatus("online");
-        //             // setdiscordStatus("on do not disturb");
-        //             setdiscordStatusClass('discord-online')
-        //             // setdiscordStatusClass('discord-dnd')
-        //         }
-
-        //         else if (disVar === 'offline') {
-        //             setdiscordStatus("offline");
-        //             setdiscordStatusClass('discord-offline')
-        //         }
-
-        //     })
-        // }, 5000)
-
-
-
-        axios.get(discordUrl).then((discordResponse) => {
-            const disVar = discordResponse.data.data.discord_status;
-
-
-            if (disVar === 'online') {
-                setdiscordStatus("online");
-                setdiscordStatusClass('discord-online')
-                setDiscordPulse('discord-pulse-online')
-            }
-
-            else if (disVar === 'idle') {
-                setdiscordStatus("online");
-                // setdiscordStatus("on idle");
-                setdiscordStatusClass('discord-online')
-                setDiscordPulse('discord-pulse-idle')
-
-                // setdiscordStatusClass('discord-idle')
-            }
-
-            else if (disVar === 'dnd') {
-                setdiscordStatus("online");
-                // setdiscordStatus("on do not disturb");
-                setdiscordStatusClass('discord-online')
-                setDiscordPulse('discord-pulse-dnd')
-
-                // setdiscordStatusClass('discord-dnd')
-            }
-
-            else if (disVar === 'offline') {
-                setdiscordStatus("offline");
-                setDiscordPulse('discord-pulse-offline')
-
-                setdiscordStatusClass('discord-offline')
-            }
-
-        })
-
-
-        //For the 3-d models if the size is less than given value, it will disable rotation for webflow
-        const handleResize = () => {
-            if (window.innerWidth <= 800) {
-                setEnableRotate(false); // Disable rotation for smaller screens
-            } else {
-                setEnableRotate(true); // Enable rotation for larger screens
-            }
-        };
-
-        // Initial check on load
-        handleResize();
-
-        // Add resize event listener
-        window.addEventListener('resize', handleResize);
-
-        // Cleanup the event listener on component unmount
-        return () => window.removeEventListener('resize', handleResize);
-
-        // return () => clearInterval(presenceInterval);
-
     }, [])
 
     const weatherIcon = `http://openweathermap.org/img/wn/${weatherLogo}@2x.png`;
@@ -194,11 +102,6 @@ export default function Home() {
                 <div className='welcome-side-1'>
                     <div className='Weather-Status'>
                         <img className='weather-Icon' src={weatherIcon} />
-
-
-                        {/* <p className='weather-description'>Software Developer, 3-D modeler & Musician</p> */}
-                        {/* <p className='weather-description'>It's currently <span className='weather-span'>{weatherInfo}</span> with <span className='weather-span-2'>{weatherDescription} here.</span></p> */}
-                        {/* <p className='weather-Fahrenheit'>{Fahrenheit}°F</p> */}
                     </div>
 
 
@@ -256,13 +159,11 @@ export default function Home() {
 
                 <div className='About-Description-Holder'>
                     <div className='About-Txt'>
-                        {/* <h2 className='Nethan-Name'>About me</h2> */}
                         <div className='Description-Holder'>
                             <p className='Section main-color'>About me 🐊 </p>
 
 
                             <ul className='List'>
-                                {/* <li className='Txt-Description'>I am a {age_now} year old Software Developer living in America.</li> */}
                                 <li className='Txt-Description'>Hi, I’m Nethan Nagendran, a {age_now}-year-old computer science student and passionate programmer with a love for creating impactful projects</li>
                                 <li className='Txt-Description'>When I’m not coding, you’ll find me singing, strumming my guitar, gaming, playing pickleball, or badminton.</li>
                                 <p className={`Txt-Description`}>Right now, I'm <span className={discordStatusClass}>{discordStatus}</span></p>
@@ -282,9 +183,6 @@ export default function Home() {
 
 
             <section className='About-Container-2' data-aos="fade-right">
-
-                {/* <img className='Sticker' src={MonkeySticker} style={imageStyle} />  */}
-
 
                 <div className='About-Description-Holder-2'>
 
@@ -340,36 +238,20 @@ export default function Home() {
                         <directionalLight position={[5, 5, 5]} intensity={1} />
                         <Suspense fallback={null}>
                             <PickleballBadminton />
-                            <ControlledOrbitControls enableRotate={true} enableZoom={true}  />
+                            <ControlledOrbitControls enableRotate={true} enableZoom={true} />
                         </Suspense>
                     </Canvas>
 
-                    {/* <Canvas>
-                        <ambientLight intensity={0.5} />
-                        <directionalLight position={[5, 5, 5]} intensity={1} />
-                        <Suspense fallback={null}>
-                            <Nethan_Avatar />
-                            <OrbitControls autoRotate enableRotate={enableRotate} autoRotateSpeed={2.0} enableZoom={false} />
-                        </Suspense>
-                    </Canvas> */}
-
                 </div>
-
-
-
-
 
                 <div className='About-Description-Holder-2'>
                     <div className='About-Txt-2'>
                         <h2 className="Developer-Title main-color">Pickleball & Badminton 👻</h2>
 
                         <div className='Description-Holder-2'>
-                            {/* <p className='Section-2'>Who am I <span className='main-color'>&</span> How did I get here?</p> */}
-
 
                             <ul className='List'>
                                 <li className='Txt-Description Section-description-card'>I play badminton at ARC club, college & pickleball @YMCA. </li>
-                                {/* <li className='Txt-Description'>I strive to cultivate a vibrant <span className='main-color'>pickleball community</span> in my city, bringing players together and promoting the sport for everyone to enjoy.</li> */}
 
                             </ul>
                         </div>
@@ -381,13 +263,6 @@ export default function Home() {
 
             </section>
         </div>
-
-
-
-
-
-
-
 
     )
 }
