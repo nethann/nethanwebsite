@@ -1,3 +1,6 @@
+
+// For scolling disabling 3-D model rotation for .5 seconds. Reason programmed because of mobile responsiveness. 
+
 import { useState, useEffect } from "react";
 import { OrbitControls } from "@react-three/drei";
 
