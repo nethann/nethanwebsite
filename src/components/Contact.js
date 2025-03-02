@@ -80,14 +80,6 @@ export default function Contact() {
     once: true
   });
 
-
-
-
-
-
-
-
-
   return (
     <div className='Home-container'>
 
@@ -95,7 +87,6 @@ export default function Contact() {
 
 
         {<form className='Contact-Form' ref={form} onSubmit={sendEmail} data-aos="fade-right">
-
 
           <div className='ContactSection-1'>
             <p className='Contact-Title'>Get in touch</p>
@@ -148,10 +139,6 @@ export default function Contact() {
 
 
       </section>
-
-
-
-
 
     </div>
   )
