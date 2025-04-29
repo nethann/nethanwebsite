@@ -9,7 +9,6 @@ import Tooltip from 'react-bootstrap/Tooltip';
 import { FaDiscord, FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { AiFillGithub } from "react-icons/ai"
 
-import Tilt from 'react-parallax-tilt';
 
 // importing CSS
 import "../CSS/Contact/Contact.css"

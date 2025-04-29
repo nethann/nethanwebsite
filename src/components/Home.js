@@ -9,7 +9,6 @@ import { useState, useEffect } from 'react';
 
 //THREE JS FIBER
 import { Canvas } from '@react-three/fiber';
-import { Bounds, OrbitControls, Stage } from '@react-three/drei';
 
 //importing 3-D model 
 import DesktopSetup from "./Global-Components/3-D_Models/Desktop"
@@ -25,9 +24,7 @@ import TypeWriterEffect from 'react-typewriter-effect';
 
 import NethanPC from "../images/Home/Nethan.png"
 
-import Tilt from 'react-parallax-tilt';
 
-import { Link } from 'react-router-dom';
 
 //animation
 import Aos from 'aos';

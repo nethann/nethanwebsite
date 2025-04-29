@@ -17,11 +17,9 @@ import MusicVids from './Music_components/MusicVids'
 import Typewriter from 'typewriter-effect';
 
 import { useEffect } from 'react';
-import PlacesPlayed from './PlacesPlayed'
 
 // import MusicPlayedPlaces from "./Music_components/MusicPlayedPlaces"
 //animation
-import Aos from 'aos';
 import "aos/dist/aos.css"
 
 //importing music videos
