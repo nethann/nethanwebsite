@@ -6,7 +6,7 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 
 //React Icons
-import { FaDiscord, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import { FaDiscord, FaInstagram, FaLinkedinIn, FaYoutube } from "react-icons/fa";
 import { AiFillGithub } from "react-icons/ai"
 
 
@@ -133,6 +133,10 @@ export default function Contact() {
 
           <a href='https://github.com/nethann' target='_blank' rel='noreferrer' className='contact-icon-tag git-icon'>
             <AiFillGithub className='Contact-Icon' />
+          </a>
+
+          <a href='https://www.youtube.com/@nethan_journey' target='_blank' rel='noreferrer' className='contact-icon-tag git-icon'>
+            <FaYoutube className='Contact-Icon' />
           </a>
         </div>
 
