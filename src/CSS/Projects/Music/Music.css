@@ -156,9 +156,8 @@
 .created-music-cards-holder {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* background-color: pink; */
-    /* place-items: center; */
-    gap: 2em;
+    place-items: center;
+    gap: 0em;
 
     width: 100%;
 }
