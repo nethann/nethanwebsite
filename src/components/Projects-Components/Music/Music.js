@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import "../../../CSS/Projects/Music/Music.css"
 
@@ -16,7 +16,6 @@ import MusicVids from './Music_components/MusicVids'
 
 import Typewriter from 'typewriter-effect';
 
-import { useEffect } from 'react';
 
 // import MusicPlayedPlaces from "./Music_components/MusicPlayedPlaces"
 //animation
@@ -28,9 +27,34 @@ import JamTrack1_bossa_nova from "./Music_Vids/JamTrack1_BossaNova.mp4"
 
 export default function Music() {
 
+  const reels = [
+    'https://www.instagram.com/p/DJVknZ_u4d3/',
+    'https://www.instagram.com/p/DI5KdMFRIU9/',
+    'https://www.instagram.com/p/C9LoBCwvuVr/',
+    'https://www.instagram.com/p/C80M36dvUq5/'
+  ];
+
   useEffect(() => {
-    window.scrollTo(0, 0); // Scrolls to the top of the page
+    window.scrollTo(0, 0);
+  
+    const script = document.createElement('script');
+    script.src = 'https://www.instagram.com/embed.js';
+    script.async = true;
+  
+    // When the script is loaded, trigger the parser
+    script.onload = () => {
+      if (window.instgrm) {
+        window.instgrm.Embeds.process();
+      }
+    };
+  
+    document.body.appendChild(script);
+  
+    return () => {
+      document.body.removeChild(script);
+    };
   }, []);
+  
   return (
     <div className='Home-container'>
       <div className='Music'>
@@ -113,13 +137,25 @@ export default function Music() {
           </div>
         </div> */}
 
-        <div className='recorded-instruments' >
+        {/* <div className='recorded-instruments' >
           <h3>My Recorded Covers</h3>
           <div className='created-music-cards-holder'>
             <MusicVids Title='Birds of a feather' Instrument='Electric Guitar' Video={Birds_of_feather} />
             <MusicVids Title='Bossa Nova Jam' Instrument='Accoustic Guitar ' Video={JamTrack1_bossa_nova} />
 
           </div>
+        </div> */}
+
+        <div className='instagram-reels-holder'>
+          {reels.map((url, index) => (
+            <div
+              key={index}
+              className="reel"
+              dangerouslySetInnerHTML={{
+                __html: `<blockquote class="instagram-media" data-instgrm-permalink="${url}" data-instgrm-version="14"></blockquote>`,
+              }}
+            />
+          ))}
         </div>
 
 
