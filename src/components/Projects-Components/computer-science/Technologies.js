@@ -21,6 +21,7 @@ import blender from "../Icons/blender.png"
 import firebase from "../Icons/firebase.png"
 import arduino from "../Icons/Arduino.png"
 import react from "../Icons/react.png"
+import Java from "../Icons/Java.png"
 
 
 
@@ -60,6 +61,7 @@ export default function Technologies() {
                     <Techcard name="VS Code" image={vscode} />
                     <Techcard name="Firebase" image={firebase} />
                     <Techcard name="Arduino" image={arduino} />
+                    <Techcard name="Java" image={Java} />
                 </div>
             </section>
 
