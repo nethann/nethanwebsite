@@ -22,7 +22,7 @@ import "../CSS/Global/Stickers.css"
 
 import TypeWriterEffect from 'react-typewriter-effect';
 
-import NethanPC from "../images/Home/Nethan2.JPG"
+import NethanPC from "./Projects-Components/Photography/Photograph_Images/nethan1.jpg"
 
 
 
