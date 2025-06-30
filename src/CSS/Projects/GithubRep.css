@@ -1,7 +1,7 @@
 .Git-Container{
     margin-top: 50px;
     width: 85%;
-    background-color: transparent;
+    background-color: pink;
 
     display: flex;
     flex-direction: column;
@@ -24,7 +24,7 @@
     display: grid;
     gap: 1em;
 
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(4, 1fr);
 
 
 

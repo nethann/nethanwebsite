@@ -1,9 +1,8 @@
-/* GitHub Repository Cards */
 .Git-Card {
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Ensures consistent spacing */
-    align-items: stretch; /* Makes sure content stretches evenly */
+    justify-content: space-between;
+    align-items: stretch;
     gap: 1em;
     background-color: var(--clr-card-clr);
     border-radius: 8px;
@@ -12,9 +11,10 @@
     text-decoration: none;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
-    
-    height: 100%; /* Ensures all cards take up the same height */
-    min-height: 230px; /* Adjust as needed */
+
+    height: 100%;
+    min-height: 300px; /* Increased for consistency across varied text */
+    box-sizing: border-box;
 }
 
 .Git-Card:hover {
@@ -51,12 +51,11 @@
     color: var(--clr-1);
 }
 
-/* Second Section: Description & Languages */
 .Git-Card-SecondSection {
-    flex-grow: 1; /* Makes sure this section expands to fill empty space */
     display: flex;
     flex-direction: column;
-    justify-content: space-between; 
+    justify-content: space-between;
+    flex-grow: 1;
     background-color: transparent;
     
 }
@@ -64,22 +63,32 @@
 .git-Description {
     font-size: 15px;
     color: white;
-    flex-grow: 1; /* Ensures descriptions take up uniform space */
+    flex-grow: 1;
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 5; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* Language Container */
 .Lang-Container {
     display: flex;
-    justify-content: right;
+    justify-content: flex-end;
     width: 100%;
+    margin-top: 10px;
 }
 
 .Languages {
     padding: 5px;
     border-radius: 7px;
-    width: 100%; /* Prevents stretching */
     font-size: 14px;
     text-align: center;
+    border: 1px solid var(--clr-border-clr);
+    color: var(--clr-52);
+    background-color: transparent;
+    width: auto;
 }
 
 /* JavaScript and Python Badge Styling */
