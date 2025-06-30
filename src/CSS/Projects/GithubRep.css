@@ -1,7 +1,7 @@
 .Git-Container{
     margin-top: 50px;
     width: 85%;
-    background-color: pink;
+    background-color: transparent;
 
     display: flex;
     flex-direction: column;

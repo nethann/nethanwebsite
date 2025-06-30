@@ -17,6 +17,7 @@ import Projects from "./components/Projects";
 import Contact from "./components/Contact";
 import Modeling from './components/Projects-Components/3d-modeling/Modeling';
 import Music from './components/Projects-Components/Music/Music';
+import Photography from './components/Projects-Components/Photography/Photography';
 
 import { useState } from 'react';
 
@@ -41,6 +42,7 @@ function App() {
                   <NavDropdown  title="Projects" id="basic-nav-dropdown">
                     <NavDropdown.Item id='dropdown-item'   onClick={() => setExpanded(false)} as={Link} to="/projects">Computer Science</NavDropdown.Item>
                     <NavDropdown.Item id='dropdown-item'  onClick={() => setExpanded(false)} as={Link} to="/music">Music</NavDropdown.Item>
+                    <NavDropdown.Item id='dropdown-item'  onClick={() => setExpanded(false)} as={Link} to="/photography">Photography</NavDropdown.Item>
                     <NavDropdown.Item id='dropdown-item'   onClick={() => setExpanded(false)} as={Link} to="/gameDevelopment">Game Dev</NavDropdown.Item>
 
                   </NavDropdown>
@@ -56,6 +58,7 @@ function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/music" element={<Music />} />
+            <Route path="/photography" element={<Photography />} />
             <Route path="/gameDevelopment" element={<Modeling />} /> 
 
           </Routes>

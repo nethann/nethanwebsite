@@ -1,0 +1,58 @@
+.photography-page {
+  padding: 2rem;
+  color: white;
+  max-width: 1300px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.photograph-intro h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.photograph-intro p {
+  font-size: 1rem;
+  color: #ccc;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+}
+
+
+
+@media screen and (max-width: 992px) {
+  .photo-grid {
+    column-count: 2;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .photo-grid {
+    column-count: 1;
+  }
+}
+
+.photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+
+
+.photo:hover {
+  transform: scale(1.02);
+}
