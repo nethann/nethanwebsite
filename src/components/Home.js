@@ -18,7 +18,7 @@ import Nethan_Avatar from "./Global-Components/3-D_Models/Nethan_Avatar"
 import axios from 'axios';
 
 import "../CSS/Home/Home.css"
-import "../CSS/Global/Stickers.css"
+import '../CSS/Global/Stickers.css';
 
 import TypeWriterEffect from 'react-typewriter-effect';
 
