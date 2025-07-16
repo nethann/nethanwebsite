@@ -27,7 +27,7 @@ export default function Photography() {
     <div className="photography-page">
       <section className="photograph-intro">
         <h1>Pictures I Have Taken So Far</h1>
-        <p>Explore moments I've captured through my lens.</p>
+        <p>Moments in time, framed through my lens</p>
       </section>
 
       <section className="photograph-gallery">

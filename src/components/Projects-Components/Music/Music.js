@@ -47,7 +47,7 @@ export default function Music() {
     <div className='Home-container'>
       <div className='Music'>
         <h2 className='Music-title'>
-          <span className="apple-style typewriter-text">
+          <span className=" typewriter-text">
             <Typewriter
               onInit={(typewriter) => {
                 typewriter
@@ -55,7 +55,7 @@ export default function Music() {
                   .start();
               }}
               options={{
-                delay: 80,
+                delay: 60,
               }}
             />
           </span>
