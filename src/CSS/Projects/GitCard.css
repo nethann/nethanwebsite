@@ -18,7 +18,9 @@
 }
 
 .Git-Card:hover {
-    background-color: var(--clr-evolution-card-hover);
+    background-color: var(--clr-7);
+    color: white;
+    box-shadow: 0 0 15px rgba(91, 66, 243, 0.4);
 }
 
 /* First Section: GitHub Icon + Repo Name */

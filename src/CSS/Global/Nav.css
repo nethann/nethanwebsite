@@ -31,7 +31,7 @@
     position: absolute;
     z-index: 9999;
     border: 0px;
-    background-color: pink;
+    background-color: var(--clr-nav-dropdown-clr);
 }
 
 #dropdown-item {

@@ -38,7 +38,7 @@ export default function Technologies() {
     return (
         <>
             <section className='Tech-Container'>
-                <p className='Tech-Title apple-style'>Technologies I use</p>
+                <p className='Tech-Title '>Technologies I use</p>
 
                 <div className='Tech-Grid' data-aos="fade-right">
                     <Techcard name="Python" image={python} />

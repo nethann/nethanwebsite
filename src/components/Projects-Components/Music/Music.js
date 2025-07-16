@@ -55,7 +55,7 @@ export default function Music() {
                   .start();
               }}
               options={{
-                delay: 60,
+                delay: 40,
               }}
             />
           </span>

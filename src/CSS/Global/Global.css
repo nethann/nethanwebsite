@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');:root {
-    --clr-evolution-card-hover: #15181d;
+    --clr-evolution-card-hover: #131313;
     /* --clr-evolution-card-hover: #2e2e2ece; */
-    --clr-card-clr: #15181d;
+    --clr-card-clr: #0a0a0a;
 
     --clr-contact-form-background : #12151b;
     --clr-card-inside-card: rgba(0, 0, 0, 0.094);
@@ -19,6 +19,7 @@
     ---clr-5: #00b8cb;
     --clr-6: #969c95;
     --clr-52: #c3afff;
+    --clr-7: #5a42f3f1;
     --clr-gt-clr: #B3A369;
 
 
@@ -46,6 +47,8 @@
 
     /* Color of the navbar */
     --clr-home-container: transparent;
+
+    --clr-nav-dropdown-clr: rgb(15, 15, 15);
 }
 
 body, html{
