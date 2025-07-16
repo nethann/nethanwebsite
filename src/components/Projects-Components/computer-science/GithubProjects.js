@@ -26,7 +26,10 @@ export default function GithubProjects() {
             <section className='Git-Container' data-aos="fade-right">
                 <p className='Git-Title'>Github Repositories 🍁 : </p>
 
-                <ContributionCalendar />
+                <div>
+                    <p className='margin-fix'>2025 Contributions chart:</p>
+                    <ContributionCalendar />
+                </div>
 
 
 

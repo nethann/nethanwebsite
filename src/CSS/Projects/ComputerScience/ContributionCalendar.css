@@ -1,13 +1,25 @@
+.calendar-scroll-wrapper {
+  overflow-x: auto;
+  width: 100%;
+}
+
 .contrib-calendar {
   display: grid;
   grid-template-columns: repeat(53, 1fr); /* GitHub uses 53 weeks */
-  grid-template-rows: repeat(7, auto);    /* 7 days per week */
+  grid-template-rows: repeat(7, auto);
   gap: 2px;
   padding: 20px;
   border-radius: 12px;
-  overflow-x: hidden;
+  overflow-x: auto;
   max-width: 100%;
   background-color: transparent;
+  
+  /* Hide scrollbar in desktop */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+.contrib-calendar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
 }
 
 .contrib-day {
@@ -34,7 +46,6 @@
 .status-message.error {
   color: red;
 }
-
 
 .tooltip-wrapper {
   position: relative;
