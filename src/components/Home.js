@@ -10,7 +10,6 @@ import axios from 'axios';
 
 import '../CSS/Global/Global.css';
 import '../CSS/Home/Home.css';
-import '../CSS/Global/Stickers.css';
 
 import TypeWriterEffect from 'react-typewriter-effect';
 
@@ -39,7 +38,6 @@ const Home = () => {
                         textAlign: 'center',
                         marginTop: '1.5rem' // space between headline and typewriter
                     }}
-                    startDelay={1000}
                     cursorColor="white"
                     text="Follow my journey through music, code, and the lens."
                     typeSpeed={30}

@@ -1,19 +1,12 @@
 /* Home.css */
 
-
-
-
-
-
 /* Remove the overflow hidden from body */
 body {
     margin: 0;
     padding: 0;
-    background-color: #0d0d0d;
-    color: white;
     font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     height: 100vh;
-    overflow: auto; /* Allow scrolling */
+    overflow: auto; 
 }
 
 .homepage {
