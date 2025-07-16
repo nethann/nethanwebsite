@@ -18,8 +18,15 @@ body {
     box-sizing: border-box;
     padding: 0 1rem;
 
+    background-color: black;
+
     font-family: "Quicksand";
 }
+
+
+
+
+
 
 
 .hero {
