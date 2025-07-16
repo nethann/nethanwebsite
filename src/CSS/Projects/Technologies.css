@@ -18,6 +18,14 @@
     color: var(--clr-global-white);
 }
 
+.Tech-GitChart {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    display: block;
+}
+
+
 .About-Tech{
     width: 65%;
     background-color: transparent;

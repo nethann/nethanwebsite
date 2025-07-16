@@ -5,6 +5,9 @@ import PythongitCard from "../computer-science/GitCards/PythongitCard"
 import JavaScriptgitCard from '../computer-science/GitCards/JavaScriptgitCard';
 
 
+import ContributionCalendar from './ContributionCalendar';
+
+
 import Aos from 'aos';
 import "aos/dist/aos.css"
 
@@ -22,6 +25,9 @@ export default function GithubProjects() {
         <>
             <section className='Git-Container' data-aos="fade-right">
                 <p className='Git-Title'>Github Repositories 🍁 : </p>
+
+                <ContributionCalendar />
+
 
 
 
