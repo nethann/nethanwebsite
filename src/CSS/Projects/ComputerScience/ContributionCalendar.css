@@ -1,25 +1,32 @@
 .calendar-scroll-wrapper {
   overflow-x: auto;
+  overflow-y: visible;
+  position: relative;
   width: 100%;
+  max-width: 100%;
+
+  /* Hide scrollbar in desktop */
+  scrollbar-width: none;         /* Firefox */
+  -ms-overflow-style: none;      /* IE and Edge */
+}
+.calendar-scroll-wrapper::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+
+
+
 }
 
 .contrib-calendar {
   display: grid;
   grid-template-columns: repeat(53, 1fr); /* GitHub uses 53 weeks */
-  grid-template-rows: repeat(7, auto);
+  grid-template-rows: repeat(7, auto);    /* 7 days per week */
   gap: 2px;
   padding: 20px;
   border-radius: 12px;
-  overflow-x: auto;
-  max-width: 100%;
   background-color: transparent;
-  
-  /* Hide scrollbar in desktop */
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
-}
-.contrib-calendar::-webkit-scrollbar {
-  display: none; /* Chrome, Safari, Opera */
+  max-width: max-content; /* Critical for scrollable width */
+  position: relative;
+
 }
 
 .contrib-day {
@@ -54,21 +61,36 @@
 
 .tooltip-text {
   visibility: hidden;
-  width: max-content;
-  background-color: #1c1c1c;
-  color: #fff;
+  color: white;
+  background-color: var(--clr-card-clr);
   text-align: center;
-  padding: 4px 6px;
+  padding: 5px;
   border-radius: 4px;
   font-size: 12px;
   position: absolute;
   z-index: 20;
   bottom: 125%;
-  left: 50%;
-  transform: translateX(-50%);
   opacity: 0;
   transition: opacity 0.2s ease-in-out;
-  white-space: nowrap;
+  white-space: nowrap; /* keep it on one line */
+  max-width: none;      /* allow it to grow */
+}
+
+
+.tooltip-center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tooltip-left {
+  left: 0;
+  transform: translateX(0);
+}
+
+.tooltip-right {
+  right: 0;
+  left: auto;
+  transform: translateX(0);
 }
 
 .tooltip-wrapper:hover .tooltip-text {

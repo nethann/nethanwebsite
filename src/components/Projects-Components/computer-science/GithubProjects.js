@@ -26,16 +26,13 @@ export default function GithubProjects() {
             <section className='Git-Container' data-aos="fade-right">
                 <p className='Git-Title'>Github Repositories 🍁 : </p>
 
-                <div>
-                    <p className='margin-fix'>2025 Contributions chart:</p>
-                    <ContributionCalendar />
-                </div>
+                <ContributionCalendar />
 
 
 
 
                 <div className='Github-Grid'>
-                    <PythongitCard gitName="GTWalkThrough" description="GTWalkThrough is a community-powered web app designed to help Georgia Tech students and staff navigate campus more efficiently by avoiding active construction zones." Git_Link="https://github.com/nakulshah04/GTWalkThrough" /> 
+                    <PythongitCard gitName="GTWalkThrough" description="GTWalkThrough is a community-powered web app designed to help Georgia Tech students and staff navigate campus more efficiently by avoiding active construction zones." Git_Link="https://github.com/nakulshah04/GTWalkThrough" />
                     <PythongitCard gitName="GTMovieStore" description="GTMovieStore is a web application that allows users to browse, review, and purchase movies with a seamless shopping cart experience." Git_Link="https://github.com/nakulshah04/GTMovieStore" />
                     <PythongitCard gitName="betterCanvas" description="A simple, interactive Tkinter-based GUI that connects to your Georgia Tech Canvas account and displays all upcoming assignments (due today or later) for your current active courses." Git_Link="https://github.com/nethann/betterCanvas" />
                     <PythongitCard gitName="googleForm_Requests" description="Automate Google Forms by sending multiple Requests" Git_Link="https://github.com/nethann/googleForm_Requests/tree/main" />
