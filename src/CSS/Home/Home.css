@@ -1,523 +1,206 @@
-:root {
-    --clr-evolution-card-color: #26282c;
+/* Home.css */
 
-    --clr-1: #2eca9be0;
-    --clr-2: #e2a33d;
-    --clr-3: #ff752d;
-    --clr-4: #F16085;
-    --clr-5: #00b8cb;
-    --clr-7: #8965eb;
+
+
+
+
+
+/* Remove the overflow hidden from body */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #0d0d0d;
+    color: white;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    height: 100vh;
+    overflow: auto; /* Allow scrolling */
 }
 
-
-canvas {
-    width: 100% !important;
-    height: 100% !important;
-    display: block;
-}
-
-
-
-.Welcome-Container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    place-items: center;
-    gap: 0.5em;
-    min-height: 100vh;
-    place-items: center;
-}
-
-
-.welcome-side-1 {
-    width: 100%;
+.homepage {
     display: flex;
     flex-direction: column;
-    gap: 1em;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    min-height: 90vh; 
+    box-sizing: border-box;
+    padding: 0 1rem;
+
+    font-family: "Quicksand";
+}
+
+
+.hero {
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    /* Margin between the I create code and follow my journey */
+    margin-bottom: 1.5rem;
+
+}
+
+.apple-style {
+    background: linear-gradient(90deg, #4a6cf7, #b56cff, #f87c56);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    animation: subtle-shimmer 6s ease-in-out infinite;
+}
+
+@keyframes subtle-shimmer {
+    0% {
+        background-position: 0% center;
+    }
+
+    50% {
+        background-position: 100% center;
+    }
+
+    100% {
+        background-position: 0% center;
+    }
+}
+
+
+
+.hero p {
+    font-size: 1.25rem;
+    color: #bbbbbb;
+}
+
+.intro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+    max-width: 1200px;
+    width: 100%;
+    margin-top: 4rem;
+
+    padding: 20px;
+}
+
+.intro-text {
+    flex: 1;
+    min-width: 280px;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+
+    border: 1px solid rgba(255, 255, 255, 0.13);
+    padding: 40px;
+    border-radius: 10px;
+    gap: 1.2rem;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    image-rendering: auto;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+
+.gradient-name {
+  background: linear-gradient(90deg, #9dbbff, #dab6ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+
+
+
+.intro-text h2 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.intro-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #cccccc;
+}
+
+.contact-btn {
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    background-color: white;
+    color: black;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    text-decoration: none;
+}
+
+.contact-btn:hover {
+    background-color: #e2e2e2;
 }
 
 .welcome-side-2 {
-    width: 100%;
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+    height: 400px;
+    max-height: 400px; /* add this line */
+    overflow: hidden;
+    background-color: transparent;
+    border-radius: 1rem;
     display: flex;
+    justify-content: center;
     align-items: center;
-    justify-content: center;
-    height: 100vh;
 }
 
 
 
-
-
-.abt-txt {
-    font-size: 35px;
-}
-
-.Weather-Status {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    background-color: transparent;
-    width: 100%;
-}
-
-.weather-image-holder {
-    background-color: transparent;
-}
-
-.weather-description {
-    font-size: 18px;
-    background-color: transparent;
-}
-
-.weather-Icon {
-    background-color: transparent;
-    width: 80px;
-}
-
-.weather-span {
-    color: var(--clr-1);
-}
-
-.weather-span-2 {
-    color: var(--clr-1);
-}
-
-
-
-
-
-
-
-
-.About-Container {
-    min-height: 30vh;
-    width: 90%;
-    /* background-color: blue; */
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-}
-
-
-
-
-.About-Description-Holder {
-    display: flex;
-    justify-content: center;
-    background-color: transparent;
-}
-
-
-
-
-
-
-.About-Txt {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    padding: 10px;
-    background-color: transparent;
-
-}
-
-
-.Nethan-Name {
-    margin-top: auto;
-    margin-bottom: auto;
-
-}
-
-.my-brief-info {
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    gap: 0.5em;
-
-    font-size: 18px;
-}
-
-.college-info {
-    /* background-color: var(--clr-yellow);
-    color: var(--clr-2); */
-    /* border: 1px solid var(--clr-border-clr); */
-    color: var(--clr-gt-clr);
-    border-radius: 5px;
-    padding: 3px 15px;
-}
-
-.current-location {
-    color: white;
-}
-
-
-.Description-Holder {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-
-
-    /* background-color: blue; */
-
-    border-left: 3px solid white;
-
-    position: relative;
-
-}
-
-.List {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    list-style: none;
-
-    background-color: transparent;
-}
-
-/* discord */
-.discord-online {
-    color: var(--clr-1);
-}
-
-.discord-idle {
-    color: var(--clr-2);
-}
-
-.discord-dnd {
-    color: var(--clr-4);
-}
-
-.discord-offline {
-    color: var(--clr-6)
-}
-
-
-
-
-/* discord ENDS */
-
-
-
-
-.Section {
-    font-size: 25px;
-}
-
-
-
-
-
-.Txt-Description {
-    font-size: 18px;
-    color: white;
-}
-
-.Section-description-card {
-    padding: 15px;
-    border-radius: 8px;
-
-    background-color: var(--clr-card-clr);
-}
-
-.main-color {
-    color: var(--clr-1);
-}
-
-.lang-1 {
-    color: var(--clr-7);
-}
-
-.lang-2 {
-    color: var(--clr-2);
-}
-
-.lang-3 {
-    color: var(--clr-4);
-}
-
-.About-Image {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background-color: transparent;
-
-}
-
-.Nethan-Pic {
-    width: 500px;
-    border-radius: 8px;
-}
-
-
-
-
-
-/* second */
-
-.About-Container-2 {
-    position: relative;
-    /* min-height: 30vh; */
-    width: 90%;
-    /* background-color: pink; */
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    place-items: center;
-}
-
-.About-Image-2 {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 90%;
-    height: 500px;
-
-    background-color: transparent;
-}
-
-.Developer {
-    width: 400px;
-    border-radius: 5px;
-}
-
-.About-Description-Holder-2 {
-    display: flex;
-    justify-content: center;
-
-    width: 100%;
-
-
-    /* background-color: pink; */
-}
-
-
-
-.About-Txt-2 {
-    display: flex;
-
-    flex-direction: column;
-    justify-content: center;
-    gap: 1em;
-
-    /* padding: 10px; */
-    /* background-color: blue; */
-
-    width: 100%;
-}
-
-.Developer-Title {
-    font-size: 25px;
-}
-
-
-.Description-Holder-2 {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-
-    padding: 15px;
-
-
-    /* background-color: blue; */
-
-    border-left: 3px solid white;
-
-}
-
-
-
-
-
-.Section-2 {
-    font-size: 30px;
-    color: white;
-}
-
-
-
-
-
-@media screen and (min-width: 1500px) {
-
-    .Nethan-Pic {
-        width: 500px;
+@media (max-width: 800px) {
+    .hero h1 {
+        font-size: 2.5rem; /* Much smaller for mobile */
+        line-height: 1.2;
+        margin-bottom: 1rem;
+        margin-top: 2rem; /* Pull down spacing */
     }
 
-    .Developer {
-        width: 420px;
+    .hero p {
+        font-size: 1rem;
+        padding: 0 1rem;
     }
 
-    .About-Container {
-        width: 1500px;
+    .intro {
+        margin-top: 3rem; /* Less top margin for mobile */
+        gap: 2rem;
+        padding: 1rem;
     }
 
-    .About-Container-2 {
-        width: 1500px;
-    }
-
-}
-
-
-
-
-/* section 3 */
-@media screen and (max-width: 1050px) {
-    .About-Container {
-        display: flex;
-        flex-direction: column;
-        background-color: transparent;
-    }
-
-    .About-Image {
-        padding: 20px;
-        background-color: transparent;
-    }
-
-    .Nethan-Pic {
-        width: 60%;
-    }
-
-    .Section {
-        background-color: transparent;
-        text-align: center;
-    }
-
-
-    /* the second section */
-
-    .About-Container-2 {
-        display: flex;
-        flex-direction: column;
-        background-color: transparent;
-    }
-
-    .Developer-Title {
-        text-align: center;
-    }
-
-    .Developer {
-        width: 60%;
-    }
-
-    .Section-2 {
-        text-align: center;
-    }
-
-
-
-}
-
-
-@media screen and (max-width: 800px) {
-    .Welcome-Container {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 1em;
+    .intro-text {
+        padding: 1.5rem;
         align-items: center;
-        /* background-color: pink; */
-        min-height: 100vh;
-
-    }
-
-    .welcome-side-2{
-        height: 50vh;
-
-    }
-
-
-}
-
-
-
-@media screen and (max-width: 700px) {
-
-
-
-    .About-Container {
-        background-color: transparent;
-        width: 95%;
-    }
-
-    .Nethan-Pic {
-        width: 70%;
-    }
-
-
-    .About-Container-2 {
-        width: 95%;
-    }
-
-    .Developer {
-        width: 70%;
-    }
-
-
-}
-
-@media screen and (max-width: 600px) {
-    .college-info {
-        background-color: transparent;
-    }
-
-
-    .Nethan-Pic {
-        width: 80%;
-    }
-
-    .About-Container {
-        width: 95%;
-        background-color: transparent;
         text-align: center;
     }
 
-
-    .List {
-        padding: 0;
+    .intro-text h2 {
+        font-size: 1.5rem;
     }
 
-    .About-Container-2 {
-        width: 95%;
+    .welcome-side-2 {
+        height: 250px;
+        max-height: 250px;
+
+        background-color: rgb(12, 12, 12);
     }
-
-    .Txt-Description {
-        text-align: center;
-    }
-
-
-    .Description-Holder {
-        position: relative;
-        background-color: transparent;
-        border-left: 0px solid transparent;
-        padding: 0;
-    }
-
-
-    .Description-Holder-2 {
-        background-color: transparent;
-        border-left: 0px solid transparent;
-        padding: 0;
-    }
-
-    .Developer {
-        width: 70%;
-    }
-
-}
-
-
-@media screen and (max-width: 400px) {
-
-    .weather-description {
-        width: 90%;
-        text-align: center;
-    }
-
 }
