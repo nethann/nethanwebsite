@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 
+import "../../../CSS/Global/Global.css"
 import "../../../CSS/Projects/Music/Music.css"
 
 import InstrumentCard from './Music_components/InstrumentCard'
@@ -46,18 +47,19 @@ export default function Music() {
     <div className='Home-container'>
       <div className='Music'>
         <h2 className='Music-title'>
-          <Typewriter
-            onInit={(typewriter) => {
-              typewriter
-                .typeString('Contact me if you would like to book me for a gig.')
-                // .pauseFor(1500) // Optional pause after typing
-                .start();
-            }}
-            options={{
-              delay: 50, //lower the number, the higher
-            }}
+          <span className="apple-style typewriter-text">
+            <Typewriter
+              onInit={(typewriter) => {
+                typewriter
+                  .typeString('Where passion meets performance')
+                  .start();
+              }}
+              options={{
+                delay: 80,
+              }}
+            />
+          </span>
 
-          />
         </h2>
 
 
@@ -146,7 +148,7 @@ export default function Music() {
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
-                  style={{borderRadius: '15px'}}
+                  style={{ borderRadius: '15px' }}
                 />
               </div>
             ) : null;

@@ -8,7 +8,7 @@ export default function CompletedProjectswithVid({ vid, img1, title, description
         <div className='CompSciProjectCard'>
             <Carousel interval={null}>
                 <Carousel.Item>
-                    <video className='CompletedProject_Vid' playsInline controls="true" >
+                    <video className='CompletedProject_Vid' playsInline controls>
                         <source src={vid} type="video/mp4 " ></source>
                     </video>
                 </Carousel.Item>

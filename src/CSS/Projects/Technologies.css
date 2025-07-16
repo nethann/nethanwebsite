@@ -1,7 +1,7 @@
 
 .Tech-Container{
     margin-top: 50px;
-    min-height: 60vh;
+    min-height: 40vh;
     width: 90%;
     background-color: transparent;
 
@@ -10,10 +10,11 @@
     align-items: center;
     gap: 1em;
 
+    font-family: "Quicksand";
 }
 
 .Tech-Title{
-    font-size: 30px;
+    font-size: 3rem;
 }
 
 .About-Tech{

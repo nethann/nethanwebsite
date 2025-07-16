@@ -43,13 +43,14 @@
     width: 100%;
     background-color: transparent;
     text-decoration: none;
-    color: var(--clr-1);
     font-size: 22px;
+
+    color: var(--clr-4);
 }
 
-.Git-Name:hover {
+/* .Git-Name:hover {
     color: var(--clr-1);
-}
+} */
 
 .Git-Card-SecondSection {
     display: flex;

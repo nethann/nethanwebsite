@@ -41,29 +41,6 @@ body {
 
 }
 
-.apple-style {
-    background: linear-gradient(90deg, #4a6cf7, #b56cff, #f87c56);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
-    animation: subtle-shimmer 6s ease-in-out infinite;
-}
-
-@keyframes subtle-shimmer {
-    0% {
-        background-position: 0% center;
-    }
-
-    50% {
-        background-position: 100% center;
-    }
-
-    100% {
-        background-position: 0% center;
-    }
-}
 
 
 
@@ -111,13 +88,7 @@ body {
 }
 
 
-.gradient-name {
-  background: linear-gradient(90deg, #9dbbff, #dab6ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
-}
+
 
 
 
