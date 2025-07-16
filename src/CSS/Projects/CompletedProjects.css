@@ -44,7 +44,7 @@
     font-size: 1.25rem;
     font-weight: 700;
     text-align: center;
-    color: var(--clr-2);
+    color: var(--clr-global-white);
 }
 
 .CompSciCompletedProject_Description {

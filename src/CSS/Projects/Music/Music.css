@@ -26,6 +26,8 @@
 .typewriter-text {
   font-size: 3.5rem; 
   display: inline-block;
+
+  color: var(--clr-global-white);
 }
 
 .my-instruments-section {
