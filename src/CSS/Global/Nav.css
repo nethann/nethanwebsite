@@ -1,61 +1,240 @@
+/* Reflect.app Style Centered Pill Navbar */
 .navbar{
-    position: relative;
+    position: fixed;
+    top: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 1000;
+    width: auto;
+    max-width: 95vw;
+    min-width: fit-content;
+    
+    /* Reflect.app pill styling */
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50px;
+    padding: 0.75rem 1.5rem;
+    box-shadow: 
+        0 16px 40px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.navbar:hover {
+    background: rgba(255, 255, 255, 0.05) !important;
+    border-color: rgba(139, 92, 246, 0.2);
+    box-shadow: 
+        0 20px 48px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(139, 92, 246, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 .bg-background {
-    background-color: var(--clr-home-container);
+    background-color: transparent !important;
+}
+
+.navbar-brand {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+    text-decoration: none !important;
+    margin-right: 1.5rem !important;
+    white-space: nowrap !important;
+    overflow: visible !important;
 }
 
 .nav-link {
     text-align: center;
-    color: white;
-    transition: all 0.2s ease;
+    color: rgba(255, 255, 255, 0.8) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 0.9rem !important;
+    padding: 0.5rem 0.75rem !important;
+    border-radius: 25px !important;
+    margin: 0 0.125rem !important;
+    white-space: nowrap !important;
 }
 
 #nav-link:hover {
-    color: var(--clr-1);
+    color: rgba(255, 255, 255, 0.95) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
 }
 
-#basic-nav-dropdown {
-    transition: all 0.2s ease;
+.dropdown-toggle {
+    color: rgba(255, 255, 255, 0.8) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 0.9rem !important;
+    padding: 0.5rem 0.75rem !important;
+    border-radius: 25px !important;
+    margin: 0 0.125rem !important;
+    white-space: nowrap !important;
 }
 
 #basic-nav-dropdown:hover{
-    color: var(--clr-1) !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
 }
 
-/* dropdown */
+/* Mobile Toggle Button */
 .navbar-dark .navbar-toggler {
-    color: rgba(255, 255, 255, 0) !important;
-    border-color: rgba(255, 255, 255, 0) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 8px !important;
+    padding: 0.25rem 0.5rem !important;
 }
 
-/* Liquid glass dropdown */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+/* Reflect.app Style Dropdown */
 .navbar-nav .dropdown-menu {
     position: absolute;
     z-index: 9999;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    padding: 8px;
-    margin-top: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
+    border-radius: 20px !important;
+    padding: 1rem !important;
+    margin-top: 1rem !important;
+    min-width: 200px !important;
     
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    /* Enhanced glass styling */
+    background: rgba(255, 255, 255, 0.03) !important;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 
+        0 16px 40px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
 }
 
 #dropdown-item {
-    color: rgba(255, 255, 255, 0.9);
-    border-radius: 12px;
-    padding: 10px 16px;
-    margin: 2px 0;
-    transition: all 0.2s ease;
+    color: rgba(255, 255, 255, 0.8) !important;
+    border-radius: 12px !important;
+    padding: 0.75rem 1rem !important;
+    margin: 0.25rem 0 !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
+    font-weight: 500 !important;
+    font-size: 0.9rem !important;
 }
 
 #dropdown-item:hover {
-    background: rgba(255, 255, 255, 0.08);
-    color: var(--clr-1);
-    transform: translateX(4px);
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: rgba(139, 92, 246, 0.9) !important;
+    transform: translateX(4px) !important;
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.1) !important;
+}
+
+#dropdown-item:focus {
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: rgba(139, 92, 246, 0.9) !important;
+    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2) !important;
+}
+
+/* Container adjustments for pill navbar */
+.navbar .container {
+    padding: 0 !important;
+    max-width: none !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: nowrap !important;
+}
+
+.navbar-collapse {
+    flex-grow: 0 !important;
+    flex-shrink: 0 !important;
+}
+
+.navbar-nav {
+    gap: 0.25rem;
+    flex-direction: row !important;
+    align-items: center !important;
+}
+
+.navbar-nav.me-auto {
+    display: none !important;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 992px) {
+    .navbar {
+        top: 1rem;
+        left: 1rem;
+        right: 1rem;
+        transform: none;
+        width: auto;
+        max-width: none;
+        border-radius: 20px;
+        padding: 1rem;
+    }
+    
+    .navbar-brand {
+        margin-right: 1rem !important;
+        font-size: 0.95rem !important;
+    }
+    
+    .navbar-collapse {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        width: 100% !important;
+    }
+    
+    .navbar-nav {
+        gap: 0.25rem;
+        width: 100%;
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+    
+    .nav-link, .dropdown-toggle {
+        font-size: 0.9rem !important;
+        padding: 0.75rem 1rem !important;
+        text-align: left !important;
+        border-radius: 12px !important;
+    }
+    
+    .navbar .container {
+        justify-content: flex-start !important;
+        flex-wrap: wrap !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        top: 0.75rem;
+        left: 0.75rem;
+        right: 0.75rem;
+        border-radius: 16px;
+        padding: 0.75rem;
+    }
+    
+    .navbar-brand {
+        font-size: 0.85rem !important;
+        margin-right: 0.75rem !important;
+    }
+    
+    .nav-link, .dropdown-toggle {
+        font-size: 0.85rem !important;
+        padding: 0.5rem 0.75rem !important;
+    }
+}
+
+/* Additional fix for very small screens */
+@media (max-width: 480px) {
+    .navbar-brand {
+        font-size: 0.8rem !important;
+        margin-right: 0.5rem !important;
+    }
+    
+    .navbar {
+        padding: 0.5rem 1rem;
+    }
 }

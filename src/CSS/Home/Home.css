@@ -1,10 +1,10 @@
-/* Home.css */
+/* Home.css - Reflect.app Style */
 
 /* Remove the overflow hidden from body */
 body {
     margin: 0;
     padding: 0;
-    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     height: 100vh;
     overflow: auto; 
 }
@@ -14,13 +14,70 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 90vh; 
+    min-height: 100vh; 
     box-sizing: border-box;
-    padding: 0 1rem;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
 
-    background-color: black;
+    /* Reflect.app cosmic background */
+    background: linear-gradient(180deg, #030014 0%, #0a0028 30%, #030014 70%, #000000 100%);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
 
-    font-family: "Quicksand";
+/* Cosmic Background Animation */
+.homepage::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 20% 20%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
+        radial-gradient(circle at 80% 30%, rgba(59, 130, 246, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 40% 90%, rgba(236, 72, 153, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 35%);
+    animation: cosmicDrift 40s ease-in-out infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.homepage::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 60% 40%, rgba(147, 51, 234, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 30% 70%, rgba(168, 85, 247, 0.06) 0%, transparent 45%);
+    animation: cosmicDrift2 50s ease-in-out infinite reverse;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes cosmicDrift {
+    0%, 100% {
+        transform: translate(0%, 0%) scale(1) rotate(0deg);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(2%, -3%) scale(1.1) rotate(180deg);
+        opacity: 0.8;
+    }
+}
+
+@keyframes cosmicDrift2 {
+    0%, 100% {
+        transform: translate(0%, 0%) scale(1) rotate(0deg);
+        opacity: 0.4;
+    }
+    50% {
+        transform: translate(-3%, 2%) scale(0.9) rotate(-180deg);
+        opacity: 0.7;
+    }
 }
 
 
@@ -31,22 +88,41 @@ body {
 
 .hero {
     text-align: center;
+    position: relative;
+    z-index: 10;
+    margin-bottom: 4rem;
 }
 
 .hero h1 {
-    font-size: 5rem;
-    font-weight: 700;
-    /* Margin between the I create code and follow my journey */
-    margin-bottom: 1.5rem;
-
+    font-size: 4rem;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    
+    /* Reflect.app style gradient text */
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(139, 92, 246, 0.9) 40%,
+        rgba(99, 102, 241, 0.85) 70%,
+        rgba(236, 72, 153, 0.8) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    
+    /* Add subtle glow */
+    filter: drop-shadow(0 0 30px rgba(139, 92, 246, 0.25));
+    
+    /* Letter spacing for modern look */
+    letter-spacing: -0.02em;
 }
-
-
-
 
 .hero p {
     font-size: 1.25rem;
-    color: #bbbbbb;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 400;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 .intro {
@@ -54,73 +130,146 @@ body {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 4rem;
+    gap: 3rem;
     max-width: 1200px;
     width: 100%;
-    margin-top: 4rem;
-
-    padding: 20px;
+    position: relative;
+    z-index: 10;
 }
 
 .intro-text {
     flex: 1;
-    min-width: 280px;
+    min-width: 300px;
     max-width: 500px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
+    align-items: center;
+    text-align: center;
+    
+    /* Reflect.app minimal glass container */
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 3rem;
+    gap: 1.5rem;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
 
-    border: 1px solid rgba(255, 255, 255, 0.13);
-    padding: 40px;
-    border-radius: 10px;
-    gap: 1.2rem;
+.intro-text:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(139, 92, 246, 0.15);
+    box-shadow: 
+        0 32px 64px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(139, 92, 246, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    transform: translateY(-4px);
 }
 
 .profile-pic {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
     image-rendering: auto;
     object-fit: cover;
-    border: 2px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(139, 92, 246, 0.3);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.3),
+        0 0 20px rgba(139, 92, 246, 0.2);
+    transition: all 0.3s ease;
 }
 
-
-
-
-
-
+.profile-pic:hover {
+    transform: scale(1.05);
+    border-color: rgba(139, 92, 246, 0.5);
+    box-shadow: 
+        0 12px 40px rgba(0, 0, 0, 0.4),
+        0 0 30px rgba(139, 92, 246, 0.3);
+}
 
 .intro-text h2 {
-    font-size: 2rem;
-    font-weight: 600;
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: 0;
+    
+    /* Gradient text for name */
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(139, 92, 246, 0.8) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .intro-text p {
     font-size: 1rem;
     line-height: 1.6;
-    color: #cccccc;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+    font-weight: 400;
 }
 
 .contact-btn {
-    margin-top: 1rem;
-    padding: 0.75rem 1.5rem;
-    background-color: white;
-    color: black;
-    border: none;
-    border-radius: 0.5rem;
-    font-weight: 600;
+    padding: 1rem 2rem;
     font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.2s;
-
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 600;
+    border: none;
     text-decoration: none;
+    position: relative;
+    overflow: hidden;
+
+    /* Reflect.app style gradient button */
+    background: linear-gradient(135deg, 
+        rgba(139, 92, 246, 0.8) 0%, 
+        rgba(99, 102, 241, 0.9) 50%,
+        rgba(236, 72, 153, 0.8) 100%);
+    border-radius: 12px;
+    box-shadow: 
+        0 8px 24px rgba(139, 92, 246, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+    color: rgba(255, 255, 255, 0.95);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
 }
 
 .contact-btn:hover {
-    background-color: #e2e2e2;
+    background: linear-gradient(135deg, 
+        rgba(139, 92, 246, 0.9) 0%, 
+        rgba(99, 102, 241, 1) 50%,
+        rgba(236, 72, 153, 0.9) 100%);
+    transform: translateY(-2px);
+    box-shadow: 
+        0 16px 40px rgba(139, 92, 246, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.contact-btn:hover::before {
+    left: 100%;
+}
+
+.contact-btn:active {
+    transform: translateY(0px);
+    box-shadow: 
+        0 4px 12px rgba(139, 92, 246, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .welcome-side-2 {
@@ -128,23 +277,53 @@ body {
     min-width: 300px;
     max-width: 500px;
     height: 400px;
-    max-height: 400px; /* add this line */
+    max-height: 400px;
     overflow: hidden;
-    background-color: transparent;
-    border-radius: 1rem;
+    position: relative;
+    z-index: 10;
+    
+    /* Reflect.app minimal glass container */
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.welcome-side-2:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(139, 92, 246, 0.15);
+    box-shadow: 
+        0 32px 64px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(139, 92, 246, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    transform: translateY(-4px);
 }
 
 
 
 @media (max-width: 800px) {
+    .homepage {
+        padding: 1rem;
+    }
+    
+    .hero {
+        margin-bottom: 3rem;
+    }
+    
     .hero h1 {
-        font-size: 2.5rem; /* Much smaller for mobile */
+        font-size: 2.5rem;
         line-height: 1.2;
-        margin-bottom: 1rem;
-        margin-top: 2rem; /* Pull down spacing */
+        margin-bottom: 1.5rem;
+        letter-spacing: -0.01em;
     }
 
     .hero p {
@@ -153,25 +332,49 @@ body {
     }
 
     .intro {
-        margin-top: 3rem; /* Less top margin for mobile */
         gap: 2rem;
-        padding: 1rem;
+        flex-direction: column;
     }
 
     .intro-text {
-        padding: 1.5rem;
-        align-items: center;
-        text-align: center;
+        padding: 2rem;
+        min-width: 280px;
+        max-width: 100%;
     }
 
     .intro-text h2 {
         font-size: 1.5rem;
     }
+    
+    .profile-pic {
+        width: 80px;
+        height: 80px;
+    }
 
+    .welcome-side-2 {
+        height: 300px;
+        max-height: 300px;
+        min-width: 280px;
+        max-width: 100%;
+    }
+    
+    .contact-btn {
+        padding: 0.875rem 1.75rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .intro-text {
+        padding: 1.5rem;
+    }
+    
     .welcome-side-2 {
         height: 250px;
         max-height: 250px;
-
-        background-color: rgb(12, 12, 12);
     }
 }

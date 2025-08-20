@@ -1,7 +1,10 @@
 :root { 
-    --contact-form-card-transition: 0.2s ease-in
+    --contact-form-card-transition: 0.2s ease-in;
+    --reflect-dark: #030014;
+    --reflect-purple: #8b5cf6;
+    --reflect-pink: #ec4899;
+    --reflect-blue: #3b82f6;
 }
-
 
 .Contact-Section{
     position: relative;
@@ -10,13 +13,69 @@
     justify-content: center;
     flex-direction: column;
 
-    gap: 3em;
-    min-height: 95vh;
-    width: 90%;
-    max-width: 1000px;
+    gap: 4rem;
+    min-height: 100vh;
+    width: 100%;
+    max-width: 100vw;
+    padding: 2rem;
 
-    background: transparent;
-    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: linear-gradient(180deg, #030014 0%, #0a0028 50%, #030014 100%);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    overflow: hidden;
+}
+
+/* Reflect.app Style Cosmic Background */
+.Contact-Section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 15% 25%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
+        radial-gradient(circle at 85% 15%, rgba(59, 130, 246, 0.1) 0%, transparent 45%),
+        radial-gradient(circle at 25% 85%, rgba(236, 72, 153, 0.08) 0%, transparent 40%);
+    animation: cosmicFloat 30s ease-in-out infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.Contact-Section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 75% 75%, rgba(147, 51, 234, 0.12) 0%, transparent 55%),
+        radial-gradient(circle at 35% 45%, rgba(99, 102, 241, 0.06) 0%, transparent 35%);
+    animation: cosmicFloat2 40s ease-in-out infinite reverse;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes cosmicFloat {
+    0%, 100% {
+        transform: translate(0%, 0%) scale(1) rotate(0deg);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translate(3%, -2%) scale(1.05) rotate(180deg);
+        opacity: 0.8;
+    }
+}
+
+@keyframes cosmicFloat2 {
+    0%, 100% {
+        transform: translate(0%, 0%) scale(1) rotate(0deg);
+        opacity: 0.4;
+    }
+    50% {
+        transform: translate(-2%, 3%) scale(0.95) rotate(-180deg);
+        opacity: 0.7;
+    }
 }
 
 
@@ -24,27 +83,35 @@
 .Contact-Form{
     display: flex;
     flex-direction: column;
-    gap: 2em;
+    gap: 2rem;
     width: 100%;
-    max-width: 600px;
-    padding: 40px;
+    max-width: 500px;
+    padding: 3rem;
     color: rgba(255, 255, 255, 0.95);
+    position: relative;
+    z-index: 10;
     
-    /* Minimal glass container */
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    /* Reflect.app style minimal container */
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    box-shadow: 
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
     
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .Contact-Form:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(255, 255, 255, 0.12);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(139, 92, 246, 0.2);
+    box-shadow: 
+        0 32px 64px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(139, 92, 246, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+    transform: translateY(-4px);
 }
 
 .ContactSection-1{
@@ -52,25 +119,43 @@
 }
 
 .Contact-Title{
-    margin: 0;
-    text-align: left;
-    font-size: 28px;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.95);
+    margin: 0 0 1rem 0;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.2;
+    
+    /* Reflect.app style gradient text */
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(139, 92, 246, 0.9) 50%,
+        rgba(236, 72, 153, 0.85) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    
+    /* Add subtle glow */
+    filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.3));
 }
 
 
 
 .Contact-Inputs:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
     border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.08),
+        0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .Contact-Inputs:focus{
-    background: rgba(255, 255, 255, 0.08);
-    border-color: var(--clr-1);
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(139, 92, 246, 0.4);
     outline: none;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.1),
+        0 0 0 3px rgba(139, 92, 246, 0.1),
+        0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
 .ContactSection-2{
@@ -90,53 +175,100 @@
 }
 
 .Contact-Inputs{
-    width: 90%;
-    padding: 16px;
-    font-size: 15px;
-    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    width: 100%;
+    padding: 1rem 1.25rem;
+    font-size: 1rem;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
 
-    /* Glass styling */
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Reflect.app minimal input styling */
+    background: rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 
+        inset 0 1px 0 rgba(255, 255, 255, 0.05),
+        0 4px 12px rgba(0, 0, 0, 0.1);
 
     color: rgba(255, 255, 255, 0.95);
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .Contact-textarea{
     resize: none;
+    min-height: 120px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-.Contact-Submit{
-    width: 40%;
-    padding: 16px 32px;
-    font-size: 15px;
-    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-weight: 500;
-
-    /* Glass styling */
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-
-    color: rgba(255, 255, 255, 0.95);
-    cursor: pointer;
+.Contact-Inputs::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+    font-weight: 400;
     transition: all 0.3s ease;
 }
 
+.Contact-Inputs:focus::placeholder {
+    color: rgba(255, 255, 255, 0.15);
+    opacity: 0;
+}
+
+.Contact-Submit{
+    width: 100%;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 600;
+    border: none;
+
+    /* Reflect.app style gradient button */
+    background: linear-gradient(135deg, 
+        rgba(139, 92, 246, 0.8) 0%, 
+        rgba(99, 102, 241, 0.9) 50%,
+        rgba(236, 72, 153, 0.8) 100%);
+    border-radius: 12px;
+    box-shadow: 
+        0 8px 24px rgba(139, 92, 246, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+
+    color: rgba(255, 255, 255, 0.95);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.Contact-Submit::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
 .Contact-Submit:hover{
-    background: rgba(255, 255, 255, 0.08);
-    border-color: var(--clr-1);
-    color: var(--clr-1);
+    background: linear-gradient(135deg, 
+        rgba(139, 92, 246, 0.9) 0%, 
+        rgba(99, 102, 241, 1) 50%,
+        rgba(236, 72, 153, 0.9) 100%);
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    box-shadow: 
+        0 16px 40px rgba(139, 92, 246, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.Contact-Submit:hover::before {
+    left: 100%;
+}
+
+.Contact-Submit:active {
+    transform: translateY(0px);
+    box-shadow: 
+        0 4px 12px rgba(139, 92, 246, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 /* contact discord presence  */
@@ -200,25 +332,32 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    gap: 1rem;
+    position: relative;
+    z-index: 10;
 
-    /* Glass styling */
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Reflect.app minimal styling */
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    box-shadow: 
+        0 12px 32px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
     
-    width: 180px;
-    padding: 16px;
-    transition: all 0.3s ease;
+    padding: 1.25rem;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .Discord-section:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.15);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(139, 92, 246, 0.2);
+    transform: translateY(-3px);
+    box-shadow: 
+        0 20px 48px rgba(0, 0, 0, 0.4),
+        0 0 0 1px rgba(139, 92, 246, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 .discord-pfp{
@@ -257,51 +396,60 @@
 .Contact-Icons-Section{
     display: flex;
     flex-direction: row;
-    gap: 3em;
+    gap: 1.5rem;
     align-items: center;
     justify-content: center;
+    position: relative;
+    z-index: 10;
 
-    width: 100%;
-    position: absolute;
-    bottom: 0;
-    
-    /* Glass container */
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px 20px 0 0;
-    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.3);
-    padding: 24px;
+    /* Reflect.app minimal container */
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    box-shadow: 
+        0 16px 40px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
 }
 
 .contact-icon-tag{
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.8);
-    transition: all 0.3s ease;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     
-    /* Glass icon background */
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Reflect.app minimal icon styling */
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 12px;
-    padding: 12px;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    padding: 0.75rem;
+    box-shadow: 
+        0 4px 12px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .contact-icon-tag:hover{
-    color: var(--clr-1);
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.15);
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    color: rgba(139, 92, 246, 0.9);
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(139, 92, 246, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 
+        0 8px 24px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(139, 92, 246, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 
 
 .Contact-Icon{
-    font-size: 25px;
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
 }
 
 

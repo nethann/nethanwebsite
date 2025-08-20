@@ -4,27 +4,53 @@
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
+  position: relative;
+  z-index: 10;
 
-  font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 .photograph-intro {
-  /* Minimal glass container */
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  padding: 40px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  margin-bottom: 3rem;
+  /* Reflect.app minimal glass container */
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.02);
+  border-radius: 24px;
+  padding: 1.5rem;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  margin-bottom: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.photograph-intro:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(139, 92, 246, 0.15);
+  box-shadow: 
+    0 32px 64px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(139, 92, 246, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transform: translateY(-4px);
 }
 
 .photograph-intro h1 {
-  font-size: 2.5rem;
-  font-weight: 600;
+  font-size: 2.25rem;
+  font-weight: 700;
   margin: 0 0 1rem 0;
-  color: rgba(255, 255, 255, 0.95);
+  
+  /* Reflect.app style gradient text */
+  background: linear-gradient(135deg, 
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(139, 92, 246, 0.9) 50%,
+    rgba(236, 72, 153, 0.85) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  
+  /* Add subtle glow */
+  filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.3));
 }
 
 .photograph-intro p {
@@ -35,20 +61,33 @@
 }
 
 .photograph-gallery {
-  /* Minimal glass container for gallery */
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
-  padding: 40px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  /* Reflect.app minimal glass container for gallery */
+  background: rgba(255, 255, 255, 0.01);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.02);
+  border-radius: 24px;
+  padding: 1.5rem;
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.photograph-gallery:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(139, 92, 246, 0.15);
+  box-shadow: 
+    0 32px 64px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(139, 92, 246, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transform: translateY(-4px);
 }
 
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1.5rem;
+  gap: 1rem;
   max-width: 100%;
   justify-content: center;
   place-items: center;
@@ -63,11 +102,11 @@
   }
   
   .photograph-gallery {
-    padding: 30px;
+    padding: 1.25rem;
   }
   
   .photograph-intro {
-    padding: 30px;
+    padding: 1.25rem;
   }
 }
 
@@ -82,11 +121,11 @@
   }
   
   .photograph-gallery {
-    padding: 20px;
+    padding: 1rem;
   }
   
   .photograph-intro {
-    padding: 24px;
+    padding: 1.25rem;
   }
   
   .photograph-intro h1 {
@@ -101,16 +140,18 @@
   border-radius: 16px;
   object-fit: cover;
   
-  /* Minimal glass effect for photos */
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* Reflect.app glass effect for photos */
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.02);
   
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   cursor: pointer;
 }
 
 .photo:hover {
-  transform: translateY(-4px) scale(1.02);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 
+    0 20px 48px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(139, 92, 246, 0.2);
+  border-color: rgba(139, 92, 246, 0.3);
 }

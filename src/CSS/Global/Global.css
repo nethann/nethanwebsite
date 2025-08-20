@@ -56,6 +56,25 @@
 
 body, html{
     background-color: black !important;
+    margin: 0;
+    padding: 0;
+}
+
+/* Add spacing for fixed pill navbar */
+body {
+    padding-top: 5rem;
+}
+
+@media (max-width: 992px) {
+    body {
+        padding-top: 6rem;
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        padding-top: 5.5rem;
+    }
 }
 
 
@@ -65,8 +84,68 @@ body, html{
     justify-content: center;
     flex-direction: column;
     color: white;
-    background-color: var(--clr-home-container);
-    /* background-color: #0d1217; */
+    min-height: 100vh;
+    padding: 2rem 0;
+    position: relative;
+    overflow: hidden;
+
+    /* Reflect.app cosmic background for all project pages */
+    background: linear-gradient(180deg, #030014 0%, #0a0028 30%, #030014 70%, #000000 100%);
+}
+
+/* Cosmic Background Animation for Home-container */
+.Home-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 30% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 70% 80%, rgba(59, 130, 246, 0.06) 0%, transparent 45%),
+        radial-gradient(circle at 20% 90%, rgba(236, 72, 153, 0.04) 0%, transparent 40%),
+        radial-gradient(circle at 90% 30%, rgba(99, 102, 241, 0.07) 0%, transparent 35%);
+    animation: globalCosmicFloat 50s ease-in-out infinite;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.Home-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 80% 40%, rgba(147, 51, 234, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 40% 70%, rgba(168, 85, 247, 0.04) 0%, transparent 45%);
+    animation: globalCosmicFloat2 60s ease-in-out infinite reverse;
+    z-index: 0;
+    pointer-events: none;
+}
+
+@keyframes globalCosmicFloat {
+    0%, 100% {
+        transform: translate(0%, 0%) scale(1) rotate(0deg);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(2%, -1%) scale(1.02) rotate(180deg);
+        opacity: 0.7;
+    }
+}
+
+@keyframes globalCosmicFloat2 {
+    0%, 100% {
+        transform: translate(0%, 0%) scale(1) rotate(0deg);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translate(-1%, 2%) scale(0.98) rotate(-180deg);
+        opacity: 0.6;
+    }
 }
 
 
