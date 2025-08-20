@@ -10,40 +10,41 @@
     justify-content: center;
     flex-direction: column;
 
-    position: relative;
-
-    gap: 2em;
+    gap: 3em;
     min-height: 95vh;
-
-
     width: 90%;
+    max-width: 1000px;
 
-    background-color: transparent;
-
-    font-family: "Quicksand";
-
-
+    background: transparent;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 
 
 .Contact-Form{
-    /* background-color: var(--clr-contact-form-background); */
-    border: 1px solid var(--clr-border-clr);
     display: flex;
     flex-direction: column;
+    gap: 2em;
+    width: 100%;
+    max-width: 600px;
+    padding: 40px;
+    color: rgba(255, 255, 255, 0.95);
+    
+    /* Minimal glass container */
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    
+    transition: all 0.3s ease;
+}
 
-    gap: 1em;
-
-    width: 600px;
-
-    padding: 20px;
-
-    color: white;
-
-    border-radius: 8px;
-
-    transition: var(--contact-form-card-transition);
+.Contact-Form:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
 .ContactSection-1{
@@ -51,20 +52,25 @@
 }
 
 .Contact-Title{
-    margin-top: auto;
-    margin-bottom: auto;
+    margin: 0;
     text-align: left;
-
-    font-size: 22px;
-
+    font-size: 28px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
 }
 
 
 
+.Contact-Inputs:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
 .Contact-Inputs:focus{
-    border-bottom: 1px solid var(--clr-1);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--clr-1);
     outline: none;
-    transition: 0.2s ease-in-out;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 .ContactSection-2{
@@ -79,22 +85,26 @@
     align-items: center;
     flex-direction: column;
     width: 100%;
-    gap: 1em;
-    background-color: transparent;
+    gap: 1.5em;
+    background: transparent;
 }
 
 .Contact-Inputs{
     width: 90%;
-    padding: 5px;
+    padding: 16px;
     font-size: 15px;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
-    background-color: transparent;
-    border: 0px solid transparent;
-    border-bottom: 1px solid var(--clr-border-clr);
+    /* Glass styling */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 
-    color: white;
-
-    
+    color: rgba(255, 255, 255, 0.95);
+    transition: all 0.3s ease;
 }
 
 .Contact-textarea{
@@ -103,23 +113,30 @@
 
 .Contact-Submit{
     width: 40%;
-    border: 1px solid var(--clr-border-clr);
-
-    background-color: transparent;
-    padding: 5px;
-
+    padding: 16px 32px;
     font-size: 15px;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 500;
 
-    color: white;
+    /* Glass styling */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 
-    border-radius: 5px;
-
+    color: rgba(255, 255, 255, 0.95);
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .Contact-Submit:hover{
-    transition: 0.2s ease-in-out;
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--clr-1);
     color: var(--clr-1);
-    border: 1px solid var(--clr-1);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 /* contact discord presence  */
@@ -184,10 +201,24 @@
     align-items: center;
     justify-content: center;
 
-    background-color: var(--clr-card-clr);
-    border-radius: 10px;
+    /* Glass styling */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    
     width: 180px;
-    padding: 10px;
+    padding: 16px;
+    transition: all 0.3s ease;
+}
+
+.Discord-section:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
 .discord-pfp{
@@ -233,18 +264,38 @@
     width: 100%;
     position: absolute;
     bottom: 0;
-    background-color: transparent;
+    
+    /* Glass container */
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.3);
+    padding: 24px;
 }
 
 .contact-icon-tag{
     text-decoration: none;
-    color: white;
-    transition: all .2s;
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    
+    /* Glass icon background */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .contact-icon-tag:hover{
     color: var(--clr-1);
-    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 
