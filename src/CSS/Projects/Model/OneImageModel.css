@@ -1,55 +1,66 @@
 .OneImageModelCard{
     display: flex;
     flex-direction: column;
-    gap: 0.5em;
+    gap: 1em;
 
-    background-color: var(--clr-card-clr);
-    padding: 5px 10px;
-    border-radius: 8px;
-    transition: all 0.1s ease-in;
+    /* Minimal glass card */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    
+    transition: all 0.3s ease;
     overflow: hidden;
 }
-
 
 .models-center-items{
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100%;
-    padding: 10px;
+    padding: 0;
 }
 
 .OneImageModelCard:hover{
-    transform: translateY(-3px);
-    background-color: var(--clr-evolution-card-hover);
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
 }
 
 .OneImageModel_Img{
     width: 100%;
-
-    border-radius: 5px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .VidModel{
     width: 100%;
-    border-radius: 5px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .OneImageModelCard p{
-    margin-top: auto;
-    margin-bottom: auto;
+    margin: 0;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.5;
 }
 
 .OneImageModel-Title{
     display: flex;
     flex-direction: column;
-    gap: 0.5em;
+    gap: 0.8em;
 }
 
 .OneImageModel-Title p{
-    font-size: 20px;
-    color: var(--clr-2);
+    font-size: 18px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
     overflow-wrap: break-word;
+    margin: 0;
 }
 
 .OneImageModel-Title-vids p{
@@ -81,48 +92,52 @@
 .Data-type-holder{
     display: flex;
     flex-direction: row;
-    gap: 0.5em;
-    background-color: transparent;
+    gap: 0.8em;
+    background: transparent;
+    margin-top: 0.5em;
 }
 
 .render-model{
-    /* background-color: var(--clr-green); */
-    color: var(--clr-52);
-    border: 1px solid var(--clr-border-clr);
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     width: 70%;
     text-align: center;
+    font-size: 12px;
+    font-weight: 500;
 
     overflow-wrap: break-word;
-
-
-    border-radius: 8px;
-    padding: 5px;
-
+    border-radius: 12px;
+    padding: 8px 12px;
 }
 
 .year-model{
-    /* background-color: var(--clr-yellow);
-    /* color: white; */
-    color: var(--clr-5);
-    border: 1px solid var(--clr-border-clr);
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     width: 50%;
     text-align: center;
+    font-size: 12px;
+    font-weight: 500;
 
-    border-radius: 8px;
-    padding: 5px;
+    border-radius: 12px;
+    padding: 8px 12px;
 }
 
 
 
 .OneImageModel-Year-vids{
     margin-left: auto;
-    color: var(--clr-5);
-    border: 1px solid var(--clr-border-clr);
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     width: 50%;
     text-align: center;
+    font-size: 12px;
+    font-weight: 500;
 
-    border-radius: 8px;
-    padding: 5px;
+    border-radius: 12px;
+    padding: 8px 12px;
 }
 
 .OneImageModel-Year p{
