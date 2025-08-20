@@ -3,19 +3,29 @@
     margin-top: 50px;
     min-height: 40vh;
     width: 90%;
-    background-color: transparent;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1em;
+    gap: 2em;
+    
+    /* Minimal glass container */
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 
-    font-family: "Quicksand";
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 .Tech-Title{
-    font-size: 3rem;
-    color: var(--clr-global-white);
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.95);
+    margin: 0;
 }
 
 .Tech-GitChart {
@@ -27,12 +37,12 @@
 
 
 .About-Tech{
-    width: 65%;
-    background-color: transparent;
-
-    font-size: 18px;
-
+    width: 70%;
+    background: transparent;
+    font-size: 16px;
     text-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
 }
 
 .About{
@@ -43,10 +53,9 @@
 .Tech-Grid{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    background-color: transparent;
-    gap: 1em;
-
-    width: 90%;
+    background: transparent;
+    gap: 1.5em;
+    width: 100%;
 }
 
 
