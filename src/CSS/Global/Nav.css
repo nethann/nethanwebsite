@@ -10,10 +10,15 @@
 .nav-link {
     text-align: center;
     color: white;
+    transition: all 0.2s ease;
 }
 
 #nav-link:hover {
     color: var(--clr-1);
+}
+
+#basic-nav-dropdown {
+    transition: all 0.2s ease;
 }
 
 #basic-nav-dropdown:hover{
@@ -26,21 +31,31 @@
     border-color: rgba(255, 255, 255, 0) !important;
 }
 
-/* dropdown */
+/* Liquid glass dropdown */
 .navbar-nav .dropdown-menu {
     position: absolute;
     z-index: 9999;
-    border: 0px;
-    background-color: var(--clr-nav-dropdown-clr);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 8px;
+    margin-top: 8px;
+    
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 #dropdown-item {
-    color: white;
+    color: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 10px 16px;
+    margin: 2px 0;
+    transition: all 0.2s ease;
 }
 
-
-
 #dropdown-item:hover {
-    background-color: var(--clr-home-container);
+    background: rgba(255, 255, 255, 0.08);
     color: var(--clr-1);
+    transform: translateX(4px);
 }
