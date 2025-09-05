@@ -1,11 +1,38 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import "../../../../CSS/Projects/GitCard.css"
 import github from "../../Icons/github.png"
 
 import Tilt from 'react-parallax-tilt';
 
-export default function DynamicGitCard({ gitName, description, Git_Link, language, stars, lastUpdated }) {
+export default function DynamicGitCard({ gitName, description, Git_Link, language, stars, lastUpdated, languagesUrl }) {
+  const [allLanguages, setAllLanguages] = useState([]);
+  const [loadingLanguages, setLoadingLanguages] = useState(true);
+
+  useEffect(() => {
+    const fetchLanguages = async () => {
+      if (!languagesUrl) {
+        setLoadingLanguages(false);
+        return;
+      }
+
+      try {
+        const response = await fetch(languagesUrl);
+        if (response.ok) {
+          const languagesData = await response.json();
+          const languageNames = Object.keys(languagesData);
+          setAllLanguages(languageNames);
+        }
+      } catch (error) {
+        console.error('Error fetching languages:', error);
+      } finally {
+        setLoadingLanguages(false);
+      }
+    };
+
+    fetchLanguages();
+  }, [languagesUrl]);
+
   const getLanguageClass = (lang) => {
     if (!lang) return 'Languages';
     
@@ -51,9 +78,24 @@ export default function DynamicGitCard({ gitName, description, Git_Link, languag
               <li className='git-Description'>{description}</li>
             </ul>
 
-            <div className='repo-meta' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '0.75rem', gap: '0.5rem' }}>
-              <div className='Lang-Container'>
-                <p className={getLanguageClass(language)}>{language || 'Unknown'}</p>
+            <div className='repo-meta' style={{ marginTop: '0.75rem' }}>
+              <div className='Lang-Container' style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.5rem' }}>
+                {loadingLanguages ? (
+                  <p className="Languages" style={{ fontSize: '0.7rem' }}>Loading...</p>
+                ) : allLanguages.length > 0 ? (
+                  allLanguages.slice(0, 3).map((lang, index) => (
+                    <p key={index} className={getLanguageClass(lang)} style={{ margin: 0, fontSize: '0.7rem', padding: '0.2rem 0.5rem' }}>
+                      {lang}
+                    </p>
+                  ))
+                ) : (
+                  <p className={getLanguageClass(language)}>{language || 'Unknown'}</p>
+                )}
+                {allLanguages.length > 3 && (
+                  <p className="Languages" style={{ margin: 0, fontSize: '0.7rem', padding: '0.2rem 0.5rem' }}>
+                    +{allLanguages.length - 3}
+                  </p>
+                )}
               </div>
               
               {stars > 0 && (

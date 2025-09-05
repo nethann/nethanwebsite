@@ -3,7 +3,8 @@
     "allow": [
       "WebFetch(domain:tabulio.com)",
       "WebFetch(domain:nethan-github-api.onrender.com)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "WebFetch(domain:github-contributions-api.jogruber.de)"
     ],
     "deny": [],
     "ask": []

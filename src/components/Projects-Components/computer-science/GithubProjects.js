@@ -6,7 +6,6 @@ import JavaScriptgitCard from '../computer-science/GitCards/JavaScriptgitCard';
 import DynamicGitCard from './GitCards/DynamicGitCard';
 
 
-import ContributionCalendar from './ContributionCalendar';
 
 
 import Aos from 'aos';
@@ -77,8 +76,6 @@ export default function GithubProjects() {
             <section className='Git-Container' data-aos="fade-right">
                 <p className='Git-Title'>Github Repositories 🍁 : </p>
 
-                <ContributionCalendar />
-
                 <div className='Github-Grid'>
                     {loading && <p style={{color: 'rgba(255, 255, 255, 0.7)', textAlign: 'center'}}>Loading repositories...</p>}
                     {error && <p style={{color: 'rgba(255, 100, 100, 0.8)', textAlign: 'center'}}>Error loading repositories: {error}</p>}
@@ -93,6 +90,7 @@ export default function GithubProjects() {
                                 language={repo.language}
                                 stars={repo.stargazers_count}
                                 lastUpdated={repo.updated_at}
+                                languagesUrl={repo.languages_url}
                             />
                         );
                     })}
