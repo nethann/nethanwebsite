@@ -26,11 +26,10 @@
 
 .Git-Card:hover {
     background: rgba(255, 255, 255, 0.015);
-    border-color: rgba(139, 92, 246, 0.1);
+    border-color: rgba(255, 255, 255, 0.06);
     transform: translateY(-1px);
     box-shadow: 
-        0 4px 20px rgba(0, 0, 0, 0.12),
-        0 0 0 1px rgba(139, 92, 246, 0.05);
+        0 4px 20px rgba(0, 0, 0, 0.12);
 }
 
 /* First Section: GitHub Icon + Repo Name */
@@ -109,37 +108,37 @@
     font-weight: 500;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     text-align: center;
-    border: 1px solid rgba(139, 92, 246, 0.2);
-    color: rgba(139, 92, 246, 0.9);
-    background: rgba(139, 92, 246, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.05);
     width: auto;
     transition: all 0.3s ease;
 }
 
 /* Language-specific Badge Styling */
 .Special-JS {
-    background: rgba(255, 193, 7, 0.05);
-    border: 1px solid rgba(255, 193, 7, 0.2);
-    color: rgba(255, 193, 7, 0.9);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .Special-Py {
-    background: rgba(59, 130, 246, 0.05);
-    border: 1px solid rgba(59, 130, 246, 0.2);
-    color: rgba(59, 130, 246, 0.9);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .Git-Card:hover .Languages {
-    background: rgba(139, 92, 246, 0.08);
-    border-color: rgba(139, 92, 246, 0.3);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .Git-Card:hover .Special-JS {
-    background: rgba(255, 193, 7, 0.08);
-    border-color: rgba(255, 193, 7, 0.3);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .Git-Card:hover .Special-Py {
-    background: rgba(59, 130, 246, 0.08);
-    border-color: rgba(59, 130, 246, 0.3);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
 }

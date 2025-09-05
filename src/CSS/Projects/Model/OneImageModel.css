@@ -29,10 +29,9 @@
 .OneImageModelCard:hover{
     transform: translateY(-6px);
     background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(139, 92, 246, 0.2);
+    border-color: rgba(255, 255, 255, 0.08);
     box-shadow: 
         0 20px 48px rgba(0, 0, 0, 0.4),
-        0 0 0 1px rgba(139, 92, 246, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
@@ -103,9 +102,9 @@
 }
 
 .render-model{
-    background: rgba(139, 92, 246, 0.1);
-    color: rgba(139, 92, 246, 0.9);
-    border: 1px solid rgba(139, 92, 246, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     width: 70%;
     text-align: center;
     font-size: 0.75rem;
@@ -115,22 +114,22 @@
     overflow-wrap: break-word;
     border-radius: 8px;
     padding: 0.5rem 0.75rem;
-    box-shadow: 0 2px 8px rgba(139, 92, 246, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .year-model{
-    background: rgba(236, 72, 153, 0.1);
-    color: rgba(236, 72, 153, 0.9);
-    border: 1px solid rgba(236, 72, 153, 0.2);
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     width: 50%;
     text-align: center;
     font-size: 0.75rem;
     font-weight: 600;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segue UI', sans-serif;
 
     border-radius: 8px;
     padding: 0.5rem 0.75rem;
-    box-shadow: 0 2px 8px rgba(236, 72, 153, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 

@@ -106,10 +106,9 @@
 
 .Contact-Form:hover {
     background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(139, 92, 246, 0.2);
+    border-color: rgba(255, 255, 255, 0.08);
     box-shadow: 
         0 32px 64px rgba(0, 0, 0, 0.5),
-        0 0 0 1px rgba(139, 92, 246, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.15);
     transform: translateY(-4px);
 }
@@ -150,11 +149,10 @@
 
 .Contact-Inputs:focus{
     background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(139, 92, 246, 0.4);
+    border-color: rgba(255, 255, 255, 0.15);
     outline: none;
     box-shadow: 
         inset 0 1px 0 rgba(255, 255, 255, 0.1),
-        0 0 0 3px rgba(139, 92, 246, 0.1),
         0 12px 24px rgba(0, 0, 0, 0.2);
 }
 
@@ -338,11 +336,10 @@
 
 .Discord-section:hover {
     background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(139, 92, 246, 0.2);
+    border-color: rgba(255, 255, 255, 0.08);
     transform: translateY(-3px);
     box-shadow: 
         0 20px 48px rgba(0, 0, 0, 0.4),
-        0 0 0 1px rgba(139, 92, 246, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
@@ -421,13 +418,12 @@
 }
 
 .contact-icon-tag:hover{
-    color: rgba(139, 92, 246, 0.9);
+    color: rgba(255, 255, 255, 0.9);
     background: rgba(255, 255, 255, 0.04);
-    border-color: rgba(139, 92, 246, 0.2);
+    border-color: rgba(255, 255, 255, 0.1);
     transform: translateY(-2px);
     box-shadow: 
         0 8px 24px rgba(0, 0, 0, 0.2),
-        0 0 0 1px rgba(139, 92, 246, 0.1),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 

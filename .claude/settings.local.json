@@ -1,7 +1,9 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:tabulio.com)"
+      "WebFetch(domain:tabulio.com)",
+      "WebFetch(domain:nethan-github-api.onrender.com)",
+      "Bash(cat:*)"
     ],
     "deny": [],
     "ask": []

@@ -30,10 +30,9 @@
 .CompSciProjectCard:hover {
     transform: translateY(-2px);
     background: rgba(255, 255, 255, 0.015);
-    border-color: rgba(139, 92, 246, 0.1);
+    border-color: rgba(255, 255, 255, 0.06);
     box-shadow: 
-        0 4px 20px rgba(0, 0, 0, 0.12),
-        0 0 0 1px rgba(139, 92, 246, 0.05);
+        0 4px 20px rgba(0, 0, 0, 0.12);
 }
 
 .CompletedProject_Vid, .CompSciProjectCard_Img {
@@ -73,9 +72,9 @@
 
 .CompSciProject_Date {
     align-self: flex-start;
-    background: rgba(139, 92, 246, 0.05);
-    border: 1px solid rgba(139, 92, 246, 0.2);
-    color: rgba(139, 92, 246, 0.9);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.8);
     text-align: center;
     border-radius: 16px;
     padding: 0.25rem 0.75rem;

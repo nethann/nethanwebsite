@@ -1,8 +1,9 @@
-import { React, useEffect } from 'react'
+import { React, useEffect, useState } from 'react'
 
 
 import PythongitCard from "../computer-science/GitCards/PythongitCard"
 import JavaScriptgitCard from '../computer-science/GitCards/JavaScriptgitCard';
+import DynamicGitCard from './GitCards/DynamicGitCard';
 
 
 import ContributionCalendar from './ContributionCalendar';
@@ -14,13 +15,63 @@ import "aos/dist/aos.css"
 import "../../../CSS/Projects/GithubRep.css"
 
 export default function GithubProjects() {
+    const [repositories, setRepositories] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
+
     useEffect(() => {
         //gobal animation to every single component
         Aos.init({
             duration: 500,
             once: true
         });
-    })
+
+        // Fetch repositories from GitHub API
+        const fetchRepositories = async () => {
+            try {
+                // Fetch from GitHub API - public repositories, sorted by updated date
+                const response = await fetch('https://api.github.com/users/nethann/repos?sort=updated&per_page=8&type=all');
+                
+                if (!response.ok) {
+                    throw new Error('Failed to fetch repositories');
+                }
+                
+                const repos = await response.json();
+                
+                // Filter out forks and select most relevant repos
+                const filteredRepos = repos
+                    .filter(repo => !repo.fork) // Remove forked repositories
+                    .filter(repo => repo.description && repo.description.trim() !== '') // Only repos with descriptions
+                    .slice(0, 6); // Limit to 6 most recent
+                
+                setRepositories(filteredRepos);
+                setLoading(false);
+            } catch (err) {
+                console.error('Error fetching repositories:', err);
+                setError(err.message);
+                setLoading(false);
+            }
+        };
+
+        fetchRepositories();
+    }, []);
+
+    const getLanguageComponent = (repo) => {
+        const language = repo.language?.toLowerCase();
+        
+        switch(language) {
+            case 'javascript':
+            case 'typescript':
+            case 'html':
+            case 'css':
+            case 'react':
+                return JavaScriptgitCard;
+            case 'python':
+            default:
+                return PythongitCard;
+        }
+    };
+
     return (
         <>
             <section className='Git-Container' data-aos="fade-right">
@@ -28,16 +79,23 @@ export default function GithubProjects() {
 
                 <ContributionCalendar />
 
-
-
-
                 <div className='Github-Grid'>
-                    <PythongitCard gitName="GTWalkThrough" description="GTWalkThrough is a community-powered web app designed to help Georgia Tech students and staff navigate campus more efficiently by avoiding active construction zones." Git_Link="https://github.com/nakulshah04/GTWalkThrough" />
-                    <PythongitCard gitName="GTMovieStore" description="GTMovieStore is a web application that allows users to browse, review, and purchase movies with a seamless shopping cart experience." Git_Link="https://github.com/nakulshah04/GTMovieStore" />
-                    <PythongitCard gitName="betterCanvas" description="A simple, interactive Tkinter-based GUI that connects to your Georgia Tech Canvas account and displays all upcoming assignments (due today or later) for your current active courses." Git_Link="https://github.com/nethann/betterCanvas" />
-                    <PythongitCard gitName="googleForm_Requests" description="Automate Google Forms by sending multiple Requests" Git_Link="https://github.com/nethann/googleForm_Requests/tree/main" />
-                    {/* <JavaScriptgitCard gitName="Java" description="Discord bot that helps moderate  Discord Servers" Git_Link="https://google.com" /> */}
-                    <PythongitCard gitName="MiniBox" description="Graphical User Interface made using Tkinter from Python." Git_Link="https://github.com/nethann/Minibox" />
+                    {loading && <p style={{color: 'rgba(255, 255, 255, 0.7)', textAlign: 'center'}}>Loading repositories...</p>}
+                    {error && <p style={{color: 'rgba(255, 100, 100, 0.8)', textAlign: 'center'}}>Error loading repositories: {error}</p>}
+                    
+                    {!loading && !error && repositories.map((repo, index) => {
+                        return (
+                            <DynamicGitCard
+                                key={repo.id}
+                                gitName={repo.name}
+                                description={repo.description || 'No description available'}
+                                Git_Link={repo.html_url}
+                                language={repo.language}
+                                stars={repo.stargazers_count}
+                                lastUpdated={repo.updated_at}
+                            />
+                        );
+                    })}
                 </div>
             </section>
         </>
