@@ -33,20 +33,114 @@ export default function DynamicGitCard({ gitName, description, Git_Link, languag
     fetchLanguages();
   }, [languagesUrl]);
 
-  const getLanguageClass = (lang) => {
-    if (!lang) return 'Languages';
+  const getLanguageStyle = (lang) => {
+    if (!lang) return {
+      background: 'rgba(255, 255, 255, 0.08)',
+      color: 'rgba(255, 255, 255, 0.7)',
+      border: '1px solid rgba(255, 255, 255, 0.15)'
+    };
     
     const normalizedLang = lang.toLowerCase();
     switch(normalizedLang) {
       case 'javascript':
+        return {
+          background: 'rgba(241, 196, 15, 0.15)',
+          color: 'rgba(241, 196, 15, 0.95)',
+          border: '1px solid rgba(241, 196, 15, 0.3)'
+        };
       case 'typescript':
-      case 'html':
-      case 'css':
-        return 'Special-JS Languages';
+        return {
+          background: 'rgba(52, 152, 219, 0.15)',
+          color: 'rgba(52, 152, 219, 0.95)',
+          border: '1px solid rgba(52, 152, 219, 0.3)'
+        };
       case 'python':
-        return 'Special-Py Languages';
+        return {
+          background: 'rgba(52, 168, 83, 0.15)',
+          color: 'rgba(52, 168, 83, 0.95)',
+          border: '1px solid rgba(52, 168, 83, 0.3)'
+        };
+      case 'java':
+        return {
+          background: 'rgba(231, 76, 60, 0.15)',
+          color: 'rgba(231, 76, 60, 0.95)',
+          border: '1px solid rgba(231, 76, 60, 0.3)'
+        };
+      case 'html':
+        return {
+          background: 'rgba(230, 126, 34, 0.15)',
+          color: 'rgba(230, 126, 34, 0.95)',
+          border: '1px solid rgba(230, 126, 34, 0.3)'
+        };
+      case 'css':
+        return {
+          background: 'rgba(155, 89, 182, 0.15)',
+          color: 'rgba(155, 89, 182, 0.95)',
+          border: '1px solid rgba(155, 89, 182, 0.3)'
+        };
+      case 'react':
+      case 'jsx':
+        return {
+          background: 'rgba(97, 218, 251, 0.15)',
+          color: 'rgba(97, 218, 251, 0.95)',
+          border: '1px solid rgba(97, 218, 251, 0.3)'
+        };
+      case 'c':
+      case 'c++':
+        return {
+          background: 'rgba(149, 165, 166, 0.15)',
+          color: 'rgba(149, 165, 166, 0.95)',
+          border: '1px solid rgba(149, 165, 166, 0.3)'
+        };
+      case 'php':
+        return {
+          background: 'rgba(142, 68, 173, 0.15)',
+          color: 'rgba(142, 68, 173, 0.95)',
+          border: '1px solid rgba(142, 68, 173, 0.3)'
+        };
+      case 'go':
+        return {
+          background: 'rgba(29, 233, 182, 0.15)',
+          color: 'rgba(29, 233, 182, 0.95)',
+          border: '1px solid rgba(29, 233, 182, 0.3)'
+        };
+      case 'rust':
+        return {
+          background: 'rgba(206, 84, 57, 0.15)',
+          color: 'rgba(206, 84, 57, 0.95)',
+          border: '1px solid rgba(206, 84, 57, 0.3)'
+        };
+      case 'swift':
+        return {
+          background: 'rgba(255, 149, 0, 0.15)',
+          color: 'rgba(255, 149, 0, 0.95)',
+          border: '1px solid rgba(255, 149, 0, 0.3)'
+        };
+      case 'kotlin':
+        return {
+          background: 'rgba(126, 87, 194, 0.15)',
+          color: 'rgba(126, 87, 194, 0.95)',
+          border: '1px solid rgba(126, 87, 194, 0.3)'
+        };
+      case 'dart':
+        return {
+          background: 'rgba(66, 165, 245, 0.15)',
+          color: 'rgba(66, 165, 245, 0.95)',
+          border: '1px solid rgba(66, 165, 245, 0.3)'
+        };
+      case 'shell':
+      case 'bash':
+        return {
+          background: 'rgba(76, 175, 80, 0.15)',
+          color: 'rgba(76, 175, 80, 0.95)',
+          border: '1px solid rgba(76, 175, 80, 0.3)'
+        };
       default:
-        return 'Languages';
+        return {
+          background: 'rgba(255, 255, 255, 0.08)',
+          color: 'rgba(255, 255, 255, 0.8)',
+          border: '1px solid rgba(255, 255, 255, 0.15)'
+        };
     }
   };
 
@@ -79,22 +173,61 @@ export default function DynamicGitCard({ gitName, description, Git_Link, languag
             </ul>
 
             <div className='repo-meta' style={{ marginTop: '0.75rem' }}>
-              <div className='Lang-Container' style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.5rem' }}>
+              <div className='Lang-Container' style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '0.5rem' }}>
                 {loadingLanguages ? (
-                  <p className="Languages" style={{ fontSize: '0.7rem' }}>Loading...</p>
+                  <div style={{
+                    fontSize: '0.75rem',
+                    padding: '0.25rem 0.6rem',
+                    borderRadius: '12px',
+                    background: 'rgba(255, 255, 255, 0.08)',
+                    color: 'rgba(255, 255, 255, 0.7)',
+                    border: '1px solid rgba(255, 255, 255, 0.15)'
+                  }}>
+                    Loading...
+                  </div>
                 ) : allLanguages.length > 0 ? (
-                  allLanguages.slice(0, 3).map((lang, index) => (
-                    <p key={index} className={getLanguageClass(lang)} style={{ margin: 0, fontSize: '0.7rem', padding: '0.2rem 0.5rem' }}>
-                      {lang}
-                    </p>
-                  ))
+                  allLanguages.slice(0, 3).map((lang, index) => {
+                    const langStyle = getLanguageStyle(lang);
+                    return (
+                      <div 
+                        key={index} 
+                        style={{
+                          margin: 0,
+                          fontSize: '0.75rem',
+                          fontWeight: '500',
+                          padding: '0.25rem 0.6rem',
+                          borderRadius: '12px',
+                          ...langStyle
+                        }}
+                      >
+                        {lang}
+                      </div>
+                    );
+                  })
                 ) : (
-                  <p className={getLanguageClass(language)}>{language || 'Unknown'}</p>
+                  <div style={{
+                    fontSize: '0.75rem',
+                    fontWeight: '500', 
+                    padding: '0.25rem 0.6rem',
+                    borderRadius: '12px',
+                    ...getLanguageStyle(language)
+                  }}>
+                    {language || 'Unknown'}
+                  </div>
                 )}
                 {allLanguages.length > 3 && (
-                  <p className="Languages" style={{ margin: 0, fontSize: '0.7rem', padding: '0.2rem 0.5rem' }}>
+                  <div style={{
+                    margin: 0,
+                    fontSize: '0.75rem',
+                    fontWeight: '500',
+                    padding: '0.25rem 0.6rem',
+                    borderRadius: '12px',
+                    background: 'rgba(255, 255, 255, 0.08)',
+                    color: 'rgba(255, 255, 255, 0.7)',
+                    border: '1px solid rgba(255, 255, 255, 0.15)'
+                  }}>
                     +{allLanguages.length - 3}
-                  </p>
+                  </div>
                 )}
               </div>
               
