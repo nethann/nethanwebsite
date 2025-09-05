@@ -24,12 +24,12 @@
 }
 
 .navbar:hover {
-    background: rgba(255, 255, 255, 0.05) !important;
-    border-color: rgba(139, 92, 246, 0.2);
+    background: rgba(255, 255, 255, 0.08) !important;
+    border-color: rgba(255, 255, 255, 0.15);
     box-shadow: 
-        0 20px 48px rgba(0, 0, 0, 0.5),
-        0 0 0 1px rgba(139, 92, 246, 0.1),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        0 20px 48px rgba(0, 0, 0, 0.4),
+        0 8px 32px rgba(255, 255, 255, 0.08),
+        inset 0 2px 0 rgba(255, 255, 255, 0.2);
 }
 
 .bg-background {
@@ -124,16 +124,20 @@
 }
 
 #dropdown-item:hover {
-    background: rgba(255, 255, 255, 0.08) !important;
-    color: rgba(139, 92, 246, 0.9) !important;
-    transform: translateX(4px) !important;
-    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.1) !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+    transform: translateX(3px) !important;
+    box-shadow: 
+        0 4px 16px rgba(255, 255, 255, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
 }
 
 #dropdown-item:focus {
-    background: rgba(255, 255, 255, 0.08) !important;
-    color: rgba(139, 92, 246, 0.9) !important;
-    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2) !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    color: rgba(255, 255, 255, 0.95) !important;
+    box-shadow: 
+        0 0 0 2px rgba(255, 255, 255, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
 }
 
 /* Container adjustments for pill navbar */
