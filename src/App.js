@@ -18,6 +18,7 @@ import Contact from "./components/Contact";
 import Modeling from './components/Projects-Components/3d-modeling/Modeling';
 import Music from './components/Projects-Components/Music/Music';
 import Photography from './components/Projects-Components/Photography/Photography';
+import ScrollNavbar from './components/ScrollNavbar';
 
 import { useState } from 'react';
 
@@ -30,6 +31,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
+        <ScrollNavbar />
         <>
           <Navbar expanded={expanded} collapseOnSelect expand="lg" variant="dark">
             <Container>
