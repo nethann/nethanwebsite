@@ -40,7 +40,7 @@ export default function Technologies() {
     });
     return (
         <>
-            <section className='Tech-Container'>
+            <section className='Tech-Container glass-container'>
                 <p className='Tech-Title '>Technologies I use</p>
 
                 <div className='Tech-Grid' data-aos="fade-right">

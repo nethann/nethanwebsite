@@ -46,17 +46,17 @@ const Home = () => {
             </header>
 
             <section className="intro">
-                <div className="intro-text">
+                <div className="intro-text glass-card glass-morph">
                     <img src={NethanPC} alt="Nethan G" className="profile-pic" />
                     <h2 className='gradient-name'>Nethan Nagendran</h2>
                     <p>
-                        Hey! I'm Nethan — a CS student, guitarist, and visual storyteller. Whether I’m building
+                        Hey! I'm Nethan — a CS student, guitarist, and visual storyteller. Whether I'm building
                         apps, jamming out solos, or snapping the world around me, this is where I share it all.
                     </p>
-                    <a href="/contact" className="contact-btn">Contact Me</a>
+                    <a href="/contact" className="contact-btn glass-btn">Contact Me</a>
                 </div>
 
-                <div className='welcome-side-2'>
+                <div className='welcome-side-2 glass-card glass-blue glass-dynamic glass-float'>
                     <Canvas>
                         <ambientLight intensity={0.5} />
                         <directionalLight position={[5, 5, 5]} intensity={1} />

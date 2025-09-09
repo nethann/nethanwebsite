@@ -22,6 +22,7 @@ import Photography from './components/Projects-Components/Photography/Photograph
 import { useState } from 'react';
 
 import "./CSS/Global/Nav.css"
+import "./CSS/Global/LiquidGlass.css"
 
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <>
-          <Navbar expanded={expanded} collapseOnSelect expand="lg" bg="background" variant="dark">
+          <Navbar expanded={expanded} collapseOnSelect expand="lg" variant="dark">
             <Container>
               <Navbar.Brand as={Link} variant="light" to="/">Nethan Nagendran</Navbar.Brand>
               <Navbar.Toggle onClick={() => setExpanded(expanded ? false : "expanded")} aria-controls="responsive-navbar-nav" />

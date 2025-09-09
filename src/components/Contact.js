@@ -85,7 +85,7 @@ export default function Contact() {
       <section className='Contact-Section'>
 
 
-        {<form className='Contact-Form' ref={form} onSubmit={sendEmail} data-aos="fade-right">
+        {<form className='Contact-Form glass-card glass-purple' ref={form} onSubmit={sendEmail} data-aos="fade-right">
 
           <div className='ContactSection-1'>
             <p className='Contact-Title'>Get in touch</p>
@@ -93,17 +93,17 @@ export default function Contact() {
 
           <div className='ContactSection-2'>
             <div className='mail-section'>
-              <input className='Contact-Inputs' type="text" name="from_name" placeholder='Name' autoComplete='off' required={true} />
-              <input className='Contact-Inputs' type="email" name="from_email" placeholder='Email' autoComplete='off' required={true} />
-              <textarea className='Contact-Inputs Contact-textarea' name="message" placeholder='Message' required={true} />
-              <input className='Contact-Submit' type="submit" value="Send" />
+              <input className='Contact-Inputs glass-input' type="text" name="from_name" placeholder='Name' autoComplete='off' required={true} />
+              <input className='Contact-Inputs glass-input' type="email" name="from_email" placeholder='Email' autoComplete='off' required={true} />
+              <textarea className='Contact-Inputs Contact-textarea glass-input' name="message" placeholder='Message' required={true} />
+              <input className='Contact-Submit glass-btn glass-warm' type="submit" value="Send" />
             </div>
 
           </div>
 
         </form>}
 
-        <div className='Discord-section'>
+        <div className='Discord-section glass glass-cyan'>
           <div className='discord-pfp'>
             <img src={Astra} alt='Logo' className='Astra-Discord-Img' />
             <OverlayTrigger

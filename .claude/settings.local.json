@@ -4,7 +4,11 @@
       "WebFetch(domain:tabulio.com)",
       "WebFetch(domain:nethan-github-api.onrender.com)",
       "Bash(cat:*)",
-      "WebFetch(domain:github-contributions-api.jogruber.de)"
+      "WebFetch(domain:github-contributions-api.jogruber.de)",
+      "Bash(npm run:*)",
+      "Bash(npm install)",
+      "Bash(npm start)",
+      "WebSearch"
     ],
     "deny": [],
     "ask": []
