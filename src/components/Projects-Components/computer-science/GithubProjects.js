@@ -216,10 +216,10 @@ export default function GithubProjects() {
 
     return (
         <>
-            <section className='Git-Container' data-aos="fade-right">
-                <p className='Git-Title'>Pinned Repositories ⭐ : </p>
+            <section className='ios-section' data-aos="fade-right">
+                <h2 className='ios-title-medium' style={{textAlign: 'center', marginBottom: '2rem'}}>Pinned Repositories ⭐</h2>
 
-                <div className='Github-Grid'>
+                <div className='ios-grid'>
                     {loading && <p style={{color: 'rgba(255, 255, 255, 0.7)', textAlign: 'center'}}>Loading repositories...</p>}
                     {error && <p style={{color: 'rgba(255, 100, 100, 0.8)', textAlign: 'center'}}>Error loading repositories: {error}</p>}
                     

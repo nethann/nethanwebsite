@@ -28,9 +28,9 @@ const Home = () => {
 
 
     return (
-        <div className="homepage">
-            <header className="hero">
-                <h1 className="gradient-text apple-style">I create. I code. I capture.</h1>
+        <div className="homepage ios-background">
+            <header className="hero ios-section">
+                <h1 className="ios-title-large ios-fade-in">I create. I code. I capture.</h1>
                 <TypeWriterEffect
                     textStyle={{
                         fontSize: '1.25rem',
@@ -45,18 +45,19 @@ const Home = () => {
                 />
             </header>
 
-            <section className="intro">
-                <div className="intro-text glass-card glass-morph">
-                    <img src={NethanPC} alt="Nethan G" className="profile-pic" />
-                    <h2 className='gradient-name'>Nethan Nagendran</h2>
-                    <p>
-                        Hey! I'm Nethan — a CS student, guitarist, and visual storyteller. Whether I'm building
-                        apps, jamming out solos, or snapping the world around me, this is where I share it all.
-                    </p>
-                    <a href="/contact" className="contact-btn glass-btn">Contact Me</a>
-                </div>
+            <section className="intro ios-container">
+                <div className="ios-grid ios-grid-2">
+                    <div className="ios-card ios-scale-in ios-interactive">
+                        <img src={NethanPC} alt="Nethan G" className="profile-pic" />
+                        <h2 className='ios-title-medium'>Nethan Nagendran</h2>
+                        <p className="ios-body">
+                            Hey! I'm Nethan — a CS student, guitarist, and visual storyteller. Whether I'm building
+                            apps, jamming out solos, or snapping the world around me, this is where I share it all.
+                        </p>
+                        <a href="/contact" className="ios-btn-primary">Contact Me</a>
+                    </div>
 
-                <div className='welcome-side-2 glass-card glass-blue glass-dynamic glass-float'>
+                    <div className='ios-card ios-scale-in ios-interactive' style={{animationDelay: '0.2s'}}>
                     <Canvas>
                         <ambientLight intensity={0.5} />
                         <directionalLight position={[5, 5, 5]} intensity={1} />
@@ -73,8 +74,8 @@ const Home = () => {
                             />
 
                         </Suspense>
-
                     </Canvas>
+                    </div>
                 </div>
             </section>
         </div>

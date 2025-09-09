@@ -24,6 +24,7 @@ import { useState, useEffect } from 'react';
 
 import "./CSS/Global/Nav.css"
 import "./CSS/Global/LiquidGlass.css"
+import "./CSS/Global/iOS26DesignSystem.css"
 
 
 function App() {

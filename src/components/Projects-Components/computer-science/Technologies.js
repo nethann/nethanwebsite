@@ -40,10 +40,10 @@ export default function Technologies() {
     });
     return (
         <>
-            <section className='Tech-Container glass-container'>
-                <p className='Tech-Title '>Technologies I use</p>
+            <section className='ios-section'>
+                <h2 className='ios-title-medium' style={{textAlign: 'center', marginBottom: '2rem'}}>Technologies I use</h2>
 
-                <div className='Tech-Grid' data-aos="fade-right">
+                <div className='ios-grid ios-grid-3' data-aos="fade-right">
                     <Techcard name="Python" image={python} />
                     <Techcard name="NodeJS" image={node} />
                     <Techcard name="HTML" image={html5} />

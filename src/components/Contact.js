@@ -80,73 +80,59 @@ export default function Contact() {
   });
 
   return (
-    <div className='Home-container'>
+    <div className='Home-container ios-background'>
+      <div className="ios-container">
+        <section className='ios-section'>
+          <div className="ios-grid ios-grid-2">
+            <form className='ios-card ios-scale-in' ref={form} onSubmit={sendEmail} data-aos="fade-right">
+              <h2 className='ios-title-medium' style={{marginBottom: '2rem'}}>Get in touch</h2>
 
-      <section className='Contact-Section'>
+              <div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
+                <input className='ios-glass-regular' style={{padding: '1rem', borderRadius: '12px', border: '1px solid var(--ios-border-regular)', background: 'var(--ios-glass-regular)', color: 'white', fontSize: '16px'}} type="text" name="from_name" placeholder='Name' autoComplete='off' required={true} />
+                <input className='ios-glass-regular' style={{padding: '1rem', borderRadius: '12px', border: '1px solid var(--ios-border-regular)', background: 'var(--ios-glass-regular)', color: 'white', fontSize: '16px'}} type="email" name="from_email" placeholder='Email' autoComplete='off' required={true} />
+                <textarea className='ios-glass-regular' style={{padding: '1rem', borderRadius: '12px', border: '1px solid var(--ios-border-regular)', background: 'var(--ios-glass-regular)', color: 'white', fontSize: '16px', minHeight: '120px', resize: 'vertical'}} name="message" placeholder='Message' required={true} />
+                <button className='ios-btn-primary' type="submit">Send Message</button>
+              </div>
+            </form>
 
+            <div className='ios-card ios-scale-in ios-interactive' style={{animationDelay: '0.2s', textAlign: 'center'}}>
+              <div style={{marginBottom: '2rem'}}>
+                <img src={Astra} alt='Discord Profile' style={{width: '80px', height: '80px', borderRadius: '50%', marginBottom: '1rem'}} />
+                <OverlayTrigger
+                  placement="top"
+                  delay={{ show: 250, hide: 400 }}
+                  overlay={renderTooltip}
+                >
+                  <div className={`circle pulse ${discordPulse}`} style={{display: 'inline-block', width: '12px', height: '12px', borderRadius: '50%', marginLeft: '8px'}}></div>
+                </OverlayTrigger>
+                <h3 className='ios-title-medium' style={{marginBottom: '0.5rem'}}>Astra<span style={{opacity: 0.6}}>180</span></h3>
+              </div>
 
-        {<form className='Contact-Form glass-card glass-purple' ref={form} onSubmit={sendEmail} data-aos="fade-right">
+              <div style={{display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center'}}>
+                <a href='https://www.instagram.com/nethan_journey/' target='_blank' rel='noreferrer' className='ios-dynamic-pill' style={{textDecoration: 'none', color: 'white', display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+                  <FaInstagram style={{fontSize: '20px'}} />
+                </a>
 
-          <div className='ContactSection-1'>
-            <p className='Contact-Title'>Get in touch</p>
-          </div>
+                <a href='https://www.linkedin.com/in/nethan-nagendran/' rel='noreferrer' target='_blank' className='ios-dynamic-pill' style={{textDecoration: 'none', color: 'white', display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+                  <FaLinkedinIn style={{fontSize: '20px'}} />
+                </a>
 
-          <div className='ContactSection-2'>
-            <div className='mail-section'>
-              <input className='Contact-Inputs glass-input' type="text" name="from_name" placeholder='Name' autoComplete='off' required={true} />
-              <input className='Contact-Inputs glass-input' type="email" name="from_email" placeholder='Email' autoComplete='off' required={true} />
-              <textarea className='Contact-Inputs Contact-textarea glass-input' name="message" placeholder='Message' required={true} />
-              <input className='Contact-Submit glass-btn glass-warm' type="submit" value="Send" />
+                <a href='https://github.com/nethann' target='_blank' rel='noreferrer' className='ios-dynamic-pill' style={{textDecoration: 'none', color: 'white', display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+                  <AiFillGithub style={{fontSize: '20px'}} />
+                </a>
+
+                <a href='https://www.youtube.com/@nethan_journey' target='_blank' rel='noreferrer' className='ios-dynamic-pill' style={{textDecoration: 'none', color: 'white', display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+                  <FaYoutube style={{fontSize: '20px'}} />
+                </a>
+
+                <a href='https://www.tiktok.com/@nethan_journey' target='_blank' rel='noreferrer' className='ios-dynamic-pill' style={{textDecoration: 'none', color: 'white', display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
+                  <FaTiktok style={{fontSize: '20px'}} />
+                </a>
+              </div>
             </div>
-
           </div>
-
-        </form>}
-
-        <div className='Discord-section glass glass-cyan'>
-          <div className='discord-pfp'>
-            <img src={Astra} alt='Logo' className='Astra-Discord-Img' />
-            <OverlayTrigger
-              placement="top"
-              delay={{ show: 250, hide: 400 }}
-              overlay={renderTooltip}
-            >
-              <div className={`circle pulse ${discordPulse}`}></div>
-            </OverlayTrigger>
-          </div>
-
-          <div className='discord-tag'>
-            <p className='discord-tag-user'>Astra<span>180</span></p>
-          </div>
-        </div>
-
-
-        <div className='Contact-Icons-Section'>
-
-          <a href='https://www.instagram.com/nethan_journey/' target='_blank' rel='noreferrer' className='contact-icon-tag instagram-icon'>
-            <FaInstagram className='Contact-Icon' />
-          </a>
-
-          <a href='https://www.linkedin.com/in/nethan-nagendran/' rel='noreferrer' target='_blank' className='contact-icon-tag linkedin-icon'>
-            <FaLinkedinIn className='Contact-Icon' />
-          </a>
-
-          <a href='https://github.com/nethann' target='_blank' rel='noreferrer' className='contact-icon-tag git-icon'>
-            <AiFillGithub className='Contact-Icon' />
-          </a>
-
-          <a href='https://www.youtube.com/@nethan_journey' target='_blank' rel='noreferrer' className='contact-icon-tag git-icon'>
-            <FaYoutube className='Contact-Icon' />
-          </a>
-
-          <a href='https://www.tiktok.com/@nethan_journey' target='_blank' rel='noreferrer' className='contact-icon-tag git-icon'>
-            <FaTiktok className='Contact-Icon' />
-          </a>
-        </div>
-
-
-      </section>
-
+        </section>
+      </div>
     </div>
   )
 }

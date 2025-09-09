@@ -9,10 +9,12 @@ import CompletedProjects from './Projects-Components/computer-science/CompletedP
 
 export default function Projects() {
   return (
-    <div className='Home-container'>
-      <Technologies />
-      <GithubProjects />
-      <CompletedProjects /> 
+    <div className='Home-container ios-background'>
+      <div className="ios-container">
+        <Technologies />
+        <GithubProjects />
+        <CompletedProjects />
+      </div>
     </div>
   )
 }
