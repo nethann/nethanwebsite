@@ -20,7 +20,7 @@ import Music from './components/Projects-Components/Music/Music';
 import Photography from './components/Projects-Components/Photography/Photography';
 import ScrollNavbar from './components/ScrollNavbar';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import "./CSS/Global/Nav.css"
 import "./CSS/Global/LiquidGlass.css"
@@ -28,6 +28,7 @@ import "./CSS/Global/LiquidGlass.css"
 
 function App() {
   const [expanded, setExpanded] = useState(false)
+  
   return (
     <BrowserRouter>
       <div className="App">

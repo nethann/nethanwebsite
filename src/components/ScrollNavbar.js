@@ -29,22 +29,27 @@ const ScrollNavbar = () => {
         navbar.classList.add('scrolled');
       }
 
-      // Add momentum-based blur effect
+      // iOS 26 Content Visibility Effect - Lower blur for better visibility
       clearTimeout(scrollTimer);
-      navbar.style.backdropFilter = `blur(${Math.min(20 + (scrollY * 0.2), 80)}px) saturate(${Math.min(180 + (scrollY * 0.1), 240)}%)`;
-      navbar.style.webkitBackdropFilter = `blur(${Math.min(20 + (scrollY * 0.2), 80)}px) saturate(${Math.min(180 + (scrollY * 0.1), 240)}%)`;
+      const dynamicBlur = Math.min(12 + (scrollY * 0.08), 25);
+      const dynamicSaturation = Math.min(160 + (scrollY * 0.05), 190);
+      const dynamicBrightness = Math.min(1.1 + (scrollY * 0.0005), 1.3);
+      const dynamicContrast = Math.min(1 + (scrollY * 0.0003), 1.2);
       
-      // Reset to default blur after scroll stops
+      navbar.style.backdropFilter = `blur(${dynamicBlur}px) saturate(${dynamicSaturation}%) brightness(${dynamicBrightness}) contrast(${dynamicContrast})`;
+      navbar.style.webkitBackdropFilter = `blur(${dynamicBlur}px) saturate(${dynamicSaturation}%) brightness(${dynamicBrightness}) contrast(${dynamicContrast})`;
+      
+      // Reset to optimized blur levels for content visibility
       scrollTimer = setTimeout(() => {
         if (scrollY > heavyScrollThreshold) {
-          navbar.style.backdropFilter = 'blur(60px) saturate(220%)';
-          navbar.style.webkitBackdropFilter = 'blur(60px) saturate(220%)';
+          navbar.style.backdropFilter = 'blur(20px) saturate(180%) brightness(1.2) contrast(1.15)';
+          navbar.style.webkitBackdropFilter = 'blur(20px) saturate(180%) brightness(1.2) contrast(1.15)';
         } else if (scrollY > scrollThreshold) {
-          navbar.style.backdropFilter = 'blur(40px) saturate(200%)';
-          navbar.style.webkitBackdropFilter = 'blur(40px) saturate(200%)';
+          navbar.style.backdropFilter = 'blur(16px) saturate(170%) brightness(1.15) contrast(1.1)';
+          navbar.style.webkitBackdropFilter = 'blur(16px) saturate(170%) brightness(1.15) contrast(1.1)';
         } else {
-          navbar.style.backdropFilter = 'blur(20px) saturate(180%)';
-          navbar.style.webkitBackdropFilter = 'blur(20px) saturate(180%)';
+          navbar.style.backdropFilter = 'blur(12px) saturate(160%) brightness(1.1)';
+          navbar.style.webkitBackdropFilter = 'blur(12px) saturate(160%) brightness(1.1)';
         }
       }, 150);
     };
