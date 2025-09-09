@@ -29,27 +29,26 @@ const ScrollNavbar = () => {
         navbar.classList.add('scrolled');
       }
 
-      // iOS 26 Content Visibility Effect - Lower blur for better visibility
+      // iOS 26 Maximum Transparency Effect - Minimal blur for content visibility
       clearTimeout(scrollTimer);
-      const dynamicBlur = Math.min(12 + (scrollY * 0.08), 25);
-      const dynamicSaturation = Math.min(160 + (scrollY * 0.05), 190);
-      const dynamicBrightness = Math.min(1.1 + (scrollY * 0.0005), 1.3);
-      const dynamicContrast = Math.min(1 + (scrollY * 0.0003), 1.2);
+      const dynamicBlur = Math.min(8 + (scrollY * 0.03), 15);
+      const dynamicSaturation = Math.min(150 + (scrollY * 0.04), 180);
+      const dynamicBrightness = Math.min(1.05 + (scrollY * 0.0003), 1.2);
       
-      navbar.style.backdropFilter = `blur(${dynamicBlur}px) saturate(${dynamicSaturation}%) brightness(${dynamicBrightness}) contrast(${dynamicContrast})`;
-      navbar.style.webkitBackdropFilter = `blur(${dynamicBlur}px) saturate(${dynamicSaturation}%) brightness(${dynamicBrightness}) contrast(${dynamicContrast})`;
+      navbar.style.backdropFilter = `blur(${dynamicBlur}px) saturate(${dynamicSaturation}%) brightness(${dynamicBrightness})`;
+      navbar.style.webkitBackdropFilter = `blur(${dynamicBlur}px) saturate(${dynamicSaturation}%) brightness(${dynamicBrightness})`;
       
-      // Reset to optimized blur levels for content visibility
+      // Reset to very transparent levels for maximum content visibility
       scrollTimer = setTimeout(() => {
         if (scrollY > heavyScrollThreshold) {
-          navbar.style.backdropFilter = 'blur(20px) saturate(180%) brightness(1.2) contrast(1.15)';
-          navbar.style.webkitBackdropFilter = 'blur(20px) saturate(180%) brightness(1.2) contrast(1.15)';
+          navbar.style.backdropFilter = 'blur(12px) saturate(170%) brightness(1.15)';
+          navbar.style.webkitBackdropFilter = 'blur(12px) saturate(170%) brightness(1.15)';
         } else if (scrollY > scrollThreshold) {
-          navbar.style.backdropFilter = 'blur(16px) saturate(170%) brightness(1.15) contrast(1.1)';
-          navbar.style.webkitBackdropFilter = 'blur(16px) saturate(170%) brightness(1.15) contrast(1.1)';
+          navbar.style.backdropFilter = 'blur(10px) saturate(160%) brightness(1.1)';
+          navbar.style.webkitBackdropFilter = 'blur(10px) saturate(160%) brightness(1.1)';
         } else {
-          navbar.style.backdropFilter = 'blur(12px) saturate(160%) brightness(1.1)';
-          navbar.style.webkitBackdropFilter = 'blur(12px) saturate(160%) brightness(1.1)';
+          navbar.style.backdropFilter = 'blur(8px) saturate(150%) brightness(1.05)';
+          navbar.style.webkitBackdropFilter = 'blur(8px) saturate(150%) brightness(1.05)';
         }
       }, 150);
     };
