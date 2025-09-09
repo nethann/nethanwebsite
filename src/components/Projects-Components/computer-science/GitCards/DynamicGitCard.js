@@ -160,7 +160,7 @@ export default function DynamicGitCard({ gitName, description, Git_Link, languag
   return (
     <Tilt glareEnable={true} glareMaxOpacity={0.3} glareColor="#ffffff" glarePosition="bottom" glareBorderRadius='8px' tiltMaxAngleX={2} tiltMaxAngleY={2}>
       <div className='gitcard-holder'>
-        <a href={Git_Link} target="_blank" rel='noreferrer' className='Git-Card'>
+        <a href={Git_Link} target="_blank" rel='noreferrer' className='Git-Card glass glass-subtle'>
 
           <div className='Git-Card-FirstSection'>
             <img src={github} className='Git-Img' alt='GitHub Logo' />

@@ -1,3 +1,8 @@
+.gitcard-holder {
+    height: 100%;
+    width: 100%;
+}
+
 .Git-Card {
     display: flex;
     flex-direction: column;
@@ -5,31 +10,14 @@
     align-items: stretch;
     gap: 1rem;
     
-    /* Reflect.app ultra-minimal card */
-    background: rgba(255, 255, 255, 0.01);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.02);
-    border-radius: 8px;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-    
     padding: 1.25rem;
     overflow-wrap: break-word;
     text-decoration: none;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
-    height: 100%;
-    min-height: 240px;
+    height: 280px;
     box-sizing: border-box;
-}
-
-.Git-Card:hover {
-    background: rgba(255, 255, 255, 0.015);
-    border-color: rgba(255, 255, 255, 0.06);
-    transform: translateY(-1px);
-    box-shadow: 
-        0 4px 20px rgba(0, 0, 0, 0.12);
+    width: 100%;
 }
 
 /* First Section: GitHub Icon + Repo Name */

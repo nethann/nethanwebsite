@@ -42,9 +42,9 @@
 
 .Github-Grid{
     display: grid;
-    gap: 1rem;
-    grid-template-columns: repeat(4, 1fr);
-    height: 100%;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    align-items: stretch;
     width: 100%;
 }
 
