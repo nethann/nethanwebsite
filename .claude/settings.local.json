@@ -9,7 +9,8 @@
       "Bash(npm install)",
       "Bash(npm start)",
       "WebSearch",
-      "Bash(timeout 10 npm start)"
+      "Bash(timeout 10 npm start)",
+      "WebFetch(domain:api.lanyard.rest)"
     ],
     "deny": [],
     "ask": []

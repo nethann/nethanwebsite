@@ -67,10 +67,14 @@ export default function Contact() {
 
     emailjs.sendForm('service_cce2tzg', 'template_i3gb2es', form.current, 'CIjfNKb1UjuFlNTVl')
       .then((result) => {
-        alert("Email Sent")
+        if (window.showDynamicIslandNotification) {
+          window.showDynamicIslandNotification('success', 'Message sent successfully!');
+        }
         form.current.reset();
       }, (error) => {
-        alert(error.text)
+        if (window.showDynamicIslandNotification) {
+          window.showDynamicIslandNotification('error', 'Failed to send message');
+        }
       })
 
   }

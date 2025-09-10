@@ -19,8 +19,9 @@ import Modeling from './components/Projects-Components/3d-modeling/Modeling';
 import Music from './components/Projects-Components/Music/Music';
 import Photography from './components/Projects-Components/Photography/Photography';
 import ScrollNavbar from './components/ScrollNavbar';
+import DynamicIsland from './components/Global-Components/DynamicIsland';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import "./CSS/Global/Nav.css"
 import "./CSS/Global/LiquidGlass.css"
@@ -33,6 +34,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
+        <DynamicIsland />
         <ScrollNavbar />
         <>
           <Navbar expanded={expanded} collapseOnSelect expand="lg" variant="dark">
