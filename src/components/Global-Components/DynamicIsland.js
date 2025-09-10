@@ -103,10 +103,15 @@ export default function DynamicIsland() {
       );
     }
     
-    // Show current playing song
+    // Show current playing song with album art
     if (spotifyData && spotifyData.isPlaying) {
       return (
-        <div className="dynamic-island-content spotify-minimal">
+        <div className="dynamic-island-content spotify-minimal-with-art">
+          <img 
+            src={spotifyData.albumArt} 
+            alt="Album Art" 
+            className="spotify-minimal-album-art" 
+          />
           <FaSpotify className="spotify-icon" />
           <div className="spotify-minimal-info">
             <span className="song-title">{spotifyData.song}</span>

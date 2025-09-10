@@ -19,7 +19,8 @@
   user-select: none;
   
   /* Default size (minimal state) */
-  width: 44px;
+  width: auto;
+  min-width: 44px;
   height: 44px;
   
   /* Shadow and glow - more subtle for transparency */
@@ -110,10 +111,10 @@
 }
 
 .dynamic-island.expanded {
-  width: 360px;
-  height: 180px;
+  width: 420px;
+  height: 280px;
   border-radius: 24px;
-  padding: 16px;
+  padding: 18px;
   background: rgba(255, 255, 255, 0.015) !important;
   backdrop-filter: blur(6px) saturate(130%) brightness(1.03) !important;
   -webkit-backdrop-filter: blur(6px) saturate(130%) brightness(1.03) !important;
@@ -345,9 +346,26 @@
 
 /* Spotify Integration Styles */
 .spotify-minimal {
-  padding: 0 12px;
-  min-width: 200px;
+  padding: 8px 12px;
+  min-width: 250px;
   justify-content: flex-start;
+  gap: 10px;
+}
+
+.spotify-minimal-with-art {
+  padding: 6px 12px;
+  min-width: 280px;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.spotify-minimal-album-art {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
 }
 
 .spotify-icon {
@@ -386,10 +404,10 @@
 
 /* Expanded Spotify Styles */
 .spotify-row {
-  padding: 12px;
+  padding: 10px;
   background: rgba(29, 185, 84, 0.05);
   border: 1px solid rgba(29, 185, 84, 0.15);
-  border-radius: 16px;
+  border-radius: 12px;
   margin-bottom: 8px;
 }
 
@@ -400,11 +418,11 @@
 }
 
 .album-art {
-  width: 48px;
-  height: 48px;
-  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
   object-fit: cover;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 .track-info {
@@ -416,7 +434,7 @@
 }
 
 .track-title {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.95);
   white-space: nowrap;
@@ -425,7 +443,7 @@
 }
 
 .track-artist {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 500;
   color: rgba(255, 255, 255, 0.8);
   white-space: nowrap;
@@ -434,7 +452,7 @@
 }
 
 .track-album {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 400;
   color: rgba(255, 255, 255, 0.6);
   white-space: nowrap;
