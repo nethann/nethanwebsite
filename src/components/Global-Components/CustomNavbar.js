@@ -1,34 +1,41 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { FaChevronDown } from 'react-icons/fa';
+import { FaChevronDown, FaBars, FaTimes } from 'react-icons/fa';
 import '../../CSS/Global/Nav.css';
 
 export default function CustomNavbar() {
-  const [expanded, setExpanded] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const navRef = useRef(null);
 
   const toggleMobileMenu = () => {
-    setExpanded(!expanded);
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+    // Close dropdown when opening mobile menu
+    setIsDropdownOpen(false);
   };
 
   const toggleDropdown = (e) => {
     e.preventDefault();
     e.stopPropagation();
-    console.log('Dropdown clicked, current state:', dropdownOpen);
-    setDropdownOpen(!dropdownOpen);
+    console.log('Dropdown toggled, current state:', isDropdownOpen);
+    setIsDropdownOpen(!isDropdownOpen);
   };
 
   const closeAllMenus = () => {
-    setExpanded(false);
-    setDropdownOpen(false);
+    setIsMobileMenuOpen(false);
+    setIsDropdownOpen(false);
   };
 
-  // Close dropdown when clicking outside
+  const handleLinkClick = () => {
+    closeAllMenus();
+  };
+
+  // Close menus when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-        setDropdownOpen(false);
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        closeAllMenus();
       }
     };
 
@@ -38,87 +45,105 @@ export default function CustomNavbar() {
     };
   }, []);
 
+  // Debug dropdown state
+  useEffect(() => {
+    console.log('Dropdown state:', isDropdownOpen);
+  }, [isDropdownOpen]);
+
   return (
-    <nav className="navbar">
-      <div className="container">
-        <Link to="/" className="navbar-brand" onClick={closeAllMenus}>
+    <nav className="custom-navbar" ref={navRef}>
+      <div className="nav-container">
+        {/* Brand/Logo */}
+        <Link to="/" className="nav-brand" onClick={handleLinkClick}>
           Nethan Nagendran
         </Link>
-        
-        <button 
-          className="navbar-toggler" 
-          onClick={toggleMobileMenu}
-          aria-label="Toggle navigation"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        
-        <div className={`navbar-collapse ${expanded ? 'show' : ''}`}>
-          <div className="navbar-nav">
-            <Link 
-              to="/" 
-              className="nav-link" 
-              id="nav-link"
-              onClick={closeAllMenus}
+
+        {/* Desktop Navigation */}
+        <div className="nav-menu">
+          <Link to="/" className="nav-item" onClick={handleLinkClick}>
+            Home
+          </Link>
+          
+          {/* Projects Dropdown */}
+          <div className="nav-dropdown" ref={dropdownRef}>
+            <button 
+              className="nav-item dropdown-button"
+              onClick={toggleDropdown}
+              aria-expanded={isDropdownOpen}
             >
-              Home
-            </Link>
+              Projects 
+              <FaChevronDown 
+                className={`chevron-icon ${isDropdownOpen ? 'rotated' : ''}`}
+              />
+            </button>
             
-            <div className="dropdown" ref={dropdownRef}>
-              <button 
-                className="dropdown-toggle nav-link" 
-                id="basic-nav-dropdown"
-                onClick={toggleDropdown}
-                aria-expanded={dropdownOpen}
-              >
-                Projects <FaChevronDown style={{ marginLeft: '4px', fontSize: '12px' }} />
-              </button>
-              
-              <div className={`dropdown-menu ${dropdownOpen ? 'show' : ''}`} style={{display: dropdownOpen ? 'block' : 'none'}}>
-                <Link 
-                  to="/projects" 
-                  className="dropdown-item" 
-                  id="dropdown-item"
-                  onClick={closeAllMenus}
-                >
-                  Computer Science
-                </Link>
-                <Link 
-                  to="/music" 
-                  className="dropdown-item" 
-                  id="dropdown-item"
-                  onClick={closeAllMenus}
-                >
-                  Music
-                </Link>
-                <Link 
-                  to="/photography" 
-                  className="dropdown-item" 
-                  id="dropdown-item"
-                  onClick={closeAllMenus}
-                >
-                  Photography
-                </Link>
-                <Link 
-                  to="/gameDevelopment" 
-                  className="dropdown-item" 
-                  id="dropdown-item"
-                  onClick={closeAllMenus}
-                >
-                  Game Dev
-                </Link>
-              </div>
+            <div className={`dropdown-content ${isDropdownOpen ? 'show' : ''}`}>
+              <Link to="/projects" className="dropdown-link" onClick={handleLinkClick}>
+                Computer Science
+              </Link>
+              <Link to="/music" className="dropdown-link" onClick={handleLinkClick}>
+                Music
+              </Link>
+              <Link to="/photography" className="dropdown-link" onClick={handleLinkClick}>
+                Photography
+              </Link>
+              <Link to="/gameDevelopment" className="dropdown-link" onClick={handleLinkClick}>
+                Game Dev
+              </Link>
             </div>
-            
-            <Link 
-              to="/contact" 
-              className="nav-link" 
-              id="nav-link"
-              onClick={closeAllMenus}
-            >
-              Contact
-            </Link>
           </div>
+          
+          <Link to="/contact" className="nav-item" onClick={handleLinkClick}>
+            Contact
+          </Link>
+        </div>
+
+        {/* Mobile Menu Toggle */}
+        <button 
+          className="mobile-toggle"
+          onClick={toggleMobileMenu}
+          aria-label="Toggle mobile menu"
+        >
+          {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+
+        {/* Mobile Navigation */}
+        <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
+          <Link to="/" className="mobile-item" onClick={handleLinkClick}>
+            Home
+          </Link>
+          
+          {/* Mobile Projects Section */}
+          <div className="mobile-dropdown">
+            <button 
+              className="mobile-item dropdown-button"
+              onClick={toggleDropdown}
+            >
+              Projects 
+              <FaChevronDown 
+                className={`chevron-icon ${isDropdownOpen ? 'rotated' : ''}`}
+              />
+            </button>
+            
+            <div className={`mobile-dropdown-content ${isDropdownOpen ? 'show' : ''}`}>
+              <Link to="/projects" className="mobile-dropdown-link" onClick={handleLinkClick}>
+                Computer Science
+              </Link>
+              <Link to="/music" className="mobile-dropdown-link" onClick={handleLinkClick}>
+                Music
+              </Link>
+              <Link to="/photography" className="mobile-dropdown-link" onClick={handleLinkClick}>
+                Photography
+              </Link>
+              <Link to="/gameDevelopment" className="mobile-dropdown-link" onClick={handleLinkClick}>
+                Game Dev
+              </Link>
+            </div>
+          </div>
+          
+          <Link to="/contact" className="mobile-item" onClick={handleLinkClick}>
+            Contact
+          </Link>
         </div>
       </div>
     </nav>

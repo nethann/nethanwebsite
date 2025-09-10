@@ -1,477 +1,329 @@
-/* Reflect.app Style Centered Pill Navbar */
-.navbar{
-    position: fixed !important;
-    top: 1.5rem !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    z-index: 1000 !important;
-    will-change: transform, background, backdrop-filter;
-    width: auto;
-    max-width: 95vw;
-    min-width: 600px;
-    
-    /* Apple Liquid Glass pill styling with iOS 26 visibility */
-    background: rgba(255, 255, 255, 0.02) !important;
-    backdrop-filter: blur(8px) saturate(150%) brightness(1.05);
-    -webkit-backdrop-filter: blur(8px) saturate(150%) brightness(1.05);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 50px;
-    padding: 1rem 3.5rem;
-    box-shadow: 
-        0 16px 40px rgba(0, 0, 0, 0.4),
-        0 8px 32px rgba(255, 255, 255, 0.05),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
-    
-    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    
-    /* Apple Liquid Glass shimmer effect */
-    position: relative;
-    overflow: hidden;
+/* Custom Navbar - Apple Glass Design */
+.custom-navbar {
+  position: fixed;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  width: auto;
+  max-width: 95vw;
+  min-width: 600px;
+  
+  /* Apple Liquid Glass styling */
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(8px) saturate(150%) brightness(1.05);
+  -webkit-backdrop-filter: blur(8px) saturate(150%) brightness(1.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 50px;
+  padding: 1rem 3.5rem;
+  box-shadow: 
+    0 16px 40px rgba(0, 0, 0, 0.4),
+    0 8px 32px rgba(255, 255, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  overflow: visible;
 }
 
-/* Liquid Glass shimmer animation */
-.navbar::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.1),
-        transparent
-    );
-    animation: navbarShimmer 8s ease-in-out infinite;
-    border-radius: inherit;
-    pointer-events: none;
-    z-index: 1;
+.custom-navbar:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateX(-50%) translateY(-2px);
+  box-shadow: 
+    0 24px 56px rgba(0, 0, 0, 0.5),
+    0 12px 40px rgba(255, 255, 255, 0.08),
+    inset 0 2px 0 rgba(255, 255, 255, 0.25);
 }
 
-@keyframes navbarShimmer {
-    0%, 90%, 100% {
-        left: -100%;
-        opacity: 0;
-    }
-    50% {
-        left: 100%;
-        opacity: 1;
-    }
+/* Container */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }
 
-/* iOS 26 Liquid Glass Scroll States with Better Transparency */
-.navbar.scrolled {
-    background: rgba(255, 255, 255, 0.01) !important;
-    backdrop-filter: blur(10px) saturate(160%) brightness(1.1);
-    -webkit-backdrop-filter: blur(10px) saturate(160%) brightness(1.1);
-    border-color: rgba(255, 255, 255, 0.15);
-    box-shadow: 
-        0 20px 48px rgba(0, 0, 0, 0.2),
-        0 12px 40px rgba(255, 255, 255, 0.04),
-        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+/* Brand */
+.nav-brand {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.95);
+  text-decoration: none;
+  white-space: nowrap;
 }
 
-.navbar.scrolled-heavy {
-    background: rgba(255, 255, 255, 0.02) !important;
-    backdrop-filter: blur(12px) saturate(170%) brightness(1.15);
-    -webkit-backdrop-filter: blur(12px) saturate(170%) brightness(1.15);
-    border-color: rgba(255, 255, 255, 0.18);
-    box-shadow: 
-        0 24px 56px rgba(0, 0, 0, 0.25),
-        0 16px 48px rgba(255, 255, 255, 0.05),
-        inset 0 1px 0 rgba(255, 255, 255, 0.25);
+/* Desktop Navigation Menu */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
-.navbar:hover {
-    background: rgba(255, 255, 255, 0.1) !important;
-    border-color: rgba(255, 255, 255, 0.2);
-    transform: translateX(-50%) translateY(-2px);
-    box-shadow: 
-        0 24px 56px rgba(0, 0, 0, 0.5),
-        0 12px 40px rgba(255, 255, 255, 0.08),
-        inset 0 2px 0 rgba(255, 255, 255, 0.25);
+/* Navigation Items */
+.nav-item {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  padding: 0.5rem 0.75rem;
+  border-radius: 25px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: none;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
 }
 
-.navbar.scrolled:hover {
-    background: rgba(255, 255, 255, 0.15) !important;
-    transform: translateX(-50%) translateY(-3px);
-    box-shadow: 
-        0 28px 64px rgba(0, 0, 0, 0.6),
-        0 16px 48px rgba(255, 255, 255, 0.12),
-        inset 0 3px 0 rgba(255, 255, 255, 0.3);
+.nav-item:hover {
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.08);
 }
 
-.bg-background {
-    background-color: transparent !important;
+/* Dropdown Button */
+.dropdown-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.navbar-brand {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
-    font-weight: 700 !important;
-    font-size: 1rem !important;
-    color: rgba(255, 255, 255, 0.95) !important;
-    text-decoration: none !important;
-    margin-right: 0 !important;
-    white-space: nowrap !important;
-    overflow: visible !important;
-    flex-shrink: 0 !important;
+.chevron-icon {
+  font-size: 12px;
+  transition: transform 0.3s ease;
 }
 
-.nav-link {
-    text-align: center;
-    color: rgba(255, 255, 255, 0.8) !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
-    font-weight: 500 !important;
-    font-size: 0.9rem !important;
-    padding: 0.5rem 0.75rem !important;
-    border-radius: 25px !important;
-    margin: 0 !important;
-    white-space: nowrap !important;
+.chevron-icon.rotated {
+  transform: rotate(180deg);
 }
 
-#nav-link:hover {
-    color: rgba(255, 255, 255, 0.95) !important;
-    background: rgba(255, 255, 255, 0.08) !important;
+/* Dropdown Container */
+.nav-dropdown {
+  position: relative;
 }
 
-.dropdown-toggle {
-    color: rgba(255, 255, 255, 0.8) !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
-    font-weight: 500 !important;
-    font-size: 0.9rem !important;
-    padding: 0.5rem 0.75rem !important;
-    border-radius: 25px !important;
-    margin: 0 !important;
-    white-space: nowrap !important;
+/* Dropdown Content */
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 0.5rem;
+  min-width: 200px;
+  
+  /* Match navbar glass styling */
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(8px) saturate(150%) brightness(1.05);
+  -webkit-backdrop-filter: blur(8px) saturate(150%) brightness(1.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 1rem;
+  box-shadow: 
+    0 16px 40px rgba(0, 0, 0, 0.4),
+    0 8px 32px rgba(255, 255, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  
+  /* Animation states */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 10000;
 }
 
-#basic-nav-dropdown:hover{
-    color: rgba(255, 255, 255, 0.95) !important;
-    background: rgba(255, 255, 255, 0.08) !important;
+.dropdown-content.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
-/* Mobile Toggle Button */
-.navbar-dark .navbar-toggler {
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    border-radius: 8px !important;
-    padding: 0.25rem 0.5rem !important;
+/* Dropdown Links */
+.dropdown-link {
+  display: block;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  margin: 0.25rem 0;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.navbar-toggler-icon {
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+.dropdown-link:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: rgba(255, 255, 255, 0.95);
+  transform: translateX(3px);
+  box-shadow: 
+    0 4px 16px rgba(255, 255, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
-/* Liquid Glass Dropdown - Matching Navbar Style */
-.dropdown-menu {
-    position: absolute !important;
-    top: 100% !important;
-    left: 0 !important;
-    z-index: 10000 !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    border-radius: 20px !important;
-    padding: 1rem !important;
-    margin-top: 0.5rem !important;
-    min-width: 200px !important;
-    
-    /* Match navbar glass styling exactly */
-    background: rgba(255, 255, 255, 0.02) !important;
-    backdrop-filter: blur(8px) saturate(150%) brightness(1.05) !important;
-    -webkit-backdrop-filter: blur(8px) saturate(150%) brightness(1.05) !important;
-    box-shadow: 
-        0 16px 40px rgba(0, 0, 0, 0.4),
-        0 8px 32px rgba(255, 255, 255, 0.05),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
-        
-    /* Enhanced visibility and positioning */
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    display: none !important;
-    
-    /* Ensure proper stacking */
-    will-change: transform, opacity, visibility;
-    
-    /* Add shimmer effect like navbar */
-    overflow: hidden;
+/* Mobile Toggle */
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 0.5rem;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
 }
 
-/* Dropdown shimmer effect */
-.dropdown-menu::before,
-.navbar-nav .dropdown-menu::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.1),
-        transparent
-    );
-    animation: dropdownShimmer 6s ease-in-out infinite;
-    border-radius: inherit;
-    pointer-events: none;
-    z-index: 1;
+.mobile-toggle:hover {
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.08);
 }
 
-@keyframes dropdownShimmer {
-    0%, 100% {
-        left: -100%;
-        opacity: 0;
-    }
-    50% {
-        left: 100%;
-        opacity: 1;
-    }
+/* Mobile Menu */
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 0.5rem;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(8px) saturate(150%) brightness(1.05);
+  -webkit-backdrop-filter: blur(8px) saturate(150%) brightness(1.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 1rem;
+  box-shadow: 
+    0 16px 40px rgba(0, 0, 0, 0.4),
+    0 8px 32px rgba(255, 255, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Show state for custom dropdown */
-.dropdown-menu.show {
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: translateY(0) !important;
+.mobile-menu.open {
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
-/* Ensure dropdown appears on click - override all hidden properties */
-.dropdown .dropdown-menu.show {
-    display: block !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    transform: translateY(0) !important;
+/* Mobile Menu Items */
+.mobile-item {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-#dropdown-item {
-    color: rgba(255, 255, 255, 0.8) !important;
-    border-radius: 12px !important;
-    padding: 0.75rem 1rem !important;
-    margin: 0.25rem 0 !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif !important;
-    font-weight: 500 !important;
-    font-size: 0.9rem !important;
-    position: relative;
-    z-index: 2;
+.mobile-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: rgba(255, 255, 255, 0.95);
 }
 
-#dropdown-item:hover {
-    background: rgba(255, 255, 255, 0.12) !important;
-    color: rgba(255, 255, 255, 0.95) !important;
-    transform: translateX(3px) !important;
-    box-shadow: 
-        0 4px 16px rgba(255, 255, 255, 0.08),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+/* Mobile Dropdown */
+.mobile-dropdown {
+  width: 100%;
 }
 
-#dropdown-item:focus {
-    background: rgba(255, 255, 255, 0.12) !important;
-    color: rgba(255, 255, 255, 0.95) !important;
-    box-shadow: 
-        0 0 0 2px rgba(255, 255, 255, 0.15),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+.mobile-dropdown-content {
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Container adjustments for pill navbar */
-.navbar .container {
-    padding: 0 1rem !important;
-    max-width: none !important;
-    width: 100% !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    flex-wrap: nowrap !important;
-    position: relative;
-    z-index: 2;
+.mobile-dropdown-content.show {
+  opacity: 1;
+  max-height: 300px;
 }
 
-.navbar-collapse {
-    flex-grow: 0 !important;
-    flex-shrink: 0 !important;
+.mobile-dropdown-link {
+  display: block;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-weight: 400;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin: 0.25rem 0;
 }
 
-.navbar-nav {
-    gap: 1.5rem;
-    flex-direction: row !important;
-    align-items: center !important;
+.mobile-dropdown-link:hover {
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.9);
 }
 
-.navbar-nav.me-auto {
-    display: none !important;
-}
-
-/* Custom Navbar Styles */
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.navbar-brand {
-    text-decoration: none;
-}
-
-.navbar-toggler {
-    background: none;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    padding: 0.25rem 0.5rem;
-    cursor: pointer;
-    display: none;
-}
-
-.navbar-toggler-icon {
-    display: block;
-    width: 24px;
-    height: 24px;
-    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='m4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 100%;
-}
-
-.navbar-collapse {
-    display: flex;
-}
-
-.navbar-collapse.show {
-    display: flex;
-}
-
-.navbar-nav {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    align-items: center;
-}
-
-.nav-link {
-    text-decoration: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-}
-
-/* Custom Dropdown Styles */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-}
-
-.dropdown-item {
-    text-decoration: none;
-    display: block;
-}
-
-/* Mobile Responsive Styles */
+/* Responsive Design */
 @media (max-width: 992px) {
-    .navbar {
-        top: 1rem;
-        left: 1rem;
-        right: 1rem;
-        transform: none;
-        width: auto;
-        max-width: none;
-        border-radius: 20px;
-        padding: 1rem;
-    }
-    
-    .navbar-brand {
-        margin-right: 1rem !important;
-        font-size: 0.95rem !important;
-    }
-    
-    .navbar-toggler {
-        display: block;
-    }
-    
-    .navbar-collapse {
-        display: none;
-        margin-top: 1rem;
-        padding-top: 1rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-        width: 100% !important;
-    }
-    
-    .navbar-collapse.show {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-    }
-    
-    .navbar-nav {
-        gap: 0.25rem;
-        width: 100%;
-        flex-direction: column !important;
-        align-items: stretch !important;
-    }
-    
-    .nav-link, .dropdown-toggle {
-        font-size: 0.9rem !important;
-        padding: 0.75rem 1rem !important;
-        text-align: left !important;
-        border-radius: 12px !important;
-        width: 100%;
-        justify-content: flex-start;
-    }
-    
-    .dropdown-menu {
-        position: static !important;
-        margin-left: 1rem;
-        margin-top: 0.5rem !important;
-        width: calc(100% - 2rem);
-        box-shadow: none !important;
-        border: 1px solid rgba(255, 255, 255, 0.08) !important;
-    }
-    
-    .navbar .container {
-        justify-content: flex-start !important;
-        flex-wrap: wrap !important;
-    }
+  .custom-navbar {
+    top: 1rem;
+    left: 1rem;
+    right: 1rem;
+    transform: none;
+    width: auto;
+    max-width: none;
+    min-width: 0;
+    border-radius: 20px;
+    padding: 1rem;
+  }
+  
+  .nav-menu {
+    display: none;
+  }
+  
+  .mobile-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 @media (max-width: 576px) {
-    .navbar {
-        top: 0.75rem;
-        left: 0.75rem;
-        right: 0.75rem;
-        border-radius: 16px;
-        padding: 0.75rem;
-    }
-    
-    .navbar-brand {
-        font-size: 0.85rem !important;
-        margin-right: 0.75rem !important;
-    }
-    
-    .nav-link, .dropdown-toggle {
-        font-size: 0.85rem !important;
-        padding: 0.5rem 0.75rem !important;
-    }
+  .custom-navbar {
+    top: 0.75rem;
+    left: 0.75rem;
+    right: 0.75rem;
+    border-radius: 16px;
+    padding: 0.75rem;
+  }
+  
+  .nav-brand {
+    font-size: 0.9rem;
+  }
+  
+  .mobile-toggle {
+    padding: 0.4rem;
+    font-size: 1rem;
+  }
 }
 
-/* Additional fix for very small screens */
 @media (max-width: 480px) {
-    .navbar-brand {
-        font-size: 0.8rem !important;
-        margin-right: 0.5rem !important;
-    }
-    
-    .navbar {
-        padding: 0.5rem 1rem;
-    }
+  .nav-brand {
+    font-size: 0.8rem;
+  }
+  
+  .custom-navbar {
+    padding: 0.5rem 1rem;
+  }
 }
