@@ -1,7 +1,7 @@
 /* Dynamic Island - iOS Style with Jello Animation */
 .dynamic-island {
   position: fixed;
-  top: 80px;
+  top: 110px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10001;
@@ -245,7 +245,7 @@
 /* Responsive design */
 @media (max-width: 768px) {
   .dynamic-island {
-    top: 70px;
+    top: 100px;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -262,7 +262,7 @@
 
 @media (max-width: 480px) {
   .dynamic-island {
-    top: 65px;
+    top: 90px;
   }
   
   .dynamic-island.expanded {
