@@ -29,8 +29,10 @@
     0 4px 16px rgba(255, 255, 255, 0.03),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
     
-  /* Jello effect on load */
-  animation: jelloLoad 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  /* Jello effect on load + subtle floating */
+  animation: 
+    jelloLoad 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+    subtleFloat 6s ease-in-out infinite 1s;
 }
 
 /* Jello Animation Keyframes */
@@ -82,22 +84,142 @@
   }
 }
 
-@keyframes liquidMorph {
+@keyframes liquidMorphAdvanced {
   0%, 100% {
     border-radius: 50px;
+    transform: scale(1) rotate(0deg);
+  }
+  12.5% {
+    border-radius: 65px 35px 65px 35px;
+    transform: scale(1.03) rotate(0.5deg);
+  }
+  25% {
+    border-radius: 40px 70px 40px 70px;
+    transform: scale(0.97) rotate(-0.5deg);
+  }
+  37.5% {
+    border-radius: 75px 25px 75px 25px;
+    transform: scale(1.05) rotate(0.3deg);
+  }
+  50% {
+    border-radius: 30px 80px 30px 80px;
+    transform: scale(0.95) rotate(-0.3deg);
+  }
+  62.5% {
+    border-radius: 85px 15px 85px 15px;
+    transform: scale(1.02) rotate(0.4deg);
+  }
+  75% {
+    border-radius: 45px 65px 45px 65px;
+    transform: scale(1.01) rotate(-0.2deg);
+  }
+  87.5% {
+    border-radius: 70px 30px 70px 30px;
+    transform: scale(0.99) rotate(0.1deg);
+  }
+}
+
+@keyframes jelloWobble {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
+  }
+  50% {
+    transform: scale3d(1.15, 0.85, 1);
+  }
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
+  }
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+  100% {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes liquidPulse {
+  0%, 100% {
     transform: scale(1);
+    box-shadow: 
+      0 8px 24px rgba(0, 0, 0, 0.2),
+      0 4px 16px rgba(255, 255, 255, 0.03);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 
+      0 12px 36px rgba(0, 0, 0, 0.3),
+      0 6px 20px rgba(255, 255, 255, 0.08);
+  }
+}
+
+@keyframes liquidBreathing {
+  0%, 100% {
+    border-radius: 50px;
+    backdrop-filter: blur(8px) saturate(150%) brightness(1.05);
+    -webkit-backdrop-filter: blur(8px) saturate(150%) brightness(1.05);
   }
   25% {
     border-radius: 60px 40px 60px 40px;
-    transform: scale(1.02);
+    backdrop-filter: blur(10px) saturate(160%) brightness(1.08);
+    -webkit-backdrop-filter: blur(10px) saturate(160%) brightness(1.08);
   }
   50% {
-    border-radius: 40px 60px 40px 60px;
-    transform: scale(0.98);
+    border-radius: 45px 55px 45px 55px;
+    backdrop-filter: blur(12px) saturate(170%) brightness(1.1);
+    -webkit-backdrop-filter: blur(12px) saturate(170%) brightness(1.1);
   }
   75% {
     border-radius: 55px 45px 55px 45px;
-    transform: scale(1.01);
+    backdrop-filter: blur(9px) saturate(155%) brightness(1.06);
+    -webkit-backdrop-filter: blur(9px) saturate(155%) brightness(1.06);
+  }
+}
+
+@keyframes jellySquash {
+  0%, 100% {
+    transform: scaleX(1) scaleY(1);
+  }
+  20% {
+    transform: scaleX(1.08) scaleY(0.92);
+  }
+  40% {
+    transform: scaleX(0.95) scaleY(1.05);
+  }
+  60% {
+    transform: scaleX(1.03) scaleY(0.97);
+  }
+  80% {
+    transform: scaleX(0.98) scaleY(1.02);
+  }
+}
+
+@keyframes liquidRipple {
+  0% {
+    transform: scale(1);
+    border-radius: 50px;
+    box-shadow: 
+      0 0 0 0 rgba(255, 255, 255, 0.1),
+      0 20px 60px rgba(0, 0, 0, 0.4);
+  }
+  50% {
+    transform: scale(1.05);
+    border-radius: 45px 55px 45px 55px;
+    box-shadow: 
+      0 0 0 8px rgba(255, 255, 255, 0.05),
+      0 25px 75px rgba(0, 0, 0, 0.5);
+  }
+  100% {
+    transform: scale(1);
+    border-radius: 50px;
+    box-shadow: 
+      0 0 0 16px rgba(255, 255, 255, 0),
+      0 20px 60px rgba(0, 0, 0, 0.4);
   }
 }
 
@@ -122,23 +244,72 @@
   animation: none !important;
 }
 
-/* Hover effects - subtle transparent enhancement */
+/* Enhanced jello and liquid hover effects */
 .dynamic-island:hover:not(.expanded) {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(6px) saturate(140%) brightness(1.04);
-  -webkit-backdrop-filter: blur(6px) saturate(140%) brightness(1.04);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px) saturate(150%) brightness(1.05);
+  -webkit-backdrop-filter: blur(8px) saturate(150%) brightness(1.05);
   box-shadow: 
-    0 16px 40px rgba(0, 0, 0, 0.3),
-    0 8px 24px rgba(255, 255, 255, 0.05),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  animation: liquidMorph 3s ease-in-out infinite;
+    0 20px 60px rgba(0, 0, 0, 0.4),
+    0 12px 30px rgba(255, 255, 255, 0.1),
+    inset 0 2px 0 rgba(255, 255, 255, 0.2);
+  animation: 
+    liquidMorphAdvanced 4s ease-in-out infinite, 
+    jelloWobble 0.6s ease-in-out,
+    liquidBreathing 3s ease-in-out infinite,
+    jellySquash 2s ease-in-out infinite;
 }
 
 /* When expanding, override hover styles immediately */
 .dynamic-island:hover.expanded {
   animation: none;
   transition: none;
+}
+
+/* Active/Click state for super fun jello effect */
+.dynamic-island:active:not(.expanded) {
+  animation: superJelloClick 0.4s ease-out;
+  transform-origin: center;
+}
+
+@keyframes superJelloClick {
+  0% {
+    transform: scale3d(1, 1, 1);
+  }
+  15% {
+    transform: scale3d(1.4, 0.6, 1) rotate(1deg);
+  }
+  30% {
+    transform: scale3d(0.7, 1.3, 1) rotate(-0.5deg);
+  }
+  45% {
+    transform: scale3d(1.2, 0.8, 1) rotate(0.3deg);
+  }
+  60% {
+    transform: scale3d(0.9, 1.1, 1) rotate(-0.2deg);
+  }
+  75% {
+    transform: scale3d(1.05, 0.95, 1) rotate(0.1deg);
+  }
+  100% {
+    transform: scale3d(1, 1, 1) rotate(0deg);
+  }
+}
+
+@keyframes subtleFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-2px) rotate(0.2deg);
+  }
+  50% {
+    transform: translateY(-3px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-1px) rotate(-0.2deg);
+  }
 }
 
 /* Content styling */
@@ -164,7 +335,10 @@
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-  animation: gentlePulse 3s ease-in-out infinite;
+  animation: 
+    gentlePulse 3s ease-in-out infinite,
+    dotJello 4s ease-in-out infinite,
+    dotLiquidMorph 5s ease-in-out infinite;
 }
 
 @keyframes gentlePulse {
@@ -175,6 +349,44 @@
   50% {
     opacity: 1;
     transform: scale(1.1);
+  }
+}
+
+@keyframes dotJello {
+  0%, 100% {
+    transform: scale3d(1, 1, 1);
+  }
+  25% {
+    transform: scale3d(1.2, 0.8, 1);
+  }
+  50% {
+    transform: scale3d(0.9, 1.1, 1);
+  }
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+}
+
+@keyframes dotLiquidMorph {
+  0%, 100% {
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+  }
+  25% {
+    border-radius: 60% 40% 60% 40%;
+    width: 9px;
+    height: 7px;
+  }
+  50% {
+    border-radius: 40% 60% 40% 60%;
+    width: 7px;
+    height: 9px;
+  }
+  75% {
+    border-radius: 70% 30% 70% 30%;
+    width: 8.5px;
+    height: 7.5px;
   }
 }
 

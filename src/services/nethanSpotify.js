@@ -4,13 +4,14 @@ class NethanSpotifyService {
     this.accessToken = process.env.REACT_APP_SPOTIFY_ACCESS_TOKEN;
     this.lastFetch = null;
     this.cachedData = null;
-    this.cacheTime = 10000; // Cache for 10 seconds to avoid rate limiting
+    this.cacheTime = 5000; // Cache for 5 seconds to avoid rate limiting
   }
 
   // Get Nethan's currently playing track
   async getCurrentlyPlaying() {
     // Return cached data if it's recent
     if (this.cachedData && this.lastFetch && (Date.now() - this.lastFetch) < this.cacheTime) {
+      console.log('🎵 Returning cached data:', this.cachedData);
       return this.cachedData;
     }
 
@@ -118,14 +119,20 @@ class NethanSpotifyService {
 
   // Get current or recently played track
   async getCurrentOrRecent() {
+    console.log('🎵 Fetching current or recent Spotify data...');
     const current = await this.getCurrentlyPlaying();
+    console.log('🎵 Current playing result:', current);
     
     if (current) {
+      console.log('🎵 Returning current playing track:', current.song, 'by', current.artist);
       return current;
     }
 
     // If nothing is currently playing, show recently played
-    return await this.getRecentlyPlayed();
+    console.log('🎵 No current track, fetching recently played...');
+    const recent = await this.getRecentlyPlayed();
+    console.log('🎵 Recent track result:', recent);
+    return recent;
   }
 }
 

@@ -12,7 +12,8 @@
       "Bash(timeout 10 npm start)",
       "WebFetch(domain:api.lanyard.rest)",
       "Bash(node:*)",
-      "Bash(curl:*)"
+      "Bash(curl:*)",
+      "Bash(open http://localhost:3000)"
     ],
     "deny": [],
     "ask": []
