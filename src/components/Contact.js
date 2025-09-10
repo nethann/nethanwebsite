@@ -40,7 +40,7 @@ export default function Contact() {
   return (
     <div className='Home-container ios-background'>
       <div className="ios-container">
-        <section className='ios-section'>
+        <section className='ios-section' style={{paddingTop: '8rem'}}>
           <div className="contact-hero-section" style={{textAlign: 'center', marginBottom: 'var(--ios-space-3xl)'}}>
             <h1 className='ios-title-large' style={{marginBottom: 'var(--ios-space-lg)'}}>
               Let's Connect

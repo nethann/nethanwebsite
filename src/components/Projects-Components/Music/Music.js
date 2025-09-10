@@ -45,7 +45,7 @@ export default function Music() {
 
   return (
     <div className='Home-container'>
-      <div className='Music'>
+      <div className='Music' style={{paddingTop: '8rem'}}>
         <h2 className='Music-title'>
           <span className=" typewriter-text">
             <Typewriter

@@ -25,7 +25,7 @@ export default function Photography() {
 
   return (
     <div className="photography-page">
-      <section className="photograph-intro">
+      <section className="photograph-intro" style={{paddingTop: '8rem'}}>
         <h1>Pictures I Have Taken So Far</h1>
         <p>Moments in time, framed through my lens</p>
       </section>

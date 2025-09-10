@@ -219,6 +219,11 @@
   .contact-form {
     gap: 1.5rem;
   }
+  
+  /* Reduce top padding on mobile */
+  .ios-section {
+    padding-top: 6rem !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -241,6 +246,11 @@
   
   .modern-label {
     font-size: 0.9rem;
+  }
+  
+  /* Even smaller padding for mobile */
+  .ios-section {
+    padding-top: 5rem !important;
   }
 }
 

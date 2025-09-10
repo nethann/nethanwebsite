@@ -400,6 +400,10 @@
 
 
 @media screen and (max-width: 1050px) {
+    .Music {
+        padding-top: 6rem !important;
+    }
+
     .instruments-div {
         grid-template-columns: repeat(2, 1fr);
 
@@ -487,6 +491,10 @@
 
 
 @media screen and (max-width: 500px) {
+    .Music {
+        padding-top: 5rem !important;
+    }
+
     .my-instruments-section {
         padding: 24px;
         display: flex;
