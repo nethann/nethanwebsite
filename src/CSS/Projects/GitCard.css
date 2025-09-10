@@ -130,3 +130,41 @@
     background: rgba(255, 255, 255, 0.08);
     border-color: rgba(255, 255, 255, 0.2);
 }
+
+/* Simple Liquid Cursor Following Hover Effect */
+.liquid-hover {
+    position: relative;
+    overflow: hidden;
+}
+
+.liquid-hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+        60px circle at var(--mouse-x, 0) var(--mouse-y, 0),
+        rgba(255, 255, 255, 0.12) 0%,
+        rgba(255, 255, 255, 0.08) 30%,
+        rgba(255, 255, 255, 0.04) 60%,
+        transparent 100%
+    );
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+    filter: blur(0.5px);
+}
+
+.liquid-hover:hover::before {
+    opacity: 1;
+}
+
+/* Ensure content stays above liquid effects */
+.liquid-hover > * {
+    position: relative;
+    z-index: 3;
+}

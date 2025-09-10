@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 import "../../../../CSS/Projects/GitCard.css"
 import github from "../../Icons/github.png"
@@ -8,6 +8,7 @@ import Tilt from 'react-parallax-tilt';
 export default function DynamicGitCard({ gitName, description, Git_Link, language, stars, lastUpdated, languagesUrl }) {
   const [allLanguages, setAllLanguages] = useState([]);
   const [loadingLanguages, setLoadingLanguages] = useState(true);
+  const cardRef = useRef(null);
 
   useEffect(() => {
     const fetchLanguages = async () => {
@@ -32,6 +33,17 @@ export default function DynamicGitCard({ gitName, description, Git_Link, languag
 
     fetchLanguages();
   }, [languagesUrl]);
+
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return;
+    
+    const rect = cardRef.current.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    cardRef.current.style.setProperty('--mouse-x', `${x}px`);
+    cardRef.current.style.setProperty('--mouse-y', `${y}px`);
+  };
 
   const getLanguageStyle = (lang) => {
     if (!lang) return {
@@ -160,7 +172,15 @@ export default function DynamicGitCard({ gitName, description, Git_Link, languag
   return (
     <Tilt glareEnable={true} glareMaxOpacity={0.3} glareColor="#ffffff" glarePosition="bottom" glareBorderRadius='8px' tiltMaxAngleX={2} tiltMaxAngleY={2}>
       <div className='gitcard-holder'>
-        <a href={Git_Link} target="_blank" rel='noreferrer' className='ios-card ios-interactive' style={{textDecoration: 'none', height: '280px', display: 'flex', flexDirection: 'column'}}>
+        <a 
+          ref={cardRef}
+          href={Git_Link} 
+          target="_blank" 
+          rel='noreferrer' 
+          className='Git-Card liquid-hover' 
+          style={{textDecoration: 'none', height: '280px', display: 'flex', flexDirection: 'column'}}
+          onMouseMove={handleMouseMove}
+        >
 
           <div className='Git-Card-FirstSection'>
             <img src={github} className='Git-Img' alt='GitHub Logo' />

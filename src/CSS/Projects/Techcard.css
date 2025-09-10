@@ -1,3 +1,117 @@
+/* Modern Tech Grid Layout */
+.tech-grid-modern {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Responsive grid adjustments */
+@media (max-width: 768px) {
+    .tech-grid-modern {
+        gap: 0.5rem;
+        max-width: 100%;
+    }
+    
+    .tech-card-modern {
+        padding: 0.6rem 0.8rem;
+        gap: 0.6rem;
+    }
+    
+    .tech-icon-modern {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .tech-name-modern {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tech-grid-modern {
+        gap: 0.4rem;
+    }
+    
+    .tech-card-modern {
+        padding: 0.5rem 0.7rem;
+        gap: 0.5rem;
+    }
+    
+    .tech-icon-modern {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .tech-name-modern {
+        font-size: 0.7rem;
+    }
+}
+
+/* Modern Sleek Tech Cards */
+.tech-card-modern {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    
+    /* Ultra-minimal liquid glass styling */
+    background: rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(6px) saturate(120%) brightness(1.02);
+    -webkit-backdrop-filter: blur(6px) saturate(120%) brightness(1.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50px;
+    
+    /* Sleek shadow */
+    box-shadow: 
+        0 4px 12px rgba(0, 0, 0, 0.15),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+}
+
+.tech-card-modern:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-1px);
+    box-shadow: 
+        0 8px 24px rgba(0, 0, 0, 0.2),
+        0 4px 12px rgba(255, 255, 255, 0.05),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.tech-icon-modern {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+}
+
+.tech-card-modern:hover .tech-icon-modern {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.tech-name-modern {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    transition: color 0.3s ease;
+}
+
+.tech-card-modern:hover .tech-name-modern {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* Legacy styles for backward compatibility */
 .Tech-Card{
     /* Reflect.app ultra-minimal card */
     background: rgba(255, 255, 255, 0.01);

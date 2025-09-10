@@ -43,7 +43,7 @@ export default function Technologies() {
             <section className='ios-section'>
                 <h2 className='ios-title-medium' style={{textAlign: 'center', marginBottom: '2rem'}}>Technologies I use</h2>
 
-                <div className='ios-grid ios-grid-3' data-aos="fade-right">
+                <div className='tech-grid-modern' data-aos="fade-right">
                     <Techcard name="Python" image={python} />
                     <Techcard name="NodeJS" image={node} />
                     <Techcard name="HTML" image={html5} />
