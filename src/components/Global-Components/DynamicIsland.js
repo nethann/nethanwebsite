@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { FaDiscord, FaCode, FaMusic, FaClock } from 'react-icons/fa';
+import { FaDiscord, FaCode, FaMusic, FaClock, FaInstagram, FaLinkedinIn, FaTiktok, FaYoutube } from 'react-icons/fa';
+import { AiFillGithub } from 'react-icons/ai';
 import { MdNotifications, MdCheck } from 'react-icons/md';
 import axios from 'axios';
 import '../../CSS/Global/DynamicIsland.css';
@@ -84,6 +85,14 @@ export default function DynamicIsland() {
     );
   };
 
+  const socialLinks = [
+    { icon: FaInstagram, url: 'https://www.instagram.com/nethan_journey/', label: 'Instagram' },
+    { icon: FaLinkedinIn, url: 'https://www.linkedin.com/in/nethan-nagendran/', label: 'LinkedIn' },
+    { icon: AiFillGithub, url: 'https://github.com/nethann', label: 'GitHub' },
+    { icon: FaYoutube, url: 'https://www.youtube.com/@nethan_journey', label: 'YouTube' },
+    { icon: FaTiktok, url: 'https://www.tiktok.com/@nethan_journey', label: 'TikTok' }
+  ];
+
   const getExpandedContent = () => {
     return (
       <div className="dynamic-island-expanded">
@@ -99,6 +108,29 @@ export default function DynamicIsland() {
             <div className="status-item">
               <FaClock />
               <span>{currentTime.toLocaleTimeString()}</span>
+            </div>
+          </div>
+          
+          <div className="socials-row">
+            <div className="socials-label">
+              <span>Connect with me:</span>
+            </div>
+            <div className="socials-icons">
+              {socialLinks.map((social, index) => {
+                const IconComponent = social.icon;
+                return (
+                  <a
+                    key={index}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="social-link"
+                    title={social.label}
+                  >
+                    <IconComponent />
+                  </a>
+                );
+              })}
             </div>
           </div>
           

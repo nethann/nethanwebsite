@@ -110,8 +110,8 @@
 }
 
 .dynamic-island.expanded {
-  width: 320px;
-  height: 140px;
+  width: 360px;
+  height: 180px;
   border-radius: 24px;
   padding: 16px;
   background: rgba(255, 255, 255, 0.015) !important;
@@ -212,7 +212,8 @@
 }
 
 .status-row,
-.activity-row {
+.activity-row,
+.socials-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -239,6 +240,50 @@
   border-radius: 50%;
 }
 
+/* Social Media Section */
+.socials-row {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.socials-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+.socials-icons {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  justify-content: center;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.social-link:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.95);
+  transform: translateY(-2px);
+  box-shadow: 
+    0 4px 12px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
 
 /* Notification styles */
 .dynamic-island.notification .dynamic-island-content {
@@ -254,7 +299,7 @@
   
   .dynamic-island.expanded {
     width: calc(100vw - 3rem);
-    max-width: 280px;
+    max-width: 320px;
   }
   
   .dynamic-island.notification {
@@ -269,10 +314,20 @@
   }
   
   .dynamic-island.expanded {
-    height: 120px;
+    height: 160px;
     padding: 12px;
     width: calc(100vw - 2rem);
-    max-width: 260px;
+    max-width: 300px;
+  }
+  
+  .socials-icons {
+    gap: 8px;
+  }
+  
+  .social-link {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
   }
 }
 
