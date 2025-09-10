@@ -50,71 +50,64 @@ export default function Contact() {
             </p>
           </div>
 
-          <div className="ios-grid" style={{gap: 'var(--ios-space-xl)', justifyContent: 'center'}}>
-            {/* Contact Form */}
-            <div className='glass-card glass-ripple' style={{minHeight: '500px', maxWidth: '600px', width: '100%'}}>
-              <h2 className='ios-title-medium' style={{marginBottom: 'var(--ios-space-xl)', textAlign: 'center'}}>Send a Message</h2>
+          <div className="contact-form-container">
+            <div className="modern-contact-form">
+              <div className="form-header">
+                <h2 className="form-title">Let's work together</h2>
+                <p className="form-subtitle">Tell me about your project and I'll get back to you within 24 hours</p>
+              </div>
               
-              <form ref={form} onSubmit={sendEmail} style={{display: 'flex', flexDirection: 'column', gap: 'var(--ios-space-lg)'}}>
-                <div className="input-group">
-                  <input 
-                    className='glass-input glass-dynamic' 
-                    type="text" 
-                    name="from_name" 
-                    placeholder='Your Name' 
-                    autoComplete='off' 
-                    required={true}
-                    style={{
-                      fontSize: '16px',
-                      fontFamily: 'var(--ios-font-system)',
-                      transition: 'var(--ios-transition-smooth)'
-                    }}
-                  />
+              <form ref={form} onSubmit={sendEmail} className="contact-form">
+                <div className="form-row">
+                  <div className="input-wrapper">
+                    <input 
+                      className="modern-input" 
+                      type="text" 
+                      name="from_name" 
+                      placeholder=" " 
+                      autoComplete="off" 
+                      required={true}
+                    />
+                    <label className="modern-label">Your Name</label>
+                    <div className="input-line"></div>
+                  </div>
                 </div>
                 
-                <div className="input-group">
-                  <input 
-                    className='glass-input glass-dynamic' 
-                    type="email" 
-                    name="from_email" 
-                    placeholder='Your Email' 
-                    autoComplete='off' 
-                    required={true}
-                    style={{
-                      fontSize: '16px',
-                      fontFamily: 'var(--ios-font-system)',
-                      transition: 'var(--ios-transition-smooth)'
-                    }}
-                  />
+                <div className="form-row">
+                  <div className="input-wrapper">
+                    <input 
+                      className="modern-input" 
+                      type="email" 
+                      name="from_email" 
+                      placeholder=" " 
+                      autoComplete="off" 
+                      required={true}
+                    />
+                    <label className="modern-label">Email Address</label>
+                    <div className="input-line"></div>
+                  </div>
                 </div>
                 
-                <div className="input-group">
-                  <textarea 
-                    className='glass-input glass-dynamic' 
-                    name="message" 
-                    placeholder='Tell me about your project...' 
-                    required={true}
-                    style={{
-                      fontSize: '16px',
-                      fontFamily: 'var(--ios-font-system)',
-                      minHeight: '140px',
-                      resize: 'vertical',
-                      transition: 'var(--ios-transition-smooth)'
-                    }}
-                  />
+                <div className="form-row">
+                  <div className="input-wrapper textarea-wrapper">
+                    <textarea 
+                      className="modern-input modern-textarea" 
+                      name="message" 
+                      placeholder=" " 
+                      required={true}
+                      rows="1"
+                    ></textarea>
+                    <label className="modern-label">Project Details</label>
+                    <div className="input-line"></div>
+                  </div>
                 </div>
                 
-                <button className='glass-btn' type="submit" style={{
-                  marginTop: 'var(--ios-space-md)',
-                  padding: 'var(--ios-space-lg) var(--ios-space-xl)',
-                  fontSize: '16px',
-                  fontWeight: '600',
-                  background: 'linear-gradient(135deg, var(--glass-bg-primary), var(--glass-tint-blue))',
-                  border: '1px solid var(--glass-border-strong)',
-                  borderRadius: 'var(--ios-radius-medium)'
-                }}>
-                  Send Message
-                </button>
+                <div className="form-row">
+                  <button className="modern-submit-btn" type="submit">
+                    <span className="btn-text">Send Message</span>
+                    <div className="btn-bg"></div>
+                  </button>
+                </div>
               </form>
             </div>
           </div>
