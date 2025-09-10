@@ -10,7 +10,9 @@
       "Bash(npm start)",
       "WebSearch",
       "Bash(timeout 10 npm start)",
-      "WebFetch(domain:api.lanyard.rest)"
+      "WebFetch(domain:api.lanyard.rest)",
+      "Bash(node:*)",
+      "Bash(curl:*)"
     ],
     "deny": [],
     "ask": []

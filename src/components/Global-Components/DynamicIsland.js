@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { FaDiscord, FaCode, FaMusic, FaClock, FaInstagram, FaLinkedinIn, FaTiktok, FaYoutube } from 'react-icons/fa';
+import { FaDiscord, FaCode, FaMusic, FaClock, FaInstagram, FaLinkedinIn, FaTiktok, FaYoutube, FaSpotify } from 'react-icons/fa';
 import { AiFillGithub } from 'react-icons/ai';
 import { MdNotifications, MdCheck } from 'react-icons/md';
 import axios from 'axios';
+import nethanSpotify from '../../services/nethanSpotify';
 import '../../CSS/Global/DynamicIsland.css';
 
 export default function DynamicIsland() {
@@ -10,22 +11,46 @@ export default function DynamicIsland() {
   const [discordStatus, setDiscordStatus] = useState('offline');
   const [currentTime, setCurrentTime] = useState(new Date());
   const [notification, setNotification] = useState(null);
+  const [spotifyData, setSpotifyData] = useState(null);
 
-  // Discord status fetching
+  // Fetch Discord status and Nethan's Spotify data
   useEffect(() => {
+    // Discord status fetching
     const fetchDiscordStatus = async () => {
       try {
         const response = await axios.get('https://api.lanyard.rest/v1/users/743601359697477713');
         const data = response.data.data;
         setDiscordStatus(data.discord_status);
       } catch (error) {
+        console.error('Error fetching Discord status:', error);
         setDiscordStatus('offline');
       }
     };
 
+    // Nethan's Spotify data fetching
+    const fetchNethanSpotify = async () => {
+      try {
+        const currentTrack = await nethanSpotify.getCurrentOrRecent();
+        console.log('Nethan\'s current track:', currentTrack);
+        setSpotifyData(currentTrack);
+      } catch (error) {
+        console.error('Error fetching Nethan\'s Spotify data:', error);
+        setSpotifyData(null);
+      }
+    };
+
+    // Initial fetch
     fetchDiscordStatus();
-    const interval = setInterval(fetchDiscordStatus, 30000);
-    return () => clearInterval(interval);
+    fetchNethanSpotify();
+
+    // Set up intervals
+    const discordInterval = setInterval(fetchDiscordStatus, 30000); // Every 30 seconds
+    const spotifyInterval = setInterval(fetchNethanSpotify, 10000); // Every 10 seconds
+
+    return () => {
+      clearInterval(discordInterval);
+      clearInterval(spotifyInterval);
+    };
   }, []);
 
   // Time updates
@@ -78,6 +103,32 @@ export default function DynamicIsland() {
       );
     }
     
+    // Show current playing song
+    if (spotifyData && spotifyData.isPlaying) {
+      return (
+        <div className="dynamic-island-content spotify-minimal">
+          <FaSpotify className="spotify-icon" />
+          <div className="spotify-minimal-info">
+            <span className="song-title">{spotifyData.song}</span>
+            <span className="artist-name">{spotifyData.artist}</span>
+          </div>
+        </div>
+      );
+    }
+
+    // Show recently played song
+    if (spotifyData && spotifyData.wasRecentlyPlayed) {
+      return (
+        <div className="dynamic-island-content spotify-minimal recent">
+          <FaSpotify className="spotify-icon" />
+          <div className="spotify-minimal-info">
+            <span className="song-title">{spotifyData.song}</span>
+            <span className="artist-name">Recently played</span>
+          </div>
+        </div>
+      );
+    }
+    
     return (
       <div className="dynamic-island-content minimal">
         <div className="minimal-dot"></div>
@@ -97,6 +148,46 @@ export default function DynamicIsland() {
     return (
       <div className="dynamic-island-expanded">
         <div className="expanded-section">
+          {spotifyData && spotifyData.isPlaying && (
+            <div className="spotify-row">
+              <div className="spotify-info">
+                <img src={spotifyData.albumArt} alt="Album Art" className="album-art" />
+                <div className="track-info">
+                  <div className="track-title">{spotifyData.song}</div>
+                  <div className="track-artist">{spotifyData.artist}</div>
+                  <div className="track-album">{spotifyData.album}</div>
+                </div>
+                <FaSpotify className="spotify-icon-large" />
+              </div>
+            </div>
+          )}
+
+          {spotifyData && spotifyData.wasRecentlyPlayed && (
+            <div className="spotify-row spotify-recent">
+              <div className="spotify-info">
+                <img src={spotifyData.albumArt} alt="Album Art" className="album-art" />
+                <div className="track-info">
+                  <div className="track-title">{spotifyData.song}</div>
+                  <div className="track-artist">{spotifyData.artist}</div>
+                  <div className="track-album">Recently played</div>
+                </div>
+                <FaSpotify className="spotify-icon-large spotify-recent-icon" />
+              </div>
+            </div>
+          )}
+
+          {!spotifyData && (
+            <div className="spotify-row spotify-idle">
+              <div className="spotify-info">
+                <FaSpotify className="spotify-icon-large" />
+                <div className="track-info">
+                  <div className="track-title">No music detected</div>
+                  <div className="track-artist">Nethan's not currently listening</div>
+                </div>
+              </div>
+            </div>
+          )}
+          
           <div className="status-row">
             <div className="status-item">
               <div className="discord-status">

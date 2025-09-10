@@ -17,6 +17,7 @@ import Photography from './components/Projects-Components/Photography/Photograph
 import ScrollNavbar from './components/ScrollNavbar';
 import DynamicIsland from './components/Global-Components/DynamicIsland';
 import CustomNavbar from './components/Global-Components/CustomNavbar';
+import SpotifyAuth from './components/SpotifyAuth';
 
 
 import "./CSS/Global/Nav.css"
@@ -38,7 +39,8 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/music" element={<Music />} />
             <Route path="/photography" element={<Photography />} />
-            <Route path="/gameDevelopment" element={<Modeling />} /> 
+            <Route path="/gameDevelopment" element={<Modeling />} />
+            <Route path="/spotify-auth" element={<SpotifyAuth />} />
 
           </Routes>
         </div>
