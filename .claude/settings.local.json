@@ -8,7 +8,8 @@
       "Bash(npm run:*)",
       "Bash(npm install)",
       "Bash(npm start)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(timeout 10 npm start)"
     ],
     "deny": [],
     "ask": []

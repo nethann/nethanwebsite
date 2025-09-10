@@ -6,7 +6,7 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 
 //React Icons
-import { FaDiscord, FaInstagram, FaLinkedinIn, FaTiktok, FaYoutube } from "react-icons/fa";
+import { FaInstagram, FaLinkedinIn, FaTiktok, FaYoutube } from "react-icons/fa";
 import { AiFillGithub } from "react-icons/ai"
 
 
@@ -14,6 +14,8 @@ import { AiFillGithub } from "react-icons/ai"
 import "../CSS/Contact/Contact.css"
 import "../CSS/Global/Global.css"
 import "../CSS/Global/Stickers.css"
+import "../CSS/Global/iOS26DesignSystem.css"
+import "../CSS/Global/LiquidGlass.css"
 
 
 import Aos from 'aos';
@@ -83,51 +85,205 @@ export default function Contact() {
     <div className='Home-container ios-background'>
       <div className="ios-container">
         <section className='ios-section'>
-          <div className="ios-grid ios-grid-2">
-            <form className='ios-card ios-scale-in' ref={form} onSubmit={sendEmail} data-aos="fade-right">
-              <h2 className='ios-title-medium' style={{marginBottom: '2rem'}}>Get in touch</h2>
+          <div className="contact-hero-section" style={{textAlign: 'center', marginBottom: 'var(--ios-space-3xl)'}}>
+            <h1 className='ios-title-large' style={{marginBottom: 'var(--ios-space-lg)'}}>
+              Let's Connect
+            </h1>
+            <p className='ios-body' style={{maxWidth: '600px', margin: '0 auto', opacity: 0.8}}>
+              Ready to start something amazing together? Drop me a message and let's make it happen.
+            </p>
+          </div>
 
-              <div style={{display: 'flex', flexDirection: 'column', gap: '1rem'}}>
-                <input className='ios-glass-regular' style={{padding: '1rem', borderRadius: '12px', border: '1px solid var(--ios-border-regular)', background: 'var(--ios-glass-regular)', color: 'white', fontSize: '16px'}} type="text" name="from_name" placeholder='Name' autoComplete='off' required={true} />
-                <input className='ios-glass-regular' style={{padding: '1rem', borderRadius: '12px', border: '1px solid var(--ios-border-regular)', background: 'var(--ios-glass-regular)', color: 'white', fontSize: '16px'}} type="email" name="from_email" placeholder='Email' autoComplete='off' required={true} />
-                <textarea className='ios-glass-regular' style={{padding: '1rem', borderRadius: '12px', border: '1px solid var(--ios-border-regular)', background: 'var(--ios-glass-regular)', color: 'white', fontSize: '16px', minHeight: '120px', resize: 'vertical'}} name="message" placeholder='Message' required={true} />
-                <button className='ios-btn-primary' type="submit">Send Message</button>
+          <div className="ios-grid" style={{gap: 'var(--ios-space-xl)', gridTemplateColumns: '2fr 1fr', alignItems: 'start'}}>
+            {/* Contact Form */}
+            <div className='glass-card glass-ripple' style={{minHeight: '500px'}}>
+              <h2 className='ios-title-medium' style={{marginBottom: 'var(--ios-space-xl)', textAlign: 'center'}}>Send a Message</h2>
+              
+              <form ref={form} onSubmit={sendEmail} style={{display: 'flex', flexDirection: 'column', gap: 'var(--ios-space-lg)'}}>
+                <div className="input-group">
+                  <input 
+                    className='glass-input glass-dynamic' 
+                    type="text" 
+                    name="from_name" 
+                    placeholder='Your Name' 
+                    autoComplete='off' 
+                    required={true}
+                    style={{
+                      fontSize: '16px',
+                      fontFamily: 'var(--ios-font-system)',
+                      transition: 'var(--ios-transition-smooth)'
+                    }}
+                  />
+                </div>
+                
+                <div className="input-group">
+                  <input 
+                    className='glass-input glass-dynamic' 
+                    type="email" 
+                    name="from_email" 
+                    placeholder='Your Email' 
+                    autoComplete='off' 
+                    required={true}
+                    style={{
+                      fontSize: '16px',
+                      fontFamily: 'var(--ios-font-system)',
+                      transition: 'var(--ios-transition-smooth)'
+                    }}
+                  />
+                </div>
+                
+                <div className="input-group">
+                  <textarea 
+                    className='glass-input glass-dynamic' 
+                    name="message" 
+                    placeholder='Tell me about your project...' 
+                    required={true}
+                    style={{
+                      fontSize: '16px',
+                      fontFamily: 'var(--ios-font-system)',
+                      minHeight: '140px',
+                      resize: 'vertical',
+                      transition: 'var(--ios-transition-smooth)'
+                    }}
+                  />
+                </div>
+                
+                <button className='glass-btn' type="submit" style={{
+                  marginTop: 'var(--ios-space-md)',
+                  padding: 'var(--ios-space-lg) var(--ios-space-xl)',
+                  fontSize: '16px',
+                  fontWeight: '600',
+                  background: 'linear-gradient(135deg, var(--glass-bg-primary), var(--glass-tint-blue))',
+                  border: '1px solid var(--glass-border-strong)',
+                  borderRadius: 'var(--ios-radius-medium)'
+                }}>
+                  Send Message
+                </button>
+              </form>
+            </div>
+
+            {/* Profile Card */}
+            <div className='glass-card glass-ripple' style={{textAlign: 'center', maxWidth: '320px', justifySelf: 'center'}}>
+              <div className="profile-section" style={{marginBottom: 'var(--ios-space-xl)'}}>
+                <div className="profile-image-container" style={{position: 'relative', display: 'inline-block', marginBottom: 'var(--ios-space-lg)'}}>
+                  <img 
+                    src={Astra} 
+                    alt='Discord Profile' 
+                    className=''
+                    style={{
+                      width: '60px', 
+                      height: '60px', 
+                      borderRadius: '50%',
+                      border: '2px solid var(--glass-border)',
+                      boxShadow: 'var(--glass-shadow-md)'
+                    }} 
+                  />
+                  <OverlayTrigger
+                    placement="top"
+                    delay={{ show: 250, hide: 400 }}
+                    overlay={renderTooltip}
+                  >
+                    <div 
+                      className={`circle pulse ${discordPulse}`} 
+                      style={{
+                        position: 'absolute',
+                        bottom: '4px',
+                        right: '4px',
+                        width: '12px', 
+                        height: '12px', 
+                        borderRadius: '50%',
+                        border: '2px solid var(--ios-bg-primary)',
+                        cursor: 'pointer'
+                      }}
+                    ></div>
+                  </OverlayTrigger>
+                </div>
+                
+                <h3 className='ios-title-medium' style={{marginBottom: 'var(--ios-space-sm)'}}>
+                  Astra<span style={{opacity: 0.6}}>180</span>
+                </h3>
+                
+                <p className='ios-caption' style={{marginBottom: 'var(--ios-space-xl)'}}>
+                  Always online • Ready to chat
+                </p>
               </div>
-            </form>
 
-            <div className='ios-card ios-scale-in ios-interactive' style={{animationDelay: '0.2s', textAlign: 'center'}}>
-              <div style={{marginBottom: '2rem'}}>
-                <img src={Astra} alt='Discord Profile' style={{width: '80px', height: '80px', borderRadius: '50%', marginBottom: '1rem'}} />
-                <OverlayTrigger
-                  placement="top"
-                  delay={{ show: 250, hide: 400 }}
-                  overlay={renderTooltip}
-                >
-                  <div className={`circle pulse ${discordPulse}`} style={{display: 'inline-block', width: '12px', height: '12px', borderRadius: '50%', marginLeft: '8px'}}></div>
-                </OverlayTrigger>
-                <h3 className='ios-title-medium' style={{marginBottom: '0.5rem'}}>Astra<span style={{opacity: 0.6}}>180</span></h3>
+              <div className="social-links" style={{display: 'flex', flexWrap: 'wrap', gap: '12px', justifyContent: 'center'}}>
+                <a href='https://www.instagram.com/nethan_journey/' target='_blank' rel='noreferrer' className='glass-btn' style={{
+                  textDecoration: 'none', 
+                  color: 'rgba(255, 255, 255, 0.9)', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center',
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '50%',
+                  fontSize: '18px'
+                }}>
+                  <FaInstagram />
+                </a>
+
+                <a href='https://www.linkedin.com/in/nethan-nagendran/' rel='noreferrer' target='_blank' className='glass-btn' style={{
+                  textDecoration: 'none', 
+                  color: 'rgba(255, 255, 255, 0.9)', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center',
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '50%',
+                  fontSize: '18px'
+                }}>
+                  <FaLinkedinIn />
+                </a>
+
+                <a href='https://github.com/nethann' target='_blank' rel='noreferrer' className='glass-btn' style={{
+                  textDecoration: 'none', 
+                  color: 'rgba(255, 255, 255, 0.9)', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center',
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '50%',
+                  fontSize: '18px'
+                }}>
+                  <AiFillGithub />
+                </a>
+
+                <a href='https://www.youtube.com/@nethan_journey' target='_blank' rel='noreferrer' className='glass-btn' style={{
+                  textDecoration: 'none', 
+                  color: 'rgba(255, 255, 255, 0.9)', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center',
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '50%',
+                  fontSize: '18px'
+                }}>
+                  <FaYoutube />
+                </a>
+
+                <a href='https://www.tiktok.com/@nethan_journey' target='_blank' rel='noreferrer' className='glass-btn' style={{
+                  textDecoration: 'none', 
+                  color: 'rgba(255, 255, 255, 0.9)', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center',
+                  width: '40px',
+                  height: '40px',
+                  borderRadius: '50%',
+                  fontSize: '18px'
+                }}>
+                  <FaTiktok />
+                </a>
               </div>
-
-              <div style={{display: 'flex', flexWrap: 'wrap', gap: '1rem', justifyContent: 'center'}}>
-                <a href='https://www.instagram.com/nethan_journey/' target='_blank' rel='noreferrer' className='ios-dynamic-pill' style={{textDecoration: 'none', color: 'white', display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
-                  <FaInstagram style={{fontSize: '20px'}} />
-                </a>
-
-                <a href='https://www.linkedin.com/in/nethan-nagendran/' rel='noreferrer' target='_blank' className='ios-dynamic-pill' style={{textDecoration: 'none', color: 'white', display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
-                  <FaLinkedinIn style={{fontSize: '20px'}} />
-                </a>
-
-                <a href='https://github.com/nethann' target='_blank' rel='noreferrer' className='ios-dynamic-pill' style={{textDecoration: 'none', color: 'white', display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
-                  <AiFillGithub style={{fontSize: '20px'}} />
-                </a>
-
-                <a href='https://www.youtube.com/@nethan_journey' target='_blank' rel='noreferrer' className='ios-dynamic-pill' style={{textDecoration: 'none', color: 'white', display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
-                  <FaYoutube style={{fontSize: '20px'}} />
-                </a>
-
-                <a href='https://www.tiktok.com/@nethan_journey' target='_blank' rel='noreferrer' className='ios-dynamic-pill' style={{textDecoration: 'none', color: 'white', display: 'flex', alignItems: 'center', gap: '0.5rem'}}>
-                  <FaTiktok style={{fontSize: '20px'}} />
-                </a>
+              
+              <div className="contact-info" style={{marginTop: 'var(--ios-space-xl)', padding: 'var(--ios-space-lg)', background: 'var(--glass-bg-secondary)', borderRadius: 'var(--ios-radius-medium)', border: '1px solid var(--glass-border)'}}>
+                <p className='ios-caption' style={{margin: '0', color: 'rgba(255, 255, 255, 0.7)'}}>
+                  Response time: Usually within 24 hours
+                </p>
               </div>
             </div>
           </div>
