@@ -101,12 +101,12 @@
   margin-top: 4px;
   min-width: 160px;
   
-  /* Solid blurred background - no content showing through */
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(40px) saturate(180%) brightness(1.1);
-  -webkit-backdrop-filter: blur(40px) saturate(180%) brightness(1.1);
+  /* Completely frosted glass - no content visible */
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(30px) saturate(120%) brightness(1.1);
+  -webkit-backdrop-filter: blur(30px) saturate(120%) brightness(1.1);
   
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 12px;
   padding: 4px;
   
@@ -132,7 +132,7 @@
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
   font-weight: 500;
   font-size: 13px;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.85);
   text-decoration: none;
   padding: 6px 10px;
   border-radius: 6px;
@@ -141,8 +141,8 @@
 }
 
 .dropdown-link:hover {
-  background: rgba(0, 0, 0, 0.06);
-  color: rgba(0, 0, 0, 0.95);
+  background: rgba(0, 0, 0, 0.08);
+  color: rgba(0, 0, 0, 1);
 }
 
 /* Mobile Toggle */
@@ -172,12 +172,12 @@
   right: 0;
   margin-top: 4px;
   
-  /* Solid blurred background - no content showing through */
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(40px) saturate(180%) brightness(1.1);
-  -webkit-backdrop-filter: blur(40px) saturate(180%) brightness(1.1);
+  /* Completely frosted glass - no content visible */
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(30px) saturate(120%) brightness(1.1);
+  -webkit-backdrop-filter: blur(30px) saturate(120%) brightness(1.1);
   
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 12px;
   padding: 8px;
   

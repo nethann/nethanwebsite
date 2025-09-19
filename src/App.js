@@ -14,9 +14,8 @@ import Contact from "./components/Contact";
 import Modeling from './components/Projects-Components/3d-modeling/Modeling';
 import Music from './components/Projects-Components/Music/Music';
 import Photography from './components/Projects-Components/Photography/Photography';
-import ScrollNavbar from './components/ScrollNavbar';
 import DynamicIsland from './components/Global-Components/DynamicIsland';
-import CustomNavbar from './components/Global-Components/CustomNavbar';
+import IOS26Navbar from './components/Global-Components/iOS26Navbar';
 import SpotifyAuth from './components/SpotifyAuth';
 
 
@@ -30,8 +29,7 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <DynamicIsland />
-        <ScrollNavbar />
-        <CustomNavbar />
+        <IOS26Navbar />
         <div>
           <Routes>
             <Route path="/" element={<Home />} />
