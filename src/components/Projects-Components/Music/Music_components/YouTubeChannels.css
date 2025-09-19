@@ -105,14 +105,10 @@
   margin-bottom: 3rem;
   padding: 2rem;
   
-  /* Clean card background */
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  /* No background */
+  background: transparent;
+  border: none;
   border-radius: 20px;
-  
-  box-shadow: 
-    0 4px 20px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 .channel-name {
@@ -131,6 +127,7 @@
 /* Content Sections */
 .content-section {
   margin-bottom: 3rem;
+  background: transparent !important;
 }
 
 .content-section-title {
@@ -150,16 +147,18 @@
 /* Video Grids */
 .videos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   margin-bottom: 2rem;
+  justify-items: center;
 }
 
 .shorts-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
   margin-bottom: 2rem;
+  justify-items: center;
 }
 
 /* Video Cards */
@@ -181,27 +180,90 @@
   overflow: hidden;
   margin-bottom: 1rem;
   position: relative;
+  background: transparent;
+  display: flex;
+  justify-content: center;
 }
 
 .video-iframe, .short-iframe {
   width: 100%;
   border-radius: 12px;
   transition: transform 0.3s ease;
+  background: transparent;
+  border: none;
 }
 
 .video-iframe {
-  height: 250px;
-  width: 100%;
+  height: 315px;
+  width: 560px;
+  max-width: 100%;
+  aspect-ratio: 16/9;
+  background: transparent !important;
+  border: none !important;
 }
 
 .short-iframe {
-  height: 450px;
-  width: 100%;
+  height: 560px;
+  width: 315px;
+  max-width: 100%;
+  aspect-ratio: 9/16;
+  background: transparent !important;
+  border: none !important;
 }
 
 .youtube-video-card:hover .video-iframe,
 .youtube-video-card:hover .short-iframe {
   transform: scale(1.02);
+}
+
+/* Additional styling to ensure no backgrounds on iframes */
+iframe[src*="youtube.com"], 
+iframe[src*="youtu.be"], 
+iframe[src*="youtube-nocookie.com"] {
+  background: transparent !important;
+  border: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+
+/* Force transparent background on all YouTube content */
+.youtube-video-card * {
+  background: transparent !important;
+}
+
+/* Specifically target the shorts iframe containers */
+.shorts-grid .youtube-video-card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.shorts-grid .video-thumbnail {
+  background: transparent !important;
+}
+
+/* Override any possible YouTube player backgrounds */
+.youtube-video-card iframe,
+.shorts-grid iframe,
+.video-thumbnail iframe {
+  background-color: transparent !important;
+  background-image: none !important;
+  background: none !important;
+}
+
+/* Override YouTube's thumbnail background image */
+.youtube-video-card iframe::before,
+.youtube-video-card iframe::after {
+  background-image: none !important;
+  background: transparent !important;
+  content: none !important;
+}
+
+/* Target YouTube embed container elements */
+.youtube-video-card iframe * {
+  background-image: none !important;
+  background-color: transparent !important;
 }
 
 .video-info {
@@ -287,6 +349,29 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .videos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .video-iframe {
+    height: 280px;
+    width: 480px;
+    max-width: 100%;
+  }
+  
+  .shorts-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .short-iframe {
+    height: 480px;
+    width: 270px;
+  }
+}
+
 @media (max-width: 768px) {
   .youtube-channels-container {
     padding: 1rem;
@@ -305,8 +390,14 @@
     grid-template-columns: 1fr;
   }
   
+  .video-iframe {
+    height: 250px;
+    width: 100%;
+  }
+  
   .shorts-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
   }
   
   .section-title {
@@ -325,10 +416,13 @@
   }
   
   .shorts-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
   }
   
   .short-iframe {
-    height: 350px;
+    height: 400px;
+    width: 100%;
+    max-width: 225px;
   }
 }

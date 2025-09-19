@@ -89,14 +89,8 @@ const YouTubeChannels = () => {
         
         const isShort = isDurationShort || isTitleShort || isDescriptionShort;
         
-        // Enhanced debug logging
-        console.log(`Video: ${item.snippet.title}`);
-        console.log(`  Duration: ${duration} (${durationInSeconds}s)`);
-        console.log(`  Duration check: ${isDurationShort}`);
-        console.log(`  Title check: ${isTitleShort}`);
-        console.log(`  Description check: ${isDescriptionShort}`);
-        console.log(`  Final isShort: ${isShort}`);
-        console.log('---');
+        // Debug logging (can be removed later)
+        // console.log(`Video: ${item.snippet.title} - isShort: ${isShort}`);
         
         const videoData = {
           id: item.snippet.resourceId.videoId,
@@ -266,9 +260,9 @@ const YouTubeChannels = () => {
     <div key={video.id} className="youtube-video-card">
       <div className="video-thumbnail">
         <iframe
-          width={isShort ? "280" : "400"}
-          height={isShort ? "450" : "250"}
-          src={`https://www.youtube.com/embed/${video.id}`}
+          width={isShort ? "315" : "560"}
+          height={isShort ? "560" : "315"}
+          src={`https://www.youtube-nocookie.com/embed/${video.id}?modestbranding=1&showinfo=0&rel=0&controls=1&iv_load_policy=3&disablekb=0`}
           title={video.title}
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
