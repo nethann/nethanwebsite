@@ -4,6 +4,7 @@ import "../../../CSS/Global/Global.css"
 import "../../../CSS/Projects/Music/Music.css"
 
 import InstrumentCard from './Music_components/InstrumentCard'
+import YouTubeChannels from './Music_components/YouTubeChannels'
 
 import guitar from "../Music/Music_Pics/Instruments/guitar.png"
 import bongo from "../Music/Music_Pics/Instruments/bongo.png"
@@ -27,18 +28,6 @@ import Birds_of_feather from "./Music_Vids/Birds_of_a_feather.mp4"
 import JamTrack1_bossa_nova from "./Music_Vids/JamTrack1_BossaNova.mp4"
 
 export default function Music() {
-
-  const rawShortLinks = [
-    'https://youtube.com/shorts/Wc6ca8W3Pes',
-    'https://youtube.com/shorts/abc123xyz',
-    // add more shorts here
-  ];
-
-  const extractVideoId = (url) => {
-    const match = url.match(/shorts\/([a-zA-Z0-9_-]{11})/);
-    return match ? match[1] : null;
-  };
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -135,25 +124,8 @@ export default function Music() {
           </div>
         </div> */}
 
-        <div className="created-music-cards-holder">
-          {rawShortLinks.map((link, i) => {
-            const videoId = extractVideoId(link);
-            return videoId ? (
-              <div key={i} className="short-wrapper">
-                <iframe
-                  width="320"
-                  height="570"
-                  src={`https://www.youtube.com/embed/${videoId}`}
-                  title={`YouTube Short ${i}`}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  style={{ borderRadius: '15px' }}
-                />
-              </div>
-            ) : null;
-          })}
-        </div>
+        {/* YouTube Channels Section */}
+        <YouTubeChannels />
 
 
 
