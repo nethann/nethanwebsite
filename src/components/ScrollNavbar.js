@@ -5,7 +5,7 @@ const ScrollNavbar = () => {
     let scrollTimer = null;
     
     const handleScroll = () => {
-      const navbar = document.querySelector('.navbar');
+      const navbar = document.querySelector('.custom-navbar');
       if (!navbar) return;
 
       const scrollY = window.scrollY;
