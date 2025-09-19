@@ -30,12 +30,14 @@ const YouTubeChannels = () => {
   const fetchChannelVideos = async (channelId) => {
     try {
       setLoading(true);
+      console.log(`Fetching videos for channel: ${channelId}`);
       
       // Get channel's uploads playlist ID
       const channelResponse = await fetch(
         `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${channelId}&key=${YOUTUBE_API_KEY}`
       );
       const channelData = await channelResponse.json();
+      console.log('Channel data:', channelData);
       
       if (!channelData.items || channelData.items.length === 0) {
         throw new Error('Channel not found');
@@ -44,10 +46,12 @@ const YouTubeChannels = () => {
       const uploadsPlaylistId = channelData.items[0].contentDetails.relatedPlaylists.uploads;
       
       // Get videos from uploads playlist
+      console.log(`Fetching playlist items for: ${uploadsPlaylistId}`);
       const videosResponse = await fetch(
         `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=50&key=${YOUTUBE_API_KEY}`
       );
       const videosData = await videosResponse.json();
+      console.log(`Found ${videosData.items?.length || 0} videos`);
       
       if (!videosData.items) {
         throw new Error('No videos found');
@@ -69,12 +73,30 @@ const YouTubeChannels = () => {
         const duration = videoDetails?.contentDetails?.duration || '';
         const statistics = videoDetails?.statistics || {};
         
-        // Parse ISO 8601 duration to check if it's a short (60 seconds or less)
+        // Parse ISO 8601 duration to check if it's a short
         const durationInSeconds = parseDuration(duration);
-        const isShort = durationInSeconds > 0 && durationInSeconds <= 60;
         
-        // Debug logging
-        console.log(`Video: ${item.snippet.title}, Duration: ${duration}, Seconds: ${durationInSeconds}, IsShort: ${isShort}`);
+        // Multiple methods to detect shorts:
+        // 1. Duration <= 90 seconds (extended from YouTube's 60s limit to catch close videos)
+        // 2. Title contains "#shorts" or short-form keywords
+        // 3. Description contains "#shorts" or "shorts"
+        const titleLower = item.snippet.title.toLowerCase();
+        const descriptionLower = (item.snippet.description || '').toLowerCase();
+        
+        const isDurationShort = durationInSeconds > 0 && durationInSeconds <= 90;
+        const isTitleShort = titleLower.includes('#shorts') || titleLower.includes('short') || titleLower.includes('improv');
+        const isDescriptionShort = descriptionLower.includes('#shorts') || descriptionLower.includes('youtube shorts');
+        
+        const isShort = isDurationShort || isTitleShort || isDescriptionShort;
+        
+        // Enhanced debug logging
+        console.log(`Video: ${item.snippet.title}`);
+        console.log(`  Duration: ${duration} (${durationInSeconds}s)`);
+        console.log(`  Duration check: ${isDurationShort}`);
+        console.log(`  Title check: ${isTitleShort}`);
+        console.log(`  Description check: ${isDescriptionShort}`);
+        console.log(`  Final isShort: ${isShort}`);
+        console.log('---');
         
         const videoData = {
           id: item.snippet.resourceId.videoId,
@@ -92,6 +114,7 @@ const YouTubeChannels = () => {
         }
       });
       
+      console.log(`Final results: ${videos.length} videos, ${shorts.length} shorts`);
       return { videos, shorts };
       
     } catch (error) {
