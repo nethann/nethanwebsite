@@ -260,8 +260,8 @@ const YouTubeChannels = () => {
     <div key={video.id} className="youtube-video-card">
       <div className="video-thumbnail">
         <iframe
-          width={isShort ? "315" : "560"}
-          height={isShort ? "560" : "315"}
+          width={isShort ? "240" : "560"}
+          height={isShort ? "426" : "315"}
           src={`https://www.youtube-nocookie.com/embed/${video.id}?modestbranding=1&showinfo=0&rel=0&controls=1&iv_load_policy=3&disablekb=0`}
           title={video.title}
           frameBorder="0"

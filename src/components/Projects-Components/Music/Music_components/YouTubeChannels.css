@@ -203,8 +203,8 @@
 }
 
 .short-iframe {
-  height: 560px;
-  width: 315px;
+  height: 426px;
+  width: 240px;
   max-width: 100%;
   aspect-ratio: 9/16;
   background: transparent !important;
@@ -367,8 +367,8 @@ iframe[src*="youtube-nocookie.com"] {
   }
   
   .short-iframe {
-    height: 480px;
-    width: 270px;
+    height: 380px;
+    width: 214px;
   }
 }
 
@@ -421,8 +421,8 @@ iframe[src*="youtube-nocookie.com"] {
   }
   
   .short-iframe {
-    height: 400px;
+    height: 320px;
     width: 100%;
-    max-width: 225px;
+    max-width: 180px;
   }
 }
