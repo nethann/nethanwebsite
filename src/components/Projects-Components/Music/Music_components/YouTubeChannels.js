@@ -69,8 +69,12 @@ const YouTubeChannels = () => {
         const duration = videoDetails?.contentDetails?.duration || '';
         const statistics = videoDetails?.statistics || {};
         
-        // Parse ISO 8601 duration to check if it's a short (under 60 seconds)
-        const isShort = parseDuration(duration) <= 60;
+        // Parse ISO 8601 duration to check if it's a short (60 seconds or less)
+        const durationInSeconds = parseDuration(duration);
+        const isShort = durationInSeconds > 0 && durationInSeconds <= 60;
+        
+        // Debug logging
+        console.log(`Video: ${item.snippet.title}, Duration: ${duration}, Seconds: ${durationInSeconds}, IsShort: ${isShort}`);
         
         const videoData = {
           id: item.snippet.resourceId.videoId,
@@ -101,7 +105,9 @@ const YouTubeChannels = () => {
 
   // Helper function to parse ISO 8601 duration to seconds
   const parseDuration = (duration) => {
-    const match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
+    if (!duration) return 0;
+    
+    const match = duration.match(/PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?/);
     if (!match) return 0;
     
     const hours = parseInt(match[1]) || 0;
@@ -237,8 +243,8 @@ const YouTubeChannels = () => {
     <div key={video.id} className="youtube-video-card">
       <div className="video-thumbnail">
         <iframe
-          width={isShort ? "280" : "360"}
-          height={isShort ? "500" : "200"}
+          width={isShort ? "280" : "400"}
+          height={isShort ? "450" : "250"}
           src={`https://www.youtube.com/embed/${video.id}`}
           title={video.title}
           frameBorder="0"

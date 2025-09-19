@@ -31,8 +31,8 @@
 /* Base Liquid Glass Material */
 .glass {
   background: var(--glass-bg-primary);
-  backdrop-filter: blur(var(--glass-blur-medium)) saturate(180%);
-  -webkit-backdrop-filter: blur(var(--glass-blur-medium)) saturate(180%);
+  backdrop-filter: blur(var(--glass-blur-medium));
+  -webkit-backdrop-filter: blur(var(--glass-blur-medium));
   border: 1px solid var(--glass-border);
   border-radius: 16px;
   box-shadow: var(--glass-shadow-md);
@@ -44,23 +44,23 @@
 /* Glass Variants */
 .glass-light {
   background: var(--glass-bg-secondary);
-  backdrop-filter: blur(var(--glass-blur-light)) saturate(160%);
-  -webkit-backdrop-filter: blur(var(--glass-blur-light)) saturate(160%);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
   box-shadow: var(--glass-shadow-sm);
 }
 
 .glass-heavy {
   background: var(--glass-bg-primary);
-  backdrop-filter: blur(var(--glass-blur-heavy)) saturate(200%);
-  -webkit-backdrop-filter: blur(var(--glass-blur-heavy)) saturate(200%);
+  backdrop-filter: blur(var(--glass-blur-heavy));
+  -webkit-backdrop-filter: blur(var(--glass-blur-heavy));
   border: 1px solid var(--glass-border-strong);
   box-shadow: var(--glass-shadow-lg);
 }
 
 .glass-subtle {
   background: var(--glass-bg-tertiary);
-  backdrop-filter: blur(8px) saturate(120%);
-  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -122,8 +122,8 @@
 /* Liquid Glass Card */
 .glass-card {
   background: var(--glass-bg-primary);
-  backdrop-filter: blur(var(--glass-blur-medium)) saturate(180%);
-  -webkit-backdrop-filter: blur(var(--glass-blur-medium)) saturate(180%);
+  backdrop-filter: blur(var(--glass-blur-medium));
+  -webkit-backdrop-filter: blur(var(--glass-blur-medium));
   border: 1px solid var(--glass-border);
   border-radius: 20px;
   padding: 2rem;
@@ -163,8 +163,8 @@
 /* Glass Navigation */
 .glass-nav {
   background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(20px) saturate(180%);
-  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--glass-border);
   transition: var(--glass-transition);
 }
@@ -172,8 +172,8 @@
 /* Glass Button */
 .glass-btn {
   background: var(--glass-bg-primary);
-  backdrop-filter: blur(var(--glass-blur-light)) saturate(160%);
-  -webkit-backdrop-filter: blur(var(--glass-blur-light)) saturate(160%);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
   border: 1px solid var(--glass-border);
   border-radius: 12px;
   padding: 0.75rem 1.5rem;
@@ -198,8 +198,8 @@
 /* Glass Input */
 .glass-input {
   background: var(--glass-bg-secondary);
-  backdrop-filter: blur(var(--glass-blur-light)) saturate(140%);
-  -webkit-backdrop-filter: blur(var(--glass-blur-light)) saturate(140%);
+  backdrop-filter: blur(var(--glass-blur-light));
+  -webkit-backdrop-filter: blur(var(--glass-blur-light));
   border: 1px solid var(--glass-border);
   border-radius: 12px;
   padding: 1rem;
@@ -223,8 +223,8 @@
 /* Glass Container */
 .glass-container {
   background: var(--glass-bg-tertiary);
-  backdrop-filter: blur(60px) saturate(200%);
-  -webkit-backdrop-filter: blur(60px) saturate(200%);
+  backdrop-filter: blur(60px);
+  -webkit-backdrop-filter: blur(60px);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 24px;
   padding: 3rem;
@@ -337,27 +337,22 @@
   0%, 100% {
     border-radius: 16px;
     transform: scale(1) rotate(0deg);
-    filter: hue-rotate(0deg);
   }
   20% {
     border-radius: 32px 16px 32px 16px;
     transform: scale(1.02) rotate(1deg);
-    filter: hue-rotate(15deg);
   }
   40% {
     border-radius: 16px 40px 16px 40px;
     transform: scale(0.98) rotate(-1deg);
-    filter: hue-rotate(30deg);
   }
   60% {
     border-radius: 40px 16px 32px 16px;
     transform: scale(1.01) rotate(0.5deg);
-    filter: hue-rotate(15deg);
   }
   80% {
     border-radius: 24px 24px 16px 32px;
     transform: scale(1) rotate(-0.5deg);
-    filter: hue-rotate(5deg);
   }
 }
 
@@ -395,22 +390,18 @@
   20% {
     opacity: 0.8;
     transform: translate(-2px, 2px);
-    filter: hue-rotate(90deg);
   }
   40% {
     opacity: 0.6;
     transform: translate(-2px, -2px);
-    filter: hue-rotate(180deg);
   }
   60% {
     opacity: 0.4;
     transform: translate(2px, 2px);
-    filter: hue-rotate(270deg);
   }
   80% {
     opacity: 0.2;
     transform: translate(2px, -2px);
-    filter: hue-rotate(360deg);
   }
 }
 
@@ -422,17 +413,14 @@
   25% {
     opacity: 0.6;
     transform: translate(2px, -2px);
-    filter: hue-rotate(45deg);
   }
   50% {
     opacity: 0.4;
     transform: translate(-2px, -2px);
-    filter: hue-rotate(135deg);
   }
   75% {
     opacity: 0.2;
     transform: translate(-2px, 2px);
-    filter: hue-rotate(225deg);
   }
 }
 

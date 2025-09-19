@@ -60,8 +60,8 @@
     
     /* Ultra-minimal liquid glass styling */
     background: rgba(255, 255, 255, 0.01);
-    backdrop-filter: blur(6px) saturate(120%) brightness(1.02);
-    -webkit-backdrop-filter: blur(6px) saturate(120%) brightness(1.02);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 50px;
     

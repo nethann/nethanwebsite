@@ -67,53 +67,53 @@
     radial-gradient(circle at 90% 70%, rgba(34, 211, 238, 0.1) 0%, transparent 50%),
     linear-gradient(135deg, #000000 0%, #0a0a0f 30%, #000000 70%, #050505 100%);
   
-  animation: iosDynamicBackground 60s ease-in-out infinite;
+  /* animation: iosDynamicBackground 60s ease-in-out infinite; */
   position: relative;
   overflow: hidden;
 }
 
 @keyframes iosDynamicBackground {
   0%, 100% {
-    filter: hue-rotate(0deg) brightness(1);
+    transform: scale(1);
   }
   25% {
-    filter: hue-rotate(15deg) brightness(1.05);
+    transform: scale(1.001);
   }
   50% {
-    filter: hue-rotate(30deg) brightness(1.1);
+    transform: scale(1.002);
   }
   75% {
-    filter: hue-rotate(15deg) brightness(1.05);
+    transform: scale(1.001);
   }
 }
 
 /* iOS 26 Glass Materials */
 .ios-glass-thin {
   background: var(--ios-glass-thin);
-  backdrop-filter: blur(var(--ios-blur-light)) saturate(150%) brightness(1.05);
-  -webkit-backdrop-filter: blur(var(--ios-blur-light)) saturate(150%) brightness(1.05);
+  backdrop-filter: blur(var(--ios-blur-light));
+  -webkit-backdrop-filter: blur(var(--ios-blur-light));
   border: 1px solid var(--ios-border-thin);
 }
 
 .ios-glass-regular {
   background: var(--ios-glass-regular);
-  backdrop-filter: blur(var(--ios-blur-medium)) saturate(160%) brightness(1.1);
-  -webkit-backdrop-filter: blur(var(--ios-blur-medium)) saturate(160%) brightness(1.1);
+  backdrop-filter: blur(var(--ios-blur-medium));
+  -webkit-backdrop-filter: blur(var(--ios-blur-medium));
   border: 1px solid var(--ios-border-regular);
 }
 
 .ios-glass-thick {
   background: var(--ios-glass-thick);
-  backdrop-filter: blur(var(--ios-blur-heavy)) saturate(170%) brightness(1.15);
-  -webkit-backdrop-filter: blur(var(--ios-blur-heavy)) saturate(170%) brightness(1.15);
+  backdrop-filter: blur(var(--ios-blur-heavy));
+  -webkit-backdrop-filter: blur(var(--ios-blur-heavy));
   border: 1px solid var(--ios-border-thick);
 }
 
 /* iOS 26 Control Center Style Cards */
 .ios-card {
   background: var(--ios-glass-regular);
-  backdrop-filter: blur(var(--ios-blur-medium)) saturate(160%) brightness(1.1);
-  -webkit-backdrop-filter: blur(var(--ios-blur-medium)) saturate(160%) brightness(1.1);
+  backdrop-filter: blur(var(--ios-blur-medium));
+  -webkit-backdrop-filter: blur(var(--ios-blur-medium));
   border: 1px solid var(--ios-border-regular);
   border-radius: var(--ios-radius-large);
   padding: var(--ios-space-lg);
@@ -149,8 +149,8 @@
 /* iOS 26 Button System */
 .ios-btn-primary {
   background: var(--ios-glass-regular);
-  backdrop-filter: blur(var(--ios-blur-medium)) saturate(160%);
-  -webkit-backdrop-filter: blur(var(--ios-blur-medium)) saturate(160%);
+  backdrop-filter: blur(var(--ios-blur-medium));
+  -webkit-backdrop-filter: blur(var(--ios-blur-medium));
   border: 1px solid var(--ios-border-regular);
   border-radius: var(--ios-radius-medium);
   padding: var(--ios-space-md) var(--ios-space-lg);
@@ -266,8 +266,8 @@
 /* iOS 26 Dynamic Island Inspired Elements */
 .ios-dynamic-pill {
   background: var(--ios-glass-thick);
-  backdrop-filter: blur(var(--ios-blur-heavy)) saturate(180%);
-  -webkit-backdrop-filter: blur(var(--ios-blur-heavy)) saturate(180%);
+  backdrop-filter: blur(var(--ios-blur-heavy));
+  -webkit-backdrop-filter: blur(var(--ios-blur-heavy));
   border: 1px solid var(--ios-border-thick);
   border-radius: var(--ios-radius-pill);
   padding: var(--ios-space-sm) var(--ios-space-lg);

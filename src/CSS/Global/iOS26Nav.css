@@ -11,8 +11,8 @@
   
   /* iOS 26 Translucent Material - Dark */
   background: rgba(28, 28, 30, 0.15);
-  backdrop-filter: blur(30px) saturate(180%) brightness(1.1);
-  -webkit-backdrop-filter: blur(30px) saturate(180%) brightness(1.1);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
   
   border: 0.5px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
@@ -29,8 +29,8 @@
 
 .ios26-navbar.scrolled {
   background: rgba(28, 28, 30, 0.25);
-  backdrop-filter: blur(35px) saturate(200%) brightness(1.15);
-  -webkit-backdrop-filter: blur(35px) saturate(200%) brightness(1.15);
+  backdrop-filter: blur(35px);
+  -webkit-backdrop-filter: blur(35px);
   border-color: rgba(255, 255, 255, 0.15);
   box-shadow: 
     0 6px 20px rgba(0, 0, 0, 0.4),
@@ -118,8 +118,8 @@
   
   /* iOS 26 Dark Frosted Glass Material */
   background: rgba(44, 44, 46, 0.92);
-  backdrop-filter: blur(30px) saturate(150%) brightness(1.05);
-  -webkit-backdrop-filter: blur(30px) saturate(150%) brightness(1.05);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
   
   border: 0.5px solid rgba(255, 255, 255, 0.12);
   border-radius: 12px;
@@ -191,8 +191,8 @@
   
   /* Same frosted material as dropdown */
   background: rgba(44, 44, 46, 0.92);
-  backdrop-filter: blur(30px) saturate(150%) brightness(1.05);
-  -webkit-backdrop-filter: blur(30px) saturate(150%) brightness(1.05);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
   
   border: 0.5px solid rgba(0, 0, 0, 0.08);
   border-radius: 12px;

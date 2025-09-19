@@ -13,7 +13,8 @@
       "WebFetch(domain:api.lanyard.rest)",
       "Bash(node:*)",
       "Bash(curl:*)",
-      "Bash(open http://localhost:3000)"
+      "Bash(open http://localhost:3000)",
+      "Bash(open http://localhost:3000/music)"
     ],
     "deny": [],
     "ask": []

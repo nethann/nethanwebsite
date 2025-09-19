@@ -97,7 +97,7 @@ body {
         radial-gradient(circle at 90% 70%, rgba(34, 211, 238, 0.1) 0%, transparent 50%),
         linear-gradient(135deg, #000000 0%, #0a0a0f 30%, #000000 70%, #050505 100%);
     
-    animation: iosDynamicBackground 60s ease-in-out infinite;
+    /* animation: iosDynamicBackground 60s ease-in-out infinite; */
 }
 
 /* Cosmic Background Animation for Home-container */
