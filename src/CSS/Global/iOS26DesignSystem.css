@@ -312,13 +312,13 @@
 
 /* iOS 26 Animations */
 .ios-fade-in {
-  animation: iosFadeIn 0.8s ease-out;
+  animation: iosFadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 @keyframes iosFadeIn {
   0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   100% {
     opacity: 1;
@@ -327,17 +327,99 @@
 }
 
 .ios-scale-in {
-  animation: iosScaleIn 0.6s var(--ios-spring);
+  animation: iosScaleIn 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 @keyframes iosScaleIn {
   0% {
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale(0.85);
   }
   100% {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+.ios-slide-up {
+  animation: iosSlideUp 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes iosSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ios-slide-left {
+  animation: iosSlideLeft 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes iosSlideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.ios-slide-right {
+  animation: iosSlideRight 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes iosSlideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.ios-fade-scale {
+  animation: iosFadeScale 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes iosFadeScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.ios-stagger-1 { animation-delay: 0.1s; }
+.ios-stagger-2 { animation-delay: 0.2s; }
+.ios-stagger-3 { animation-delay: 0.3s; }
+.ios-stagger-4 { animation-delay: 0.4s; }
+.ios-stagger-5 { animation-delay: 0.5s; }
+.ios-stagger-6 { animation-delay: 0.6s; }
+
+.ios-page-container {
+  animation: iosPageLoad 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes iosPageLoad {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

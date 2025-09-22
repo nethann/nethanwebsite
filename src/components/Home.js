@@ -12,6 +12,8 @@ import '../CSS/Global/Global.css';
 import '../CSS/Home/Home.css';
 
 import TypeWriterEffect from 'react-typewriter-effect';
+import Aos from 'aos';
+import "aos/dist/aos.css";
 
 // Importing 3D Models
 import DesktopSetup from './Global-Components/3-D_Models/Desktop';
@@ -26,28 +28,35 @@ import { OrbitControls } from '@react-three/drei';
 
 const Home = () => {
 
+    Aos.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true
+    });
 
     return (
         <div className="homepage ios-background">
             <header className="hero ios-section">
-                <h1 className="ios-title-large ios-fade-in">I create. I code. I capture.</h1>
-                <TypeWriterEffect
-                    textStyle={{
-                        fontSize: '1.25rem',
-                        color: '#bbbbbb',
-                        textAlign: 'center',
-                        marginTop: '1.5rem' // space between headline and typewriter
-                    }}
-                    cursorColor="white"
-                    text="Follow my journey through music, code, and the lens."
-                    typeSpeed={30}
-                    deleteSpeed={20}
-                />
+                <h1 className="ios-title-large" data-aos="fade-up">I create. I code. I capture.</h1>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <TypeWriterEffect
+                        textStyle={{
+                            fontSize: '1.25rem',
+                            color: '#bbbbbb',
+                            textAlign: 'center',
+                            marginTop: '1.5rem' // space between headline and typewriter
+                        }}
+                        cursorColor="white"
+                        text="Follow my journey through music, code, and the lens."
+                        typeSpeed={30}
+                        deleteSpeed={20}
+                    />
+                </div>
             </header>
 
             <section className="intro ios-container">
                 <div className="ios-grid ios-grid-2">
-                    <div className="ios-card ios-scale-in ios-interactive">
+                    <div className="ios-card ios-interactive" data-aos="fade-up" data-aos-delay="100">
                         <img src={NethanPC} alt="Nethan G" className="profile-pic" />
                         <h2 className='ios-title-medium'>Nethan Nagendran</h2>
                         <p className="ios-body">
@@ -57,7 +66,7 @@ const Home = () => {
                         <a href="/contact" className="ios-btn-primary">Contact Me</a>
                     </div>
 
-                    <div className='ios-card ios-scale-in ios-interactive' style={{animationDelay: '0.2s'}}>
+                    <div className='ios-card ios-interactive' data-aos="fade-up" data-aos-delay="300">
                     <Canvas>
                         <ambientLight intensity={0.5} />
                         <directionalLight position={[5, 5, 5]} intensity={1} />

@@ -35,15 +35,16 @@ import "aos/dist/aos.css"
 export default function Technologies() {
 
     Aos.init({
-        duration: 500,
+        duration: 800,
+        easing: 'ease-in-out',
         once: true
     });
     return (
         <>
             <section className='ios-section'>
-                <h2 className='ios-title-medium' style={{textAlign: 'center', marginBottom: '2rem'}}>Technologies I use</h2>
+                <h2 className='ios-title-medium' style={{textAlign: 'center', marginBottom: '2rem'}} data-aos="fade-up">Technologies I use</h2>
 
-                <div className='tech-grid-modern' data-aos="fade-right">
+                <div className='tech-grid-modern' data-aos="fade-up" data-aos-delay="100">
                     <Techcard name="Python" image={python} />
                     <Techcard name="NodeJS" image={node} />
                     <Techcard name="HTML" image={html5} />

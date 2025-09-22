@@ -64,7 +64,8 @@ export default function Contact() {
 
 
   Aos.init({
-    duration: 500,
+    duration: 800,
+    easing: 'ease-in-out',
     once: true
   });
 
@@ -72,18 +73,18 @@ export default function Contact() {
     <div className='Home-container ios-background'>
       <div className="ios-container">
         <section className='ios-section' style={{paddingTop: '8rem'}}>
-          <div className="contact-hero-section" style={{textAlign: 'center', marginBottom: 'var(--ios-space-3xl)'}}>
+          <div className="contact-hero-section" style={{textAlign: 'center', marginBottom: 'var(--ios-space-3xl)'}} data-aos="fade-up">
             <h1 className='ios-title-large' style={{marginBottom: 'var(--ios-space-lg)'}}>
               Let's Connect
             </h1>
-            <p className='ios-body' style={{maxWidth: '600px', margin: '0 auto', opacity: 0.8}}>
+            <p className='ios-body' style={{maxWidth: '600px', margin: '0 auto', opacity: 0.8}} data-aos="fade-up" data-aos-delay="100">
               Ready to start something amazing together? Drop me a message and let's make it happen.
             </p>
           </div>
 
           {/* Contact and Donation Grid */}
           <div className="contact-donation-grid">
-            <div className="contact-form-container">
+            <div className="contact-form-container" data-aos="fade-up" data-aos-delay="200">
               <div className="modern-contact-form">
                 <div className="form-header">
                   <h2 className="form-title">Let's work together</h2>
@@ -146,7 +147,7 @@ export default function Contact() {
             </div>
 
             {/* Support My Work Section */}
-            <div className="donation-section">
+            <div className="donation-section" data-aos="fade-up" data-aos-delay="300">
               <div className="donation-card">
                 <div className="donation-header">
                   <div className="donation-icon">
@@ -216,7 +217,7 @@ export default function Contact() {
           </div>
 
           {/* Social Links Section */}
-          <section className="contact-social-section" style={{marginTop: 'var(--ios-space-3xl)', textAlign: 'center'}}>
+          <section className="contact-social-section" style={{marginTop: 'var(--ios-space-3xl)', textAlign: 'center'}} data-aos="fade-up" data-aos-delay="400">
             <div className="social-divider">
               <span className="divider-text">Or connect with me on</span>
             </div>
