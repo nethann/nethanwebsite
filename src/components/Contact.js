@@ -1,6 +1,6 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
-import { FaInstagram, FaLinkedinIn, FaYoutube, FaTiktok, FaEnvelope, FaHeart, FaCoffee } from 'react-icons/fa';
+import { FaInstagram, FaLinkedinIn, FaYoutube, FaTiktok, FaEnvelope, FaHeart, FaCoffee, FaCalendarAlt, FaCreditCard } from 'react-icons/fa';
 import { AiFillGithub } from 'react-icons/ai';
 
 // importing CSS
@@ -15,6 +15,8 @@ import "aos/dist/aos.css"
 
 export default function Contact() {
   const form = useRef();
+  const [paymentType, setPaymentType] = useState('one-time'); // 'one-time' or 'monthly'
+  const [selectedAmount, setSelectedAmount] = useState(null);
 
   const socialLinks = [
     { icon: FaInstagram, url: 'https://www.instagram.com/nethan_journey/', label: 'Instagram', color: '#E4405F' },
@@ -42,15 +44,51 @@ export default function Contact() {
   }
 
   const handleDonation = (amount) => {
-    // Replace with your actual Stripe payment link or checkout session
-    const stripeLinks = {
-      5: 'https://buy.stripe.com/your-5-dollar-link',
-      10: 'https://buy.stripe.com/your-10-dollar-link',
-      25: 'https://buy.stripe.com/your-25-dollar-link',
-      custom: 'https://buy.stripe.com/your-custom-amount-link'
+    // For now, using a simple approach - you'll need to create these payment links in your Stripe dashboard
+    // Go to Stripe Dashboard > Payment Links to create these
+
+    const paymentLinks = {
+      oneTime: {
+        5: 'https://buy.stripe.com/test_3cs8zK0T41Bm9xK000', // Replace with your actual links
+        10: 'https://buy.stripe.com/test_14kaHSd78f77axO001',
+        25: 'https://buy.stripe.com/test_5kA8zK77P67TbCo002',
+        custom: 'https://buy.stripe.com/test_dR6bLW0X8bZj9xK003'
+      },
+      monthly: {
+        5: 'https://buy.stripe.com/test_4gw8zK1Xc37F5xi004', // Replace with your actual subscription links
+        10: 'https://buy.stripe.com/test_14k7uJb1cbtb5xi005',
+        25: 'https://buy.stripe.com/test_8wMaHSdZfexr1l6006',
+        custom: 'https://buy.stripe.com/test_9AQ4iB77P9Vf3t6007'
+      }
     };
 
-    window.open(stripeLinks[amount] || stripeLinks.custom, '_blank');
+    const isMonthly = paymentType === 'monthly';
+    const links = isMonthly ? paymentLinks.monthly : paymentLinks.oneTime;
+
+    if (amount === 'custom') {
+      // For custom amounts, you can either:
+      // 1. Use Stripe's Payment Element with custom amounts (requires backend)
+      // 2. Redirect to a custom payment link that allows variable amounts
+      // 3. Use a simple prompt for now and redirect to a general payment link
+
+      const customAmount = prompt(`Enter your ${isMonthly ? 'monthly ' : ''}donation amount (USD):`);
+      if (customAmount && !isNaN(customAmount) && parseFloat(customAmount) > 0) {
+        // For now, redirect to the custom payment link
+        // You should create a payment link in Stripe that allows custom amounts
+        window.open(links.custom, '_blank');
+
+        if (window.showDynamicIslandNotification) {
+          window.showDynamicIslandNotification('success', `Opening ${isMonthly ? 'monthly ' : ''}payment for $${customAmount}`);
+        }
+      }
+    } else {
+      // Open the predefined payment link
+      window.open(links[amount], '_blank');
+
+      if (window.showDynamicIslandNotification) {
+        window.showDynamicIslandNotification('success', `Opening ${isMonthly ? 'monthly ' : ''}payment for $${amount}`);
+      }
+    }
   };
 
 
@@ -150,6 +188,24 @@ export default function Contact() {
                 </div>
 
                 <div className="donation-options">
+                  {/* Payment Type Selection */}
+                  <div className="payment-type-selector">
+                    <button
+                      className={`payment-type-btn ${paymentType === 'one-time' ? 'active' : ''}`}
+                      onClick={() => setPaymentType('one-time')}
+                    >
+                      <FaCreditCard className="payment-type-icon" />
+                      <span>One-time</span>
+                    </button>
+                    <button
+                      className={`payment-type-btn ${paymentType === 'monthly' ? 'active' : ''}`}
+                      onClick={() => setPaymentType('monthly')}
+                    >
+                      <FaCalendarAlt className="payment-type-icon" />
+                      <span>Monthly</span>
+                    </button>
+                  </div>
+
                   <div className="donation-amounts">
                     <button
                       className="donation-btn"
@@ -157,7 +213,9 @@ export default function Contact() {
                     >
                       <FaCoffee className="donation-btn-icon" />
                       <span className="donation-amount">$5</span>
-                      <span className="donation-label">Buy me a coffee</span>
+                      <span className="donation-label">
+                        {paymentType === 'monthly' ? 'Monthly coffee' : 'Buy me a coffee'}
+                      </span>
                     </button>
 
                     <button
@@ -166,7 +224,9 @@ export default function Contact() {
                     >
                       <FaHeart className="donation-btn-icon" />
                       <span className="donation-amount">$10</span>
-                      <span className="donation-label">Show some love</span>
+                      <span className="donation-label">
+                        {paymentType === 'monthly' ? 'Monthly support' : 'Show some love'}
+                      </span>
                     </button>
 
                     <button
@@ -175,7 +235,9 @@ export default function Contact() {
                     >
                       <FaHeart className="donation-btn-icon" />
                       <span className="donation-amount">$25</span>
-                      <span className="donation-label">Super supporter</span>
+                      <span className="donation-label">
+                        {paymentType === 'monthly' ? 'Monthly sponsor' : 'Super supporter'}
+                      </span>
                     </button>
 
                     <button
@@ -183,7 +245,9 @@ export default function Contact() {
                       onClick={() => handleDonation('custom')}
                     >
                       <span className="donation-amount">Custom</span>
-                      <span className="donation-label">Choose your amount</span>
+                      <span className="donation-label">
+                        {paymentType === 'monthly' ? 'Custom monthly' : 'Choose your amount'}
+                      </span>
                     </button>
                   </div>
 
