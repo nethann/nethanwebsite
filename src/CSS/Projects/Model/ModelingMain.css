@@ -17,6 +17,10 @@
     display: grid;
     grid-template-columns: repeat(3, minmax(300px, 1fr));
     gap: 2rem;
+    justify-content: center;
+    justify-items: center;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .Rendered-Models {
@@ -36,40 +40,59 @@
 
 .Models-grid {
     display: grid;
-    place-items: center;
-    width: 100%;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+    gap: 2rem;
+    justify-content: center;
+    justify-items: center;
+    margin: 0 auto;
+    width: 100%;
 }
 
 @media screen and (min-width: 1800px) {
     .Models-grid {
-        grid-template-columns: repeat(4, minmax(280px, 1fr)); /* 4 columns for large screens */
+        grid-template-columns: repeat(4, minmax(280px, 320px)); /* Fixed width for better alignment */
+        justify-content: center;
+        max-width: 1400px;
+        margin: 0 auto;
     }
 
     .models-pic-grid{
-        grid-template-columns: repeat(4, minmax(320px, 1fr)); /* 4 columns for large screens */
-
+        grid-template-columns: repeat(4, minmax(300px, 350px)); /* Fixed width for better alignment */
+        justify-content: center;
+        max-width: 1600px;
+        margin: 0 auto;
     }
 }
 
 @media screen and (max-width: 1700px) {
     .Models-grid {
-        grid-template-columns: repeat(3, minmax(260px, 1fr));
+        grid-template-columns: repeat(3, minmax(260px, 320px));
+        justify-content: center;
+        max-width: 1100px;
+        margin: 0 auto;
     }
 
     .models-pic-grid{
-        grid-template-columns: repeat(3, minmax(280px, 1fr));
+        grid-template-columns: repeat(3, minmax(280px, 350px));
+        justify-content: center;
+        max-width: 1200px;
+        margin: 0 auto;
     }
 }
 
 @media screen and (max-width: 1350px) {
     .Models-grid {
-        grid-template-columns: repeat(2, minmax(280px, 1fr));
+        grid-template-columns: repeat(2, minmax(280px, 400px));
+        justify-content: center;
+        max-width: 900px;
+        margin: 0 auto;
     }
 
     .models-pic-grid{
-        grid-template-columns: repeat(2, minmax(300px, 1fr));
+        grid-template-columns: repeat(2, minmax(300px, 400px));
+        justify-content: center;
+        max-width: 900px;
+        margin: 0 auto;
     }
 }
 
