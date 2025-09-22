@@ -56,19 +56,20 @@ export default function Modeling() {
     }, []);
 
     Aos.init({
-        duration: 500,
+        duration: 800,
+        easing: 'ease-in-out',
         once: true
     });
     return (
         <div className='Home-container'>
             <section className='Models-section'>
 
-                <div className='Rendered-Models' data-aos="fade-right">
+                <div className='Rendered-Models' data-aos="fade-up">
                     <div className='Models-CardTitle'>
                         <p>Rendered <span className='first-models-container'>Models</span> 🌵 : </p>
                     </div>
 
-                    <div className='models-pic-grid'>
+                    <div className='models-pic-grid' data-aos="fade-up" data-aos-delay="100">
                         <OneImageModel Img={FunkoPop1} Title="Funko Pop" Description="My first model of Funko Pops" RenderType="Blender" Year="2020" />
                         <OneImageModel Img={FirstRoom} Title="Room 1001" Description="One of my first renders where I learned how to use materials on surfaces & use lighting for scene renders" RenderType="Blender" Year="2020" />
                         <OneImageModel Img={Motor} Title="Servo Motor" Description="Modeled the motor for my distance sensing robot which spins the tires" RenderType="Blender" Year="2020" />
@@ -95,12 +96,12 @@ export default function Modeling() {
                 </div>
 
 
-                <div className='Rendered-Models' data-aos="fade-right">
+                <div className='Rendered-Models' data-aos="fade-up" data-aos-delay="200">
                     <div className='Models-CardTitle'>
                         <p>Rendered <span className='second-models-container'>Videos</span></p>
                     </div>
 
-                    <div className='Models-grid'>
+                    <div className='Models-grid' data-aos="fade-up" data-aos-delay="300">
                         <OneVidModel Vid={JelloAnimation} Title="Jello Animation" Description="First recorded animation using blender with physics and keyframes" RenderType="Blender" Year="2020" />
                         <OneVidModel Vid={WaterMolecule} Title="Sunset Animation" Description="Sunset animation with boat moving along the water " RenderType="Blender" Year="2021" />
                     </div>

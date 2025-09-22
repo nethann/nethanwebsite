@@ -14,9 +14,7 @@ import MusicVids from './Music_components/MusicVids'
 
 import Typewriter from 'typewriter-effect';
 
-
-// import MusicPlayedPlaces from "./Music_components/MusicPlayedPlaces"
-//animation
+import Aos from 'aos';
 import "aos/dist/aos.css"
 
 //importing music videos
@@ -28,10 +26,16 @@ export default function Music() {
     window.scrollTo(0, 0);
   }, []);
 
+  Aos.init({
+    duration: 800,
+    easing: 'ease-in-out',
+    once: true
+  });
+
   return (
     <div className='Home-container'>
       <div className='Music' style={{paddingTop: '8rem'}}>
-        <h2 className='Music-title'>
+        <h2 className='Music-title' data-aos="fade-up">
           <span className=" typewriter-text">
             <Typewriter
               onInit={(typewriter) => {
@@ -50,11 +54,11 @@ export default function Music() {
 
 
 
-        <div className="musical-journey-section">
+        <div className="musical-journey-section" data-aos="fade-up" data-aos-delay="100">
           <h3>My Musical Journey</h3>
           <div className="horizontal-timeline">
             <div className="timeline-track">
-              <div className="timeline-item-horizontal" data-year="2017">
+              <div className="timeline-item-horizontal" data-year="2017" data-aos="fade-up" data-aos-delay="200">
                 <div className="timeline-dot"></div>
                 <div className="timeline-card">
                   <div className="timeline-year">2017 - 2020</div>
@@ -66,7 +70,7 @@ export default function Music() {
                 </div>
               </div>
 
-              <div className="timeline-item-horizontal" data-year="2020">
+              <div className="timeline-item-horizontal" data-year="2020" data-aos="fade-up" data-aos-delay="300">
                 <div className="timeline-dot"></div>
                 <div className="timeline-card">
                   <div className="timeline-year">2020 - Present</div>
@@ -117,7 +121,9 @@ export default function Music() {
         </div> */}
 
         {/* YouTube Channels Section */}
-        <YouTubeChannels />
+        <div data-aos="fade-up" data-aos-delay="400">
+          <YouTubeChannels />
+        </div>
 
 
 
