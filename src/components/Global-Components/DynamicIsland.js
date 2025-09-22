@@ -7,11 +7,23 @@ import nethanSpotify from '../../services/nethanSpotify';
 import '../../CSS/Global/DynamicIsland.css';
 
 export default function DynamicIsland() {
+  // Social links configuration - moved to top to avoid hoisting issues
+  const socialLinks = [
+    { icon: FaInstagram, url: 'https://www.instagram.com/nethan_journey/', label: 'Instagram' },
+    { icon: FaLinkedinIn, url: 'https://www.linkedin.com/in/nethan-nagendran/', label: 'LinkedIn' },
+    { icon: AiFillGithub, url: 'https://github.com/nethann', label: 'GitHub' },
+    { icon: FaYoutube, url: 'https://www.youtube.com/@nethan_journey', label: 'YouTube' },
+    { icon: FaTiktok, url: 'https://www.tiktok.com/@nethan_journey', label: 'TikTok' }
+  ];
+
   const [isExpanded, setIsExpanded] = useState(false);
   const [discordStatus, setDiscordStatus] = useState('offline');
   const [currentTime, setCurrentTime] = useState(new Date());
   const [notification, setNotification] = useState(null);
   const [spotifyData, setSpotifyData] = useState(null);
+  const [showTooltip, setShowTooltip] = useState(false);
+  const [showFloatingTooltip, setShowFloatingTooltip] = useState(false);
+  const [previewIconIndex, setPreviewIconIndex] = useState(0);
 
   // Fetch Discord status and Nethan's Spotify data
   useEffect(() => {
@@ -70,6 +82,63 @@ export default function DynamicIsland() {
       return () => clearTimeout(timer);
     }
   }, [notification]);
+
+  // Check if first visit and show tooltip
+  useEffect(() => {
+    const hasSeenTooltip = localStorage.getItem('dynamicIslandTooltipSeen');
+    if (!hasSeenTooltip) {
+      const timer = setTimeout(() => {
+        setShowTooltip(true);
+        // Auto-hide tooltip after 5 seconds
+        setTimeout(() => {
+          setShowTooltip(false);
+          localStorage.setItem('dynamicIslandTooltipSeen', 'true');
+        }, 5000);
+      }, 3000); // Show after 3 seconds
+      return () => clearTimeout(timer);
+    }
+  }, []);
+
+  // Rotate preview social icon every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPreviewIconIndex((prev) => (prev + 1) % socialLinks.length);
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Show floating tooltip periodically
+  useEffect(() => {
+    const hasSeenFloatingTooltip = localStorage.getItem('dynamicIslandFloatingTooltipSeen');
+    if (!hasSeenFloatingTooltip) {
+      // Show floating tooltip after 10 seconds, then every 30 seconds
+      const initialTimer = setTimeout(() => {
+        setShowFloatingTooltip(true);
+        setTimeout(() => {
+          setShowFloatingTooltip(false);
+        }, 4000); // Show for 4 seconds
+
+        // Set up periodic reminders every 30 seconds (max 3 times)
+        let reminderCount = 0;
+        const reminderInterval = setInterval(() => {
+          reminderCount++;
+          if (reminderCount <= 2) { // Show max 3 times total
+            setShowFloatingTooltip(true);
+            setTimeout(() => {
+              setShowFloatingTooltip(false);
+            }, 4000);
+          } else {
+            clearInterval(reminderInterval);
+            localStorage.setItem('dynamicIslandFloatingTooltipSeen', 'true');
+          }
+        }, 30000);
+
+        return () => clearInterval(reminderInterval);
+      }, 10000);
+
+      return () => clearTimeout(initialTimer);
+    }
+  }, []);
 
   // Show notification function (can be called from other components)
   const showNotification = (type, message) => {
@@ -134,20 +203,18 @@ export default function DynamicIsland() {
       );
     }
     
+    // Show rotating social icon preview
+    const currentSocial = socialLinks[previewIconIndex];
+    const IconComponent = currentSocial.icon;
+
     return (
       <div className="dynamic-island-content minimal">
-        <div className="minimal-dot"></div>
+        <div className="minimal-social-preview">
+          <IconComponent className="preview-social-icon" />
+        </div>
       </div>
     );
   };
-
-  const socialLinks = [
-    { icon: FaInstagram, url: 'https://www.instagram.com/nethan_journey/', label: 'Instagram' },
-    { icon: FaLinkedinIn, url: 'https://www.linkedin.com/in/nethan-nagendran/', label: 'LinkedIn' },
-    { icon: AiFillGithub, url: 'https://github.com/nethann', label: 'GitHub' },
-    { icon: FaYoutube, url: 'https://www.youtube.com/@nethan_journey', label: 'YouTube' },
-    { icon: FaTiktok, url: 'https://www.tiktok.com/@nethan_journey', label: 'TikTok' }
-  ];
 
   const getExpandedContent = () => {
     return (
@@ -245,13 +312,64 @@ export default function DynamicIsland() {
     );
   };
 
+  const handleTooltipDismiss = () => {
+    setShowTooltip(false);
+    localStorage.setItem('dynamicIslandTooltipSeen', 'true');
+  };
+
+  const handleFloatingTooltipDismiss = () => {
+    setShowFloatingTooltip(false);
+    localStorage.setItem('dynamicIslandFloatingTooltipSeen', 'true');
+  };
+
   return (
-    <div 
-      className={`dynamic-island ${notification ? 'notification' : 'minimal'} ${isExpanded ? 'expanded' : ''}`}
-      onMouseEnter={() => !notification && setIsExpanded(true)}
-      onMouseLeave={() => setIsExpanded(false)}
-    >
-      {isExpanded && !notification ? getExpandedContent() : getMinimalContent()}
+    <div className="dynamic-island-container">
+      {/* Rotating Social Icons */}
+      {!isExpanded && (
+        <div className="floating-socials">
+          {socialLinks.slice(0, 3).map((social, index) => {
+            const IconComponent = social.icon;
+            return (
+              <a
+                key={index}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`floating-social-icon icon-${index + 1}`}
+                title={social.label}
+              >
+                <IconComponent />
+              </a>
+            );
+          })}
+        </div>
+      )}
+
+      <div
+        className={`dynamic-island ${notification ? 'notification' : 'minimal'} ${isExpanded ? 'expanded' : ''}`}
+        onMouseEnter={() => !notification && setIsExpanded(true)}
+        onMouseLeave={() => setIsExpanded(false)}
+        onClick={handleTooltipDismiss}
+      >
+        {isExpanded && !notification ? getExpandedContent() : getMinimalContent()}
+      </div>
+
+      {showTooltip && (
+        <div className="dynamic-island-tooltip" onClick={handleTooltipDismiss}>
+          <div className="tooltip-content">
+            <span>🎵 Click me for socials!</span>
+            <div className="tooltip-arrow"></div>
+          </div>
+        </div>
+      )}
+
+      {showFloatingTooltip && (
+        <div className="floating-tooltip" onClick={handleFloatingTooltipDismiss}>
+          <div className="floating-tooltip-content">
+            Find my socials here
+          </div>
+        </div>
+      )}
     </div>
   );
 }

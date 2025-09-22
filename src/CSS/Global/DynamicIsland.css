@@ -1,8 +1,190 @@
-/* Dynamic Island - iOS Style with Jello Animation */
-.dynamic-island {
+/* Dynamic Island Container */
+.dynamic-island-container {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
+  z-index: 10001;
+}
+
+/* Dynamic Island Tooltip */
+.dynamic-island-tooltip {
+  position: absolute;
+  bottom: 60px;
+  right: 0;
+  z-index: 10002;
+  animation: tooltipFadeIn 0.3s ease-out;
+}
+
+.tooltip-content {
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  position: relative;
+}
+
+.tooltip-arrow {
+  position: absolute;
+  bottom: -5px;
+  right: 20px;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid rgba(0, 0, 0, 0.9);
+}
+
+@keyframes tooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Simple Glass Floating Tooltip */
+.floating-tooltip {
+  position: absolute;
+  bottom: 60px;
+  left: -80px;
+  z-index: 10003;
+  animation: simpleTooltipFadeIn 0.3s ease-out;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.floating-tooltip-content {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 8px 14px;
+  border-radius: 12px;
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.3),
+    0 4px 12px rgba(255, 255, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.9);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+  position: relative;
+}
+
+.floating-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid rgba(255, 255, 255, 0.1);
+}
+
+@keyframes simpleTooltipFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Floating Social Icons */
+.floating-socials {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px;
+  height: 120px;
+  pointer-events: none;
+}
+
+.floating-social-icon {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  pointer-events: auto;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.floating-social-icon:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 1);
+  transform: scale(1.1);
+}
+
+.floating-social-icon.icon-1 {
+  animation: orbitIcon1 8s linear infinite;
+  animation-delay: 0s;
+}
+
+.floating-social-icon.icon-2 {
+  animation: orbitIcon2 8s linear infinite;
+  animation-delay: -2.67s;
+}
+
+.floating-social-icon.icon-3 {
+  animation: orbitIcon3 8s linear infinite;
+  animation-delay: -5.33s;
+}
+
+@keyframes orbitIcon1 {
+  0% {
+    transform: rotate(0deg) translateX(60px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(60px) rotate(-360deg);
+  }
+}
+
+@keyframes orbitIcon2 {
+  0% {
+    transform: rotate(120deg) translateX(60px) rotate(-120deg);
+  }
+  100% {
+    transform: rotate(480deg) translateX(60px) rotate(-480deg);
+  }
+}
+
+@keyframes orbitIcon3 {
+  0% {
+    transform: rotate(240deg) translateX(60px) rotate(-240deg);
+  }
+  100% {
+    transform: rotate(600deg) translateX(60px) rotate(-600deg);
+  }
+}
+
+/* Dynamic Island - iOS Style with Jello Animation */
+.dynamic-island {
+  position: relative;
   transform: none;
   z-index: 10001;
   
@@ -29,10 +211,11 @@
     0 4px 16px rgba(255, 255, 255, 0.03),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
     
-  /* Jello effect on load + subtle floating */
-  animation: 
+  /* Jello effect on load + subtle floating + breathing glow */
+  animation:
     jelloLoad 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55),
-    subtleFloat 6s ease-in-out infinite 1s;
+    subtleFloat 6s ease-in-out infinite 1s,
+    gentleBreathingGlow 4s ease-in-out infinite 2s;
 }
 
 /* Jello Animation Keyframes */
@@ -312,6 +495,23 @@
   }
 }
 
+@keyframes gentleBreathingGlow {
+  0%, 100% {
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.2),
+      0 4px 16px rgba(255, 255, 255, 0.03),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+  50% {
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.2),
+      0 4px 16px rgba(255, 255, 255, 0.03),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08),
+      0 0 20px rgba(59, 130, 246, 0.3),
+      0 0 40px rgba(59, 130, 246, 0.1);
+  }
+}
+
 /* Content styling */
 .dynamic-island-content {
   display: flex;
@@ -335,10 +535,53 @@
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.9);
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
-  animation: 
+  animation:
     gentlePulse 3s ease-in-out infinite,
     dotJello 4s ease-in-out infinite,
     dotLiquidMorph 5s ease-in-out infinite;
+}
+
+.minimal-social-preview {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-social-icon {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0.9);
+  animation:
+    socialIconPulse 3s ease-in-out infinite,
+    socialIconRotate 3s ease-in-out infinite;
+}
+
+@keyframes socialIconPulse {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes socialIconRotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(5deg) scale(1.05);
+  }
+  50% {
+    transform: rotate(0deg) scale(1.1);
+  }
+  75% {
+    transform: rotate(-5deg) scale(1.05);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
 }
 
 @keyframes gentlePulse {
@@ -525,22 +768,27 @@
     bottom: 1rem;
     right: 1rem;
   }
-  
+
   .dynamic-island.expanded {
     height: 160px;
     padding: 12px;
     width: calc(100vw - 2rem);
     max-width: 300px;
   }
-  
+
   .socials-icons {
     gap: 8px;
   }
-  
+
   .social-link {
     width: 28px;
     height: 28px;
     font-size: 12px;
+  }
+
+  .floating-tooltip {
+    bottom: 50px;
+    left: -60px;
   }
 }
 

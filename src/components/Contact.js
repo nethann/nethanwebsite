@@ -1,5 +1,7 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
+import { FaInstagram, FaLinkedinIn, FaYoutube, FaTiktok, FaEnvelope } from 'react-icons/fa';
+import { AiFillGithub } from 'react-icons/ai';
 
 // importing CSS
 import "../CSS/Contact/Contact.css"
@@ -13,6 +15,14 @@ import "aos/dist/aos.css"
 
 export default function Contact() {
   const form = useRef();
+
+  const socialLinks = [
+    { icon: FaInstagram, url: 'https://www.instagram.com/nethan_journey/', label: 'Instagram', color: '#E4405F' },
+    { icon: FaLinkedinIn, url: 'https://www.linkedin.com/in/nethan-nagendran/', label: 'LinkedIn', color: '#0077B5' },
+    { icon: AiFillGithub, url: 'https://github.com/nethann', label: 'GitHub', color: '#333' },
+    { icon: FaYoutube, url: 'https://www.youtube.com/@nethan_journey', label: 'YouTube', color: '#FF0000' },
+    { icon: FaTiktok, url: 'https://www.tiktok.com/@nethan_journey', label: 'TikTok', color: '#000000' }
+  ];
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -111,6 +121,41 @@ export default function Contact() {
               </form>
             </div>
           </div>
+
+          {/* Social Links Section */}
+          <section className="contact-social-section" style={{marginTop: 'var(--ios-space-3xl)', textAlign: 'center'}}>
+            <div className="social-divider">
+              <span className="divider-text">Or connect with me on</span>
+            </div>
+
+            <div className="contact-social-links">
+              {socialLinks.map((social, index) => {
+                const IconComponent = social.icon;
+                return (
+                  <a
+                    key={index}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-social-link"
+                    title={social.label}
+                    style={{'--social-color': social.color}}
+                  >
+                    <div className="contact-social-icon">
+                      <IconComponent />
+                    </div>
+                    <span className="contact-social-label">{social.label}</span>
+                  </a>
+                );
+              })}
+            </div>
+
+            <div className="contact-footer-note">
+              <p className="ios-body-small" style={{opacity: 0.6}}>
+                I typically respond within 24 hours. Looking forward to hearing from you!
+              </p>
+            </div>
+          </section>
         </section>
       </div>
     </div>
