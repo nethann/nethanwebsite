@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
-import { FaInstagram, FaLinkedinIn, FaYoutube, FaTiktok, FaEnvelope } from 'react-icons/fa';
+import { FaInstagram, FaLinkedinIn, FaYoutube, FaTiktok, FaEnvelope, FaHeart, FaCoffee } from 'react-icons/fa';
 import { AiFillGithub } from 'react-icons/ai';
 
 // importing CSS
@@ -41,6 +41,18 @@ export default function Contact() {
 
   }
 
+  const handleDonation = (amount) => {
+    // Replace with your actual Stripe payment link or checkout session
+    const stripeLinks = {
+      5: 'https://buy.stripe.com/your-5-dollar-link',
+      10: 'https://buy.stripe.com/your-10-dollar-link',
+      25: 'https://buy.stripe.com/your-25-dollar-link',
+      custom: 'https://buy.stripe.com/your-custom-amount-link'
+    };
+
+    window.open(stripeLinks[amount] || stripeLinks.custom, '_blank');
+  };
+
 
   Aos.init({
     duration: 500,
@@ -60,65 +72,126 @@ export default function Contact() {
             </p>
           </div>
 
-          <div className="contact-form-container">
-            <div className="modern-contact-form">
-              <div className="form-header">
-                <h2 className="form-title">Let's work together</h2>
-                <p className="form-subtitle">Tell me about your project and I'll get back to you within 24 hours</p>
+          {/* Contact and Donation Grid */}
+          <div className="contact-donation-grid">
+            <div className="contact-form-container">
+              <div className="modern-contact-form">
+                <div className="form-header">
+                  <h2 className="form-title">Let's work together</h2>
+                  <p className="form-subtitle">Tell me about your project and I'll get back to you within 24 hours</p>
+                </div>
+
+                <form ref={form} onSubmit={sendEmail} className="contact-form">
+                  <div className="form-row">
+                    <div className="input-wrapper">
+                      <input
+                        className="modern-input"
+                        type="text"
+                        name="from_name"
+                        placeholder=" "
+                        autoComplete="off"
+                        required={true}
+                      />
+                      <label className="modern-label">Your Name</label>
+                      <div className="input-line"></div>
+                    </div>
+                  </div>
+
+                  <div className="form-row">
+                    <div className="input-wrapper">
+                      <input
+                        className="modern-input"
+                        type="email"
+                        name="from_email"
+                        placeholder=" "
+                        autoComplete="off"
+                        required={true}
+                      />
+                      <label className="modern-label">Email Address</label>
+                      <div className="input-line"></div>
+                    </div>
+                  </div>
+
+                  <div className="form-row">
+                    <div className="input-wrapper textarea-wrapper">
+                      <textarea
+                        className="modern-input modern-textarea"
+                        name="message"
+                        placeholder=" "
+                        required={true}
+                        rows="1"
+                      ></textarea>
+                      <label className="modern-label">Project Details</label>
+                      <div className="input-line"></div>
+                    </div>
+                  </div>
+
+                  <div className="form-row">
+                    <button className="modern-submit-btn" type="submit">
+                      <span className="btn-text">Send Message</span>
+                      <div className="btn-bg"></div>
+                    </button>
+                  </div>
+                </form>
               </div>
-              
-              <form ref={form} onSubmit={sendEmail} className="contact-form">
-                <div className="form-row">
-                  <div className="input-wrapper">
-                    <input 
-                      className="modern-input" 
-                      type="text" 
-                      name="from_name" 
-                      placeholder=" " 
-                      autoComplete="off" 
-                      required={true}
-                    />
-                    <label className="modern-label">Your Name</label>
-                    <div className="input-line"></div>
+            </div>
+
+            {/* Support My Work Section */}
+            <div className="donation-section">
+              <div className="donation-card">
+                <div className="donation-header">
+                  <div className="donation-icon">
+                    <FaHeart className="heart-icon" />
+                  </div>
+                  <h3 className="donation-title">Support My Work</h3>
+                  <p className="donation-subtitle">
+                    Love what I do? Your support helps me create more amazing content and continue building cool projects!
+                  </p>
+                </div>
+
+                <div className="donation-options">
+                  <div className="donation-amounts">
+                    <button
+                      className="donation-btn"
+                      onClick={() => handleDonation(5)}
+                    >
+                      <FaCoffee className="donation-btn-icon" />
+                      <span className="donation-amount">$5</span>
+                      <span className="donation-label">Buy me a coffee</span>
+                    </button>
+
+                    <button
+                      className="donation-btn"
+                      onClick={() => handleDonation(10)}
+                    >
+                      <FaHeart className="donation-btn-icon" />
+                      <span className="donation-amount">$10</span>
+                      <span className="donation-label">Show some love</span>
+                    </button>
+
+                    <button
+                      className="donation-btn"
+                      onClick={() => handleDonation(25)}
+                    >
+                      <FaHeart className="donation-btn-icon" />
+                      <span className="donation-amount">$25</span>
+                      <span className="donation-label">Super supporter</span>
+                    </button>
+
+                    <button
+                      className="donation-btn custom-amount"
+                      onClick={() => handleDonation('custom')}
+                    >
+                      <span className="donation-amount">Custom</span>
+                      <span className="donation-label">Choose your amount</span>
+                    </button>
+                  </div>
+
+                  <div className="donation-secure">
+                    <span className="secure-text">🔒 Secure payment powered by Stripe</span>
                   </div>
                 </div>
-                
-                <div className="form-row">
-                  <div className="input-wrapper">
-                    <input 
-                      className="modern-input" 
-                      type="email" 
-                      name="from_email" 
-                      placeholder=" " 
-                      autoComplete="off" 
-                      required={true}
-                    />
-                    <label className="modern-label">Email Address</label>
-                    <div className="input-line"></div>
-                  </div>
-                </div>
-                
-                <div className="form-row">
-                  <div className="input-wrapper textarea-wrapper">
-                    <textarea 
-                      className="modern-input modern-textarea" 
-                      name="message" 
-                      placeholder=" " 
-                      required={true}
-                      rows="1"
-                    ></textarea>
-                    <label className="modern-label">Project Details</label>
-                    <div className="input-line"></div>
-                  </div>
-                </div>
-                
-                <div className="form-row">
-                  <button className="modern-submit-btn" type="submit">
-                    <span className="btn-text">Send Message</span>
-                    <div className="btn-bg"></div>
-                  </button>
-                </div>
-              </form>
+              </div>
             </div>
           </div>
 

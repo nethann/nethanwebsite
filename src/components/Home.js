@@ -51,7 +51,7 @@ const Home = () => {
                         <img src={NethanPC} alt="Nethan G" className="profile-pic" />
                         <h2 className='ios-title-medium'>Nethan Nagendran</h2>
                         <p className="ios-body">
-                            Hey! I'm Nethan — a CS student, guitarist, and visual storyteller. Whether I'm building
+                            Hey! I'm Nethan — a CS student, musician, and visual storyteller. Whether I'm building
                             apps, jamming out solos, or snapping the world around me, this is where I share it all.
                         </p>
                         <a href="/contact" className="ios-btn-primary">Contact Me</a>
