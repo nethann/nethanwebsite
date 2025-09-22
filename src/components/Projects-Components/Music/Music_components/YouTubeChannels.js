@@ -12,17 +12,38 @@ const YouTubeChannels = () => {
   // YouTube API Key
   const YOUTUBE_API_KEY = 'AIzaSyB1RMivMQohGsZOhPudzSLGHurf9bZDYRA';
 
-  // YouTube channel configurations
-  const channels = {
+  // YouTube channel configurations - descriptions will be fetched from API
+  const [channels, setChannels] = useState({
     nethan_journey: {
       name: 'Nethan Journey',
       channelId: 'UCcjyzmhL8hoJEQhjNin3wdw',
-      description: 'My personal music journey and covers'
+      description: 'Loading...'
     },
     worship_avenue: {
       name: 'Worship Avenue',
       channelId: 'UCzhoMRmdkQLjr7O3PoddKPw',
-      description: 'Contemporary worship music and spiritual songs'
+      description: 'Loading...'
+    }
+  });
+
+  // Fetch channel info including description
+  const fetchChannelInfo = async (channelId) => {
+    try {
+      const response = await fetch(
+        `https://www.googleapis.com/youtube/v3/channels?part=snippet&id=${channelId}&key=${YOUTUBE_API_KEY}`
+      );
+      const data = await response.json();
+
+      if (data.items && data.items.length > 0) {
+        return {
+          title: data.items[0].snippet.title,
+          description: data.items[0].snippet.description
+        };
+      }
+      return null;
+    } catch (error) {
+      console.error('Error fetching channel info:', error);
+      return null;
     }
   };
 
@@ -228,27 +249,41 @@ const YouTubeChannels = () => {
   useEffect(() => {
     const loadChannelData = async () => {
       const newChannelData = { ...channelData };
-      
-      // Load Nethan Journey data
+      const updatedChannels = { ...channels };
+
+      // Load Nethan Journey data and info
       if (YOUTUBE_API_KEY !== 'YOUR_YOUTUBE_API_KEY') {
+        const nethanInfo = await fetchChannelInfo(channels.nethan_journey.channelId);
+        if (nethanInfo) {
+          updatedChannels.nethan_journey.name = nethanInfo.title;
+          updatedChannels.nethan_journey.description = nethanInfo.description;
+        }
+
         const nethanData = await fetchChannelVideos(channels.nethan_journey.channelId);
         newChannelData.nethan_journey = nethanData;
       } else {
         // Use fallback data if no API key
         newChannelData.nethan_journey = mockData.nethan_journey;
       }
-      
-      // Load Worship Avenue data
+
+      // Load Worship Avenue data and info
       if (YOUTUBE_API_KEY !== 'YOUR_YOUTUBE_API_KEY') {
+        const worshipInfo = await fetchChannelInfo(channels.worship_avenue.channelId);
+        if (worshipInfo) {
+          updatedChannels.worship_avenue.name = worshipInfo.title;
+          updatedChannels.worship_avenue.description = worshipInfo.description;
+        }
+
         const worshipData = await fetchChannelVideos(channels.worship_avenue.channelId);
         newChannelData.worship_avenue = worshipData;
       } else {
         newChannelData.worship_avenue = mockData.worship_avenue;
       }
-      
+
+      setChannels(updatedChannels);
       setChannelData(newChannelData);
     };
-    
+
     loadChannelData();
   }, []);
 
@@ -298,7 +333,6 @@ const YouTubeChannels = () => {
             onClick={() => handleTabChange(key)}
           >
             <span className="tab-name">{channel.name}</span>
-            <span className="tab-description">{channel.description}</span>
           </button>
         ))}
       </div>
