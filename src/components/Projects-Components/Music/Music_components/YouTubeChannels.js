@@ -5,7 +5,7 @@ const YouTubeChannels = () => {
   const [activeTab, setActiveTab] = useState('nethan_journey');
   const [channelData, setChannelData] = useState({
     nethan_journey: { videos: [], shorts: [] },
-    gospel123: { videos: [], shorts: [] }
+    worship_avenue: { videos: [], shorts: [] }
   });
   const [loading, setLoading] = useState(false);
 
@@ -19,10 +19,10 @@ const YouTubeChannels = () => {
       channelId: 'UCcjyzmhL8hoJEQhjNin3wdw',
       description: 'My personal music journey and covers'
     },
-    gospel123: {
-      name: 'Gospel123',
-      channelId: 'YOUR_GOSPEL123_CHANNEL_ID', // Replace with Gospel123 channel ID
-      description: 'Gospel music and worship songs'
+    worship_avenue: {
+      name: 'Worship Avenue',
+      channelId: 'UCzhoMRmdkQLjr7O3PoddKPw',
+      description: 'Contemporary worship music and spiritual songs'
     }
   };
 
@@ -150,7 +150,7 @@ const YouTubeChannels = () => {
     if (channelId === 'UCcjyzmhL8hoJEQhjNin3wdw') {
       return mockData.nethan_journey;
     }
-    return mockData.gospel123 || { videos: [], shorts: [] };
+    return mockData.worship_avenue || { videos: [], shorts: [] };
   };
 
   // Mock data - Replace with actual YouTube API calls
@@ -189,35 +189,35 @@ const YouTubeChannels = () => {
         }
       ]
     },
-    gospel123: {
+    worship_avenue: {
       videos: [
         {
-          id: 'gospel_vid1',
-          title: 'How Great Thou Art - Full Cover',
-          thumbnail: 'https://img.youtube.com/vi/gospel_vid1/maxresdefault.jpg',
+          id: 'worship_vid1',
+          title: 'Amazing Grace - Worship Cover',
+          thumbnail: 'https://img.youtube.com/vi/worship_vid1/maxresdefault.jpg',
           publishedAt: '2024-01-12',
           viewCount: '18,750'
         },
         {
-          id: 'gospel_vid2',
-          title: 'Blessed Assurance Piano Cover',
-          thumbnail: 'https://img.youtube.com/vi/gospel_vid2/maxresdefault.jpg',
+          id: 'worship_vid2',
+          title: 'How Great Is Our God - Piano Worship',
+          thumbnail: 'https://img.youtube.com/vi/worship_vid2/maxresdefault.jpg',
           publishedAt: '2024-01-08',
           viewCount: '22,160'
         }
       ],
       shorts: [
         {
-          id: 'gospel_short1',
-          title: 'Gospel Chord Tips',
-          thumbnail: 'https://img.youtube.com/vi/gospel_short1/maxresdefault.jpg',
+          id: 'worship_short1',
+          title: 'Worship Chord Progressions',
+          thumbnail: 'https://img.youtube.com/vi/worship_short1/maxresdefault.jpg',
           publishedAt: '2024-01-16',
           viewCount: '31,200'
         },
         {
-          id: 'gospel_short2',
-          title: 'Hymn Harmony',
-          thumbnail: 'https://img.youtube.com/vi/gospel_short2/maxresdefault.jpg',
+          id: 'worship_short2',
+          title: 'Contemporary Worship Tips',
+          thumbnail: 'https://img.youtube.com/vi/worship_short2/maxresdefault.jpg',
           publishedAt: '2024-01-14',
           viewCount: '19,800'
         }
@@ -238,12 +238,12 @@ const YouTubeChannels = () => {
         newChannelData.nethan_journey = mockData.nethan_journey;
       }
       
-      // Load Gospel123 data (when channel ID is available)
-      if (channels.gospel123.channelId !== 'YOUR_GOSPEL123_CHANNEL_ID' && YOUTUBE_API_KEY !== 'YOUR_YOUTUBE_API_KEY') {
-        const gospelData = await fetchChannelVideos(channels.gospel123.channelId);
-        newChannelData.gospel123 = gospelData;
+      // Load Worship Avenue data
+      if (YOUTUBE_API_KEY !== 'YOUR_YOUTUBE_API_KEY') {
+        const worshipData = await fetchChannelVideos(channels.worship_avenue.channelId);
+        newChannelData.worship_avenue = worshipData;
       } else {
-        newChannelData.gospel123 = mockData.gospel123;
+        newChannelData.worship_avenue = mockData.worship_avenue;
       }
       
       setChannelData(newChannelData);
