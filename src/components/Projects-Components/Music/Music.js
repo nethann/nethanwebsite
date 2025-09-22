@@ -6,10 +6,6 @@ import "../../../CSS/Projects/Music/Music.css"
 import InstrumentCard from './Music_components/InstrumentCard'
 import YouTubeChannels from './Music_components/YouTubeChannels'
 
-import guitar from "../Music/Music_Pics/Instruments/guitar.png"
-import bongo from "../Music/Music_Pics/Instruments/bongo.png"
-import piano from "../Music/Music_Pics/Instruments/piano.png"
-import mic from "../Music/Music_Pics/Instruments/mic.png"
 
 import BarChart from './Music_components/BarChart'
 
@@ -40,7 +36,7 @@ export default function Music() {
             <Typewriter
               onInit={(typewriter) => {
                 typewriter
-                  .typeString('Where passion meets performance')
+                  .typeString('Accoustic Style Covers.')
                   .start();
               }}
               options={{
@@ -52,41 +48,37 @@ export default function Music() {
         </h2>
 
 
-        <div className='my-instruments-section'>
-          <h3 >Instruments I play</h3>
-          <div className='instruments-div'>
-            <InstrumentCard name="Accoustic & Electric" image={guitar} />
-            <InstrumentCard name="Piano" image={piano} />
-            <InstrumentCard name="Bongo" image={bongo} />
-            <InstrumentCard name="Vocals" image={mic} />
-          </div>
-
-        </div>
 
 
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <h4>2017 - 2020</h4>
-              <div class="timeline-details">
-                <span class="timeline-title">United Church Atlanta</span>
-                <p class="timeline-description">Served as the guitarist for the morning band, contributing to the musical worship experience. I also had the privilege of leading communion songs.</p>
+        <div className="musical-journey-section">
+          <h3>My Musical Journey</h3>
+          <div className="horizontal-timeline">
+            <div className="timeline-track">
+              <div className="timeline-item-horizontal" data-year="2017">
+                <div className="timeline-dot"></div>
+                <div className="timeline-card">
+                  <div className="timeline-year">2017 - 2020</div>
+                  <div className="timeline-venue">United Church Atlanta</div>
+                  <div className="timeline-role">Guitarist & Worship Leader</div>
+                  <div className="timeline-description">
+                    Served as the guitarist for the morning band, contributing to the musical worship experience. I also had the privilege of leading communion songs.
+                  </div>
+                </div>
+              </div>
+
+              <div className="timeline-item-horizontal" data-year="2020">
+                <div className="timeline-dot"></div>
+                <div className="timeline-card">
+                  <div className="timeline-year">2020 - Present</div>
+                  <div className="timeline-venue">Atlanta Church of Christ Gwinnett</div>
+                  <div className="timeline-role">Lead Guitarist & Children's Ministry</div>
+                  <div className="timeline-description">
+                    Served as the guitarist for the morning band and took the lead in several communion songs. Additionally, I had the opportunity to sing and play for the children's ministry.
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-
-          <div class="timeline-item">
-            <div class="timeline-content">
-              <h4>2020 - Present</h4>
-              <div class="timeline-details">
-                <span class="timeline-title">Atlanta Church of Christ Gwinetee</span>
-                <p class="timeline-description">Served as the guitarist for the morning band and took the lead in several communion songs. Additionally, I had the opportunity to sing and play for the children's ministry.</p>
-              </div>
-            </div>
-
-
-          </div>
-
         </div>
 
 

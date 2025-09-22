@@ -57,10 +57,85 @@
 
 .instruments-div {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
     height: 100%;
-    object-fit: cover;
+    padding: 1rem 0;
+}
+
+/* Modern Instrument Cards with Icons */
+.instrument-card-modern {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.instrument-card-modern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg,
+        rgba(59, 130, 246, 0.1) 0%,
+        rgba(147, 51, 234, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.instrument-card-modern:hover {
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.4),
+        0 8px 16px rgba(59, 130, 246, 0.2);
+}
+
+.instrument-card-modern:hover::before {
+    opacity: 1;
+}
+
+.instrument-icon {
+    font-size: 3rem;
+    color: rgba(255, 255, 255, 0.9);
+    transition: all 0.3s ease;
+    z-index: 1;
+    position: relative;
+}
+
+.instrument-card-modern:hover .instrument-icon {
+    color: rgba(255, 255, 255, 1);
+    transform: scale(1.1);
+}
+
+.instrument-name {
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    z-index: 1;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.instrument-card-modern:hover .instrument-name {
+    color: rgba(255, 255, 255, 1);
 }
 
 .experience-charts-holder {
@@ -312,90 +387,206 @@
 
 
 
-/* Timeline container */
-.timeline {
+/* Musical Journey Section */
+.musical-journey-section {
+    width: 100%;
+    padding: 2rem 1rem;
+}
+
+.musical-journey-section h3 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 3rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.7));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Horizontal Timeline */
+.horizontal-timeline {
     position: relative;
-    padding: 1rem;
-    margin-left: 40px;  /* Indentation for the timeline items */
+    width: 100%;
+    padding: 2rem 0;
 }
 
-/* Timeline item */
-.timeline-item {
+.timeline-track {
     position: relative;
-    margin-bottom: 30px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.timeline-item:hover{
-    transform: translateY(-4px);
-}
-
-/* Timeline content styling */
-.timeline-content {
-    /* Glass styling */
-    background: rgba(255, 255, 255, 0.01);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.02);
-    border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
     padding: 1rem;
-    width: 300px;
-    margin-left: 50px;
-    transition: all 0.3s ease;
+    max-width: 1000px;
+    margin: 0 auto;
 }
 
-.timeline-item:hover .timeline-content {
-    background: rgba(255, 255, 255, 0.015);
-    border-color: rgba(255, 255, 255, 0.15);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
-}
-
-/* Timeline dot */
-.timeline-item::before {
+/* Timeline connecting line */
+.timeline-track::before {
     content: '';
     position: absolute;
-    top: 10px;
-    left: -18px;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg,
+        transparent 0%,
+        rgba(59, 130, 246, 0.3) 20%,
+        rgba(147, 51, 234, 0.5) 50%,
+        rgba(59, 130, 246, 0.3) 80%,
+        transparent 100%);
+    z-index: 1;
+    border-radius: 2px;
+}
+
+.timeline-item-horizontal {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    max-width: 400px;
+    z-index: 2;
+}
+
+/* Timeline Dot */
+.timeline-dot {
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background-color: var(--clr-2);
-    border: 3px solid #fff;
+    background: linear-gradient(135deg,
+        rgba(59, 130, 246, 1) 0%,
+        rgba(147, 51, 234, 1) 100%);
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    box-shadow:
+        0 0 15px rgba(59, 130, 246, 0.5),
+        0 0 30px rgba(147, 51, 234, 0.3);
+    position: relative;
+    margin-bottom: 1rem;
+    animation: timelinePulse 2s ease-in-out infinite;
 }
 
-/* Optional line connecting items */
-.timeline::after {
+/* Timeline Card */
+.timeline-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.timeline-card::before {
     content: '';
     position: absolute;
     top: 0;
-    left: 5px;
+    left: 0;
+    right: 0;
     bottom: 0;
-    width: 2px;
-    background-color: var(--clr-1);
+    background: linear-gradient(135deg,
+        rgba(59, 130, 246, 0.1) 0%,
+        rgba(147, 51, 234, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-/* Timeline details styling */
-.timeline-details {
-    margin-top: 10px;
+.timeline-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    background: rgba(255, 255, 255, 0.08);
+    border-color: rgba(255, 255, 255, 0.2);
+    box-shadow:
+        0 20px 40px rgba(0, 0, 0, 0.5),
+        0 8px 16px rgba(59, 130, 246, 0.3);
 }
 
-/* Title styling */
-.timeline-title {
-    display: block;
+.timeline-card:hover::before {
+    opacity: 1;
+}
+
+/* Timeline Card Content */
+.timeline-year {
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgba(59, 130, 246, 1);
+    margin-bottom: 0.4rem;
+    z-index: 1;
+    position: relative;
+}
+
+.timeline-venue {
+    font-size: 1.1rem;
     font-weight: 600;
-    font-size: 1.1em;
-    margin-bottom: 8px;
     color: rgba(255, 255, 255, 0.95);
+    margin-bottom: 0.3rem;
+    z-index: 1;
+    position: relative;
+    line-height: 1.2;
 }
 
-/* Description styling */
+.timeline-role {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: rgba(147, 51, 234, 0.9);
+    margin-bottom: 0.8rem;
+    z-index: 1;
+    position: relative;
+}
+
 .timeline-description {
-    font-size: 0.9em;
-    color: rgba(255, 255, 255, 0.7);
-    line-height: 1.6;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.75);
+    line-height: 1.4;
+    z-index: 1;
+    position: relative;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Timeline Animations */
+@keyframes timelinePulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow:
+            0 0 20px rgba(59, 130, 246, 0.5),
+            0 0 40px rgba(147, 51, 234, 0.3);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow:
+            0 0 30px rgba(59, 130, 246, 0.8),
+            0 0 60px rgba(147, 51, 234, 0.5);
+    }
+}
+
+/* Responsive Timeline */
+@media (max-width: 768px) {
+    .timeline-track {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: center;
+    }
+
+    .timeline-track::before {
+        display: none;
+    }
+
+    .timeline-item-horizontal {
+        min-width: 100%;
+        max-width: 400px;
+    }
+
+    .musical-journey-section h3 {
+        font-size: 2rem;
+    }
 }
 
 
@@ -406,7 +597,6 @@
 
     .instruments-div {
         grid-template-columns: repeat(2, 1fr);
-
     }
 
     .music-experience-chart {
@@ -526,11 +716,16 @@
     }
 
     .instruments-div {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .instrument-card-modern {
+        padding: 1.5rem 1rem;
+    }
+
+    .instrument-icon {
+        font-size: 2.5rem;
     }
 }
 
