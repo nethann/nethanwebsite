@@ -303,27 +303,6 @@ export default function DynamicIsland() {
 
   return (
     <div className="dynamic-island-container">
-      {/* Rotating Social Icons */}
-      {!isExpanded && (
-        <div className="floating-socials">
-          {socialLinks.slice(0, 3).map((social, index) => {
-            const IconComponent = social.icon;
-            return (
-              <a
-                key={index}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`floating-social-icon icon-${index + 1}`}
-                title={social.label}
-              >
-                <IconComponent />
-              </a>
-            );
-          })}
-        </div>
-      )}
-
       <div
         className={`dynamic-island ${notification ? 'notification' : 'minimal'} ${isExpanded ? 'expanded' : ''}`}
         onMouseEnter={() => !notification && setIsExpanded(true)}
