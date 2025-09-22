@@ -15,7 +15,7 @@ import "aos/dist/aos.css"
 
 export default function Contact() {
   const form = useRef();
-  const [paymentType, setPaymentType] = useState('one-time'); // 'one-time' or 'monthly'
+  const [paymentType, setPaymentType] = useState('one-time');
   const [selectedAmount, setSelectedAmount] = useState(null);
 
   const socialLinks = [
@@ -48,46 +48,17 @@ export default function Contact() {
     // Go to Stripe Dashboard > Payment Links to create these
 
     const paymentLinks = {
-      oneTime: {
-        5: 'https://buy.stripe.com/test_3cs8zK0T41Bm9xK000', // Replace with your actual links
-        10: 'https://buy.stripe.com/test_14kaHSd78f77axO001',
-        25: 'https://buy.stripe.com/test_5kA8zK77P67TbCo002',
-        custom: 'https://buy.stripe.com/test_dR6bLW0X8bZj9xK003'
-      },
-      monthly: {
-        5: 'https://buy.stripe.com/test_4gw8zK1Xc37F5xi004', // Replace with your actual subscription links
-        10: 'https://buy.stripe.com/test_14k7uJb1cbtb5xi005',
-        25: 'https://buy.stripe.com/test_8wMaHSdZfexr1l6006',
-        custom: 'https://buy.stripe.com/test_9AQ4iB77P9Vf3t6007'
-      }
+      5: 'https://buy.stripe.com/14AeVe7OU6Qn4c1fqgc7u02',
+      10: 'https://buy.stripe.com/aFadRa6KQa2z0ZPdi8c7u03',
+      25: 'https://buy.stripe.com/cNidRa0ms4IffUJ5PGc7u04',
+      50: 'https://buy.stripe.com/aFa7sMb16eiP37Xgukc7u05',
+      100: 'https://buy.stripe.com/5kQ4gA6KQ3Eb6k9di8c7u06'
     };
 
-    const isMonthly = paymentType === 'monthly';
-    const links = isMonthly ? paymentLinks.monthly : paymentLinks.oneTime;
+    window.open(paymentLinks[amount], '_blank');
 
-    if (amount === 'custom') {
-      // For custom amounts, you can either:
-      // 1. Use Stripe's Payment Element with custom amounts (requires backend)
-      // 2. Redirect to a custom payment link that allows variable amounts
-      // 3. Use a simple prompt for now and redirect to a general payment link
-
-      const customAmount = prompt(`Enter your ${isMonthly ? 'monthly ' : ''}donation amount (USD):`);
-      if (customAmount && !isNaN(customAmount) && parseFloat(customAmount) > 0) {
-        // For now, redirect to the custom payment link
-        // You should create a payment link in Stripe that allows custom amounts
-        window.open(links.custom, '_blank');
-
-        if (window.showDynamicIslandNotification) {
-          window.showDynamicIslandNotification('success', `Opening ${isMonthly ? 'monthly ' : ''}payment for $${customAmount}`);
-        }
-      }
-    } else {
-      // Open the predefined payment link
-      window.open(links[amount], '_blank');
-
-      if (window.showDynamicIslandNotification) {
-        window.showDynamicIslandNotification('success', `Opening ${isMonthly ? 'monthly ' : ''}payment for $${amount}`);
-      }
+    if (window.showDynamicIslandNotification) {
+      window.showDynamicIslandNotification('success', `Opening payment for $${amount}`);
     }
   };
 
@@ -188,23 +159,6 @@ export default function Contact() {
                 </div>
 
                 <div className="donation-options">
-                  {/* Payment Type Selection */}
-                  <div className="payment-type-selector">
-                    <button
-                      className={`payment-type-btn ${paymentType === 'one-time' ? 'active' : ''}`}
-                      onClick={() => setPaymentType('one-time')}
-                    >
-                      <FaCreditCard className="payment-type-icon" />
-                      <span>One-time</span>
-                    </button>
-                    <button
-                      className={`payment-type-btn ${paymentType === 'monthly' ? 'active' : ''}`}
-                      onClick={() => setPaymentType('monthly')}
-                    >
-                      <FaCalendarAlt className="payment-type-icon" />
-                      <span>Monthly</span>
-                    </button>
-                  </div>
 
                   <div className="donation-amounts">
                     <button
@@ -213,9 +167,7 @@ export default function Contact() {
                     >
                       <FaCoffee className="donation-btn-icon" />
                       <span className="donation-amount">$5</span>
-                      <span className="donation-label">
-                        {paymentType === 'monthly' ? 'Monthly coffee' : 'Buy me a coffee'}
-                      </span>
+                      <span className="donation-label">Buy me a coffee</span>
                     </button>
 
                     <button
@@ -224,9 +176,7 @@ export default function Contact() {
                     >
                       <FaHeart className="donation-btn-icon" />
                       <span className="donation-amount">$10</span>
-                      <span className="donation-label">
-                        {paymentType === 'monthly' ? 'Monthly support' : 'Show some love'}
-                      </span>
+                      <span className="donation-label">Show some love</span>
                     </button>
 
                     <button
@@ -235,19 +185,25 @@ export default function Contact() {
                     >
                       <FaHeart className="donation-btn-icon" />
                       <span className="donation-amount">$25</span>
-                      <span className="donation-label">
-                        {paymentType === 'monthly' ? 'Monthly sponsor' : 'Super supporter'}
-                      </span>
+                      <span className="donation-label">Super supporter</span>
                     </button>
 
                     <button
-                      className="donation-btn custom-amount"
-                      onClick={() => handleDonation('custom')}
+                      className="donation-btn"
+                      onClick={() => handleDonation(50)}
                     >
-                      <span className="donation-amount">Custom</span>
-                      <span className="donation-label">
-                        {paymentType === 'monthly' ? 'Custom monthly' : 'Choose your amount'}
-                      </span>
+                      <FaHeart className="donation-btn-icon" />
+                      <span className="donation-amount">$50</span>
+                      <span className="donation-label">Amazing supporter</span>
+                    </button>
+
+                    <button
+                      className="donation-btn"
+                      onClick={() => handleDonation(100)}
+                    >
+                      <FaHeart className="donation-btn-icon" />
+                      <span className="donation-amount">$100</span>
+                      <span className="donation-label">Ultimate supporter</span>
                     </button>
                   </div>
 

@@ -60,15 +60,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.05);
+  background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 50%;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 24px;
   margin-bottom: 12px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+}
+
+.contact-social-icon svg {
+  position: relative;
+  z-index: 2;
 }
 
 .contact-social-icon::before {
@@ -78,10 +83,43 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: var(--social-color);
-  opacity: 0;
-  transition: opacity 0.3s ease;
   border-radius: 50%;
+  opacity: 0.12;
+  transition: all 0.3s ease;
+  z-index: 1;
+  animation: contactColorPulse 4s ease-in-out infinite;
+}
+
+/* Dynamic color backgrounds for each social platform */
+.contact-social-link[style*="--social-color: #E4405F"] .contact-social-icon::before {
+  background: linear-gradient(135deg, #e4405f 0%, #fd1d1d 25%, #fcb045 50%, #833ab4 75%, #e4405f 100%);
+}
+
+.contact-social-link[style*="--social-color: #0077B5"] .contact-social-icon::before {
+  background: linear-gradient(135deg, #0077b5 0%, #00a0dc 100%);
+}
+
+.contact-social-link[style*="--social-color: #333"] .contact-social-icon::before {
+  background: linear-gradient(135deg, #333 0%, #24292e 100%);
+}
+
+.contact-social-link[style*="--social-color: #FF0000"] .contact-social-icon::before {
+  background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
+}
+
+.contact-social-link[style*="--social-color: #000000"] .contact-social-icon::before {
+  background: linear-gradient(135deg, #000000 0%, #ff0050 50%, #00f2ea 100%);
+}
+
+@keyframes contactColorPulse {
+  0%, 100% {
+    opacity: 0.1;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.25;
+    transform: scale(1.05);
+  }
 }
 
 .contact-social-label {
@@ -101,7 +139,8 @@
 }
 
 .contact-social-link:hover .contact-social-icon::before {
-  opacity: 0.1;
+  opacity: 0.35;
+  transform: scale(1.1);
 }
 
 .contact-social-link:hover .contact-social-icon {
