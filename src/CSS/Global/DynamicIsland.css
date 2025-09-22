@@ -6,50 +6,6 @@
   z-index: 10001;
 }
 
-/* Dynamic Island Tooltip */
-.dynamic-island-tooltip {
-  position: absolute;
-  bottom: 60px;
-  right: 0;
-  z-index: 10002;
-  animation: tooltipFadeIn 0.3s ease-out;
-}
-
-.tooltip-content {
-  background: rgba(0, 0, 0, 0.9);
-  color: white;
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-size: 13px;
-  font-weight: 500;
-  white-space: nowrap;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  cursor: pointer;
-  position: relative;
-}
-
-.tooltip-arrow {
-  position: absolute;
-  bottom: -5px;
-  right: 20px;
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid rgba(0, 0, 0, 0.9);
-}
-
-@keyframes tooltipFadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 /* Simple Glass Floating Tooltip */
 .floating-tooltip {

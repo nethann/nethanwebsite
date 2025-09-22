@@ -21,7 +21,6 @@ export default function DynamicIsland() {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [notification, setNotification] = useState(null);
   const [spotifyData, setSpotifyData] = useState(null);
-  const [showTooltip, setShowTooltip] = useState(false);
   const [showFloatingTooltip, setShowFloatingTooltip] = useState(false);
   const [previewIconIndex, setPreviewIconIndex] = useState(0);
 
@@ -83,21 +82,6 @@ export default function DynamicIsland() {
     }
   }, [notification]);
 
-  // Check if first visit and show tooltip
-  useEffect(() => {
-    const hasSeenTooltip = localStorage.getItem('dynamicIslandTooltipSeen');
-    if (!hasSeenTooltip) {
-      const timer = setTimeout(() => {
-        setShowTooltip(true);
-        // Auto-hide tooltip after 5 seconds
-        setTimeout(() => {
-          setShowTooltip(false);
-          localStorage.setItem('dynamicIslandTooltipSeen', 'true');
-        }, 5000);
-      }, 3000); // Show after 3 seconds
-      return () => clearTimeout(timer);
-    }
-  }, []);
 
   // Rotate preview social icon every 3 seconds
   useEffect(() => {
@@ -312,11 +296,6 @@ export default function DynamicIsland() {
     );
   };
 
-  const handleTooltipDismiss = () => {
-    setShowTooltip(false);
-    localStorage.setItem('dynamicIslandTooltipSeen', 'true');
-  };
-
   const handleFloatingTooltipDismiss = () => {
     setShowFloatingTooltip(false);
     localStorage.setItem('dynamicIslandFloatingTooltipSeen', 'true');
@@ -349,24 +328,14 @@ export default function DynamicIsland() {
         className={`dynamic-island ${notification ? 'notification' : 'minimal'} ${isExpanded ? 'expanded' : ''}`}
         onMouseEnter={() => !notification && setIsExpanded(true)}
         onMouseLeave={() => setIsExpanded(false)}
-        onClick={handleTooltipDismiss}
       >
         {isExpanded && !notification ? getExpandedContent() : getMinimalContent()}
       </div>
 
-      {showTooltip && (
-        <div className="dynamic-island-tooltip" onClick={handleTooltipDismiss}>
-          <div className="tooltip-content">
-            <span>🎵 Click me for socials!</span>
-            <div className="tooltip-arrow"></div>
-          </div>
-        </div>
-      )}
-
       {showFloatingTooltip && (
         <div className="floating-tooltip" onClick={handleFloatingTooltipDismiss}>
           <div className="floating-tooltip-content">
-            Find my socials here
+            View my socials
           </div>
         </div>
       )}

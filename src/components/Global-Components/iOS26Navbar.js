@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { FaChevronDown, FaBars, FaTimes, FaInstagram, FaLinkedinIn, FaYoutube, FaTiktok } from 'react-icons/fa';
-import { AiFillGithub } from 'react-icons/ai';
+import { FaChevronDown, FaBars, FaTimes } from 'react-icons/fa';
 import '../../CSS/Global/iOS26Nav.css';
 
 export default function IOS26Navbar() {
@@ -41,14 +40,6 @@ export default function IOS26Navbar() {
   const handleLinkClick = () => {
     closeAllMenus();
   };
-
-  const socialLinks = [
-    { icon: FaInstagram, url: 'https://www.instagram.com/nethan_journey/', label: 'Instagram' },
-    { icon: FaLinkedinIn, url: 'https://www.linkedin.com/in/nethan-nagendran/', label: 'LinkedIn' },
-    { icon: AiFillGithub, url: 'https://github.com/nethann', label: 'GitHub' },
-    { icon: FaYoutube, url: 'https://www.youtube.com/@nethan_journey', label: 'YouTube' },
-    { icon: FaTiktok, url: 'https://www.tiktok.com/@nethan_journey', label: 'TikTok' }
-  ];
 
   // Close menus when clicking outside
   useEffect(() => {
@@ -110,25 +101,6 @@ export default function IOS26Navbar() {
           <Link to="/contact" className="ios26-nav-item" onClick={handleLinkClick}>
             Contact
           </Link>
-
-          {/* Social Links */}
-          <div className="ios26-nav-socials">
-            {socialLinks.slice(0, 3).map((social, index) => {
-              const IconComponent = social.icon;
-              return (
-                <a
-                  key={index}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="ios26-nav-social"
-                  title={social.label}
-                >
-                  <IconComponent />
-                </a>
-              );
-            })}
-          </div>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -177,28 +149,6 @@ export default function IOS26Navbar() {
           <Link to="/contact" className="ios26-mobile-item" onClick={handleLinkClick}>
             Contact
           </Link>
-
-          {/* Mobile Social Links */}
-          <div className="ios26-mobile-socials">
-            <span className="ios26-mobile-socials-label">Connect:</span>
-            <div className="ios26-mobile-socials-icons">
-              {socialLinks.map((social, index) => {
-                const IconComponent = social.icon;
-                return (
-                  <a
-                    key={index}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="ios26-mobile-social"
-                    title={social.label}
-                  >
-                    <IconComponent />
-                  </a>
-                );
-              })}
-            </div>
-          </div>
         </div>
       </div>
     </nav>
