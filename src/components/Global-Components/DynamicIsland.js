@@ -9,11 +9,11 @@ import '../../CSS/Global/DynamicIsland.css';
 export default function DynamicIsland() {
   // Social links configuration - moved to top to avoid hoisting issues
   const socialLinks = [
-    { icon: FaInstagram, url: 'https://www.instagram.com/nethan_journey/', label: 'Instagram' },
-    { icon: FaLinkedinIn, url: 'https://www.linkedin.com/in/nethan-nagendran/', label: 'LinkedIn' },
-    { icon: AiFillGithub, url: 'https://github.com/nethann', label: 'GitHub' },
-    { icon: FaYoutube, url: 'https://www.youtube.com/@nethan_journey', label: 'YouTube' },
-    { icon: FaTiktok, url: 'https://www.tiktok.com/@nethan_journey', label: 'TikTok' }
+    { icon: FaInstagram, url: 'https://www.instagram.com/nethan_journey/', label: 'Instagram', platform: 'instagram' },
+    { icon: FaLinkedinIn, url: 'https://www.linkedin.com/in/nethan-nagendran/', label: 'LinkedIn', platform: 'linkedin' },
+    { icon: AiFillGithub, url: 'https://github.com/nethann', label: 'GitHub', platform: 'github' },
+    { icon: FaYoutube, url: 'https://www.youtube.com/@nethan_journey', label: 'YouTube', platform: 'youtube' },
+    { icon: FaTiktok, url: 'https://www.tiktok.com/@nethan_journey', label: 'TikTok', platform: 'tiktok' }
   ];
 
   const [isExpanded, setIsExpanded] = useState(false);
@@ -193,7 +193,7 @@ export default function DynamicIsland() {
 
     return (
       <div className="dynamic-island-content minimal">
-        <div className="minimal-social-preview">
+        <div className="minimal-social-preview" data-platform={currentSocial.platform}>
           <IconComponent className="preview-social-icon" />
         </div>
       </div>
