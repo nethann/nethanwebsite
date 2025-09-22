@@ -628,37 +628,14 @@
   display: flex;
   align-items: center;
   gap: 6px;
+  position: relative;
 }
 
-.discord-status svg {
+.discord-status > svg:first-child {
   position: relative;
   z-index: 2;
-  padding: 8px;
-  border-radius: 50%;
-  background: rgba(88, 101, 242, 0.12);
-  backdrop-filter: blur(8px);
-  box-shadow:
-    0 0 0 1px rgba(88, 101, 242, 0.2),
-    0 2px 8px rgba(88, 101, 242, 0.15);
-  animation: discordPillPulse 4s ease-in-out infinite;
   color: #5865f2;
-}
-
-@keyframes discordPillPulse {
-  0%, 100% {
-    background: rgba(88, 101, 242, 0.1);
-    box-shadow:
-      0 0 0 1px rgba(88, 101, 242, 0.15),
-      0 2px 8px rgba(88, 101, 242, 0.1);
-    transform: scale(1);
-  }
-  50% {
-    background: rgba(88, 101, 242, 0.2);
-    box-shadow:
-      0 0 0 1px rgba(88, 101, 242, 0.3),
-      0 4px 12px rgba(88, 101, 242, 0.25);
-    transform: scale(1.05);
-  }
+  font-size: 16px;
 }
 
 .status-indicator {
