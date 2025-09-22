@@ -9,72 +9,14 @@
     min-height: 100vh;
     padding: 2rem;
     position: relative;
-    overflow: hidden;
 
-    /* Reflect.app cosmic background */
-    background: linear-gradient(180deg, #030014 0%, #0a0028 30%, #030014 70%, #000000 100%);
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-}
-
-/* Cosmic Background Animation for Models Page */
-.Models-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(circle at 25% 25%, rgba(139, 92, 246, 0.12) 0%, transparent 50%),
-        radial-gradient(circle at 75% 15%, rgba(59, 130, 246, 0.08) 0%, transparent 45%),
-        radial-gradient(circle at 50% 90%, rgba(236, 72, 153, 0.06) 0%, transparent 40%),
-        radial-gradient(circle at 90% 60%, rgba(99, 102, 241, 0.1) 0%, transparent 35%);
-    animation: cosmicFloat 45s ease-in-out infinite;
-    z-index: 0;
-    pointer-events: none;
-}
-
-.Models-section::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(circle at 70% 30%, rgba(147, 51, 234, 0.08) 0%, transparent 50%),
-        radial-gradient(circle at 20% 80%, rgba(168, 85, 247, 0.06) 0%, transparent 45%);
-    animation: cosmicFloat2 55s ease-in-out infinite reverse;
-    z-index: 0;
-    pointer-events: none;
-}
-
-@keyframes cosmicFloat {
-    0%, 100% {
-        transform: translate(0%, 0%) scale(1) rotate(0deg);
-        opacity: 0.6;
-    }
-    50% {
-        transform: translate(3%, -2%) scale(1.05) rotate(180deg);
-        opacity: 0.8;
-    }
-}
-
-@keyframes cosmicFloat2 {
-    0%, 100% {
-        transform: translate(0%, 0%) scale(1) rotate(0deg);
-        opacity: 0.4;
-    }
-    50% {
-        transform: translate(-2%, 3%) scale(0.95) rotate(-180deg);
-        opacity: 0.7;
-    }
 }
 
 .models-pic-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+    gap: 2rem;
 }
 
 .Rendered-Models {
@@ -84,50 +26,12 @@
     width: 100%;
     max-width: 1200px;
     position: relative;
-    z-index: 10;
-    
-    /* Reflect.app minimal glass container */
-    background: rgba(255, 255, 255, 0.01);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.02);
-    border-radius: 24px;
-    padding: 1.5rem;
-    box-shadow: 
-        0 20px 40px rgba(0, 0, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.1);
-    
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    padding: var(--ios-space-lg);
 }
 
-.Rendered-Models:hover {
-    transform: translateY(-4px);
-}
-
-.first-models-container {
-    color: rgba(139, 92, 246, 0.8);
-}
-
-.second-models-container {
-    color: rgba(236, 72, 153, 0.8);
-}
-
-.Models-CardTitle p {
-    font-size: 2rem;
-    font-weight: 700;
-    margin: 0 0 1rem 0;
-    
-    /* Reflect.app style gradient text */
-    background: linear-gradient(135deg, 
-        rgba(255, 255, 255, 0.95) 0%,
-        rgba(139, 92, 246, 0.9) 50%,
-        rgba(236, 72, 153, 0.85) 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    
-    /* Add subtle glow */
-    filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.3));
+.Models-CardTitle h2 {
+    margin: 0 0 2rem 0;
+    color: var(--ios-primary-text);
 }
 
 .Models-grid {
@@ -140,33 +44,39 @@
 
 @media screen and (min-width: 1800px) {
     .Models-grid {
-        grid-template-columns: repeat(4, 1fr); /* 4 columns for large screens */
+        grid-template-columns: repeat(4, minmax(280px, 1fr)); /* 4 columns for large screens */
     }
 
     .models-pic-grid{
-        grid-template-columns: repeat(4, 1fr); /* 4 columns for large screens */
+        grid-template-columns: repeat(4, minmax(320px, 1fr)); /* 4 columns for large screens */
 
     }
 }
 
 @media screen and (max-width: 1700px) {
     .Models-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(260px, 1fr));
     }
 
-
+    .models-pic-grid{
+        grid-template-columns: repeat(3, minmax(280px, 1fr));
+    }
 }
 
 @media screen and (max-width: 1350px) {
     .Models-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(280px, 1fr));
+    }
+
+    .models-pic-grid{
+        grid-template-columns: repeat(2, minmax(300px, 1fr));
     }
 }
 
 
 @media screen and (max-width: 1200px) {
     .models-pic-grid{
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(280px, 1fr));
     }
 }
 

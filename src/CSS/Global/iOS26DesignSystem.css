@@ -423,6 +423,26 @@
   }
 }
 
+/* Tech Tags */
+.tech-tag {
+  display: inline-block;
+  padding: var(--ios-space-xs) var(--ios-space-sm);
+  background: var(--ios-secondary-bg);
+  border: 1px solid var(--ios-separator);
+  border-radius: var(--ios-radius-sm);
+  font-size: var(--ios-text-caption);
+  font-weight: 600;
+  color: var(--ios-secondary-text);
+  transition: all 0.2s ease;
+}
+
+.tech-tag:hover {
+  background: var(--ios-tertiary-bg);
+  border-color: var(--ios-accent);
+  color: var(--ios-accent);
+  transform: translateY(-1px);
+}
+
 /* iOS 26 Responsive Design */
 @media (max-width: 768px) {
   .ios-container {
