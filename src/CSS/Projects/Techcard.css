@@ -84,11 +84,14 @@
 .tech-card-modern:hover {
     background: rgba(255, 255, 255, 0.05);
     border-color: rgba(255, 255, 255, 0.15);
-    transform: translateY(-1px);
+    transform: translateY(-1px) scale(1.08);
     box-shadow:
         0 8px 24px rgba(0, 0, 0, 0.2),
         0 4px 12px rgba(255, 255, 255, 0.05),
         inset 0 1px 0 rgba(255, 255, 255, 0.1);
+
+    /* Ensure visibility */
+    opacity: 1;
 
     /* Jello wiggle on hover */
     animation: jelloWiggle 0.6s ease-in-out;
@@ -211,19 +214,19 @@
 
 @keyframes jelloWiggle {
     0%, 100% {
-        transform: translateY(-1px) scale(1) skew(0deg);
+        transform: translateY(-1px) scale(1.08) skew(0deg);
     }
     20% {
-        transform: translateY(-1px) scale(1.02) skew(-1deg);
+        transform: translateY(-1px) scale(1.10) skew(-1deg);
     }
     40% {
-        transform: translateY(-1px) scale(0.98) skew(1deg);
+        transform: translateY(-1px) scale(1.06) skew(1deg);
     }
     60% {
-        transform: translateY(-1px) scale(1.01) skew(-0.5deg);
+        transform: translateY(-1px) scale(1.09) skew(-0.5deg);
     }
     80% {
-        transform: translateY(-1px) scale(0.99) skew(0.5deg);
+        transform: translateY(-1px) scale(1.07) skew(0.5deg);
     }
 }
 
