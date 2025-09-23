@@ -12,7 +12,7 @@ import "aos/dist/aos.css"
 export default function Projects() {
 
   Aos.init({
-    duration: 800,
+    duration: 500,
     easing: 'ease-in-out',
     once: true
   });

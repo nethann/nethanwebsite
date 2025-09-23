@@ -29,7 +29,7 @@ import { OrbitControls } from '@react-three/drei';
 const Home = () => {
 
     Aos.init({
-        duration: 800,
+        duration: 500,
         easing: 'ease-in-out',
         once: true
     });

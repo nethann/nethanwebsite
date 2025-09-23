@@ -56,7 +56,7 @@ export default function Modeling() {
     }, []);
 
     Aos.init({
-        duration: 800,
+        duration: 500,
         easing: 'ease-in-out',
         once: true
     });

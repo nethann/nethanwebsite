@@ -27,7 +27,7 @@ export default function Music() {
   }, []);
 
   Aos.init({
-    duration: 800,
+    duration: 500,
     easing: 'ease-in-out',
     once: true
   });
