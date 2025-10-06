@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');:root {
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=SF+Pro+Display:wght@300;400;500;600;700&display=swap');
+
+:root {
     --clr-evolution-card-hover: #131313;
     /* --clr-evolution-card-hover: #2e2e2ece; */
     --clr-card-clr: #0a0a0a;
@@ -54,10 +56,14 @@
     --clr-nav-dropdown-clr: rgb(15, 15, 15);
 }
 
-body, html{
+body, html {
     background-color: black !important;
     margin: 0;
     padding: 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 /* Custom Scrollbar with Transparent Background */
