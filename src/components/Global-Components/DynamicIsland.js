@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { FaDiscord, FaCode, FaMusic, FaClock, FaInstagram, FaLinkedinIn, FaTiktok, FaYoutube, FaSpotify } from 'react-icons/fa';
+import { FaCode, FaMusic, FaClock, FaInstagram, FaLinkedinIn, FaTiktok, FaYoutube, FaSpotify } from 'react-icons/fa';
 import { AiFillGithub } from 'react-icons/ai';
 import { MdNotifications, MdCheck } from 'react-icons/md';
-import axios from 'axios';
 import nethanSpotify from '../../services/nethanSpotify';
 import '../../CSS/Global/DynamicIsland.css';
 
@@ -17,27 +16,14 @@ export default function DynamicIsland() {
   ];
 
   const [isExpanded, setIsExpanded] = useState(false);
-  const [discordStatus, setDiscordStatus] = useState('offline');
   const [currentTime, setCurrentTime] = useState(new Date());
   const [notification, setNotification] = useState(null);
   const [spotifyData, setSpotifyData] = useState(null);
   const [showFloatingTooltip, setShowFloatingTooltip] = useState(false);
   const [previewIconIndex, setPreviewIconIndex] = useState(0);
 
-  // Fetch Discord status and Nethan's Spotify data
+  // Fetch Nethan's Spotify data
   useEffect(() => {
-    // Discord status fetching
-    const fetchDiscordStatus = async () => {
-      try {
-        const response = await axios.get('https://api.lanyard.rest/v1/users/743601359697477713');
-        const data = response.data.data;
-        setDiscordStatus(data.discord_status);
-      } catch (error) {
-        console.error('Error fetching Discord status:', error);
-        setDiscordStatus('offline');
-      }
-    };
-
     // Nethan's Spotify data fetching
     const fetchNethanSpotify = async () => {
       try {
@@ -51,15 +37,12 @@ export default function DynamicIsland() {
     };
 
     // Initial fetch
-    fetchDiscordStatus();
     fetchNethanSpotify();
 
-    // Set up intervals
-    const discordInterval = setInterval(fetchDiscordStatus, 30000); // Every 30 seconds
+    // Set up interval
     const spotifyInterval = setInterval(fetchNethanSpotify, 10000); // Every 10 seconds
 
     return () => {
-      clearInterval(discordInterval);
       clearInterval(spotifyInterval);
     };
   }, []);
@@ -137,14 +120,6 @@ export default function DynamicIsland() {
     };
   }, []);
 
-  const getDiscordStatusColor = () => {
-    switch (discordStatus) {
-      case 'online': return '#3ba55d';
-      case 'idle': return '#faa61a';
-      case 'dnd': return '#ed4245';
-      default: return '#747f8d';
-    }
-  };
 
   const getMinimalContent = () => {
     if (notification) {
@@ -243,21 +218,14 @@ export default function DynamicIsland() {
               </div>
             </div>
           )}
-          
+
           <div className="status-row">
-            <div className="status-item">
-              <div className="discord-status">
-                <FaDiscord />
-                <div className="status-indicator" style={{ backgroundColor: getDiscordStatusColor() }}></div>
-                <span>{discordStatus}</span>
-              </div>
-            </div>
             <div className="status-item">
               <FaClock />
               <span>{currentTime.toLocaleTimeString()}</span>
             </div>
           </div>
-          
+
           <div className="socials-row">
             <div className="socials-label">
               <span>Connect with me:</span>
