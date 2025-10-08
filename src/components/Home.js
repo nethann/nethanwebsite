@@ -1,91 +1,66 @@
 // Home.js
 
-
-
-
-
-import React, { Suspense, useState, useEffect } from 'react';
-import { Canvas } from '@react-three/fiber';
-import axios from 'axios';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import '../CSS/Global/Global.css';
 import '../CSS/Home/Home.css';
 
-import TypeWriterEffect from 'react-typewriter-effect';
 import Aos from 'aos';
 import "aos/dist/aos.css";
-
-// Importing 3D Models
-import DesktopSetup from './Global-Components/3-D_Models/Desktop';
-import PickleballBadminton from './Global-Components/3-D_Models/Pickleball_badminton';
-import Nethan_Avatar from './Global-Components/3-D_Models/Nethan_Avatar';
 
 // Profile photo
 import NethanPC from './Projects-Components/Photography/Photograph_Images/nethan1.jpg';
 
-// Optional orbit controls (if needed)
-import { OrbitControls } from '@react-three/drei';
-
 const Home = () => {
 
-    Aos.init({
-        duration: 500,
-        easing: 'ease-in-out',
-        once: true
-    });
+    useEffect(() => {
+        Aos.init({
+            duration: 500,
+            easing: 'ease-in-out',
+            once: true
+        });
+    }, []);
 
     return (
-        <div className="homepage ios-background">
-            <header className="hero ios-section">
-                <h1 className="ios-title-large" data-aos="fade-up">I create. I code. I capture.</h1>
-                <div data-aos="fade-up" data-aos-delay="200">
-                    <TypeWriterEffect
-                        textStyle={{
-                            fontSize: '1.25rem',
-                            color: '#bbbbbb',
-                            textAlign: 'center',
-                            marginTop: '1.5rem' // space between headline and typewriter
-                        }}
-                        cursorColor="white"
-                        text="Follow my journey through music, code, and the lens."
-                        typeSpeed={30}
-                        deleteSpeed={20}
-                    />
-                </div>
-            </header>
+        <div className="homepage">
+            <div className="hero-section">
+                <header className="hero">
+                    <img src={NethanPC} alt="Nethan Nagendran" className="profile-pic" data-aos="fade-up" />
+                    <h1 data-aos="fade-up" data-aos-delay="100">Nethan Nagendran</h1>
+                    <p data-aos="fade-up" data-aos-delay="200">
+                        Developer • Photographer • Musician
+                    </p>
+                </header>
 
-            <section className="intro ios-container">
-                <div className="ios-grid ios-grid-2">
-                    <div className="ios-card ios-interactive" data-aos="fade-up" data-aos-delay="100">
-                        <img src={NethanPC} alt="Nethan G" className="profile-pic" />
-                        <h2 className='ios-title-medium'>Nethan Nagendran</h2>
-                        <p className="ios-body">
-                            Hey! I'm Nethan — a CS student, musician, and visual storyteller. Whether I'm building
-                            apps, jamming out solos, or snapping the world around me, this is where I share it all.
-                        </p>
-                        <a href="/contact" className="ios-btn-primary">Contact Me</a>
-                    </div>
+                <section className="intro">
+                    <Link to="/projects/computer-science" className="card" data-aos="fade-up" data-aos-delay="100">
+                        <h3>Development</h3>
+                        <p>Building modern web applications and software solutions</p>
+                    </Link>
 
-                    <div className='ios-card ios-interactive' data-aos="fade-up" data-aos-delay="300">
-                    <Canvas>
-                        <ambientLight intensity={0.5} />
-                        <directionalLight position={[5, 5, 5]} intensity={1} />
-                        <Suspense fallback={null}>
-                            <Nethan_Avatar scale={[0.8, 0.8, 0.8]} />
-                            <OrbitControls
-                                enableRotate={true}
-                                enableZoom={false}
-                                autoRotate={true}
-                                autoRotateSpeed={0.6}
-                                rotateSpeed={0.2}
-                                maxPolarAngle={Math.PI / 2}
-                                minPolarAngle={Math.PI / 2}
-                            />
+                    <Link to="/projects/music" className="card" data-aos="fade-up" data-aos-delay="200">
+                        <h3>Music</h3>
+                        <p>Creating and performing music across multiple instruments</p>
+                    </Link>
 
-                        </Suspense>
-                    </Canvas>
-                    </div>
-                </div>
+                    <Link to="/projects/photography" className="card" data-aos="fade-up" data-aos-delay="300">
+                        <h3>Photography</h3>
+                        <p>Capturing moments and telling stories through the lens</p>
+                    </Link>
+                </section>
+            </div>
+
+            <section className="about-section" data-aos="fade-up">
+                <h2>About Me</h2>
+                <p>
+                    I'm a computer science student who believes in creating at the intersection of technology and art.
+                    Whether I'm writing code, capturing moments through a lens, or producing music, I'm driven by curiosity
+                    and the desire to tell stories in different mediums.
+                </p>
+                <p>
+                    Currently based in [Your City], exploring how different forms of creativity can complement and enhance each other.
+                </p>
             </section>
         </div>
     );

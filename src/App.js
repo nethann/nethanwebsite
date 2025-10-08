@@ -16,6 +16,7 @@ import Music from './components/Projects-Components/Music/Music';
 import Photography from './components/Projects-Components/Photography/Photography';
 import DynamicIsland from './components/Global-Components/DynamicIsland';
 import IOS26Navbar from './components/Global-Components/iOS26Navbar';
+import Footer from './components/Global-Components/Footer';
 import SpotifyAuth from './components/SpotifyAuth';
 
 
@@ -42,6 +43,7 @@ function App() {
 
           </Routes>
         </div>
+        <Footer />
       </div>
     </BrowserRouter>
   );

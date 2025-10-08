@@ -20,17 +20,17 @@
 }
 
 .floating-tooltip-content {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
   padding: 8px 14px;
   border-radius: 12px;
   box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.3),
-    0 4px 12px rgba(255, 255, 255, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: rgba(255, 255, 255, 0.9);
+    0 8px 24px rgba(0, 0, 0, 0.15),
+    0 4px 12px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.85);
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
   font-size: 13px;
   font-weight: 500;
@@ -48,7 +48,7 @@
   height: 0;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-top: 6px solid rgba(255, 255, 255, 0.1);
+  border-top: 6px solid rgba(255, 255, 255, 0.9);
 }
 
 @keyframes simpleTooltipFadeIn {
@@ -68,35 +68,35 @@
   position: relative;
   transform: none;
   z-index: 10001;
-  
-  /* Base styling - More transparent liquid glass */
-  background: rgba(255, 255, 255, 0.01);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  /* Base styling - Light mode frosted glass */
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50px;
-  
+
   /* Jello liquid animation properties */
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   user-select: none;
-  
+
   /* Default size (minimal state) */
   width: auto;
   min-width: 44px;
   height: 44px;
-  
-  /* Shadow and glow - more subtle for transparency */
-  box-shadow: 
-    0 8px 24px rgba(0, 0, 0, 0.2),
-    0 4px 16px rgba(255, 255, 255, 0.03),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-    
+
+  /* Light mode shadow and glow */
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.15),
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+
   /* Jello effect on load + subtle floating + breathing glow */
   animation:
     jelloLoad 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55),
     subtleFloat 6s ease-in-out infinite 1s,
-    gentleBreathingGlow 4s ease-in-out infinite 2s;
+    gentleBreathingGlowLight 4s ease-in-out infinite 2s;
 }
 
 /* Jello Animation Keyframes */
@@ -301,25 +301,25 @@
   height: 280px;
   border-radius: 24px;
   padding: 18px;
-  background: rgba(255, 255, 255, 0.015) !important;
-  backdrop-filter: blur(6px) !important;
-  -webkit-backdrop-filter: blur(6px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(30px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(30px) saturate(180%) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
   animation: none !important;
 }
 
 /* Enhanced jello and liquid hover effects */
 .dynamic-island:hover:not(.expanded) {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 
-    0 20px 60px rgba(0, 0, 0, 0.4),
-    0 12px 30px rgba(255, 255, 255, 0.1),
-    inset 0 2px 0 rgba(255, 255, 255, 0.2);
-  animation: 
-    liquidMorphAdvanced 4s ease-in-out infinite, 
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(35px) saturate(180%);
+  -webkit-backdrop-filter: blur(35px) saturate(180%);
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.2),
+    0 12px 30px rgba(0, 0, 0, 0.12),
+    inset 0 2px 0 rgba(255, 255, 255, 0.7);
+  animation:
+    liquidMorphAdvanced 4s ease-in-out infinite,
     jelloWobble 0.6s ease-in-out,
     liquidBreathing 3s ease-in-out infinite,
     jellySquash 2s ease-in-out infinite;
@@ -393,13 +393,30 @@
   }
 }
 
+@keyframes gentleBreathingGlowLight {
+  0%, 100% {
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.15),
+      0 4px 16px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    box-shadow:
+      0 8px 24px rgba(0, 0, 0, 0.15),
+      0 4px 16px rgba(0, 0, 0, 0.08),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5),
+      0 0 20px rgba(59, 130, 246, 0.2),
+      0 0 40px rgba(59, 130, 246, 0.08);
+  }
+}
+
 /* Content styling */
 .dynamic-island-content {
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100%;
-  color: white;
+  color: rgba(0, 0, 0, 0.85);
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
   font-size: 14px;
   font-weight: 500;
@@ -414,8 +431,8 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
   animation:
     gentlePulse 3s ease-in-out infinite,
     dotJello 4s ease-in-out infinite,
@@ -430,7 +447,7 @@
 
 .preview-social-icon {
   font-size: 16px;
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(0, 0, 0, 0.8);
   position: relative;
   z-index: 2;
   animation:
@@ -613,7 +630,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 0.75);
   font-size: 13px;
 }
 
@@ -627,7 +644,7 @@
 
 .socials-label {
   font-size: 12px;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(0, 0, 0, 0.6);
   font-weight: 500;
 }
 
@@ -645,27 +662,27 @@
   width: 32px;
   height: 32px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.8);
+  background: rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.7);
   text-decoration: none;
   font-size: 14px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-link:hover {
-  background: rgba(255, 255, 255, 0.15);
-  color: rgba(255, 255, 255, 0.95);
+  background: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.9);
   transform: translateY(-2px);
-  box-shadow: 
-    0 4px 12px rgba(255, 255, 255, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
 
 /* Notification styles */
 .dynamic-island.notification .dynamic-island-content {
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(0, 0, 0, 0.85);
 }
 
 /* Responsive design */
@@ -795,7 +812,7 @@
 .song-title {
   font-size: 12px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(0, 0, 0, 0.9);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -805,7 +822,7 @@
 .artist-name {
   font-size: 10px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(0, 0, 0, 0.65);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -846,7 +863,7 @@
 .track-title {
   font-size: 13px;
   font-weight: 600;
-  color: rgba(255, 255, 255, 0.95);
+  color: rgba(0, 0, 0, 0.9);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -855,7 +872,7 @@
 .track-artist {
   font-size: 11px;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 0.75);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -864,7 +881,7 @@
 .track-album {
   font-size: 10px;
   font-weight: 400;
-  color: rgba(255, 255, 255, 0.6);
+  color: rgba(0, 0, 0, 0.55);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -902,7 +919,7 @@
 .login-icon {
   font-size: 14px;
   opacity: 0.8;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(0, 0, 0, 0.7);
 }
 
 /* Spotify Button Styles */
@@ -963,7 +980,7 @@
 }
 
 .spotify-minimal.recent .artist-name {
-  color: rgba(255, 255, 255, 0.5);
+  color: rgba(0, 0, 0, 0.45);
 }
 
 /* High contrast mode */
