@@ -35,7 +35,19 @@ const Home = () => {
                     </p>
                 </header>
 
-                <div className="cta-buttons" data-aos="fade-up" data-aos-delay="200">
+                <section className="intro">
+                    <Link to="/projects/music" className="card" data-aos="fade-up" data-aos-delay="100">
+                        <h3>Music</h3>
+                        <p>Creating and performing music across multiple instruments</p>
+                    </Link>
+
+                    <Link to="/projects/photography" className="card" data-aos="fade-up" data-aos-delay="200">
+                        <h3>Photography</h3>
+                        <p>Capturing moments and telling stories through the lens</p>
+                    </Link>
+                </section>
+
+                <div className="cta-buttons" data-aos="fade-up" data-aos-delay="300">
                     <Link to="/contact?service=photography" className="cta-button cta-primary">
                         Book Me for Photography
                     </Link>
@@ -43,23 +55,6 @@ const Home = () => {
                         Hire Me for Gigs
                     </Link>
                 </div>
-
-                <section className="intro">
-                    <Link to="/projects/dev" className="card" data-aos="fade-up" data-aos-delay="100">
-                        <h3>Development</h3>
-                        <p>Building modern web applications and software solutions</p>
-                    </Link>
-
-                    <Link to="/projects/music" className="card" data-aos="fade-up" data-aos-delay="200">
-                        <h3>Music</h3>
-                        <p>Creating and performing music across multiple instruments</p>
-                    </Link>
-
-                    <Link to="/projects/photography" className="card" data-aos="fade-up" data-aos-delay="300">
-                        <h3>Photography</h3>
-                        <p>Capturing moments and telling stories through the lens</p>
-                    </Link>
-                </section>
             </div>
 
             <section className="about-section" data-aos="fade-up">
@@ -73,7 +68,7 @@ const Home = () => {
                             and the desire to tell stories in different mediums.
                         </p>
                         <p>
-                            Currently based in [Your City], exploring how different forms of creativity can complement and enhance each other.
+                            Currently based in Atlanta, Georgia, exploring how different forms of creativity can complement and enhance each other.
                         </p>
                     </div>
                 </div>

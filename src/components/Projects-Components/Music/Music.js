@@ -91,42 +91,44 @@ export default function Music() {
           </div>
         </section>
 
-        {/* Equipment Section */}
+        {/* Instruments & Equipment Section */}
         <section className="equipment-section" data-aos="fade-up" data-aos-delay="200">
-          <h2>My Instruments & Gear</h2>
+          <h2>My Instruments & Equipment</h2>
           <div className="equipment-grid">
             <div className="equipment-category">
               <h3>🎸 Guitars</h3>
               <ul>
-                <li>Taylor 814ce Acoustic</li>
-                <li>Fender Stratocaster</li>
-                <li>Martin D-28</li>
+                <li>Acoustic Guitar</li>
+                <li>Electric Guitar</li>
+                <li>Bass Guitar</li>
               </ul>
             </div>
 
             <div className="equipment-category">
-              <h3>🎹 Keys & Vocals</h3>
+              <h3>🎹 Keyboards & Vocals</h3>
               <ul>
-                <li>Yamaha P-125 Digital Piano</li>
-                <li>Shure SM58 Microphone</li>
-                <li>Vocal Harmonizer</li>
+                <li>Digital Piano/Keyboard</li>
+                <li>Professional Microphone</li>
+                <li>Vocal Processor</li>
               </ul>
             </div>
 
             <div className="equipment-category">
-              <h3>🔊 Audio Equipment</h3>
+              <h3>🔊 Audio Gear</h3>
               <ul>
-                <li>Boss Loop Station</li>
-                <li>Line 6 Helix Effects</li>
+                <li>Guitar Effects Pedals</li>
+                <li>Loop Station</li>
+                <li>Audio Interface</li>
                 <li>PA System (available)</li>
               </ul>
             </div>
 
             <div className="equipment-category">
-              <h3>🎵 Skills</h3>
+              <h3>🎵 Specialties</h3>
               <ul>
                 <li>Lead & Rhythm Guitar</li>
                 <li>Worship Leading</li>
+                <li>Acoustic Performances</li>
                 <li>Children's Ministry Music</li>
               </ul>
             </div>

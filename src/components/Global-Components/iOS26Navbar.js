@@ -69,6 +69,18 @@ export default function IOS26Navbar() {
             Home
           </Link>
 
+          <Link to="/projects/music" className="ios26-nav-item" onClick={handleLinkClick}>
+            Music
+          </Link>
+
+          <Link to="/projects/photography" className="ios26-nav-item" onClick={handleLinkClick}>
+            Photography
+          </Link>
+
+          <Link to="/projects/dev" className="ios26-nav-item" onClick={handleLinkClick}>
+            Portfolio
+          </Link>
+
           <Link to="/contact" className="ios26-nav-item" onClick={handleLinkClick}>
             Contact
           </Link>
@@ -87,6 +99,18 @@ export default function IOS26Navbar() {
         <div className={`ios26-mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
           <Link to="/" className="ios26-mobile-item" onClick={handleLinkClick}>
             Home
+          </Link>
+
+          <Link to="/projects/music" className="ios26-mobile-item" onClick={handleLinkClick}>
+            Music
+          </Link>
+
+          <Link to="/projects/photography" className="ios26-mobile-item" onClick={handleLinkClick}>
+            Photography
+          </Link>
+
+          <Link to="/projects/dev" className="ios26-mobile-item" onClick={handleLinkClick}>
+            Portfolio
           </Link>
 
           <Link to="/contact" className="ios26-mobile-item" onClick={handleLinkClick}>
