@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import "../CSS/Global/Global.css"
 
@@ -10,6 +10,9 @@ import Aos from 'aos';
 import "aos/dist/aos.css"
 
 export default function Projects() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   Aos.init({
     duration: 500,

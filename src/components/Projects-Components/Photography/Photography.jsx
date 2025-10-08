@@ -1,5 +1,8 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useEffect } from "react";
 import "../../../CSS/Projects/Photography/Photography.css";
+
+import Aos from 'aos';
+import "aos/dist/aos.css";
 
 // Automatically require all images from folder
 const importAll = (r) =>
@@ -13,6 +16,16 @@ const originalImages = importAll(
 );
 
 export default function Photography() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+
+    Aos.init({
+      duration: 500,
+      easing: 'ease-in-out',
+      once: true
+    });
+  }, []);
+
   // Shuffle once on first render
   const shuffledImages = useMemo(() => {
     const shuffled = [...originalImages];
@@ -26,14 +39,14 @@ export default function Photography() {
   return (
     <div className="photography-wrapper">
       <div className="photography-page">
-        <section className="photograph-intro" style={{paddingTop: '8rem'}}>
+        <section className="photograph-intro" style={{paddingTop: '8rem'}} data-aos="fade-up">
         <h1>Photography</h1>
         <p>Moments in time, framed through my lens</p>
         <p className="location">📍 Atlanta, Georgia, United States</p>
       </section>
 
       {/* Pricing Packages Section */}
-      <section className="pricing-section">
+      <section className="pricing-section" data-aos="fade-up" data-aos-delay="100">
         <h2>Pricing Packages</h2>
         <div className="pricing-grid">
           <div className="pricing-card">
@@ -86,7 +99,7 @@ export default function Photography() {
       </section>
 
       {/* Equipment Section */}
-      <section className="equipment-section">
+      <section className="equipment-section" data-aos="fade-up" data-aos-delay="200">
         <h2>My Equipment</h2>
         <div className="equipment-grid">
           <div className="equipment-category">
@@ -127,7 +140,7 @@ export default function Photography() {
         </div>
       </section>
 
-      <section className="photograph-gallery">
+      <section className="photograph-gallery" data-aos="fade-up" data-aos-delay="300">
         <h2>Portfolio</h2>
         <div className="photo-grid">
           {shuffledImages.map((img, index) => (
