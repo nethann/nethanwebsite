@@ -12,7 +12,7 @@
     margin-top: 60px;
     margin-bottom: 40px;
 
-    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 .Music-title {
@@ -397,12 +397,9 @@
     text-align: center;
     font-size: 2.5rem;
     font-weight: 700;
-    color: rgba(255, 255, 255, 0.95);
+    color: #0a0a0a;
     margin-bottom: 3rem;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.7));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    letter-spacing: -0.03em;
 }
 
 /* Horizontal Timeline */
@@ -456,24 +453,19 @@
     width: 16px;
     height: 16px;
     border-radius: 50%;
-    background: linear-gradient(135deg,
-        rgba(59, 130, 246, 1) 0%,
-        rgba(147, 51, 234, 1) 100%);
-    border: 3px solid rgba(255, 255, 255, 0.2);
-    box-shadow:
-        0 0 15px rgba(59, 130, 246, 0.5),
-        0 0 30px rgba(147, 51, 234, 0.3);
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    border: 3px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
     position: relative;
     margin-bottom: 1rem;
-    animation: timelinePulse 2s ease-in-out infinite;
 }
 
 /* Timeline Card */
 .timeline-card {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: 16px;
     padding: 1.5rem;
     width: 100%;
@@ -481,6 +473,7 @@
     overflow: hidden;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .timeline-card::before {
@@ -491,19 +484,17 @@
     right: 0;
     bottom: 0;
     background: linear-gradient(135deg,
-        rgba(59, 130, 246, 0.1) 0%,
-        rgba(147, 51, 234, 0.1) 100%);
+        rgba(99, 102, 241, 0.05) 0%,
+        rgba(139, 92, 246, 0.05) 100%);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
 .timeline-card:hover {
-    transform: translateY(-6px) scale(1.01);
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.2);
-    box-shadow:
-        0 20px 40px rgba(0, 0, 0, 0.5),
-        0 8px 16px rgba(59, 130, 246, 0.3);
+    transform: translateY(-6px);
+    background: rgba(255, 255, 255, 0.8);
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
 }
 
 .timeline-card:hover::before {
@@ -523,7 +514,7 @@
 .timeline-venue {
     font-size: 1.1rem;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.95);
+    color: #0a0a0a;
     margin-bottom: 0.3rem;
     z-index: 1;
     position: relative;
@@ -533,7 +524,7 @@
 .timeline-role {
     font-size: 0.85rem;
     font-weight: 500;
-    color: rgba(147, 51, 234, 0.9);
+    color: #6366f1;
     margin-bottom: 0.8rem;
     z-index: 1;
     position: relative;
@@ -541,7 +532,7 @@
 
 .timeline-description {
     font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.75);
+    color: #4b5563;
     line-height: 1.4;
     z-index: 1;
     position: relative;
@@ -747,4 +738,255 @@
     .created-music-cards-holder {
         grid-template-columns: repeat(4, 1fr);
     }
+}
+
+/* Music Intro Section */
+.music-intro {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+}
+
+.music-intro h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #0a0a0a;
+  margin: 0 0 1rem 0;
+  letter-spacing: -0.03em;
+}
+
+.music-intro p {
+  font-size: 1.2rem;
+  color: #6b7280;
+  line-height: 1.6;
+  margin: 0.5rem 0;
+}
+
+.music-intro .location {
+  font-size: 1rem;
+  color: #9ca3af;
+  margin-top: 1rem;
+}
+
+/* Pricing Section - Reusing Photography styles */
+.Music .pricing-section {
+  margin: 4rem 0;
+  padding: 2rem;
+  width: 100%;
+}
+
+.Music .pricing-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0a0a0a;
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.03em;
+  text-align: center;
+}
+
+.Music .pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.Music .pricing-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.Music .pricing-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.Music .pricing-card.featured {
+  border: 2px solid #6366f1;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.Music .pricing-card .badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #6366f1;
+  color: #ffffff;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.Music .pricing-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.Music .pricing-header h3 {
+  font-size: 1.5rem;
+  font-weight: 650;
+  color: #0a0a0a;
+  margin: 0 0 1rem 0;
+}
+
+.Music .price {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0a0a0a;
+  margin: 0;
+}
+
+.Music .pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  text-align: left;
+}
+
+.Music .pricing-features li {
+  padding: 0.75rem 0;
+  color: #4b5563;
+  font-size: 0.95rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.Music .pricing-features li:last-child {
+  border-bottom: none;
+}
+
+.Music .pricing-features li::before {
+  content: '✓';
+  color: #6366f1;
+  font-weight: bold;
+  margin-right: 0.75rem;
+}
+
+.Music .pricing-button {
+  display: block;
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  background: #000000;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.Music .pricing-button:hover {
+  background: #1a1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.Music .pricing-card.featured .pricing-button {
+  background: #6366f1;
+}
+
+.Music .pricing-card.featured .pricing-button:hover {
+  background: #4f46e5;
+}
+
+/* Equipment Section */
+.Music .equipment-section {
+  margin: 4rem 0;
+  padding: 2rem;
+  width: 100%;
+}
+
+.Music .equipment-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0a0a0a;
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.03em;
+  text-align: center;
+}
+
+.Music .equipment-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.Music .equipment-category {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: left;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.Music .equipment-category:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.Music .equipment-category h3 {
+  font-size: 1.3rem;
+  font-weight: 650;
+  color: #0a0a0a;
+  margin: 0 0 1rem 0;
+}
+
+.Music .equipment-category ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.Music .equipment-category li {
+  padding: 0.5rem 0;
+  color: #4b5563;
+  font-size: 0.95rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.Music .equipment-category li:last-child {
+  border-bottom: none;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .Music .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+
+  .Music .equipment-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .music-intro h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .music-intro h1 {
+    font-size: 2rem;
+  }
+
+  .music-intro p {
+    font-size: 1rem;
+  }
 }

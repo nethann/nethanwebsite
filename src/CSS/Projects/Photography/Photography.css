@@ -1,72 +1,44 @@
 .photography-page {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%);
   padding: 2rem;
-  color: rgba(255, 255, 255, 0.95);
+  color: #0a0a0a;
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
   position: relative;
   z-index: 10;
-
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
 .photograph-intro {
-  /* Reflect.app minimal glass container */
-  background: rgba(255, 255, 255, 0.01);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.02);
-  border-radius: 24px;
   padding: 1.5rem;
-  box-shadow: 
-    0 20px 40px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  margin-bottom: 1.5rem;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.photograph-intro:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 
-    0 32px 64px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
-  transform: translateY(-4px);
+  margin-bottom: 3rem;
 }
 
 .photograph-intro h1 {
-  font-size: 2.25rem;
+  font-size: 3rem;
   font-weight: 700;
+  color: #0a0a0a;
   margin: 0 0 1rem 0;
-  
-  /* Reflect.app style gradient text */
-  background: linear-gradient(135deg, 
-    rgba(255, 255, 255, 0.95) 0%,
-    rgba(139, 92, 246, 0.9) 50%,
-    rgba(236, 72, 153, 0.85) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  
-  /* Add subtle glow */
-  filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.3));
+  letter-spacing: -0.03em;
 }
 
 .photograph-intro p {
-  font-size: 16px;
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.2rem;
+  color: #6b7280;
   line-height: 1.6;
-  margin: 0;
+  margin: 0.5rem 0;
+}
+
+.photograph-intro .location {
+  font-size: 1rem;
+  color: #9ca3af;
+  margin-top: 1rem;
 }
 
 .photograph-gallery {
-  /* Reflect.app minimal glass container for gallery */
   padding: 1.5rem;
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.photograph-gallery:hover {
-  transform: translateY(-4px);
 }
 
 .photo-grid {
@@ -126,18 +98,233 @@
   display: block;
   border-radius: 16px;
   object-fit: cover;
-  
-  /* Reflect.app glass effect for photos */
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.02);
-  
-  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 }
 
 .photo:hover {
-  transform: translateY(-6px) scale(1.03);
-  box-shadow: 
-    0 20px 48px rgba(0, 0, 0, 0.4);
-  border-color: rgba(255, 255, 255, 0.08);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Pricing Section */
+.pricing-section {
+  margin: 4rem 0;
+  padding: 2rem;
+}
+
+.pricing-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0a0a0a;
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.03em;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.pricing-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+}
+
+.pricing-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.pricing-card.featured {
+  border: 2px solid #6366f1;
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.pricing-card .badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #6366f1;
+  color: #ffffff;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.pricing-header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.pricing-header h3 {
+  font-size: 1.5rem;
+  font-weight: 650;
+  color: #0a0a0a;
+  margin: 0 0 1rem 0;
+}
+
+.price {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0a0a0a;
+  margin: 0;
+}
+
+.pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  text-align: left;
+}
+
+.pricing-features li {
+  padding: 0.75rem 0;
+  color: #4b5563;
+  font-size: 0.95rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.pricing-features li:last-child {
+  border-bottom: none;
+}
+
+.pricing-features li::before {
+  content: '✓';
+  color: #6366f1;
+  font-weight: bold;
+  margin-right: 0.75rem;
+}
+
+.pricing-button {
+  display: block;
+  width: 100%;
+  padding: 0.875rem 1.5rem;
+  background: #000000;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.pricing-button:hover {
+  background: #1a1a1a;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.pricing-card.featured .pricing-button {
+  background: #6366f1;
+}
+
+.pricing-card.featured .pricing-button:hover {
+  background: #4f46e5;
+}
+
+/* Equipment Section */
+.equipment-section {
+  margin: 4rem 0;
+  padding: 2rem;
+}
+
+.equipment-section h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0a0a0a;
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.03em;
+}
+
+.equipment-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.equipment-category {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: left;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.equipment-category:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.equipment-category h3 {
+  font-size: 1.3rem;
+  font-weight: 650;
+  color: #0a0a0a;
+  margin: 0 0 1rem 0;
+}
+
+.equipment-category ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.equipment-category li {
+  padding: 0.5rem 0;
+  color: #4b5563;
+  font-size: 0.95rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.equipment-category li:last-child {
+  border-bottom: none;
+}
+
+/* Gallery Section */
+.photograph-gallery {
+  padding: 2rem;
+  margin: 4rem 0;
+}
+
+.photograph-gallery h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #0a0a0a;
+  margin-bottom: 2.5rem;
+  letter-spacing: -0.03em;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .pricing-grid {
+    grid-template-columns: 1fr;
+    max-width: 500px;
+  }
+
+  .equipment-grid {
+    grid-template-columns: 1fr;
+  }
 }

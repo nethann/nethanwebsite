@@ -35,26 +35,106 @@ export default function Music() {
   return (
     <div className='Home-container'>
       <div className='Music' style={{paddingTop: '8rem'}}>
-        <h2 className='Music-title' data-aos="fade-up">
-          <span className=" typewriter-text">
-            <Typewriter
-              onInit={(typewriter) => {
-                typewriter
-                  .typeString('Accoustic Style Covers.')
-                  .start();
-              }}
-              options={{
-                delay: 40,
-              }}
-            />
-          </span>
+        <div className='music-intro' data-aos="fade-up">
+          <h1>Music</h1>
+          <p>Creating and performing acoustic style covers</p>
+          <p className="location">📍 Atlanta, Georgia, United States</p>
+        </div>
 
-        </h2>
+        {/* Pricing Packages Section */}
+        <section className="pricing-section" data-aos="fade-up" data-aos-delay="100">
+          <h2>Booking Rates</h2>
+          <div className="pricing-grid">
+            <div className="pricing-card">
+              <div className="pricing-header">
+                <h3>Solo Performance</h3>
+                <div className="price">$200</div>
+              </div>
+              <ul className="pricing-features">
+                <li>1-hour set</li>
+                <li>Acoustic guitar & vocals</li>
+                <li>Personal events</li>
+                <li>Travel within 20 miles</li>
+              </ul>
+              <a href="/contact?service=music" className="pricing-button">Book Now</a>
+            </div>
 
+            <div className="pricing-card featured">
+              <div className="badge">Most Popular</div>
+              <div className="pricing-header">
+                <h3>Worship Service</h3>
+                <div className="price">$300</div>
+              </div>
+              <ul className="pricing-features">
+                <li>2-hour service</li>
+                <li>Lead guitar & vocals</li>
+                <li>Rehearsal included</li>
+                <li>Multi-instrument capability</li>
+                <li>Communion songs</li>
+              </ul>
+              <a href="/contact?service=music" className="pricing-button">Book Now</a>
+            </div>
 
+            <div className="pricing-card">
+              <div className="pricing-header">
+                <h3>Full Event</h3>
+                <div className="price">$500</div>
+              </div>
+              <ul className="pricing-features">
+                <li>4+ hours coverage</li>
+                <li>Multiple sets</li>
+                <li>Corporate/private events</li>
+                <li>Sound system setup</li>
+                <li>Custom song requests</li>
+              </ul>
+              <a href="/contact?service=music" className="pricing-button">Book Now</a>
+            </div>
+          </div>
+        </section>
 
+        {/* Equipment Section */}
+        <section className="equipment-section" data-aos="fade-up" data-aos-delay="200">
+          <h2>My Instruments & Gear</h2>
+          <div className="equipment-grid">
+            <div className="equipment-category">
+              <h3>🎸 Guitars</h3>
+              <ul>
+                <li>Taylor 814ce Acoustic</li>
+                <li>Fender Stratocaster</li>
+                <li>Martin D-28</li>
+              </ul>
+            </div>
 
-        <div className="musical-journey-section" data-aos="fade-up" data-aos-delay="100">
+            <div className="equipment-category">
+              <h3>🎹 Keys & Vocals</h3>
+              <ul>
+                <li>Yamaha P-125 Digital Piano</li>
+                <li>Shure SM58 Microphone</li>
+                <li>Vocal Harmonizer</li>
+              </ul>
+            </div>
+
+            <div className="equipment-category">
+              <h3>🔊 Audio Equipment</h3>
+              <ul>
+                <li>Boss Loop Station</li>
+                <li>Line 6 Helix Effects</li>
+                <li>PA System (available)</li>
+              </ul>
+            </div>
+
+            <div className="equipment-category">
+              <h3>🎵 Skills</h3>
+              <ul>
+                <li>Lead & Rhythm Guitar</li>
+                <li>Worship Leading</li>
+                <li>Children's Ministry Music</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <div className="musical-journey-section" data-aos="fade-up" data-aos-delay="300">
           <h3>My Musical Journey</h3>
           <div className="horizontal-timeline">
             <div className="timeline-track">

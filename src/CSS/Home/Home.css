@@ -6,7 +6,8 @@ body {
     padding: 0;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     height: 100vh;
-    overflow: auto; 
+    overflow: auto;
+    background: #ffffff;
 }
 
 .homepage {
@@ -16,9 +17,7 @@ body {
     min-height: 100vh;
     box-sizing: border-box;
     position: relative;
-
-    /* Clean white background */
-    background: #ffffff;
+    background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%);
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
@@ -29,8 +28,22 @@ body {
     align-items: center;
     min-height: 100vh;
     width: 100%;
-    padding: 2rem;
+    padding: 3rem 2rem;
     box-sizing: border-box;
+    position: relative;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.03) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
 }
 
 
@@ -52,13 +65,12 @@ body {
 }
 
 .profile-pic {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
-    margin-bottom: 0.5rem;
-    border: 4px solid #f0f0f0;
+    margin-bottom: 1.5rem;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .profile-pic:hover {
@@ -66,28 +78,94 @@ body {
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 1rem;
-    color: #000000;
-    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 0.75rem;
+    color: #0a0a0a;
+    letter-spacing: -0.03em;
 }
 
 .hero p {
-    font-size: 1.3rem;
-    color: #666666;
-    font-weight: 400;
+    font-size: 1.25rem;
+    color: #6b7280;
+    font-weight: 450;
     line-height: 1.6;
     max-width: 600px;
     margin: 0 auto;
+    letter-spacing: 0.01em;
+}
+
+.hero .location {
+    font-size: 1rem;
+    color: #9ca3af;
+    font-weight: 400;
+    margin-top: 0.5rem;
+}
+
+/* CTA Buttons */
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    margin: 2.5rem 0;
+    flex-wrap: wrap;
+}
+
+.cta-button {
+    padding: 0.875rem 1.75rem;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+    letter-spacing: 0.01em;
+}
+
+.cta-primary {
+    background: #000000;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.cta-primary:hover {
+    background: #1a1a1a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cta-secondary {
+    background: #ffffff;
+    color: #000000;
+    border: 1.5px solid #e5e5e5;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.cta-secondary:hover {
+    border-color: #000000;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.cta-tertiary {
+    background: rgba(99, 102, 241, 0.05);
+    color: #6366f1;
+    border: 1.5px solid rgba(99, 102, 241, 0.2);
+}
+
+.cta-tertiary:hover {
+    background: rgba(99, 102, 241, 0.1);
+    border-color: #6366f1;
+    transform: translateY(-2px);
 }
 
 .intro {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    max-width: 1000px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1100px;
     width: 100%;
     position: relative;
     z-index: 10;
@@ -95,140 +173,352 @@ body {
 
 .card {
     background: #ffffff;
-    border: 1px solid #e5e5e5;
-    border-radius: 12px;
-    padding: 2.5rem 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 16px;
+    padding: 3rem 2rem;
     text-align: center;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
     text-decoration: none;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.04),
+        0 1px 2px rgba(0, 0, 0, 0.03);
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #6366f1, #8b5cf6, #ec4899);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.card:hover::before {
+    opacity: 1;
 }
 
 .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    border-color: #000000;
-}
-
-.card-icon {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
+    transform: translateY(-8px);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.08),
+        0 8px 24px rgba(0, 0, 0, 0.06),
+        0 1px 3px rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.08);
 }
 
 .card h3 {
     font-size: 1.5rem;
-    font-weight: 600;
-    color: #000000;
-    margin: 0;
+    font-weight: 650;
+    color: #0a0a0a;
+    margin: 0.5rem 0 0 0;
+    letter-spacing: -0.02em;
 }
 
 .card p {
-    font-size: 1rem;
-    color: #666666;
-    line-height: 1.6;
+    font-size: 0.95rem;
+    color: #6b7280;
+    line-height: 1.7;
     margin: 0;
+    font-weight: 400;
+}
+
+/* Portfolio Preview Section */
+.portfolio-preview {
+    max-width: 1100px;
+    width: 100%;
+    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.portfolio-preview h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0a0a0a;
+    text-align: center;
+    margin: 0;
+    letter-spacing: -0.03em;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    width: 100%;
+}
+
+.portfolio-item {
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 16px;
+    padding: 0;
+    overflow: hidden;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.portfolio-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-image-placeholder {
+    width: 100%;
+    height: 240px;
+    background: linear-gradient(135deg, #f5f5f5 0%, #fafafa 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    transition: all 0.4s ease;
+}
+
+.portfolio-item:hover .portfolio-image-placeholder {
+    background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
+}
+
+.portfolio-item h3 {
+    font-size: 1.35rem;
+    font-weight: 650;
+    color: #0a0a0a;
+    margin: 1.5rem 1.5rem 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.portfolio-item p {
+    font-size: 0.95rem;
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0 1.5rem 1.5rem;
 }
 
 /* About Section */
 .about-section {
-    max-width: 800px;
+    max-width: 1100px;
     width: 100%;
-    padding: 1.5rem 2rem 3rem;
-    text-align: center;
+    padding: 2rem 2rem 4rem;
     z-index: 10;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
-.about-section h2 {
-    font-size: 2.5rem;
+.about-card {
+    max-width: 900px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+    text-align: left;
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow:
+        0 4px 16px rgba(0, 0, 0, 0.04),
+        0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.about-profile-pic {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease;
+}
+
+.about-profile-pic:hover {
+    transform: scale(1.05);
+}
+
+.about-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-card h2 {
+    font-size: 2.25rem;
     font-weight: 700;
-    color: #000000;
-    margin-bottom: 1.5rem;
+    color: #0a0a0a;
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.03em;
 }
 
-.about-section p {
-    font-size: 1.15rem;
-    color: #666666;
+.about-card p {
+    font-size: 1.05rem;
+    color: #4b5563;
     line-height: 1.8;
     margin: 0 0 1rem 0;
+    font-weight: 400;
 }
 
-.about-section p:last-child {
+.about-card p:last-child {
     margin-bottom: 0;
 }
 
 
 
+@media (max-width: 1100px) {
+    .intro {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+        gap: 1.25rem;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        max-width: 500px;
+    }
+}
+
 @media (max-width: 800px) {
     .hero-section {
-        padding: 1rem;
+        padding: 2rem 1.5rem;
         min-height: 100vh;
     }
 
     .hero {
-        margin-bottom: 2rem;
+        margin-bottom: 2.5rem;
     }
 
     .hero h1 {
-        font-size: 2rem;
+        font-size: 2.5rem;
         line-height: 1.2;
-        margin-bottom: 1rem;
+        margin-bottom: 0.75rem;
     }
 
     .hero p {
-        font-size: 1rem;
+        font-size: 1.1rem;
         padding: 0 1rem;
     }
 
-    .intro {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+    .hero .location {
+        font-size: 0.9rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+        margin: 2rem 0;
+    }
+
+    .cta-button {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+
+    .profile-pic {
+        width: 120px;
+        height: 120px;
     }
 
     .card {
-        padding: 2rem 1.5rem;
+        padding: 2.5rem 2rem;
     }
 
     .about-section {
-        padding: 2.5rem 1.5rem;
+        padding: 2rem 1.5rem 4rem;
     }
 
-    .about-section h2 {
+    .about-card {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+        padding: 2.5rem 2rem;
+    }
+
+    .about-card h2 {
         font-size: 2rem;
-        margin-bottom: 1rem;
     }
 
-    .about-section p {
+    .about-card p {
         font-size: 1rem;
+    }
+
+    .about-profile-pic {
+        width: 140px;
+        height: 140px;
+    }
+
+    .portfolio-preview {
+        padding: 3rem 1.5rem;
+    }
+
+    .portfolio-preview h2 {
+        font-size: 2rem;
+    }
+
+    .portfolio-image-placeholder {
+        height: 200px;
+        font-size: 3rem;
     }
 }
 
 @media (max-width: 500px) {
     .hero h1 {
-        font-size: 1.75rem;
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
     }
 
     .card h3 {
-        font-size: 1.25rem;
+        font-size: 1.35rem;
     }
 
-    .card-icon {
-        font-size: 2.5rem;
+    .card p {
+        font-size: 0.9rem;
     }
 
-    .about-section h2 {
+    .about-card h2 {
         font-size: 1.75rem;
     }
 
+    .about-card p {
+        font-size: 0.95rem;
+    }
+
+    .about-profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+
     .profile-pic {
-        width: 100px;
-        height: 100px;
+        width: 110px;
+        height: 110px;
+    }
+
+    .portfolio-preview h2 {
+        font-size: 1.75rem;
+    }
+
+    .portfolio-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .portfolio-item p {
+        font-size: 0.9rem;
     }
 }

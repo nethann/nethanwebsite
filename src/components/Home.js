@@ -26,12 +26,26 @@ const Home = () => {
         <div className="homepage">
             <div className="hero-section">
                 <header className="hero">
-                    <img src={NethanPC} alt="Nethan Nagendran" className="profile-pic" data-aos="fade-up" />
-                    <h1 data-aos="fade-up" data-aos-delay="100">Nethan Nagendran</h1>
-                    <p data-aos="fade-up" data-aos-delay="200">
+                    <h1 data-aos="fade-up">Nethan Nagendran</h1>
+                    <p data-aos="fade-up" data-aos-delay="100">
                         Developer • Photographer • Musician
                     </p>
+                    <p className="location" data-aos="fade-up" data-aos-delay="150">
+                        📍 Atlanta, Georgia, United States
+                    </p>
                 </header>
+
+                <div className="cta-buttons" data-aos="fade-up" data-aos-delay="200">
+                    <Link to="/contact?service=photography" className="cta-button cta-primary">
+                        Book Me for Photography
+                    </Link>
+                    <Link to="/contact?service=music" className="cta-button cta-secondary">
+                        Hire Me for Gigs
+                    </Link>
+                    <Link to="/contact?service=development" className="cta-button cta-tertiary">
+                        Available for Projects
+                    </Link>
+                </div>
 
                 <section className="intro">
                     <Link to="/projects/computer-science" className="card" data-aos="fade-up" data-aos-delay="100">
@@ -52,15 +66,20 @@ const Home = () => {
             </div>
 
             <section className="about-section" data-aos="fade-up">
-                <h2>About Me</h2>
-                <p>
-                    I'm a computer science student who believes in creating at the intersection of technology and art.
-                    Whether I'm writing code, capturing moments through a lens, or producing music, I'm driven by curiosity
-                    and the desire to tell stories in different mediums.
-                </p>
-                <p>
-                    Currently based in [Your City], exploring how different forms of creativity can complement and enhance each other.
-                </p>
+                <div className="about-card">
+                    <img src={NethanPC} alt="Nethan Nagendran" className="about-profile-pic" />
+                    <div className="about-content">
+                        <h2>About Me</h2>
+                        <p>
+                            I'm a computer science student who believes in creating at the intersection of technology and art.
+                            Whether I'm writing code, capturing moments through a lens, or producing music, I'm driven by curiosity
+                            and the desire to tell stories in different mediums.
+                        </p>
+                        <p>
+                            Currently based in [Your City], exploring how different forms of creativity can complement and enhance each other.
+                        </p>
+                    </div>
+                </div>
             </section>
         </div>
     );

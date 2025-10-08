@@ -1,878 +1,250 @@
-/* Contact Social Links */
-.contact-social-section {
-  margin-top: 4rem;
-  padding: 2rem 0;
+/* Contact Page - Light Mode Glassy Design */
+.contact-page {
+    min-height: 100vh;
+    background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    padding: 8rem 2rem 4rem;
 }
 
-.social-divider {
-  position: relative;
-  margin: 2rem 0 3rem 0;
+.contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
 }
 
-.social-divider::before {
-  content: '';
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-  transform: translateY(-50%);
+/* Hero Section */
+.contact-hero {
+    text-align: center;
 }
 
-.divider-text {
-  background: linear-gradient(135deg,
-    rgba(28, 28, 30, 0.95),
-    rgba(44, 44, 46, 0.95));
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  padding: 8px 24px;
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.8);
-  position: relative;
-  z-index: 1;
+.contact-hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #0a0a0a;
+    margin: 0 0 1rem 0;
+    letter-spacing: -0.03em;
 }
 
-.contact-social-links {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-  margin: 2rem 0;
+.contact-hero p {
+    font-size: 1.2rem;
+    color: #6b7280;
+    margin: 0.5rem 0;
+    line-height: 1.6;
 }
 
-.contact-social-link {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  group: 1;
+.contact-hero .location {
+    font-size: 1rem;
+    color: #9ca3af;
+    margin-top: 1rem;
 }
 
-.contact-social-icon {
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 24px;
-  margin-bottom: 12px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
+/* Contact Form Wrapper with Glassy Effect */
+.contact-form-wrapper {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.04),
+        0 2px 8px rgba(0, 0, 0, 0.02);
 }
 
-.contact-social-icon svg {
-  position: relative;
-  z-index: 2;
-}
-
-.contact-social-icon::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  border-radius: 50%;
-  opacity: 0.12;
-  transition: all 0.3s ease;
-  z-index: 1;
-  animation: contactColorPulse 4s ease-in-out infinite;
-}
-
-/* Dynamic color backgrounds for each social platform */
-.contact-social-link[style*="--social-color: #E4405F"] .contact-social-icon::before {
-  background: linear-gradient(135deg, #e4405f 0%, #fd1d1d 25%, #fcb045 50%, #833ab4 75%, #e4405f 100%);
-}
-
-.contact-social-link[style*="--social-color: #0077B5"] .contact-social-icon::before {
-  background: linear-gradient(135deg, #0077b5 0%, #00a0dc 100%);
-}
-
-.contact-social-link[style*="--social-color: #333"] .contact-social-icon::before {
-  background: linear-gradient(135deg, #333 0%, #24292e 100%);
-}
-
-.contact-social-link[style*="--social-color: #FF0000"] .contact-social-icon::before {
-  background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
-}
-
-.contact-social-link[style*="--social-color: #000000"] .contact-social-icon::before {
-  background: linear-gradient(135deg, #000000 0%, #ff0050 50%, #00f2ea 100%);
-}
-
-@keyframes contactColorPulse {
-  0%, 100% {
-    opacity: 0.1;
-    transform: scale(0.95);
-  }
-  50% {
-    opacity: 0.25;
-    transform: scale(1.05);
-  }
-}
-
-.contact-social-label {
-  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.7);
-  transition: color 0.3s ease;
-}
-
-.contact-social-link:hover .contact-social-icon {
-  transform: translateY(-8px) scale(1.1);
-  border-color: rgba(255, 255, 255, 0.3);
-  box-shadow:
-    0 12px 32px rgba(0, 0, 0, 0.4),
-    0 6px 16px rgba(255, 255, 255, 0.1);
-}
-
-.contact-social-link:hover .contact-social-icon::before {
-  opacity: 0.35;
-  transform: scale(1.1);
-}
-
-.contact-social-link:hover .contact-social-icon {
-  color: white;
-}
-
-.contact-social-link:hover .contact-social-label {
-  color: rgba(255, 255, 255, 0.95);
-}
-
-.contact-footer-note {
-  margin-top: 3rem;
-  padding: 2rem 0;
-}
-
-/* Contact and Donation Grid Layout */
-.contact-donation-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-  align-items: stretch;
-}
-
-/* Modern Contact Form Design */
-.contact-form-container {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-}
-
-.modern-contact-form {
-  width: 100%;
-  max-width: 600px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  background: rgba(255, 255, 255, 0.01);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 24px;
-  padding: 3rem;
-  box-shadow:
-    0 16px 40px rgba(0, 0, 0, 0.3),
-    0 8px 32px rgba(255, 255, 255, 0.02),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
-
-/* Form Header */
-.form-header {
-  text-align: center;
-  margin-bottom: 3rem;
-}
-
-.form-title {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.7));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin: 0 0 1rem 0;
-  letter-spacing: -0.02em;
-}
-
-.form-subtitle {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.6);
-  margin: 0;
-  line-height: 1.6;
-}
-
-/* Form Layout */
 .contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  flex: 1;
-  justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
-.form-row {
-  width: 100%;
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
-/* Input Wrapper */
-.input-wrapper {
-  position: relative;
-  width: 100%;
+.form-group label {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #374151;
+    letter-spacing: 0.01em;
 }
 
-/* Modern Input Styling */
-.modern-input {
-  width: 100%;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  padding: 1rem 0 0.5rem 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.9);
-  outline: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-sizing: border-box;
+.service-select,
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    background: #ffffff;
+    border: 1.5px solid #e5e7eb;
+    border-radius: 12px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 1rem;
+    color: #1f2937;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
 }
 
-.modern-input::placeholder {
-  color: transparent;
+.service-select:focus,
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }
 
-.modern-input:focus {
-  border-bottom-color: rgba(255, 255, 255, 0.4);
+.service-select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23374151' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 3rem;
 }
 
-/* Modern Labels */
-.modern-label {
-  position: absolute;
-  left: 0;
-  top: 1rem;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.5);
-  pointer-events: none;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  transform-origin: left top;
+.form-row-double {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
 }
 
-/* Label animation when input is focused or has content */
-.modern-input:focus ~ .modern-label,
-.modern-input:not(:placeholder-shown) ~ .modern-label {
-  transform: translateY(-0.75rem) scale(0.8);
-  color: rgba(255, 255, 255, 0.8);
-  font-weight: 500;
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.6;
 }
 
-/* Animated underline */
-.input-line {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.3));
-  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+.submit-button {
+    padding: 1rem 2rem;
+    background: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    letter-spacing: 0.01em;
 }
 
-.modern-input:focus ~ .input-line {
-  width: 100%;
+.submit-button:hover {
+    background: #1a1a1a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
-/* Textarea specific styling */
-.modern-textarea {
-  min-height: 1rem;
-  max-height: 200px;
-  resize: none;
-  overflow-y: hidden;
-  line-height: 1.5;
+.submit-button:active {
+    transform: translateY(0);
 }
 
-.textarea-wrapper {
-  margin: 1rem 0;
+/* Social Section */
+.contact-social {
+    text-align: center;
 }
 
-/* Auto-resize textarea */
-.modern-textarea:focus,
-.modern-textarea:not(:placeholder-shown) {
-  min-height: 120px;
+.social-heading {
+    font-size: 1rem;
+    color: #6b7280;
+    margin-bottom: 1.5rem;
 }
 
-/* Submit Button */
-.modern-submit-btn {
-  position: relative;
-  width: 100%;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 50px;
-  padding: 1rem 2rem;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
-  cursor: pointer;
-  overflow: hidden;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  margin-top: 1rem;
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
 }
 
-.btn-text {
-  position: relative;
-  z-index: 2;
-  transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+.social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    color: #374151;
+    font-size: 1.3rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
-.btn-bg {
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
-  transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 1;
-}
-
-.modern-submit-btn:hover {
-  border-color: rgba(255, 255, 255, 0.3);
-  box-shadow: 
-    0 8px 32px rgba(255, 255, 255, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  transform: translateY(-2px);
-}
-
-.modern-submit-btn:hover .btn-bg {
-  left: 0;
-}
-
-.modern-submit-btn:hover .btn-text {
-  color: rgba(255, 255, 255, 1);
-}
-
-.modern-submit-btn:active {
-  transform: translateY(0);
+.social-link:hover {
+    background: #000000;
+    color: #ffffff;
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* Responsive Design */
-@media (max-width: 1024px) {
-  .contact-donation-grid {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
+@media (max-width: 800px) {
+    .contact-page {
+        padding: 6rem 1.5rem 3rem;
+    }
+
+    .contact-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .contact-hero p {
+        font-size: 1.1rem;
+    }
+
+    .contact-form-wrapper {
+        padding: 2.5rem 2rem;
+    }
+
+    .form-row-double {
+        grid-template-columns: 1fr;
+    }
 }
 
-@media (max-width: 768px) {
-  .contact-donation-grid {
-    padding: 1rem;
-    gap: 2rem;
-  }
-
-  .modern-contact-form {
-    padding: 2rem 1.5rem;
-    margin: 0;
-  }
-
-  .form-title {
-    font-size: 2rem;
-  }
-
-  .form-subtitle {
-    font-size: 1rem;
-  }
-
-  .contact-form {
-    gap: 1.5rem;
-  }
-
-  /* Reduce top padding on mobile */
-  .ios-section {
-    padding-top: 6rem !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .modern-contact-form {
-    padding: 1.5rem 1rem;
-    margin: 0 0.5rem;
-  }
-  
-  .form-title {
-    font-size: 1.75rem;
-  }
-  
-  .form-subtitle {
-    font-size: 0.9rem;
-  }
-  
-  .modern-input {
-    font-size: 0.9rem;
-  }
-  
-  .modern-label {
-    font-size: 0.9rem;
-  }
-  
-  /* Even smaller padding for mobile */
-  .ios-section {
-    padding-top: 5rem !important;
-  }
-}
-
-/* Loading state for button */
-.modern-submit-btn.loading {
-  pointer-events: none;
-  opacity: 0.7;
-}
-
-.modern-submit-btn.loading .btn-text::after {
-  content: '...';
-  animation: dots 1.5s infinite;
-}
-
-@keyframes dots {
-  0%, 20% { opacity: 0; }
-  50% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-/* Success/Error states */
-.modern-submit-btn.success {
-  border-color: #22c55e;
-  color: #22c55e;
-}
-
-.modern-submit-btn.error {
-  border-color: #ef4444;
-  color: #ef4444;
-}
-
-/* Focus improvements for accessibility */
-.modern-input:focus-visible {
-  outline: 2px solid rgba(255, 255, 255, 0.2);
-  outline-offset: 2px;
-  border-radius: 2px;
-}
-
-.modern-submit-btn:focus-visible {
-  outline: 2px solid rgba(255, 255, 255, 0.4);
-  outline-offset: 2px;
-}
-
-/* Auto-resize textarea functionality */
-.modern-textarea {
-  field-sizing: content;
-  overflow: hidden;
-  resize: none;
-}
-
-/* Enhanced focus states */
-.input-wrapper:focus-within .modern-label {
-  transform: translateY(-0.75rem) scale(0.8);
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 600;
-}
-
-.input-wrapper:focus-within .input-line {
-  width: 100%;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5));
-}
-
-/* Smooth form entry animation */
-@keyframes formSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.modern-contact-form {
-  animation: formSlideUp 0.6s ease-out;
-}
-
-/* Stagger animation for form rows */
-.form-row:nth-child(1) { animation-delay: 0.1s; }
-.form-row:nth-child(2) { animation-delay: 0.2s; }
-.form-row:nth-child(3) { animation-delay: 0.3s; }
-.form-row:nth-child(4) { animation-delay: 0.4s; }
-
-.form-row {
-  animation: formSlideUp 0.6s ease-out both;
-}
-
-/* Donation Section Styling */
-.donation-section {
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-}
-
-.donation-card {
-  width: 100%;
-  max-width: 700px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 24px;
-  padding: 3rem;
-  box-shadow:
-    0 16px 40px rgba(0, 0, 0, 0.2),
-    0 8px 32px rgba(255, 255, 255, 0.03),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.donation-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg,
-    rgba(255, 255, 255, 0.02) 0%,
-    rgba(255, 255, 255, 0.01) 50%,
-    rgba(255, 255, 255, 0.02) 100%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.donation-header {
-  position: relative;
-  z-index: 1;
-  margin-bottom: 2.5rem;
-}
-
-.donation-icon {
-  display: inline-block;
-  margin-bottom: 1rem;
-}
-
-.heart-icon {
-  font-size: 2.5rem;
-  color: #ff6b6b;
-  animation: heartBeat 2s ease-in-out infinite;
-}
-
-@keyframes heartBeat {
-  0%, 50%, 100% { transform: scale(1); }
-  25% { transform: scale(1.1); }
-}
-
-.donation-title {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 2.2rem;
-  font-weight: 700;
-  background: linear-gradient(135deg,
-    rgba(255, 255, 255, 0.95) 0%,
-    rgba(255, 107, 107, 0.8) 40%,
-    rgba(255, 255, 255, 0.7) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin: 0 0 1rem 0;
-  letter-spacing: -0.02em;
-}
-
-.donation-subtitle {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 1.1rem;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.7);
-  margin: 0;
-  line-height: 1.6;
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.donation-options {
-  position: relative;
-  z-index: 1;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-/* Payment Type Selector */
-.payment-type-selector {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-bottom: 2rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  padding: 0.5rem;
-}
-
-.payment-type-btn {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  background: transparent;
-  border: none;
-  border-radius: 8px;
-  padding: 0.75rem 1rem;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.6);
-  position: relative;
-  overflow: hidden;
-}
-
-.payment-type-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg,
-    rgba(255, 255, 255, 0.1) 0%,
-    rgba(255, 255, 255, 0.05) 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 0;
-}
-
-.payment-type-btn:hover::before {
-  opacity: 1;
-}
-
-.payment-type-btn.active {
-  background: linear-gradient(135deg,
-    rgba(255, 107, 107, 0.15) 0%,
-    rgba(255, 255, 255, 0.08) 100%);
-  border: 1px solid rgba(255, 107, 107, 0.2);
-  color: rgba(255, 255, 255, 0.95);
-  box-shadow: 0 2px 8px rgba(255, 107, 107, 0.1);
-}
-
-.payment-type-icon {
-  font-size: 1rem;
-  position: relative;
-  z-index: 1;
-}
-
-.payment-type-btn span {
-  position: relative;
-  z-index: 1;
-}
-
-.donation-amounts {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1rem;
-  margin-bottom: 2rem;
-}
-
-.donation-btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 16px;
-  padding: 1.5rem 1rem;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  text-decoration: none;
-  color: inherit;
-  position: relative;
-  overflow: hidden;
-  min-height: 120px;
-}
-
-.donation-btn::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(135deg,
-    rgba(255, 107, 107, 0.1) 0%,
-    rgba(255, 255, 255, 0.05) 100%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  z-index: 0;
-}
-
-.donation-btn:hover::before {
-  opacity: 1;
-}
-
-.donation-btn:hover {
-  transform: translateY(-4px);
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow:
-    0 12px 32px rgba(0, 0, 0, 0.3),
-    0 6px 16px rgba(255, 107, 107, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
-}
-
-.donation-btn-icon {
-  font-size: 1.5rem;
-  margin-bottom: 0.5rem;
-  color: #ff6b6b;
-  position: relative;
-  z-index: 1;
-}
-
-.donation-amount {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.95);
-  margin-bottom: 0.25rem;
-  position: relative;
-  z-index: 1;
-}
-
-.donation-label {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.6);
-  position: relative;
-  z-index: 1;
-}
-
-.custom-amount {
-  background: rgba(255, 107, 107, 0.08);
-  border-color: rgba(255, 107, 107, 0.2);
-}
-
-.custom-amount:hover {
-  background: rgba(255, 107, 107, 0.12);
-  border-color: rgba(255, 107, 107, 0.3);
-}
-
-.donation-secure {
-  padding: 1rem;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.secure-text {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.6);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-/* Responsive Design for Donation Card */
-@media (max-width: 768px) {
-  .donation-card {
-    padding: 2rem 1.5rem;
-    margin: 0;
-  }
-
-  .donation-title {
-    font-size: 1.8rem;
-  }
-
-  .donation-amounts {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-  }
-
-  .donation-btn {
-    padding: 1.25rem 0.75rem;
-    min-height: 100px;
-  }
-
-  .donation-amount {
-    font-size: 1.1rem;
-  }
-
-  .donation-label {
-    font-size: 0.8rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .donation-card {
-    padding: 1.5rem 1rem;
-    margin: 0;
-  }
-
-  .donation-title {
-    font-size: 1.6rem;
-  }
-
-  .donation-subtitle {
-    font-size: 1rem;
-  }
-
-  .donation-amounts {
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
-  }
-
-  .donation-btn {
-    padding: 1rem 0.5rem;
-    min-height: 90px;
-  }
-
-  .donation-btn-icon {
-    font-size: 1.2rem;
-  }
-
-  .donation-amount {
-    font-size: 1rem;
-  }
-
-  .donation-label {
-    font-size: 0.75rem;
-  }
-
-  .secure-text {
-    font-size: 0.8rem;
-  }
+@media (max-width: 500px) {
+    .contact-page {
+        padding: 5rem 1rem 2rem;
+    }
+
+    .contact-hero h1 {
+        font-size: 2rem;
+    }
+
+    .contact-hero p {
+        font-size: 1rem;
+    }
+
+    .contact-hero .location {
+        font-size: 0.9rem;
+    }
+
+    .contact-form-wrapper {
+        padding: 2rem 1.5rem;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .service-select,
+    .form-group input,
+    .form-group textarea {
+        font-size: 0.95rem;
+        padding: 0.75rem 0.875rem;
+    }
+
+    .submit-button {
+        padding: 0.875rem 1.5rem;
+        font-size: 0.95rem;
+    }
+
+    .social-link {
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
+    }
 }
