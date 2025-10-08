@@ -28,7 +28,7 @@ const Home = () => {
                 <header className="hero">
                     <h1 data-aos="fade-up">Nethan Nagendran</h1>
                     <p data-aos="fade-up" data-aos-delay="100">
-                        Developer • Photographer • Musician
+                        Photographer • Musician • Developer
                     </p>
                     <p className="location" data-aos="fade-up" data-aos-delay="150">
                         📍 Atlanta, Georgia, United States
@@ -36,15 +36,16 @@ const Home = () => {
                 </header>
 
                 <section className="intro">
+                    <Link to="/projects/photography" className="card" data-aos="fade-up" data-aos-delay="200">
+                        <h3>Photography</h3>
+                        <p>Capturing moments and telling stories through the lens</p>
+                    </Link>
                     <Link to="/projects/music" className="card" data-aos="fade-up" data-aos-delay="100">
                         <h3>Music</h3>
                         <p>Creating and performing music across multiple instruments</p>
                     </Link>
 
-                    <Link to="/projects/photography" className="card" data-aos="fade-up" data-aos-delay="200">
-                        <h3>Photography</h3>
-                        <p>Capturing moments and telling stories through the lens</p>
-                    </Link>
+
                 </section>
 
                 <div className="cta-buttons" data-aos="fade-up" data-aos-delay="300">
@@ -63,13 +64,11 @@ const Home = () => {
                     <div className="about-content">
                         <h2>About Me</h2>
                         <p>
-                            I'm a computer science student who believes in creating at the intersection of technology and art.
-                            Whether I'm writing code, capturing moments through a lens, or producing music, I'm driven by curiosity
-                            and the desire to tell stories in different mediums.
+                            I’m a creator at heart — a developer, photographer, and musician exploring how technology and art can amplify each other.
+                            I believe great stories can be told through many mediums, whether it’s a line of code, a melody, or a photo that freezes time.
                         </p>
                         <p>
-                            Currently based in Atlanta, Georgia, exploring how different forms of creativity can complement and enhance each other.
-                        </p>
+                            I’m currently based in Atlanta, always experimenting, learning, and building.                        </p>
                     </div>
                 </div>
             </section>

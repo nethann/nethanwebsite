@@ -105,36 +105,34 @@ export default function Photography() {
           <div className="equipment-category">
             <h3>📷 Cameras</h3>
             <ul>
-              <li>Canon EOS R5</li>
-              <li>Sony A7 IV</li>
+              <li>Canon EOS R7</li>
+              <li>GoPro HERO13</li>
+              <li>DJI Mini 4k Drone</li>
             </ul>
           </div>
 
           <div className="equipment-category">
             <h3>🔍 Lenses</h3>
             <ul>
-              <li>Canon RF 24-70mm f/2.8</li>
-              <li>Canon RF 70-200mm f/2.8</li>
-              <li>Canon RF 50mm f/1.2</li>
-              <li>Sony FE 85mm f/1.4</li>
+              <li>Canon RF 18-150 f/3.5-6.3</li>
+              <li>Canon RF 50mm f/1.8</li>
+              <li>Canon RF 100-400 f/5.6-8</li>
             </ul>
           </div>
 
           <div className="equipment-category">
             <h3>💡 Lighting</h3>
             <ul>
-              <li>Godox AD200 Pro</li>
-              <li>Profoto B10</li>
-              <li>LED Panel Kit</li>
+              <li>Aputure amaran 100x S</li>
+              <li>Key lights</li>
             </ul>
           </div>
 
           <div className="equipment-category">
             <h3>🎥 Accessories</h3>
             <ul>
-              <li>DJI Ronin RS3</li>
-              <li>Peak Design Tripod</li>
-              <li>Reflectors & Diffusers</li>
+              <li>DJI Osmo Mobile</li>
+              <li>Tripods</li>
             </ul>
           </div>
         </div>

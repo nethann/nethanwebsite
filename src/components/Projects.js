@@ -34,38 +34,41 @@ export default function Projects() {
           <h2>My Setup</h2>
           <div className="equipment-grid">
             <div className="equipment-category">
-              <h3>💻 Computer</h3>
+              <h3>💻 Computer Spex</h3>
               <ul>
-                <li>Custom Built PC</li>
-                <li>AMD Ryzen 9 5900X</li>
-                <li>NVIDIA RTX 3080</li>
-                <li>32GB DDR4 RAM</li>
+                <li>GeForce RTX 4070 Ti</li>
+                <li>13th Gen Intel(R) i9-13900k</li>
+                <li>32.0GB RAM</li>
+                <li>2TB SSD</li>
               </ul>
             </div>
 
             <div className="equipment-category">
               <h3>🖥️ Displays</h3>
               <ul>
-                <li>27" 4K Monitor</li>
-                <li>24" 1080p Secondary</li>
+                <li>27" Alienware AW2723DF Monitor (280hz)</li>
+                <li>29" LG UltraWide FHD Monitor (60hz)</li>
               </ul>
             </div>
 
             <div className="equipment-category">
               <h3>⌨️ Peripherals</h3>
               <ul>
-                <li>Mechanical Keyboard</li>
-                <li>Wireless Mouse</li>
-                <li>USB Microphone</li>
-                <li>Webcam</li>
+                <li>Logitech G PRO Wireless</li>
+                <li>Satechi Slim X1 Keyboard</li>
+                <li>XVX Coral Sea Keyboard</li>
+                <li>BOYI 68 Keyboard</li>
+                <li>Keychron K8 Keyboard</li>
+                <li>Logitech C920 Webcam</li>
               </ul>
             </div>
 
             <div className="equipment-category">
               <h3>🎧 Audio</h3>
               <ul>
-                <li>Studio Headphones</li>
-                <li>Desktop Speakers</li>
+                <li>Razer BlackShark V2 PRO Headset</li>
+                <li>SteelSeries Arctic Nova 5p Headset</li>
+                <li>Sanyum SW208 Speaker</li>
               </ul>
             </div>
           </div>
