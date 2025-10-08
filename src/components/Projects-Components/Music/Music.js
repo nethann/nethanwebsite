@@ -98,28 +98,29 @@ export default function Music() {
             <div className="equipment-category">
               <h3>🎸 Guitars</h3>
               <ul>
-                <li>Acoustic Guitar</li>
-                <li>Electric Guitar</li>
-                <li>Bass Guitar</li>
+                <li>Taylor 224-CE K DLX</li>
+                <li>Fender Player Series Stratocaster</li>
+                <li>Martin LX1</li>
               </ul>
             </div>
 
             <div className="equipment-category">
               <h3>🎹 Keyboards & Vocals</h3>
               <ul>
-                <li>Digital Piano/Keyboard</li>
-                <li>Professional Microphone</li>
-                <li>Vocal Processor</li>
+                <li>Alesis V49</li>
+                <li>Shure SM58</li>
               </ul>
             </div>
 
             <div className="equipment-category">
               <h3>🔊 Audio Gear</h3>
               <ul>
-                <li>Guitar Effects Pedals</li>
-                <li>Loop Station</li>
-                <li>Audio Interface</li>
-                <li>PA System (available)</li>
+                <li>Boss RC-600 Loop Station</li>
+                <li>VOX V847 WAH</li>
+                <li>Boss RC-1 Loop Station</li>
+                <li>SONICAKE Reverb & Preamp Pedal</li>
+                <li>JOYO American Sound Amp Simulator</li>
+                <li></li>
               </ul>
             </div>
 
@@ -130,6 +131,7 @@ export default function Music() {
                 <li>Worship Leading</li>
                 <li>Acoustic Performances</li>
                 <li>Children's Ministry Music</li>
+                <li>Guitar Looping & Solo</li>
               </ul>
             </div>
           </div>
