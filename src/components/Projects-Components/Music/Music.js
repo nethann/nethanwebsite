@@ -113,12 +113,12 @@ export default function Music() {
             </div>
 
             <div className="equipment-category">
-              <h3>🔊 Audio Gear</h3>
+              <h3>🔊 Guitar pedals</h3>
               <ul>
                 <li>Boss RC-600 Loop Station</li>
                 <li>VOX V847 WAH</li>
                 <li>Boss RC-1 Loop Station</li>
-                <li>SONICAKE Reverb & Preamp Pedal</li>
+                <li>SONICAKE Reverb & Preamp</li>
                 <li>JOYO American Sound Amp Simulator</li>
                 <li></li>
               </ul>
