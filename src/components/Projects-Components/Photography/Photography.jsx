@@ -24,8 +24,9 @@ export default function Photography() {
   }, []);
 
   return (
-    <div className="photography-page">
-      <section className="photograph-intro" style={{paddingTop: '8rem'}}>
+    <div className="photography-wrapper">
+      <div className="photography-page">
+        <section className="photograph-intro" style={{paddingTop: '8rem'}}>
         <h1>Photography</h1>
         <p>Moments in time, framed through my lens</p>
         <p className="location">📍 Atlanta, Georgia, United States</p>
@@ -50,8 +51,7 @@ export default function Photography() {
             <a href="/contact?service=photography" className="pricing-button">Book Now</a>
           </div>
 
-          <div className="pricing-card featured">
-            <div className="badge">Most Popular</div>
+          <div className="pricing-card">
             <div className="pricing-header">
               <h3>Event Coverage</h3>
               <div className="price">$350</div>
@@ -135,6 +135,7 @@ export default function Photography() {
           ))}
         </div>
       </section>
+      </div>
     </div>
   );
 }

@@ -59,8 +59,7 @@ export default function Music() {
               <a href="/contact?service=music" className="pricing-button">Book Now</a>
             </div>
 
-            <div className="pricing-card featured">
-              <div className="badge">Most Popular</div>
+            <div className="pricing-card">
               <div className="pricing-header">
                 <h3>Worship Service</h3>
                 <div className="price">$300</div>

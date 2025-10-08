@@ -42,13 +42,10 @@ const Home = () => {
                     <Link to="/contact?service=music" className="cta-button cta-secondary">
                         Hire Me for Gigs
                     </Link>
-                    <Link to="/contact?service=development" className="cta-button cta-tertiary">
-                        Available for Projects
-                    </Link>
                 </div>
 
                 <section className="intro">
-                    <Link to="/projects/computer-science" className="card" data-aos="fade-up" data-aos-delay="100">
+                    <Link to="/projects/dev" className="card" data-aos="fade-up" data-aos-delay="100">
                         <h3>Development</h3>
                         <p>Building modern web applications and software solutions</p>
                     </Link>

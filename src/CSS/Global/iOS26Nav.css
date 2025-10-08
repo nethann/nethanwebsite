@@ -335,18 +335,4 @@
   }
 }
 
-/* Animations */
-@keyframes ios26FadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.ios26-navbar {
-  animation: ios26FadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
+/* Animations removed - navbar is now stationary on load */

@@ -1,6 +1,10 @@
-.photography-page {
+.photography-wrapper {
   min-height: 100vh;
   background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%);
+}
+
+.photography-page {
+  min-height: 100vh;
   padding: 2rem;
   color: #0a0a0a;
   max-width: 1200px;

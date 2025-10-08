@@ -68,36 +68,7 @@ export default function IOS26Navbar() {
           <Link to="/" className="ios26-nav-item" onClick={handleLinkClick}>
             Home
           </Link>
-          
-          {/* Projects Dropdown */}
-          <div className="ios26-nav-dropdown" ref={dropdownRef}>
-            <button 
-              className="ios26-nav-item ios26-dropdown-button"
-              onClick={toggleDropdown}
-              aria-expanded={isDropdownOpen}
-            >
-              Projects 
-              <FaChevronDown 
-                className={`ios26-chevron-icon ${isDropdownOpen ? 'rotated' : ''}`}
-              />
-            </button>
-            
-            <div className={`ios26-dropdown-content ${isDropdownOpen ? 'show' : ''}`}>
-              <Link to="/projects" className="ios26-dropdown-link" onClick={handleLinkClick}>
-                Computer Science
-              </Link>
-              <Link to="/music" className="ios26-dropdown-link" onClick={handleLinkClick}>
-                Music
-              </Link>
-              <Link to="/photography" className="ios26-dropdown-link" onClick={handleLinkClick}>
-                Photography
-              </Link>
-              <Link to="/gameDevelopment" className="ios26-dropdown-link" onClick={handleLinkClick}>
-                Game Dev
-              </Link>
-            </div>
-          </div>
-          
+
           <Link to="/contact" className="ios26-nav-item" onClick={handleLinkClick}>
             Contact
           </Link>
@@ -117,35 +88,7 @@ export default function IOS26Navbar() {
           <Link to="/" className="ios26-mobile-item" onClick={handleLinkClick}>
             Home
           </Link>
-          
-          {/* Mobile Projects Section */}
-          <div className="ios26-mobile-dropdown">
-            <button 
-              className="ios26-mobile-item ios26-dropdown-button"
-              onClick={toggleDropdown}
-            >
-              Projects 
-              <FaChevronDown 
-                className={`ios26-chevron-icon ${isDropdownOpen ? 'rotated' : ''}`}
-              />
-            </button>
-            
-            <div className={`ios26-mobile-dropdown-content ${isDropdownOpen ? 'show' : ''}`}>
-              <Link to="/projects" className="ios26-mobile-dropdown-link" onClick={handleLinkClick}>
-                Computer Science
-              </Link>
-              <Link to="/music" className="ios26-mobile-dropdown-link" onClick={handleLinkClick}>
-                Music
-              </Link>
-              <Link to="/photography" className="ios26-mobile-dropdown-link" onClick={handleLinkClick}>
-                Photography
-              </Link>
-              <Link to="/gameDevelopment" className="ios26-mobile-dropdown-link" onClick={handleLinkClick}>
-                Game Dev
-              </Link>
-            </div>
-          </div>
-          
+
           <Link to="/contact" className="ios26-mobile-item" onClick={handleLinkClick}>
             Contact
           </Link>

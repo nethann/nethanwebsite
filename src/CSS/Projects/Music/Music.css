@@ -26,18 +26,18 @@
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); */
 
     padding: 1.5rem;
-    
+
     text-align: center;
     font-size: 18px;
-    color: rgba(255, 255, 255, 0.7);
+    color: #6b7280;
     width: 100%;
 }
 
 .typewriter-text {
-    font-size: 3rem; 
+    font-size: 3rem;
     display: inline-block;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.95);
+    color: #0a0a0a;
 }
 
 .my-instruments-section {
@@ -65,10 +65,10 @@
 
 /* Modern Instrument Cards with Icons */
 .instrument-card-modern {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: 16px;
     padding: 2rem 1.5rem;
 
@@ -81,6 +81,7 @@
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .instrument-card-modern::before {
@@ -91,19 +92,17 @@
     right: 0;
     bottom: 0;
     background: linear-gradient(135deg,
-        rgba(59, 130, 246, 0.1) 0%,
-        rgba(147, 51, 234, 0.1) 100%);
+        rgba(59, 130, 246, 0.05) 0%,
+        rgba(147, 51, 234, 0.05) 100%);
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
 .instrument-card-modern:hover {
     transform: translateY(-8px);
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.2);
-    box-shadow:
-        0 20px 40px rgba(0, 0, 0, 0.4),
-        0 8px 16px rgba(59, 130, 246, 0.2);
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
 }
 
 .instrument-card-modern:hover::before {
@@ -112,14 +111,14 @@
 
 .instrument-icon {
     font-size: 3rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: #0a0a0a;
     transition: all 0.3s ease;
     z-index: 1;
     position: relative;
 }
 
 .instrument-card-modern:hover .instrument-icon {
-    color: rgba(255, 255, 255, 1);
+    color: #6366f1;
     transform: scale(1.1);
 }
 
@@ -127,7 +126,7 @@
     font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
     font-size: 1rem;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.9);
+    color: #0a0a0a;
     text-align: center;
     z-index: 1;
     position: relative;
@@ -135,7 +134,7 @@
 }
 
 .instrument-card-modern:hover .instrument-name {
-    color: rgba(255, 255, 255, 1);
+    color: #6366f1;
 }
 
 .experience-charts-holder {
@@ -147,13 +146,13 @@
 
 .music-experience-chart {
     /* Glass styling */
-    background: rgba(255, 255, 255, 0.01);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.02);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+
     width: 100%;
     padding: 1.25rem;
 }
@@ -174,22 +173,22 @@
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    
+
     /* Glass styling */
-    background: rgba(255, 255, 255, 0.01);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.02);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+
     width: 100%;
     padding: 1.25rem;
 }
 
 .where-i-played h3 {
     text-align: center;
-    color: rgba(255, 255, 255, 0.95);
+    color: #0a0a0a;
     font-weight: 600;
     margin: 0 0 1rem 0;
 }
@@ -211,12 +210,12 @@
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
-    
+
     /* Glass styling */
-    background: rgba(255, 255, 255, 0.015);
-    border: 1px solid rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: 12px;
-    
+
     width: 100%;
     padding: 1rem;
 }
@@ -235,12 +234,12 @@
 .places-played-title {
     font-size: 14px;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.95);
+    color: #0a0a0a;
 }
 
 .places-played-card-description ul {
     font-size: 12px;
-    color: rgba(255, 255, 255, 0.7);
+    color: #4b5563;
 }
 
 .music-year-counter-holder {
@@ -256,15 +255,15 @@
     flex-direction: column;
     gap: 1.5rem;
     width: 100%;
-    
+
     /* Glass container */
-    background: rgba(255, 255, 255, 0.01);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.02);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: 20px;
     padding: 1.5rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .created-music-cards-holder {
@@ -278,24 +277,24 @@
 .music-card {
     display: flex;
     flex-direction: column;
-    
+
     /* Glass styling */
-    background: rgba(255, 255, 255, 0.01);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.02);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+
     overflow: hidden;
     transition: all 0.3s ease;
 }
 
 .music-card:hover {
-    background: rgba(255, 255, 255, 0.015);
-    border-color: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(0, 0, 0, 0.1);
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
 }
 
 .music-vid-model {
@@ -313,11 +312,11 @@
 
 
 .Instrument-played {
-    background: rgba(255, 255, 255, 0.015);
-    border: 1px solid rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: 12px;
     padding: 12px;
-    color: rgba(255, 255, 255, 0.9);
+    color: #0a0a0a;
     font-size: 12px;
     font-weight: 500;
 }
@@ -329,12 +328,12 @@
 /* Minimal glass instrument cards */
 .InstrumentCard {
     /* Glass styling */
-    background: rgba(255, 255, 255, 0.01);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.02);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(30px) saturate(180%);
+    -webkit-backdrop-filter: blur(30px) saturate(180%);
+    border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: 16px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 
     display: flex;
     align-items: center;
@@ -347,10 +346,10 @@
 }
 
 .InstrumentCard:hover {
-    background: rgba(255, 255, 255, 0.015);
-    border-color: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.85);
+    border-color: rgba(0, 0, 0, 0.1);
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
 }
 
 .Instrument-Img {
@@ -367,7 +366,7 @@
     background: transparent;
     font-size: 14px;
     font-weight: 500;
-    color: rgba(255, 255, 255, 0.9);
+    color: #0a0a0a;
     text-align: center;
 }
 

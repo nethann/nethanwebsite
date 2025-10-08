@@ -55,7 +55,7 @@
     font-size: 1rem;
     font-weight: 600;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    color: rgba(255, 255, 255, 0.95);
+    color: #0a0a0a;
     line-height: 1.4;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -79,11 +79,11 @@
     font-size: 0.875rem;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-weight: 400;
-    color: rgba(255, 255, 255, 0.6);
+    color: #6b7280;
     flex-grow: 1;
     line-height: 1.5;
     display: -webkit-box;
-    -webkit-line-clamp: 3; 
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -104,39 +104,42 @@
     font-weight: 500;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: rgba(255, 255, 255, 0.8);
-    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #4b5563;
+    background: rgba(0, 0, 0, 0.02);
     width: auto;
     transition: all 0.3s ease;
 }
 
 /* Language-specific Badge Styling */
 .Special-JS {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: rgba(255, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #4b5563;
 }
 
 .Special-Py {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    color: rgba(255, 255, 255, 0.8);
+    background: rgba(0, 0, 0, 0.02);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: #4b5563;
 }
 
 .Git-Card:hover .Languages {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.15);
+    color: #0a0a0a;
 }
 
 .Git-Card:hover .Special-JS {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.15);
+    color: #0a0a0a;
 }
 
 .Git-Card:hover .Special-Py {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.04);
+    border-color: rgba(0, 0, 0, 0.15);
+    color: #0a0a0a;
 }
 
 /* Simple Liquid Cursor Following Hover Effect */
