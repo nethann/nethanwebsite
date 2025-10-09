@@ -14,7 +14,7 @@ const importAll = (r) =>
 
 // Import from all category subfolders
 const importFromCategories = () => {
-  const categories = ['Portraits', 'Events', 'Nature', 'Architecture', 'Creative'];
+  const categories = ['Portraits', 'Events', 'Nature', 'Wildlife', 'Architecture', 'Creative'];
   let allImages = [];
 
   categories.forEach(category => {
@@ -33,7 +33,7 @@ const importFromCategories = () => {
 
 const originalImages = importFromCategories();
 
-const categories = ['All', 'Portraits', 'Events', 'Nature', 'Architecture', 'Creative'];
+const categories = ['All', 'Portraits', 'Events', 'Nature', 'Wildlife', 'Architecture', 'Creative'];
 
 export default function Photography() {
   const [selectedCategory, setSelectedCategory] = useState('All');
