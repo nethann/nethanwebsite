@@ -455,10 +455,10 @@
 }
 
 .dynamic-island.expanded {
-  width: 420px;
-  height: 280px;
+  width: 480px;
+  height: 340px;
   border-radius: 24px;
-  padding: 18px;
+  padding: 20px;
   background: rgba(255, 255, 255, 0.9) !important;
   backdrop-filter: blur(30px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(30px) saturate(180%) !important;
@@ -770,7 +770,7 @@
 .expanded-section {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   height: 100%;
   justify-content: center;
 }
@@ -871,34 +871,43 @@
   color: rgba(0, 0, 0, 0.5);
 }
 
-/* Weather Row */
-.weather-row {
+/* Site Last Updated Row */
+.site-updated-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 8px 12px;
-  background: rgba(255, 193, 7, 0.05);
-  border: 1px solid rgba(255, 193, 7, 0.15);
+  gap: 10px;
+  padding: 8px 10px;
+  background: rgba(139, 92, 246, 0.05);
+  border: 1px solid rgba(139, 92, 246, 0.15);
   border-radius: 10px;
 }
 
-.weather-temp {
-  font-size: 13px;
-  font-weight: 600;
-  color: rgba(0, 0, 0, 0.85);
+.update-icon {
+  font-size: 16px;
+  color: rgba(139, 92, 246, 0.85);
+  flex-shrink: 0;
 }
 
-.weather-condition {
+.update-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow: hidden;
+  flex: 1;
+}
+
+.update-label {
   font-size: 11px;
   font-weight: 500;
-  color: rgba(0, 0, 0, 0.7);
-  text-transform: capitalize;
+  color: rgba(0, 0, 0, 0.6);
+  white-space: nowrap;
 }
 
-.weather-location {
-  font-size: 10px;
-  font-weight: 400;
-  color: rgba(0, 0, 0, 0.5);
+.update-time {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(139, 92, 246, 0.9);
+  white-space: nowrap;
 }
 
 /* Social Media Section */
@@ -1046,22 +1055,22 @@
   }
 }
 
-/* Spotify Integration Styles */
-.spotify-minimal {
+/* Music Integration Styles (Apple Music / Last.fm) */
+.music-minimal {
   padding: 8px 12px;
   min-width: 250px;
   justify-content: flex-start;
   gap: 10px;
 }
 
-.spotify-minimal-with-art {
+.music-minimal-with-art {
   padding: 6px 12px;
   min-width: 280px;
   justify-content: flex-start;
   gap: 10px;
 }
 
-.spotify-minimal-album-art {
+.music-minimal-album-art {
   width: 32px;
   height: 32px;
   border-radius: 4px;
@@ -1070,40 +1079,40 @@
   flex-shrink: 0;
 }
 
-.spotify-icon {
-  color: #1db954;
+.music-icon {
+  color: #fa243c;
   font-size: 16px;
   flex-shrink: 0;
   position: relative;
   z-index: 2;
   padding: 8px;
   border-radius: 50%;
-  background: rgba(29, 185, 84, 0.12);
+  background: rgba(250, 36, 60, 0.12);
   backdrop-filter: blur(8px);
   box-shadow:
-    0 0 0 1px rgba(29, 185, 84, 0.2),
-    0 2px 8px rgba(29, 185, 84, 0.15);
-  animation: spotifyPillPulse 3s ease-in-out infinite;
+    0 0 0 1px rgba(250, 36, 60, 0.2),
+    0 2px 8px rgba(250, 36, 60, 0.15);
+  animation: musicPillPulse 3s ease-in-out infinite;
 }
 
-@keyframes spotifyPillPulse {
+@keyframes musicPillPulse {
   0%, 100% {
-    background: rgba(29, 185, 84, 0.1);
+    background: rgba(250, 36, 60, 0.1);
     box-shadow:
-      0 0 0 1px rgba(29, 185, 84, 0.15),
-      0 2px 8px rgba(29, 185, 84, 0.1);
+      0 0 0 1px rgba(250, 36, 60, 0.15),
+      0 2px 8px rgba(250, 36, 60, 0.1);
     transform: scale(1);
   }
   50% {
-    background: rgba(29, 185, 84, 0.2);
+    background: rgba(250, 36, 60, 0.2);
     box-shadow:
-      0 0 0 1px rgba(29, 185, 84, 0.3),
-      0 4px 12px rgba(29, 185, 84, 0.25);
+      0 0 0 1px rgba(250, 36, 60, 0.3),
+      0 4px 12px rgba(250, 36, 60, 0.25);
     transform: scale(1.05);
   }
 }
 
-.spotify-minimal-info {
+.music-minimal-info {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -1131,16 +1140,16 @@
   width: 100%;
 }
 
-/* Expanded Spotify Styles */
-.spotify-row {
+/* Expanded Music Styles */
+.music-row {
   padding: 10px;
-  background: rgba(29, 185, 84, 0.05);
-  border: 1px solid rgba(29, 185, 84, 0.15);
+  background: rgba(250, 36, 60, 0.05);
+  border: 1px solid rgba(250, 36, 60, 0.15);
   border-radius: 12px;
   margin-bottom: 8px;
 }
 
-.spotify-info {
+.music-info {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -1189,14 +1198,14 @@
   text-overflow: ellipsis;
 }
 
-.spotify-icon-large {
-  color: #1db954;
+.music-icon-large {
+  color: #fa243c;
   font-size: 24px;
   flex-shrink: 0;
-  animation: spotifyPulse 2s ease-in-out infinite;
+  animation: musicPulse 2s ease-in-out infinite;
 }
 
-@keyframes spotifyPulse {
+@keyframes musicPulse {
   0%, 100% {
     transform: scale(1);
     opacity: 0.8;
@@ -1207,81 +1216,27 @@
   }
 }
 
-/* Spotify Authentication Styles */
-.spotify-auth {
-  cursor: pointer;
-  justify-content: center;
-  gap: 8px;
+/* Different Music states */
+.music-idle {
+  background: rgba(250, 36, 60, 0.02);
+  border: 1px solid rgba(250, 36, 60, 0.1);
 }
 
-.spotify-auth:hover {
-  transform: scale(1.05);
+.music-recent {
+  background: rgba(250, 36, 60, 0.03);
+  border: 1px solid rgba(250, 36, 60, 0.12);
 }
 
-.login-icon {
-  font-size: 14px;
-  opacity: 0.8;
-  color: rgba(0, 0, 0, 0.7);
-}
-
-/* Spotify Button Styles */
-.spotify-login-btn,
-.spotify-logout-btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 12px;
-  border: 1px solid rgba(29, 185, 84, 0.3);
-  border-radius: 16px;
-  background: rgba(29, 185, 84, 0.1);
-  color: #1db954;
-  font-size: 12px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  font-family: inherit;
-}
-
-.spotify-login-btn:hover,
-.spotify-logout-btn:hover {
-  background: rgba(29, 185, 84, 0.2);
-  border-color: rgba(29, 185, 84, 0.5);
-  transform: translateY(-1px);
-}
-
-.spotify-logout-btn {
-  background: rgba(231, 76, 60, 0.1);
-  border-color: rgba(231, 76, 60, 0.3);
-  color: #e74c3c;
-}
-
-.spotify-logout-btn:hover {
-  background: rgba(231, 76, 60, 0.2);
-  border-color: rgba(231, 76, 60, 0.5);
-}
-
-/* Different Spotify states */
-.spotify-idle {
-  background: rgba(29, 185, 84, 0.02);
-  border: 1px solid rgba(29, 185, 84, 0.1);
-}
-
-.spotify-recent {
-  background: rgba(29, 185, 84, 0.03);
-  border: 1px solid rgba(29, 185, 84, 0.12);
-}
-
-.spotify-recent-icon {
+.music-recent-icon {
   opacity: 0.6;
   animation: none;
 }
 
-.spotify-minimal.recent .spotify-icon {
+.music-minimal.recent .music-icon {
   opacity: 0.7;
 }
 
-.spotify-minimal.recent .artist-name {
+.music-minimal.recent .artist-name {
   color: rgba(0, 0, 0, 0.45);
 }
 

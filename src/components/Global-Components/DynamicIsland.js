@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { FaCode, FaMusic, FaClock, FaInstagram, FaLinkedinIn, FaTiktok, FaYoutube, FaSpotify } from 'react-icons/fa';
+import { FaCode, FaMusic, FaClock, FaInstagram, FaLinkedinIn, FaTiktok, FaYoutube } from 'react-icons/fa';
 import { AiFillGithub } from 'react-icons/ai';
 import { MdNotifications, MdCheck } from 'react-icons/md';
-import nethanSpotify from '../../services/nethanSpotify';
 import '../../CSS/Global/DynamicIsland.css';
 
 export default function DynamicIsland() {
@@ -19,16 +18,17 @@ export default function DynamicIsland() {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [notification, setNotification] = useState(null);
   const [isNotificationHiding, setIsNotificationHiding] = useState(false);
-  const [spotifyData, setSpotifyData] = useState(null);
   const [showFloatingTooltip, setShowFloatingTooltip] = useState(false);
   const [previewIconIndex, setPreviewIconIndex] = useState(0);
   const [currentActivity, setCurrentActivity] = useState('Building cool things');
   const [latestCommit, setLatestCommit] = useState(null);
+  const [siteLastUpdated, setSiteLastUpdated] = useState(null);
 
-  // Fetch latest GitHub commit
+  // Fetch latest GitHub commit for this specific repository
   useEffect(() => {
     const fetchLatestCommit = async () => {
       try {
+        // Get all public events
         const response = await fetch(
           'https://api.github.com/users/nethann/events/public'
         );
@@ -44,6 +44,22 @@ export default function DynamicIsland() {
             });
           }
         }
+
+        // Get the last commit specifically for this website repository
+        const repoResponse = await fetch(
+          'https://api.github.com/repos/nethann/nethanwebsite/commits?per_page=1'
+        );
+        if (repoResponse.ok) {
+          const commits = await repoResponse.json();
+          if (commits.length > 0) {
+            const lastCommit = commits[0];
+            setSiteLastUpdated({
+              message: lastCommit.commit.message,
+              time: lastCommit.commit.author.date,
+              sha: lastCommit.sha.substring(0, 7)
+            });
+          }
+        }
       } catch (error) {
         console.error('Error fetching GitHub commits:', error);
       }
@@ -55,30 +71,6 @@ export default function DynamicIsland() {
     return () => clearInterval(commitInterval);
   }, []);
 
-  // Fetch Nethan's Spotify data
-  useEffect(() => {
-    // Nethan's Spotify data fetching
-    const fetchNethanSpotify = async () => {
-      try {
-        const currentTrack = await nethanSpotify.getCurrentOrRecent();
-        console.log('Nethan\'s current track:', currentTrack);
-        setSpotifyData(currentTrack);
-      } catch (error) {
-        console.error('Error fetching Nethan\'s Spotify data:', error);
-        setSpotifyData(null);
-      }
-    };
-
-    // Initial fetch
-    fetchNethanSpotify();
-
-    // Set up interval
-    const spotifyInterval = setInterval(fetchNethanSpotify, 10000); // Every 10 seconds
-
-    return () => {
-      clearInterval(spotifyInterval);
-    };
-  }, []);
 
   // Time updates
   useEffect(() => {
@@ -204,37 +196,6 @@ export default function DynamicIsland() {
       );
     }
     
-    // Show current playing song with album art
-    if (spotifyData && spotifyData.isPlaying) {
-      return (
-        <div className="dynamic-island-content spotify-minimal-with-art">
-          <img 
-            src={spotifyData.albumArt} 
-            alt="Album Art" 
-            className="spotify-minimal-album-art" 
-          />
-          <FaSpotify className="spotify-icon" />
-          <div className="spotify-minimal-info">
-            <span className="song-title">{spotifyData.song}</span>
-            <span className="artist-name">{spotifyData.artist}</span>
-          </div>
-        </div>
-      );
-    }
-
-    // Show recently played song
-    if (spotifyData && spotifyData.wasRecentlyPlayed) {
-      return (
-        <div className="dynamic-island-content spotify-minimal recent">
-          <FaSpotify className="spotify-icon" />
-          <div className="spotify-minimal-info">
-            <span className="song-title">{spotifyData.song}</span>
-            <span className="artist-name">Recently played</span>
-          </div>
-        </div>
-      );
-    }
-    
     // Show rotating social icon preview
     const currentSocial = socialLinks[previewIconIndex];
     const IconComponent = currentSocial.icon;
@@ -283,30 +244,13 @@ export default function DynamicIsland() {
             </div>
           )}
 
-          {spotifyData && spotifyData.isPlaying && (
-            <div className="spotify-row">
-              <div className="spotify-info">
-                <img src={spotifyData.albumArt} alt="Album Art" className="album-art" />
-                <div className="track-info">
-                  <div className="track-title">{spotifyData.song}</div>
-                  <div className="track-artist">{spotifyData.artist}</div>
-                  <div className="track-album">{spotifyData.album}</div>
-                </div>
-                <FaSpotify className="spotify-icon-large" />
-              </div>
-            </div>
-          )}
-
-          {spotifyData && spotifyData.wasRecentlyPlayed && (
-            <div className="spotify-row spotify-recent">
-              <div className="spotify-info">
-                <img src={spotifyData.albumArt} alt="Album Art" className="album-art" />
-                <div className="track-info">
-                  <div className="track-title">{spotifyData.song}</div>
-                  <div className="track-artist">{spotifyData.artist}</div>
-                  <div className="track-album">Recently played</div>
-                </div>
-                <FaSpotify className="spotify-icon-large spotify-recent-icon" />
+          {/* Site Last Updated */}
+          {siteLastUpdated && (
+            <div className="site-updated-row">
+              <FaCode className="update-icon" />
+              <div className="update-info">
+                <div className="update-label">Site last updated</div>
+                <div className="update-time">{getTimeAgo(siteLastUpdated.time)}</div>
               </div>
             </div>
           )}
