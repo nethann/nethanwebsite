@@ -68,7 +68,6 @@ export default function Contact() {
         <div className="contact-hero" data-aos="fade-up">
           <h1>Let's Work Together</h1>
           <p>Ready to start something amazing? Get in touch and let's make it happen.</p>
-          <p className="location">📍 Atlanta, Georgia, United States</p>
         </div>
 
         <div className="contact-form-wrapper" data-aos="fade-up" data-aos-delay="100">
