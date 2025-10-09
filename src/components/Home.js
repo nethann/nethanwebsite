@@ -203,8 +203,6 @@ const Home = () => {
                         {latestVideo ? (
                             <div className="youtube-embed">
                                 <iframe
-                                    width="100%"
-                                    height="400"
                                     src={`https://www.youtube.com/embed/${latestVideo}`}
                                     title="Latest Music Performance"
                                     frameBorder="0"
