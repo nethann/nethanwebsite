@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaCode, FaMusic, FaClock, FaInstagram, FaLinkedinIn, FaTiktok, FaYoutube } from 'react-icons/fa';
 import { AiFillGithub } from 'react-icons/ai';
-import { MdNotifications, MdCheck } from 'react-icons/md';
+import { MdNotifications, MdCheck, MdError } from 'react-icons/md';
 import '../../CSS/Global/DynamicIsland.css';
 
 export default function DynamicIsland() {
@@ -255,9 +255,15 @@ export default function DynamicIsland() {
 
   const getMinimalContent = () => {
     if (notification) {
+      const getNotificationIcon = () => {
+        if (notification?.type === 'success') return <MdCheck />;
+        if (notification?.type === 'error') return <MdError />;
+        return <MdNotifications />;
+      };
+
       return (
         <div className="dynamic-island-content notification">
-          {notification?.type === 'success' ? <MdCheck /> : <MdNotifications />}
+          {getNotificationIcon()}
           <span>{notification?.message}</span>
         </div>
       );
@@ -370,7 +376,7 @@ export default function DynamicIsland() {
   return (
     <div className="dynamic-island-container">
       <div
-        className={`dynamic-island ${notification ? 'notification' : 'minimal'} ${isExpanded ? 'expanded' : ''} ${isNotificationHiding ? 'hiding' : ''}`}
+        className={`dynamic-island ${notification ? `notification notification-${notification.type}` : 'minimal'} ${isExpanded ? 'expanded' : ''} ${isNotificationHiding ? 'hiding' : ''}`}
         onMouseEnter={() => !notification && setIsExpanded(true)}
         onMouseLeave={() => setIsExpanded(false)}
       >
