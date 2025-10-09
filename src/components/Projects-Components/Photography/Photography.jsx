@@ -4,6 +4,11 @@ import "../../../CSS/Projects/Photography/Photography.css";
 import Aos from 'aos';
 import "aos/dist/aos.css";
 
+// Review components
+import ReviewModal from '../../Global-Components/ReviewModal';
+import ReviewDisplay from '../../Global-Components/ReviewDisplay';
+import { getReviewsByCategory } from '../../../services/reviewService';
+
 // Import all images from category subfolders
 const importAll = (r) =>
   r.keys().map((key) => ({
@@ -37,15 +42,32 @@ const categories = ['All', 'Portraits', 'Events', 'Nature', 'Wildlife', 'Archite
 
 export default function Photography() {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
+  const [reviews, setReviews] = useState([]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    // Load reviews
+    const photographyReviews = getReviewsByCategory('photography');
+    setReviews(photographyReviews);
+
+    // Expose function for Dynamic Island to open review modal
+    window.openReviewModal = (category) => {
+      if (category === 'photography') {
+        setIsReviewModalOpen(true);
+      }
+    };
 
     Aos.init({
       duration: 500,
       easing: 'ease-in-out',
       once: true
     });
+
+    return () => {
+      delete window.openReviewModal;
+    };
   }, []);
 
   // Shuffle once on first render
@@ -194,6 +216,21 @@ export default function Photography() {
           ))}
         </div>
       </section>
+
+      {/* Reviews Section */}
+      <ReviewDisplay
+        reviews={reviews}
+        category="photography"
+        onAddReviewClick={() => setIsReviewModalOpen(true)}
+      />
+
+      {/* Review Modal */}
+      <ReviewModal
+        isOpen={isReviewModalOpen}
+        onClose={() => setIsReviewModalOpen(false)}
+        category="photography"
+      />
+
       </div>
     </div>
   );

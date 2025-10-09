@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import "../../../CSS/Global/Global.css"
 import "../../../CSS/Projects/Music/Music.css"
@@ -17,13 +17,36 @@ import Typewriter from 'typewriter-effect';
 import Aos from 'aos';
 import "aos/dist/aos.css"
 
+// Review components
+import ReviewModal from '../../Global-Components/ReviewModal'
+import ReviewDisplay from '../../Global-Components/ReviewDisplay'
+import { getReviewsByCategory } from '../../../services/reviewService'
+
 //importing music videos
 import Birds_of_feather from "./Music_Vids/Birds_of_a_feather.mp4"
 import JamTrack1_bossa_nova from "./Music_Vids/JamTrack1_BossaNova.mp4"
 
 export default function Music() {
+  const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
+  const [reviews, setReviews] = useState([]);
+
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    // Load reviews
+    const musicReviews = getReviewsByCategory('music');
+    setReviews(musicReviews);
+
+    // Expose function for Dynamic Island to open review modal
+    window.openReviewModal = (category) => {
+      if (category === 'music') {
+        setIsReviewModalOpen(true);
+      }
+    };
+
+    return () => {
+      delete window.openReviewModal;
+    };
   }, []);
 
   Aos.init({
@@ -208,7 +231,19 @@ export default function Music() {
           <YouTubeChannels />
         </div>
 
+        {/* Reviews Section */}
+        <ReviewDisplay
+          reviews={reviews}
+          category="music"
+          onAddReviewClick={() => setIsReviewModalOpen(true)}
+        />
 
+        {/* Review Modal */}
+        <ReviewModal
+          isOpen={isReviewModalOpen}
+          onClose={() => setIsReviewModalOpen(false)}
+          category="music"
+        />
 
       </div>
     </div>

@@ -1,6 +1,6 @@
 // Home.js
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import '../CSS/Global/Global.css';
@@ -8,6 +8,10 @@ import '../CSS/Home/Home.css';
 
 import Aos from 'aos';
 import "aos/dist/aos.css";
+
+// Review service
+import { getLatestReviews, formatDate } from '../services/reviewService';
+import { FaStar } from 'react-icons/fa';
 
 // Profile photo
 import NethanPC from './Projects-Components/Photography/Photograph_Images/Portraits/nethan1.jpg';
@@ -23,8 +27,9 @@ const allPhotos = importAll(
 );
 
 const Home = () => {
-    const [featuredPhotos, setFeaturedPhotos] = React.useState([]);
-    const [latestVideo, setLatestVideo] = React.useState(null);
+    const [featuredPhotos, setFeaturedPhotos] = useState([]);
+    const [latestVideo, setLatestVideo] = useState(null);
+    const [latestReviews, setLatestReviews] = useState([]);
 
     useEffect(() => {
         Aos.init({
@@ -36,6 +41,10 @@ const Home = () => {
         // Randomize 6 photos from portfolio
         const shuffled = [...allPhotos].sort(() => 0.5 - Math.random());
         setFeaturedPhotos(shuffled.slice(0, 6));
+
+        // Load latest reviews
+        const reviews = getLatestReviews(4);
+        setLatestReviews(reviews);
 
         // Fetch latest YouTube video from both channels
         const fetchLatestVideo = async () => {
@@ -146,10 +155,24 @@ const Home = () => {
                         <p className="offer-description">
                             Portraits, events, creative shots, brand sessions. I capture moments that tell your story with authenticity and style.
                         </p>
-                        <div className="testimonial">
-                            <p>"Nethan's eye for detail is incredible. Every shot was perfection!"</p>
-                            <span>— Happy Client</span>
-                        </div>
+                        {latestReviews.filter(r => r.category === 'photography')[0] ? (
+                            <div className="testimonial">
+                                <div className="testimonial-stars">
+                                    {[1, 2, 3, 4, 5].map((star) => (
+                                        <FaStar
+                                            key={star}
+                                            className={star <= latestReviews.filter(r => r.category === 'photography')[0].rating ? 'star-filled' : 'star-empty'}
+                                        />
+                                    ))}
+                                </div>
+                                <p>"{latestReviews.filter(r => r.category === 'photography')[0].comment}"</p>
+                                <span>— {latestReviews.filter(r => r.category === 'photography')[0].name}</span>
+                            </div>
+                        ) : (
+                            <div className="testimonial no-review">
+                                <p>Be the first to leave a review!</p>
+                            </div>
+                        )}
                         <Link to="/photography" className="offer-button">
                             View Photography Portfolio →
                         </Link>
@@ -161,10 +184,24 @@ const Home = () => {
                         <p className="offer-description">
                             Live gigs, production, custom beats, sound design. From performance to production, I bring your sound to life.
                         </p>
-                        <div className="testimonial">
-                            <p>"Professional, talented, and easy to work with. 10/10 would book again!"</p>
-                            <span>— Event Organizer</span>
-                        </div>
+                        {latestReviews.filter(r => r.category === 'music')[0] ? (
+                            <div className="testimonial">
+                                <div className="testimonial-stars">
+                                    {[1, 2, 3, 4, 5].map((star) => (
+                                        <FaStar
+                                            key={star}
+                                            className={star <= latestReviews.filter(r => r.category === 'music')[0].rating ? 'star-filled' : 'star-empty'}
+                                        />
+                                    ))}
+                                </div>
+                                <p>"{latestReviews.filter(r => r.category === 'music')[0].comment}"</p>
+                                <span>— {latestReviews.filter(r => r.category === 'music')[0].name}</span>
+                            </div>
+                        ) : (
+                            <div className="testimonial no-review">
+                                <p>Be the first to leave a review!</p>
+                            </div>
+                        )}
                         <Link to="/music" className="offer-button">
                             Listen & Book →
                         </Link>

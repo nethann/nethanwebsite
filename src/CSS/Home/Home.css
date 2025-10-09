@@ -819,12 +819,38 @@ body {
     margin: 0.5rem 0;
 }
 
+.testimonial.no-review {
+    border-left-color: rgba(0, 0, 0, 0.05);
+    background: rgba(0, 0, 0, 0.01);
+}
+
+.testimonial-stars {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 0.75rem;
+}
+
+.testimonial-stars .star-filled {
+    color: #ffd700;
+    font-size: 14px;
+}
+
+.testimonial-stars .star-empty {
+    color: rgba(0, 0, 0, 0.15);
+    font-size: 14px;
+}
+
 .testimonial p {
     font-size: 0.95rem;
     color: #374151;
     font-style: italic;
     margin: 0 0 0.5rem 0;
     line-height: 1.6;
+}
+
+.testimonial.no-review p {
+    font-style: normal;
+    color: #9ca3af;
 }
 
 .testimonial span {
