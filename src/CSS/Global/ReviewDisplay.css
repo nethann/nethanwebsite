@@ -1,16 +1,9 @@
 /* Review Display Styles */
 .reviews-section {
   padding: 60px 20px;
-  max-width: 100%;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  margin-right: calc(-50vw + 50%);
-}
-
-.reviews-section > * {
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .reviews-header {
