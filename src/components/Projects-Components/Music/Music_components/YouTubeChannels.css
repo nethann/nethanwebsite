@@ -35,13 +35,13 @@
 }
 
 .tab-button {
-  /* Modern pill-style tabs */
-  background: rgba(255, 255, 255, 0.7);
+  /* Clean professional tabs */
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(30px) saturate(180%);
   -webkit-backdrop-filter: blur(30px) saturate(180%);
 
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
   padding: 0.75rem 2rem;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -52,20 +52,24 @@
   text-align: center;
   min-width: 160px;
 
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
 .tab-button:hover {
-  background: rgba(255, 255, 255, 0.85);
-  border-color: rgba(0, 0, 0, 0.12);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(0, 0, 0, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 .tab-button.active {
-  background: rgba(99, 102, 241, 0.1);
-  border-color: rgba(99, 102, 241, 0.3);
-  box-shadow: 0 4px 16px rgba(99, 102, 241, 0.15);
+  background: #000000;
+  border-color: #000000;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.tab-button.active .tab-name {
+  color: #ffffff;
 }
 
 .tab-name {
