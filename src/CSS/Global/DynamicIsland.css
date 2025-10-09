@@ -289,11 +289,169 @@
 
 .dynamic-island.notification {
   width: auto;
-  min-width: 180px;
-  height: 44px;
+  min-width: 220px;
+  height: 50px;
   padding: 0 16px;
-  background: rgba(34, 197, 94, 0.15);
-  border-color: rgba(34, 197, 94, 0.3);
+  background: rgba(34, 197, 94, 0.95);
+  border-color: rgba(34, 197, 94, 0.8);
+  animation:
+    liquidExpand 0.8s cubic-bezier(0.34, 1.56, 0.64, 1),
+    notificationPulse 2s ease-in-out infinite 0.8s,
+    liquidMorphNotification 4s ease-in-out infinite 1s;
+  box-shadow:
+    0 10px 32px rgba(34, 197, 94, 0.4),
+    0 6px 16px rgba(34, 197, 94, 0.3),
+    0 0 0 3px rgba(34, 197, 94, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transform-origin: center;
+  overflow: hidden;
+}
+
+.dynamic-island.notification.hiding {
+  animation:
+    liquidShrink 0.8s cubic-bezier(0.36, 0, 0.66, -0.56) forwards;
+}
+
+/* Liquid expand animation - starts from minimal island size */
+@keyframes liquidExpand {
+  0% {
+    width: 44px;
+    height: 44px;
+    border-radius: 50px;
+    padding: 0;
+    min-width: 44px;
+  }
+  15% {
+    width: 55px;
+    height: 48px;
+    border-radius: 60px 40px 60px 40px;
+  }
+  30% {
+    width: 90px;
+    height: 52px;
+    border-radius: 45px 65px 45px 65px;
+  }
+  45% {
+    width: 150px;
+    height: 48px;
+    border-radius: 70px 30px 70px 30px;
+  }
+  60% {
+    width: 200px;
+    height: 52px;
+    border-radius: 55px 45px 55px 45px;
+    padding: 0 12px;
+  }
+  75% {
+    width: 230px;
+    height: 48px;
+    border-radius: 65px 35px 65px 35px;
+    padding: 0 14px;
+  }
+  85% {
+    width: 225px;
+    height: 52px;
+    border-radius: 48px 52px 48px 52px;
+  }
+  100% {
+    width: 220px;
+    height: 50px;
+    border-radius: 50px;
+    padding: 0 16px;
+    min-width: 220px;
+  }
+}
+
+/* Liquid shrink animation - returns to minimal island size */
+@keyframes liquidShrink {
+  0% {
+    width: 220px;
+    height: 50px;
+    border-radius: 50px;
+    padding: 0 16px;
+    opacity: 1;
+  }
+  15% {
+    width: 225px;
+    height: 52px;
+    border-radius: 48px 52px 48px 52px;
+  }
+  30% {
+    width: 200px;
+    height: 48px;
+    border-radius: 65px 35px 65px 35px;
+    padding: 0 12px;
+  }
+  45% {
+    width: 150px;
+    height: 52px;
+    border-radius: 70px 30px 70px 30px;
+  }
+  60% {
+    width: 90px;
+    height: 48px;
+    border-radius: 45px 65px 45px 65px;
+    padding: 0 8px;
+  }
+  75% {
+    width: 55px;
+    height: 46px;
+    border-radius: 60px 40px 60px 40px;
+    padding: 0;
+  }
+  90% {
+    width: 48px;
+    height: 45px;
+    border-radius: 55px 45px 55px 45px;
+    opacity: 0.7;
+  }
+  100% {
+    width: 44px;
+    height: 44px;
+    border-radius: 50px;
+    padding: 0;
+    min-width: 44px;
+    opacity: 0;
+  }
+}
+
+/* Organic liquid morphing while displayed */
+@keyframes liquidMorphNotification {
+  0%, 100% {
+    border-radius: 50px;
+  }
+  16% {
+    border-radius: 60px 40px 60px 40px;
+  }
+  33% {
+    border-radius: 45px 55px 45px 55px;
+  }
+  50% {
+    border-radius: 55px 45px 55px 45px;
+  }
+  66% {
+    border-radius: 48px 52px 48px 52px;
+  }
+  83% {
+    border-radius: 52px 48px 52px 48px;
+  }
+}
+
+@keyframes notificationPulse {
+  0%, 100% {
+    box-shadow:
+      0 10px 32px rgba(34, 197, 94, 0.4),
+      0 6px 16px rgba(34, 197, 94, 0.3),
+      0 0 0 3px rgba(34, 197, 94, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+  50% {
+    box-shadow:
+      0 12px 40px rgba(34, 197, 94, 0.6),
+      0 8px 24px rgba(34, 197, 94, 0.5),
+      0 0 0 6px rgba(34, 197, 94, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  }
 }
 
 .dynamic-island.expanded {
@@ -682,7 +840,43 @@
 
 /* Notification styles */
 .dynamic-island.notification .dynamic-island-content {
-  color: rgba(0, 0, 0, 0.85);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  gap: 10px;
+  animation: fadeIn 0.4s ease-in 0.4s backwards;
+}
+
+.dynamic-island.notification.hiding .dynamic-island-content {
+  animation: fadeOut 0.6s ease-out forwards;
+}
+
+.dynamic-island.notification .dynamic-island-content svg {
+  font-size: 18px;
+  color: #ffffff;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
 }
 
 /* Responsive design */

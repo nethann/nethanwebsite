@@ -18,6 +18,7 @@ export default function DynamicIsland() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [currentTime, setCurrentTime] = useState(new Date());
   const [notification, setNotification] = useState(null);
+  const [isNotificationHiding, setIsNotificationHiding] = useState(false);
   const [spotifyData, setSpotifyData] = useState(null);
   const [showFloatingTooltip, setShowFloatingTooltip] = useState(false);
   const [previewIconIndex, setPreviewIconIndex] = useState(0);
@@ -58,10 +59,50 @@ export default function DynamicIsland() {
   // Auto-hide notifications
   useEffect(() => {
     if (notification) {
-      const timer = setTimeout(() => {
+      setIsNotificationHiding(false);
+
+      // Play a subtle notification sound (using Web Audio API)
+      try {
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const oscillator = audioContext.createOscillator();
+        const gainNode = audioContext.createGain();
+
+        oscillator.connect(gainNode);
+        gainNode.connect(audioContext.destination);
+
+        oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+        oscillator.frequency.exponentialRampToValueAtTime(400, audioContext.currentTime + 0.1);
+
+        gainNode.gain.setValueAtTime(0.1, audioContext.currentTime);
+        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
+
+        oscillator.start(audioContext.currentTime);
+        oscillator.stop(audioContext.currentTime + 0.2);
+      } catch (e) {
+        // Silent fail if audio not supported
+        console.log('Audio notification not supported');
+      }
+
+      // Vibration for mobile devices
+      if (navigator.vibrate) {
+        navigator.vibrate([100, 50, 100]);
+      }
+
+      // Start hiding animation before removing notification
+      const hideTimer = setTimeout(() => {
+        setIsNotificationHiding(true);
+      }, 3200); // Start hiding at 3.2 seconds
+
+      // Remove notification after hide animation completes
+      const removeTimer = setTimeout(() => {
         setNotification(null);
-      }, 3000);
-      return () => clearTimeout(timer);
+        setIsNotificationHiding(false);
+      }, 4000); // Remove at 4 seconds (3.2s + 0.8s animation)
+
+      return () => {
+        clearTimeout(hideTimer);
+        clearTimeout(removeTimer);
+      };
     }
   }, [notification]);
 
@@ -272,7 +313,7 @@ export default function DynamicIsland() {
   return (
     <div className="dynamic-island-container">
       <div
-        className={`dynamic-island ${notification ? 'notification' : 'minimal'} ${isExpanded ? 'expanded' : ''}`}
+        className={`dynamic-island ${notification ? 'notification' : 'minimal'} ${isExpanded ? 'expanded' : ''} ${isNotificationHiding ? 'hiding' : ''}`}
         onMouseEnter={() => !notification && setIsExpanded(true)}
         onMouseLeave={() => setIsExpanded(false)}
       >
