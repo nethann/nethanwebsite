@@ -298,13 +298,13 @@
   -webkit-backdrop-filter: blur(20px) saturate(180%);
 }
 
-/* Success Notification (Green) - Morphs from Island */
+/* Success Notification (Blue Pill) - Morphs from Island */
 .dynamic-island.notification-success {
-  background: #10b981;
+  background: #3b82f6;
   border: 1px solid rgba(255, 255, 255, 0.2);
   animation: morphFromIsland 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   box-shadow:
-    0 10px 40px rgba(16, 185, 129, 0.25),
+    0 10px 40px rgba(59, 130, 246, 0.3),
     0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
