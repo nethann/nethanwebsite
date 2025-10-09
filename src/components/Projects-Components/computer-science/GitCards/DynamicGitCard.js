@@ -187,13 +187,13 @@ export default function DynamicGitCard({ gitName, description, Git_Link, languag
             <p className='Git-Name'>{gitName}</p>
           </div>
 
-          <div className='Git-Card-SecondSection'>
+          <div className='Git-Card-SecondSection' style={{ paddingBottom: '2.5rem' }}>
             <ul className='Ul'>
               <li className='git-Description'>{description}</li>
             </ul>
 
-            <div className='repo-meta' style={{ marginTop: '0.75rem' }}>
-              <div className='Lang-Container' style={{ display: 'flex', flexWrap: 'wrap', gap: '0.4rem', marginBottom: '0.5rem' }}>
+            <div className='repo-meta' style={{ position: 'absolute', bottom: '0', right: '0', width: '100%' }}>
+              <div className='Lang-Container'>
                 {loadingLanguages ? (
                   <div style={{
                     fontSize: '0.75rem',
