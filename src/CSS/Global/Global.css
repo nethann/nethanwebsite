@@ -13,7 +13,10 @@
 
     --clr-global-white: rgba(255, 255, 255, 0.664);
 
-    
+    /* Button hover text color - Change this to customize all button text on hover */
+    --button-hover-text-color: coral;
+
+
 
     /* span colors */
     --clr-1: #2eca9be0;
@@ -145,6 +148,44 @@ body {
 
 ::selection {
     background: var(--clr-1);
+}
+
+/* Selection color for buttons with dark backgrounds */
+.cta-primary::selection,
+.cta-button::selection,
+.contact-email::selection,
+.offer-button::selection,
+.pricing-button::selection,
+.submit-button::selection,
+button::selection,
+a[class*="button"]::selection {
+    background: #60d5ff;
+    color: #ffffff;
+}
+
+/* Remove default browser focus outline and add custom one */
+.cta-primary:focus,
+.cta-button:focus,
+.contact-email:focus,
+.offer-button:focus,
+.pricing-button:focus,
+.submit-button:focus,
+.category-btn:focus,
+button:focus,
+a[class*="button"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(96, 213, 255, 0.4);
+}
+
+/* Global button hover text color - applies to all buttons with dark backgrounds */
+.cta-primary:hover,
+.contact-email:hover,
+.offer-button:hover,
+.pricing-button:hover,
+.submit-button:hover,
+button[type="submit"]:hover,
+a[class*="button"]:hover {
+    color: var(--button-hover-text-color) !important;
 }
 
 
@@ -336,7 +377,7 @@ body {
 }
 
 .ios-container .pricing-button:hover {
-  background: #1a1a1a;
+  background: #2d2d2d;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }

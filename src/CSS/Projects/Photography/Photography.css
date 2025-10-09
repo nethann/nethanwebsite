@@ -228,7 +228,7 @@
 }
 
 .pricing-button:hover {
-  background: #1a1a1a;
+  background: #2d2d2d;
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
@@ -359,7 +359,7 @@
 }
 
 .category-btn.active:hover {
-  background: #1a1a1a;
+  background: #2d2d2d;
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
