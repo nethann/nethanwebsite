@@ -168,120 +168,203 @@ const YouTubeChannels = () => {
 
   // Fallback data function
   const getFallbackData = (channelId) => {
+    console.log('Using fallback data for channel:', channelId);
     if (channelId === 'UCcjyzmhL8hoJEQhjNin3wdw') {
+      console.log('Returning Nethan Journey mock data:', mockData.nethan_journey);
       return mockData.nethan_journey;
     }
-    return mockData.worship_avenue || { videos: [], shorts: [] };
+    if (channelId === 'UCzhoMRmdkQLjr7O3PoddKPw') {
+      console.log('Returning Worship Avenue mock data:', mockData.worship_avenue);
+      return mockData.worship_avenue;
+    }
+    return { videos: [], shorts: [] };
   };
 
-  // Mock data - Replace with actual YouTube API calls
+  // Mock/Fallback data with actual video IDs
   const mockData = {
     nethan_journey: {
       videos: [
         {
-          id: 'dQw4w9WgXcQ',
-          title: 'Acoustic Guitar Cover - Amazing Grace',
-          thumbnail: 'https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg',
+          id: 'AjZG2xYZmAs',
+          title: 'Nethan Journey Video',
+          thumbnail: 'https://img.youtube.com/vi/AjZG2xYZmAs/maxresdefault.jpg',
           publishedAt: '2024-01-15',
-          viewCount: '12,540'
-        },
-        {
-          id: 'abc123xyz',
-          title: 'Piano Worship Medley',
-          thumbnail: 'https://img.youtube.com/vi/abc123xyz/maxresdefault.jpg',
-          publishedAt: '2024-01-10',
-          viewCount: '8,320'
+          viewCount: '0'
         }
       ],
       shorts: [
         {
           id: 'Wc6ca8W3Pes',
-          title: 'Quick Guitar Riff',
+          title: 'Nethan Journey Short',
           thumbnail: 'https://img.youtube.com/vi/Wc6ca8W3Pes/maxresdefault.jpg',
           publishedAt: '2024-01-20',
-          viewCount: '25,100'
-        },
-        {
-          id: 'short123',
-          title: 'Worship Chord Progression',
-          thumbnail: 'https://img.youtube.com/vi/short123/maxresdefault.jpg',
-          publishedAt: '2024-01-18',
-          viewCount: '15,400'
+          viewCount: '0'
         }
       ]
     },
     worship_avenue: {
       videos: [
         {
-          id: 'worship_vid1',
-          title: 'Amazing Grace - Worship Cover',
-          thumbnail: 'https://img.youtube.com/vi/worship_vid1/maxresdefault.jpg',
+          id: 'n7SdCOlSHu0',
+          title: 'Worship Avenue Video',
+          thumbnail: 'https://img.youtube.com/vi/n7SdCOlSHu0/maxresdefault.jpg',
           publishedAt: '2024-01-12',
-          viewCount: '18,750'
+          viewCount: '0'
         },
         {
-          id: 'worship_vid2',
-          title: 'How Great Is Our God - Piano Worship',
-          thumbnail: 'https://img.youtube.com/vi/worship_vid2/maxresdefault.jpg',
+          id: 'wHqjtpqaKV4',
+          title: 'Worship Avenue Video',
+          thumbnail: 'https://img.youtube.com/vi/wHqjtpqaKV4/maxresdefault.jpg',
           publishedAt: '2024-01-08',
-          viewCount: '22,160'
+          viewCount: '0'
         }
       ],
-      shorts: [
-        {
-          id: 'worship_short1',
-          title: 'Worship Chord Progressions',
-          thumbnail: 'https://img.youtube.com/vi/worship_short1/maxresdefault.jpg',
-          publishedAt: '2024-01-16',
-          viewCount: '31,200'
-        },
-        {
-          id: 'worship_short2',
-          title: 'Contemporary Worship Tips',
-          thumbnail: 'https://img.youtube.com/vi/worship_short2/maxresdefault.jpg',
-          publishedAt: '2024-01-14',
-          viewCount: '19,800'
-        }
-      ]
+      shorts: []
     }
   };
 
   useEffect(() => {
     const loadChannelData = async () => {
-      const newChannelData = { ...channelData };
-      const updatedChannels = { ...channels };
+      const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+      const CACHE_KEY_PREFIX = 'youtube_channel_data_';
+      const CACHE_TIMESTAMP_KEY = 'youtube_data_timestamp';
 
-      // Load Nethan Journey data and info
-      if (YOUTUBE_API_KEY !== 'YOUR_YOUTUBE_API_KEY') {
-        const nethanInfo = await fetchChannelInfo(channels.nethan_journey.channelId);
-        if (nethanInfo) {
-          updatedChannels.nethan_journey.name = nethanInfo.title;
-          updatedChannels.nethan_journey.description = nethanInfo.description;
+      // Helper to get cached data
+      const getCachedData = (key) => {
+        try {
+          const cached = localStorage.getItem(CACHE_KEY_PREFIX + key);
+          return cached ? JSON.parse(cached) : null;
+        } catch (error) {
+          console.error('Error reading cache:', error);
+          return null;
+        }
+      };
+
+      // Helper to set cached data
+      const setCachedData = (key, data) => {
+        try {
+          localStorage.setItem(CACHE_KEY_PREFIX + key, JSON.stringify(data));
+        } catch (error) {
+          console.error('Error setting cache:', error);
+        }
+      };
+
+      // Check if cache is still valid
+      const isCacheValid = () => {
+        const timestamp = localStorage.getItem(CACHE_TIMESTAMP_KEY);
+        if (!timestamp) return false;
+        const age = Date.now() - parseInt(timestamp);
+        return age < CACHE_DURATION;
+      };
+
+      try {
+        setLoading(true);
+        const newChannelData = { ...channelData };
+        const updatedChannels = { ...channels };
+
+        // Check cache first
+        if (isCacheValid()) {
+          console.log('Using cached YouTube data');
+          const cachedNethanData = getCachedData('nethan_journey');
+          const cachedNethanInfo = getCachedData('nethan_journey_info');
+          const cachedWorshipData = getCachedData('worship_avenue');
+          const cachedWorshipInfo = getCachedData('worship_avenue_info');
+
+          if (cachedNethanData && cachedNethanInfo) {
+            newChannelData.nethan_journey = cachedNethanData;
+            updatedChannels.nethan_journey = { ...updatedChannels.nethan_journey, ...cachedNethanInfo };
+          } else {
+            // If cache is missing, use mock data
+            newChannelData.nethan_journey = mockData.nethan_journey;
+          }
+
+          if (cachedWorshipData && cachedWorshipInfo) {
+            newChannelData.worship_avenue = cachedWorshipData;
+            updatedChannels.worship_avenue = { ...updatedChannels.worship_avenue, ...cachedWorshipInfo };
+          } else {
+            // If cache is missing, use mock data
+            newChannelData.worship_avenue = mockData.worship_avenue;
+          }
+
+          setChannels(updatedChannels);
+          setChannelData(newChannelData);
+          setLoading(false);
+          return;
         }
 
-        const nethanData = await fetchChannelVideos(channels.nethan_journey.channelId);
-        newChannelData.nethan_journey = nethanData;
-      } else {
-        // Use fallback data if no API key
-        newChannelData.nethan_journey = mockData.nethan_journey;
-      }
+        // Cache is invalid or doesn't exist, fetch fresh data
+        console.log('Cache expired or missing, fetching fresh YouTube data');
 
-      // Load Worship Avenue data and info
-      if (YOUTUBE_API_KEY !== 'YOUR_YOUTUBE_API_KEY') {
-        const worshipInfo = await fetchChannelInfo(channels.worship_avenue.channelId);
-        if (worshipInfo) {
-          updatedChannels.worship_avenue.name = worshipInfo.title;
-          updatedChannels.worship_avenue.description = worshipInfo.description;
+        // Load Nethan Journey data and info
+        try {
+          if (YOUTUBE_API_KEY !== 'YOUR_YOUTUBE_API_KEY') {
+            const nethanInfo = await fetchChannelInfo(channels.nethan_journey.channelId);
+            if (nethanInfo) {
+              updatedChannels.nethan_journey.name = nethanInfo.title;
+              updatedChannels.nethan_journey.description = nethanInfo.description;
+              setCachedData('nethan_journey_info', nethanInfo);
+            }
+
+            const nethanData = await fetchChannelVideos(channels.nethan_journey.channelId);
+            // Only cache if we got valid data (not fallback)
+            if (nethanData && (nethanData.videos?.length > 0 || nethanData.shorts?.length > 0)) {
+              newChannelData.nethan_journey = nethanData;
+              setCachedData('nethan_journey', nethanData);
+            } else {
+              // Use mock data if fetch returned empty
+              newChannelData.nethan_journey = mockData.nethan_journey;
+            }
+          } else {
+            // Use fallback data if no API key
+            newChannelData.nethan_journey = mockData.nethan_journey;
+          }
+        } catch (error) {
+          console.error('Error loading Nethan Journey data, using mock data:', error);
+          newChannelData.nethan_journey = mockData.nethan_journey;
         }
 
-        const worshipData = await fetchChannelVideos(channels.worship_avenue.channelId);
-        newChannelData.worship_avenue = worshipData;
-      } else {
-        newChannelData.worship_avenue = mockData.worship_avenue;
-      }
+        // Load Worship Avenue data and info
+        try {
+          if (YOUTUBE_API_KEY !== 'YOUR_YOUTUBE_API_KEY') {
+            const worshipInfo = await fetchChannelInfo(channels.worship_avenue.channelId);
+            if (worshipInfo) {
+              updatedChannels.worship_avenue.name = worshipInfo.title;
+              updatedChannels.worship_avenue.description = worshipInfo.description;
+              setCachedData('worship_avenue_info', worshipInfo);
+            }
 
-      setChannels(updatedChannels);
-      setChannelData(newChannelData);
+            const worshipData = await fetchChannelVideos(channels.worship_avenue.channelId);
+            // Only cache if we got valid data (not fallback)
+            if (worshipData && (worshipData.videos?.length > 0 || worshipData.shorts?.length > 0)) {
+              newChannelData.worship_avenue = worshipData;
+              setCachedData('worship_avenue', worshipData);
+            } else {
+              // Use mock data if fetch returned empty
+              newChannelData.worship_avenue = mockData.worship_avenue;
+            }
+          } else {
+            newChannelData.worship_avenue = mockData.worship_avenue;
+          }
+        } catch (error) {
+          console.error('Error loading Worship Avenue data, using mock data:', error);
+          newChannelData.worship_avenue = mockData.worship_avenue;
+        }
+
+        // Update timestamp after successful fetch
+        localStorage.setItem(CACHE_TIMESTAMP_KEY, Date.now().toString());
+
+        setChannels(updatedChannels);
+        setChannelData(newChannelData);
+      } catch (error) {
+        console.error('Fatal error loading channel data:', error);
+        // Use mock data as absolute fallback
+        setChannelData({
+          nethan_journey: mockData.nethan_journey,
+          worship_avenue: mockData.worship_avenue
+        });
+      } finally {
+        setLoading(false);
+      }
     };
 
     loadChannelData();
