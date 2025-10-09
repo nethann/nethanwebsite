@@ -20,7 +20,13 @@ export default function Contact() {
     const params = new URLSearchParams(location.search);
     const service = params.get('service');
     if (service) {
-      setSelectedService(service);
+      // Map URL parameter to dropdown value
+      const serviceMap = {
+        'photography': 'Photography Session',
+        'music': 'Music Gig/Performance',
+        'development': 'Development Project'
+      };
+      setSelectedService(serviceMap[service] || service);
     }
   }, [location]);
 
