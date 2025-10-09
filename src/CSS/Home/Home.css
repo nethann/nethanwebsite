@@ -898,9 +898,8 @@ body {
 }
 
 .gallery-item:hover {
-    transform: scale(1.05);
+    transform: translateY(-8px);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-    z-index: 10;
 }
 
 .gallery-item img {
@@ -908,11 +907,6 @@ body {
     height: 100%;
     object-fit: cover;
     display: block;
-    transition: transform 0.4s ease;
-}
-
-.gallery-item:hover img {
-    transform: scale(1.1);
 }
 
 .music-featured {
