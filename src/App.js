@@ -17,6 +17,7 @@ import Photography from './components/Projects-Components/Photography/Photograph
 import DynamicIsland from './components/Global-Components/DynamicIsland';
 import IOS26Navbar from './components/Global-Components/iOS26Navbar';
 import Footer from './components/Global-Components/Footer';
+import ScrollToTop from './components/Global-Components/ScrollToTop';
 import SpotifyAuth from './components/SpotifyAuth';
 
 
@@ -28,6 +29,7 @@ import "./CSS/Global/iOS26DesignSystem.css"
 function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div className="App">
         <DynamicIsland />
         <IOS26Navbar />

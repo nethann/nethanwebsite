@@ -36,13 +36,20 @@ export default function DynamicIsland() {
         // Use cache if it's less than 15 minutes old
         if (cachedData && cacheTime && (now - parseInt(cacheTime)) < 900000) {
           const cached = JSON.parse(cachedData);
-          console.log('Using cached GitHub data');
-          setLatestCommit(cached.latestCommit);
-          setSiteLastUpdated(cached.siteLastUpdated);
+          console.log('Using cached GitHub data:', cached);
+          if (cached.latestCommit) {
+            setLatestCommit(cached.latestCommit);
+          }
+          if (cached.siteLastUpdated) {
+            setSiteLastUpdated(cached.siteLastUpdated);
+          }
           return;
         }
 
         console.log('Fetching fresh GitHub data...');
+
+        let newLatestCommit = null;
+        let newSiteLastUpdated = null;
 
         // Get all public events
         const response = await fetch(
@@ -63,18 +70,25 @@ export default function DynamicIsland() {
 
             console.log('Latest commit found:', commit.message, 'from', repoName);
 
-            const commitData = {
+            newLatestCommit = {
               message: commit.message,
               repo: repoName,
               time: pushEvent.created_at,
               fullRepoName: pushEvent.repo.name
             };
 
-            setLatestCommit(commitData);
+            setLatestCommit(newLatestCommit);
           }
         } else if (response.status === 403) {
           console.warn('GitHub API rate limit hit. Using cached data if available.');
-          // Keep existing state if rate limited
+          // Try to load from cache even if expired
+          if (cachedData) {
+            const cached = JSON.parse(cachedData);
+            if (cached.latestCommit) {
+              setLatestCommit(cached.latestCommit);
+              newLatestCommit = cached.latestCommit;
+            }
+          }
         }
 
         // Get the last commit specifically for this website repository
@@ -88,23 +102,30 @@ export default function DynamicIsland() {
             const lastCommit = commits[0];
             console.log('Site last updated:', lastCommit.commit.message);
 
-            const siteData = {
+            newSiteLastUpdated = {
               message: lastCommit.commit.message,
               time: lastCommit.commit.author.date,
               sha: lastCommit.sha.substring(0, 7)
             };
 
-            setSiteLastUpdated(siteData);
+            setSiteLastUpdated(newSiteLastUpdated);
 
-            // Cache the data
+            // Cache the data with the newly fetched values
             localStorage.setItem('githubCommitCache', JSON.stringify({
-              latestCommit: latestCommit,
-              siteLastUpdated: siteData
+              latestCommit: newLatestCommit,
+              siteLastUpdated: newSiteLastUpdated
             }));
             localStorage.setItem('githubCommitCacheTime', now.toString());
           }
         } else if (repoResponse.status === 403) {
           console.warn('GitHub API rate limit hit for repo commits.');
+          // Try to load from cache even if expired
+          if (cachedData) {
+            const cached = JSON.parse(cachedData);
+            if (cached.siteLastUpdated) {
+              setSiteLastUpdated(cached.siteLastUpdated);
+            }
+          }
         }
       } catch (error) {
         console.error('Error fetching GitHub commits:', error);

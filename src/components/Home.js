@@ -12,14 +12,14 @@ import "aos/dist/aos.css";
 // Profile photo
 import NethanPC from './Projects-Components/Photography/Photograph_Images/Portraits/nethan1.jpg';
 
-// Import all images from photography folder
+// Import all images from photography folder (including subfolders)
 const importAll = (r) => r.keys().map((key) => ({
     src: r(key),
     alt: key.replace('./', '').replace(/\.[^/.]+$/, '')
 }));
 
 const allPhotos = importAll(
-    require.context('./Projects-Components/Photography/Photograph_Images', false, /\.(jpe?g|png|webp)$/)
+    require.context('./Projects-Components/Photography/Photograph_Images', true, /\.(jpe?g|png|webp)$/)
 );
 
 const Home = () => {

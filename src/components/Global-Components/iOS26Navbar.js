@@ -39,6 +39,7 @@ export default function IOS26Navbar() {
 
   const handleLinkClick = () => {
     closeAllMenus();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   // Close menus when clicking outside
