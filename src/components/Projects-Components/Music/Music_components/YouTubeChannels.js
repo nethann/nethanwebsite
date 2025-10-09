@@ -186,19 +186,19 @@ const YouTubeChannels = () => {
       videos: [
         {
           id: 'AjZG2xYZmAs',
-          title: 'Nethan Journey Video',
+          title: '',
           thumbnail: 'https://img.youtube.com/vi/AjZG2xYZmAs/maxresdefault.jpg',
-          publishedAt: '2024-01-15',
-          viewCount: '0'
+          publishedAt: '',
+          viewCount: ''
         }
       ],
       shorts: [
         {
           id: 'Wc6ca8W3Pes',
-          title: 'Nethan Journey Short',
+          title: '',
           thumbnail: 'https://img.youtube.com/vi/Wc6ca8W3Pes/maxresdefault.jpg',
-          publishedAt: '2024-01-20',
-          viewCount: '0'
+          publishedAt: '',
+          viewCount: ''
         }
       ]
     },
@@ -206,17 +206,17 @@ const YouTubeChannels = () => {
       videos: [
         {
           id: 'n7SdCOlSHu0',
-          title: 'Worship Avenue Video',
+          title: '',
           thumbnail: 'https://img.youtube.com/vi/n7SdCOlSHu0/maxresdefault.jpg',
-          publishedAt: '2024-01-12',
-          viewCount: '0'
+          publishedAt: '',
+          viewCount: ''
         },
         {
           id: 'wHqjtpqaKV4',
-          title: 'Worship Avenue Video',
+          title: '',
           thumbnail: 'https://img.youtube.com/vi/wHqjtpqaKV4/maxresdefault.jpg',
-          publishedAt: '2024-01-08',
-          viewCount: '0'
+          publishedAt: '',
+          viewCount: ''
         }
       ],
       shorts: []
@@ -388,13 +388,17 @@ const YouTubeChannels = () => {
           className={isShort ? 'short-iframe' : 'video-iframe'}
         />
       </div>
-      <div className="video-info">
-        <h4 className="video-title">{video.title}</h4>
-        <div className="video-meta">
-          <span className="view-count">{video.viewCount} views</span>
-          <span className="publish-date">{new Date(video.publishedAt).toLocaleDateString()}</span>
+      {(video.title || video.viewCount || video.publishedAt) && (
+        <div className="video-info">
+          {video.title && <h4 className="video-title">{video.title}</h4>}
+          {(video.viewCount || video.publishedAt) && (
+            <div className="video-meta">
+              {video.viewCount && <span className="view-count">{video.viewCount} views</span>}
+              {video.publishedAt && <span className="publish-date">{new Date(video.publishedAt).toLocaleDateString()}</span>}
+            </div>
+          )}
         </div>
-      </div>
+      )}
     </div>
   );
 
