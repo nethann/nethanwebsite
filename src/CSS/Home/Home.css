@@ -738,3 +738,286 @@ body {
         height: 200px;
     }
 }
+
+/* What I Offer Section */
+.what-i-offer-section {
+    max-width: 1100px;
+    width: 100%;
+    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #0a0a0a;
+    text-align: center;
+    margin: 0;
+    letter-spacing: -0.03em;
+}
+
+.offer-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    width: 100%;
+}
+
+.offer-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(40px) saturate(180%);
+    -webkit-backdrop-filter: blur(40px) saturate(180%);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 24px;
+    padding: 3rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.04),
+        0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.offer-card:hover {
+    transform: translateY(-12px);
+    background: rgba(255, 255, 255, 0.95);
+    border-color: rgba(0, 0, 0, 0.12);
+    box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.08),
+        0 12px 30px rgba(0, 0, 0, 0.04);
+}
+
+.offer-icon {
+    font-size: 3.5rem;
+    line-height: 1;
+}
+
+.offer-card h3 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0a0a0a;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.offer-description {
+    font-size: 1.05rem;
+    color: #4b5563;
+    line-height: 1.7;
+    margin: 0;
+}
+
+.testimonial {
+    background: rgba(0, 0, 0, 0.02);
+    border-left: 3px solid rgba(0, 0, 0, 0.1);
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    margin: 0.5rem 0;
+}
+
+.testimonial p {
+    font-size: 0.95rem;
+    color: #374151;
+    font-style: italic;
+    margin: 0 0 0.5rem 0;
+    line-height: 1.6;
+}
+
+.testimonial span {
+    font-size: 0.85rem;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.offer-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 1.75rem;
+    background: #000000;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    align-self: flex-start;
+}
+
+.offer-button:hover {
+    background: #1a1a1a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Featured Work Section */
+.featured-work-section {
+    max-width: 1200px;
+    width: 100%;
+    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4rem;
+}
+
+.featured-subsection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.subsection-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #0a0a0a;
+    margin: 0;
+    letter-spacing: -0.02em;
+}
+
+.photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.gallery-item {
+    aspect-ratio: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.music-featured {
+    width: 100%;
+}
+
+.youtube-embed {
+    position: relative;
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    background: #000000;
+}
+
+.youtube-embed iframe {
+    display: block;
+}
+
+.view-all-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #6366f1;
+    text-decoration: none;
+    font-size: 1.05rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.view-all-link:hover {
+    color: #4f46e5;
+    transform: translateX(4px);
+}
+
+/* Responsive - What I Offer */
+@media (max-width: 800px) {
+    .what-i-offer-section {
+        padding: 3rem 1.5rem;
+    }
+
+    .offer-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .offer-card {
+        padding: 2.5rem 2rem;
+    }
+
+    .offer-icon {
+        font-size: 3rem;
+    }
+
+    .offer-card h3 {
+        font-size: 1.75rem;
+    }
+
+    .offer-description {
+        font-size: 1rem;
+    }
+
+    .photo-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .featured-work-section {
+        padding: 3rem 1.5rem;
+        gap: 3rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .subsection-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .offer-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .offer-icon {
+        font-size: 2.5rem;
+    }
+
+    .offer-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .photo-gallery {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
+    }
+
+    .subsection-title {
+        font-size: 1.35rem;
+    }
+}
