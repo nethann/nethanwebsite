@@ -27,10 +27,10 @@
   align-items: center;
   gap: 12px;
   padding: 12px 20px;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(30px) saturate(180%);
+  background: #ffffff;
   border-radius: 12px;
   border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .rating-number {
@@ -90,8 +90,7 @@
 .no-reviews {
   text-align: center;
   padding: 60px 20px;
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(30px) saturate(180%);
+  background: #ffffff;
   border-radius: 16px;
   border: 2px dashed rgba(0, 0, 0, 0.1);
 }
@@ -129,13 +128,12 @@
 }
 
 .review-card {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(30px) saturate(180%);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 16px;
   padding: 24px;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .review-card:hover {

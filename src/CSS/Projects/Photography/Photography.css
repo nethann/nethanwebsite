@@ -1,6 +1,6 @@
 .photography-wrapper {
   min-height: 100vh;
-  background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%);
+  background: #faf9f5;
 }
 
 .photography-page {
@@ -134,15 +134,13 @@
 }
 
 .pricing-card {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(30px) saturate(180%);
-  -webkit-backdrop-filter: blur(30px) saturate(180%);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 20px;
   padding: 2.5rem 2rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .pricing-card:hover {
@@ -264,15 +262,13 @@
 }
 
 .equipment-category {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(30px) saturate(180%);
-  -webkit-backdrop-filter: blur(30px) saturate(180%);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 16px;
   padding: 2rem;
   text-align: left;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .equipment-category:hover {
@@ -330,9 +326,7 @@
 
 .category-btn {
   padding: 0.75rem 1.5rem;
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(30px) saturate(180%);
-  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  background: #ffffff;
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 12px;
   color: #4b5563;
@@ -341,7 +335,7 @@
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
 .category-btn:hover {

@@ -34,7 +34,7 @@
   width: 100%;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   position: relative;
   animation: modalSlideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   border: 1px solid rgba(0, 0, 0, 0.08);
@@ -121,7 +121,7 @@
 .form-group input,
 .form-group textarea {
   background: #ffffff;
-  border: 1.5px solid rgba(0, 0, 0, 0.15);
+  border: 1.5px solid #e5e7eb;
   border-radius: 12px;
   padding: 12px 16px;
   color: #0a0a0a;
@@ -133,9 +133,9 @@
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #000000;
+  border-color: #6366f1;
   background: #ffffff;
-  box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
 }
 
 .form-group input::placeholder,
@@ -209,6 +209,7 @@
   transition: all 0.3s ease;
   margin-top: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  letter-spacing: 0.01em;
 }
 
 .review-submit-button:hover:not(:disabled) {
