@@ -1,4 +1,4 @@
-import React, { useMemo, useEffect } from "react";
+import React, { useMemo, useEffect, useState } from "react";
 import "../../../CSS/Projects/Photography/Photography.css";
 
 import Aos from 'aos';
@@ -15,7 +15,50 @@ const originalImages = importAll(
   require.context("./Photograph_Images", false, /\.(jpe?g|png|webp)$/)
 );
 
+// Category mapping for each photo
+const photoCategories = {
+  // Portraits
+  'nethan1.jpg': 'Portraits',
+  '2Z7A3908.jpg': 'Portraits',
+  '2Z7A3933.jpg': 'Portraits',
+  '2Z7A3942.jpg': 'Portraits',
+  '2Z7A3946.jpg': 'Portraits',
+  '2Z7A3967.jpg': 'Portraits',
+
+  // Events
+  'birthday_cake.jpg': 'Events',
+  '2Z7A4131.jpg': 'Events',
+  '2Z7A4168.jpg': 'Events',
+  '2Z7A4245.jpg': 'Events',
+  '2Z7A4284-2.jpg': 'Events',
+  '2Z7A4386.jpg': 'Events',
+  '2Z7A4428.jpg': 'Events',
+  '2Z7A4502.jpg': 'Events',
+
+  // Nature & Landscapes
+  'forest_1.jpg': 'Nature',
+  'forest_2.jpg': 'Nature',
+  'grass.jpg': 'Nature',
+  'duck.jpg': 'Nature',
+  '2Z7A1330.jpg': 'Nature',
+  '2Z7A1687.jpg': 'Nature',
+
+  // Architecture
+  'colongue.jpg': 'Architecture',
+  '2Z7A1243.jpg': 'Architecture',
+
+  // Creative & Artistic
+  '2Z7A1520.jpg': 'Creative',
+  '2Z7A1506.jpg': 'Creative',
+  '2Z7A1388_1.jpg': 'Creative',
+  '2Z7A1496.jpg': 'Creative',
+};
+
+const categories = ['All', 'Portraits', 'Events', 'Nature', 'Architecture', 'Creative'];
+
 export default function Photography() {
+  const [selectedCategory, setSelectedCategory] = useState('All');
+
   useEffect(() => {
     window.scrollTo(0, 0);
 
@@ -35,6 +78,17 @@ export default function Photography() {
     }
     return shuffled;
   }, []);
+
+  // Filter images based on selected category
+  const filteredImages = useMemo(() => {
+    if (selectedCategory === 'All') {
+      return shuffledImages;
+    }
+    return shuffledImages.filter(img => {
+      const filename = img.alt + '.jpg'; // Reconstruct filename
+      return photoCategories[filename] === selectedCategory;
+    });
+  }, [selectedCategory, shuffledImages]);
 
   return (
     <div className="photography-wrapper">
@@ -144,8 +198,22 @@ export default function Photography() {
 
       <section className="photograph-gallery" data-aos="fade-up" data-aos-delay="300">
         <h2>Portfolio</h2>
+
+        {/* Category Filter */}
+        <div className="category-filters">
+          {categories.map((category) => (
+            <button
+              key={category}
+              className={`category-btn ${selectedCategory === category ? 'active' : ''}`}
+              onClick={() => setSelectedCategory(category)}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
         <div className="photo-grid">
-          {shuffledImages.map((img, index) => (
+          {filteredImages.map((img, index) => (
             <img key={index} src={img.src} alt={img.alt} className="photo" />
           ))}
         </div>
