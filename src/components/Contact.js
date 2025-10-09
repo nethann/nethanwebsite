@@ -42,7 +42,7 @@ export default function Contact() {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_cce2tzg', 'template_i3gb2es', form.current, 'CIjfNKb1UjuFlNTVl')
+    emailjs.sendForm('service_ll8kobo', 'template_i3gb2es', form.current, 'CIjfNKb1UjuFlNTVl')
       .then((result) => {
         if (window.showDynamicIslandNotification) {
           window.showDynamicIslandNotification('success', 'Message sent successfully!');
@@ -71,16 +71,16 @@ export default function Contact() {
               <label htmlFor="service">I'm interested in</label>
               <select
                 id="service"
-                name="service"
+                name="service_type"
                 className="service-select"
                 value={selectedService}
                 onChange={(e) => setSelectedService(e.target.value)}
                 required
               >
                 <option value="">Select a service...</option>
-                <option value="photography">Photography Session</option>
-                <option value="music">Music Gig/Performance</option>
-                <option value="development">Development Project</option>
+                <option value="Photography Session">Photography Session</option>
+                <option value="Music Gig/Performance">Music Gig/Performance</option>
+                <option value="Development Project">Development Project</option>
               </select>
             </div>
 
