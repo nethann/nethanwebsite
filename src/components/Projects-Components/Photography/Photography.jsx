@@ -117,6 +117,8 @@ export default function Photography() {
               <li>Canon RF 18-150 f/3.5-6.3</li>
               <li>Canon RF 50mm f/1.8</li>
               <li>Canon RF 100-400 f/5.6-8</li>
+              <li>ND Filter</li>
+              <li>CPL Circular Polarizer</li>
             </ul>
           </div>
 
@@ -125,6 +127,7 @@ export default function Photography() {
             <ul>
               <li>Aputure amaran 100x S</li>
               <li>Key lights</li>
+              <li>Godox TT600</li>
             </ul>
           </div>
 
@@ -133,6 +136,7 @@ export default function Photography() {
             <ul>
               <li>DJI Osmo Mobile</li>
               <li>Tripods</li>
+              <li>NEEWER Octagonal Softbox</li>
             </ul>
           </div>
         </div>
