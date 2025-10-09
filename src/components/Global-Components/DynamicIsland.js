@@ -24,41 +24,87 @@ export default function DynamicIsland() {
   const [latestCommit, setLatestCommit] = useState(null);
   const [siteLastUpdated, setSiteLastUpdated] = useState(null);
 
-  // Fetch latest GitHub commit for this specific repository
+  // Fetch latest GitHub commit from any repository
   useEffect(() => {
     const fetchLatestCommit = async () => {
       try {
+        // Check cache first to avoid rate limiting
+        const cachedData = localStorage.getItem('githubCommitCache');
+        const cacheTime = localStorage.getItem('githubCommitCacheTime');
+        const now = Date.now();
+
+        // Use cache if it's less than 15 minutes old
+        if (cachedData && cacheTime && (now - parseInt(cacheTime)) < 900000) {
+          const cached = JSON.parse(cachedData);
+          console.log('Using cached GitHub data');
+          setLatestCommit(cached.latestCommit);
+          setSiteLastUpdated(cached.siteLastUpdated);
+          return;
+        }
+
+        console.log('Fetching fresh GitHub data...');
+
         // Get all public events
         const response = await fetch(
-          'https://api.github.com/users/nethann/events/public'
+          'https://api.github.com/users/nethann/events/public?per_page=30'
         );
+
         if (response.ok) {
           const events = await response.json();
+          console.log('GitHub events fetched:', events.length);
+
+          // Find the most recent PushEvent from any repository
           const pushEvent = events.find(event => event.type === 'PushEvent');
+
           if (pushEvent && pushEvent.payload.commits.length > 0) {
-            const commit = pushEvent.payload.commits[0];
-            setLatestCommit({
+            // Get the most recent commit from that push
+            const commit = pushEvent.payload.commits[pushEvent.payload.commits.length - 1];
+            const repoName = pushEvent.repo.name.split('/')[1];
+
+            console.log('Latest commit found:', commit.message, 'from', repoName);
+
+            const commitData = {
               message: commit.message,
-              repo: pushEvent.repo.name,
-              time: pushEvent.created_at
-            });
+              repo: repoName,
+              time: pushEvent.created_at,
+              fullRepoName: pushEvent.repo.name
+            };
+
+            setLatestCommit(commitData);
           }
+        } else if (response.status === 403) {
+          console.warn('GitHub API rate limit hit. Using cached data if available.');
+          // Keep existing state if rate limited
         }
 
         // Get the last commit specifically for this website repository
         const repoResponse = await fetch(
           'https://api.github.com/repos/nethann/nethanwebsite/commits?per_page=1'
         );
+
         if (repoResponse.ok) {
           const commits = await repoResponse.json();
           if (commits.length > 0) {
             const lastCommit = commits[0];
-            setSiteLastUpdated({
+            console.log('Site last updated:', lastCommit.commit.message);
+
+            const siteData = {
               message: lastCommit.commit.message,
               time: lastCommit.commit.author.date,
               sha: lastCommit.sha.substring(0, 7)
-            });
+            };
+
+            setSiteLastUpdated(siteData);
+
+            // Cache the data
+            localStorage.setItem('githubCommitCache', JSON.stringify({
+              latestCommit: latestCommit,
+              siteLastUpdated: siteData
+            }));
+            localStorage.setItem('githubCommitCacheTime', now.toString());
           }
+        } else if (repoResponse.status === 403) {
+          console.warn('GitHub API rate limit hit for repo commits.');
         }
       } catch (error) {
         console.error('Error fetching GitHub commits:', error);
@@ -66,7 +112,7 @@ export default function DynamicIsland() {
     };
 
     fetchLatestCommit();
-    const commitInterval = setInterval(fetchLatestCommit, 300000); // Every 5 minutes
+    const commitInterval = setInterval(fetchLatestCommit, 900000); // Every 15 minutes instead of 5
 
     return () => clearInterval(commitInterval);
   }, []);
@@ -212,15 +258,21 @@ export default function DynamicIsland() {
   const getTimeAgo = (dateString) => {
     const date = new Date(dateString);
     const now = new Date();
-    const diffMs = now - date;
+    const diffMs = Math.abs(now - date); // Use absolute value to handle future dates
     const diffMins = Math.floor(diffMs / 60000);
     const diffHours = Math.floor(diffMs / 3600000);
     const diffDays = Math.floor(diffMs / 86400000);
+    const diffWeeks = Math.floor(diffDays / 7);
+    const diffMonths = Math.floor(diffDays / 30);
 
     if (diffMins < 1) return 'just now';
     if (diffMins < 60) return `${diffMins}m ago`;
     if (diffHours < 24) return `${diffHours}h ago`;
-    return `${diffDays}d ago`;
+    if (diffDays < 7) return `${diffDays}d ago`;
+    if (diffWeeks < 4) return `${diffWeeks}w ago`;
+    if (diffMonths < 12) return `${diffMonths}mo ago`;
+    const diffYears = Math.floor(diffDays / 365);
+    return `${diffYears}y ago`;
   };
 
   const getExpandedContent = () => {
