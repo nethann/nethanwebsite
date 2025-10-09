@@ -22,6 +22,38 @@ export default function DynamicIsland() {
   const [spotifyData, setSpotifyData] = useState(null);
   const [showFloatingTooltip, setShowFloatingTooltip] = useState(false);
   const [previewIconIndex, setPreviewIconIndex] = useState(0);
+  const [currentActivity, setCurrentActivity] = useState('Building cool things');
+  const [latestCommit, setLatestCommit] = useState(null);
+
+  // Fetch latest GitHub commit
+  useEffect(() => {
+    const fetchLatestCommit = async () => {
+      try {
+        const response = await fetch(
+          'https://api.github.com/users/nethann/events/public'
+        );
+        if (response.ok) {
+          const events = await response.json();
+          const pushEvent = events.find(event => event.type === 'PushEvent');
+          if (pushEvent && pushEvent.payload.commits.length > 0) {
+            const commit = pushEvent.payload.commits[0];
+            setLatestCommit({
+              message: commit.message,
+              repo: pushEvent.repo.name,
+              time: pushEvent.created_at
+            });
+          }
+        }
+      } catch (error) {
+        console.error('Error fetching GitHub commits:', error);
+      }
+    };
+
+    fetchLatestCommit();
+    const commitInterval = setInterval(fetchLatestCommit, 300000); // Every 5 minutes
+
+    return () => clearInterval(commitInterval);
+  }, []);
 
   // Fetch Nethan's Spotify data
   useEffect(() => {
@@ -216,10 +248,41 @@ export default function DynamicIsland() {
     );
   };
 
+  const getTimeAgo = (dateString) => {
+    const date = new Date(dateString);
+    const now = new Date();
+    const diffMs = now - date;
+    const diffMins = Math.floor(diffMs / 60000);
+    const diffHours = Math.floor(diffMs / 3600000);
+    const diffDays = Math.floor(diffMs / 86400000);
+
+    if (diffMins < 1) return 'just now';
+    if (diffMins < 60) return `${diffMins}m ago`;
+    if (diffHours < 24) return `${diffHours}h ago`;
+    return `${diffDays}d ago`;
+  };
+
   const getExpandedContent = () => {
     return (
       <div className="dynamic-island-expanded">
         <div className="expanded-section">
+          {/* Current Activity Status */}
+          <div className="activity-status-row">
+            <div className="status-indicator"></div>
+            <span className="current-activity">{currentActivity}</span>
+          </div>
+
+          {/* Latest GitHub Commit */}
+          {latestCommit && (
+            <div className="github-commit-row">
+              <AiFillGithub className="commit-icon" />
+              <div className="commit-info">
+                <div className="commit-message">{latestCommit.message}</div>
+                <div className="commit-repo">{latestCommit.repo} • {getTimeAgo(latestCommit.time)}</div>
+              </div>
+            </div>
+          )}
+
           {spotifyData && spotifyData.isPlaying && (
             <div className="spotify-row">
               <div className="spotify-info">
@@ -244,18 +307,6 @@ export default function DynamicIsland() {
                   <div className="track-album">Recently played</div>
                 </div>
                 <FaSpotify className="spotify-icon-large spotify-recent-icon" />
-              </div>
-            </div>
-          )}
-
-          {!spotifyData && (
-            <div className="spotify-row spotify-idle">
-              <div className="spotify-info">
-                <FaSpotify className="spotify-icon-large" />
-                <div className="track-info">
-                  <div className="track-title">No music detected</div>
-                  <div className="track-artist">Nethan's not currently listening</div>
-                </div>
               </div>
             </div>
           )}
@@ -287,17 +338,6 @@ export default function DynamicIsland() {
                   </a>
                 );
               })}
-            </div>
-          </div>
-          
-          <div className="activity-row">
-            <div className="activity-item">
-              <FaCode />
-              <span>Full-stack Developer</span>
-            </div>
-            <div className="activity-item">
-              <FaMusic />
-              <span>Music Producer</span>
             </div>
           </div>
         </div>
