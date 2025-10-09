@@ -60,7 +60,7 @@
 
 /* iOS 26 Dynamic Background System */
 .ios-background {
-  background: linear-gradient(to bottom, #ffffff 0%, #fafafa 100%);
+  background: #faf9f5;
   position: relative;
   overflow: hidden;
 }
