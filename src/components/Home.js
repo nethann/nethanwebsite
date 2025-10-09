@@ -10,7 +10,7 @@ import Aos from 'aos';
 import "aos/dist/aos.css";
 
 // Profile photo
-import NethanPC from './Projects-Components/Photography/Photograph_Images/nethan1.jpg';
+import NethanPC from './Projects-Components/Photography/Photograph_Images/Portraits/nethan1.jpg';
 
 // Import all images from photography folder
 const importAll = (r) => r.keys().map((key) => ({

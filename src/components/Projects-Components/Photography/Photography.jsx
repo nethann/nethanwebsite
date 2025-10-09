@@ -4,55 +4,34 @@ import "../../../CSS/Projects/Photography/Photography.css";
 import Aos from 'aos';
 import "aos/dist/aos.css";
 
-// Automatically require all images from folder
+// Import all images from category subfolders
 const importAll = (r) =>
   r.keys().map((key) => ({
     src: r(key),
-    alt: key.replace('./', '').replace(/\.[^/.]+$/, '') // remove './' and file extension
+    alt: key.replace('./', '').replace(/\.[^/.]+$/, ''),
+    category: key.split('/')[1] // Extract category from path like "./Portraits/image.jpg"
   }));
 
-const originalImages = importAll(
-  require.context("./Photograph_Images", false, /\.(jpe?g|png|webp)$/)
-);
+// Import from all category subfolders
+const importFromCategories = () => {
+  const categories = ['Portraits', 'Events', 'Nature', 'Architecture', 'Creative'];
+  let allImages = [];
 
-// Category mapping for each photo
-const photoCategories = {
-  // Portraits
-  'nethan1.jpg': 'Portraits',
-  '2Z7A3908.jpg': 'Portraits',
-  '2Z7A3933.jpg': 'Portraits',
-  '2Z7A3942.jpg': 'Portraits',
-  '2Z7A3946.jpg': 'Portraits',
-  '2Z7A3967.jpg': 'Portraits',
+  categories.forEach(category => {
+    try {
+      const categoryImages = importAll(
+        require.context("./Photograph_Images", true, /\.(jpe?g|png|webp)$/)
+      ).filter(img => img.category === category);
+      allImages = [...allImages, ...categoryImages];
+    } catch (error) {
+      console.log(`No images found in ${category} folder`);
+    }
+  });
 
-  // Events
-  'birthday_cake.jpg': 'Events',
-  '2Z7A4131.jpg': 'Events',
-  '2Z7A4168.jpg': 'Events',
-  '2Z7A4245.jpg': 'Events',
-  '2Z7A4284-2.jpg': 'Events',
-  '2Z7A4386.jpg': 'Events',
-  '2Z7A4428.jpg': 'Events',
-  '2Z7A4502.jpg': 'Events',
-
-  // Nature & Landscapes
-  'forest_1.jpg': 'Nature',
-  'forest_2.jpg': 'Nature',
-  'grass.jpg': 'Nature',
-  'duck.jpg': 'Nature',
-  '2Z7A1330.jpg': 'Nature',
-  '2Z7A1687.jpg': 'Nature',
-
-  // Architecture
-  'colongue.jpg': 'Architecture',
-  '2Z7A1243.jpg': 'Architecture',
-
-  // Creative & Artistic
-  '2Z7A1520.jpg': 'Creative',
-  '2Z7A1506.jpg': 'Creative',
-  '2Z7A1388_1.jpg': 'Creative',
-  '2Z7A1496.jpg': 'Creative',
+  return allImages;
 };
+
+const originalImages = importFromCategories();
 
 const categories = ['All', 'Portraits', 'Events', 'Nature', 'Architecture', 'Creative'];
 
@@ -84,10 +63,7 @@ export default function Photography() {
     if (selectedCategory === 'All') {
       return shuffledImages;
     }
-    return shuffledImages.filter(img => {
-      const filename = img.alt + '.jpg'; // Reconstruct filename
-      return photoCategories[filename] === selectedCategory;
-    });
+    return shuffledImages.filter(img => img.category === selectedCategory);
   }, [selectedCategory, shuffledImages]);
 
   return (
