@@ -11,7 +11,7 @@ export default function ReviewModal({ isOpen, onClose, category }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
 
-  // Reset form when modal opens
+  // Reset form when modal opens and check if user can submit
   useEffect(() => {
     if (isOpen) {
       setName('');
@@ -19,8 +19,24 @@ export default function ReviewModal({ isOpen, onClose, category }) {
       setHoverRating(0);
       setComment('');
       setErrors({});
+
+      // Check if user has already submitted a review for this category recently
+      const lastReviewKey = `lastReview_${category}`;
+      const lastReviewTime = localStorage.getItem(lastReviewKey);
+
+      if (lastReviewTime) {
+        const hoursSinceLastReview = (Date.now() - parseInt(lastReviewTime)) / (1000 * 60 * 60);
+
+        // Allow only 1 review per 24 hours per category
+        if (hoursSinceLastReview < 24) {
+          const hoursRemaining = Math.ceil(24 - hoursSinceLastReview);
+          setErrors({
+            submit: `You can only submit one review per day. Please wait ${hoursRemaining} hour${hoursRemaining !== 1 ? 's' : ''} before submitting another review.`
+          });
+        }
+      }
     }
-  }, [isOpen]);
+  }, [isOpen, category]);
 
   const validateForm = () => {
     const newErrors = {};
@@ -46,6 +62,22 @@ export default function ReviewModal({ isOpen, onClose, category }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Check if user can submit (rate limit check)
+    const lastReviewKey = `lastReview_${category}`;
+    const lastReviewTime = localStorage.getItem(lastReviewKey);
+
+    if (lastReviewTime) {
+      const hoursSinceLastReview = (Date.now() - parseInt(lastReviewTime)) / (1000 * 60 * 60);
+
+      if (hoursSinceLastReview < 24) {
+        const hoursRemaining = Math.ceil(24 - hoursSinceLastReview);
+        setErrors({
+          submit: `You can only submit one review per day. Please wait ${hoursRemaining} hour${hoursRemaining !== 1 ? 's' : ''} before submitting another review.`
+        });
+        return;
+      }
+    }
+
     if (!validateForm()) {
       return;
     }
@@ -53,12 +85,15 @@ export default function ReviewModal({ isOpen, onClose, category }) {
     setIsSubmitting(true);
 
     try {
-      // Add review to localStorage
-      const newReview = addReview(category, {
+      // Add review to Firestore
+      const newReview = await addReview(category, {
         name: name.trim(),
         rating,
         comment: comment.trim()
       });
+
+      // Record the time of this review submission
+      localStorage.setItem(lastReviewKey, Date.now().toString());
 
       // Show success notification in Dynamic Island
       if (window.showDynamicIslandNotification) {

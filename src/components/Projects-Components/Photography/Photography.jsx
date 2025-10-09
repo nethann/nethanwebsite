@@ -48,9 +48,12 @@ export default function Photography() {
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    // Load reviews
-    const photographyReviews = getReviewsByCategory('photography');
-    setReviews(photographyReviews);
+    // Load reviews asynchronously
+    const loadReviews = async () => {
+      const photographyReviews = await getReviewsByCategory('photography');
+      setReviews(photographyReviews);
+    };
+    loadReviews();
 
     // Expose function for Dynamic Island to open review modal
     window.openReviewModal = (category) => {

@@ -1,67 +1,132 @@
-// Review Service - Handles all review storage and retrieval
-const REVIEWS_KEY = 'nethan_reviews';
+// Review Service - Handles all review storage and retrieval using Firebase Firestore
+import { db } from '../config/firebase';
+import {
+  collection,
+  addDoc,
+  getDocs,
+  query,
+  where,
+  orderBy,
+  serverTimestamp,
+  Timestamp
+} from 'firebase/firestore';
 
-// Initialize reviews structure
-const initializeReviews = () => {
-  const existingReviews = localStorage.getItem(REVIEWS_KEY);
-  if (!existingReviews) {
-    localStorage.setItem(REVIEWS_KEY, JSON.stringify({
+const REVIEWS_COLLECTION = 'reviews';
+
+// Get all reviews from Firestore
+export const getAllReviews = async () => {
+  try {
+    const reviewsRef = collection(db, REVIEWS_COLLECTION);
+    const querySnapshot = await getDocs(reviewsRef);
+
+    const reviews = {
       photography: [],
       music: []
-    }));
+    };
+
+    querySnapshot.forEach((doc) => {
+      const reviewData = {
+        id: doc.id,
+        ...doc.data(),
+        // Convert Firestore Timestamp to ISO string
+        date: doc.data().date?.toDate?.()?.toISOString() || new Date().toISOString()
+      };
+
+      if (reviewData.category === 'photography') {
+        reviews.photography.push(reviewData);
+      } else if (reviewData.category === 'music') {
+        reviews.music.push(reviewData);
+      }
+    });
+
+    // Sort by date (newest first)
+    reviews.photography.sort((a, b) => new Date(b.date) - new Date(a.date));
+    reviews.music.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    return reviews;
+  } catch (error) {
+    console.error('Error getting reviews:', error);
+    return { photography: [], music: [] };
   }
 };
 
-// Get all reviews
-export const getAllReviews = () => {
-  initializeReviews();
-  const reviews = localStorage.getItem(REVIEWS_KEY);
-  return JSON.parse(reviews);
-};
-
 // Get reviews by category
-export const getReviewsByCategory = (category) => {
-  const allReviews = getAllReviews();
-  return allReviews[category] || [];
+export const getReviewsByCategory = async (category) => {
+  try {
+    const reviewsRef = collection(db, REVIEWS_COLLECTION);
+    const q = query(
+      reviewsRef,
+      where('category', '==', category)
+    );
+
+    const querySnapshot = await getDocs(q);
+    const reviews = [];
+
+    querySnapshot.forEach((doc) => {
+      reviews.push({
+        id: doc.id,
+        ...doc.data(),
+        // Convert Firestore Timestamp to ISO string
+        date: doc.data().date?.toDate?.()?.toISOString() || new Date().toISOString()
+      });
+    });
+
+    // Sort by date on client side (newest first)
+    reviews.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+    return reviews;
+  } catch (error) {
+    console.error(`Error getting ${category} reviews:`, error);
+    return [];
+  }
 };
 
 // Add a new review
-export const addReview = (category, reviewData) => {
-  const allReviews = getAllReviews();
+export const addReview = async (category, reviewData) => {
+  try {
+    const newReview = {
+      name: reviewData.name,
+      rating: reviewData.rating,
+      comment: reviewData.comment,
+      category: category,
+      date: serverTimestamp() // Use Firebase server timestamp
+    };
 
-  const newReview = {
-    id: Date.now(),
-    name: reviewData.name,
-    rating: reviewData.rating,
-    comment: reviewData.comment,
-    date: new Date().toISOString(),
-    category: category
-  };
+    const docRef = await addDoc(collection(db, REVIEWS_COLLECTION), newReview);
 
-  allReviews[category].unshift(newReview); // Add to beginning
-  localStorage.setItem(REVIEWS_KEY, JSON.stringify(allReviews));
-
-  return newReview;
+    return {
+      id: docRef.id,
+      ...newReview,
+      date: new Date().toISOString() // Return current date for immediate display
+    };
+  } catch (error) {
+    console.error('Error adding review:', error);
+    throw error;
+  }
 };
 
 // Get latest reviews (for homepage)
-export const getLatestReviews = (limit = 4) => {
-  const allReviews = getAllReviews();
-  const combined = [
-    ...allReviews.photography.map(r => ({ ...r, category: 'photography' })),
-    ...allReviews.music.map(r => ({ ...r, category: 'music' }))
-  ];
+export const getLatestReviews = async (limit = 4) => {
+  try {
+    const allReviews = await getAllReviews();
+    const combined = [
+      ...allReviews.photography,
+      ...allReviews.music
+    ];
 
-  // Sort by date (newest first)
-  combined.sort((a, b) => new Date(b.date) - new Date(a.date));
+    // Sort by date (newest first)
+    combined.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-  return combined.slice(0, limit);
+    return combined.slice(0, limit);
+  } catch (error) {
+    console.error('Error getting latest reviews:', error);
+    return [];
+  }
 };
 
 // Get average rating for a category
-export const getAverageRating = (category) => {
-  const reviews = getReviewsByCategory(category);
-  if (reviews.length === 0) return 0;
+export const getAverageRating = (reviews) => {
+  if (!reviews || reviews.length === 0) return 0;
 
   const sum = reviews.reduce((acc, review) => acc + review.rating, 0);
   return (sum / reviews.length).toFixed(1);

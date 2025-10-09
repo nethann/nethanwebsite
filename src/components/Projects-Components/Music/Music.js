@@ -33,9 +33,12 @@ export default function Music() {
   useEffect(() => {
     window.scrollTo(0, 0);
 
-    // Load reviews
-    const musicReviews = getReviewsByCategory('music');
-    setReviews(musicReviews);
+    // Load reviews asynchronously
+    const loadReviews = async () => {
+      const musicReviews = await getReviewsByCategory('music');
+      setReviews(musicReviews);
+    };
+    loadReviews();
 
     // Expose function for Dynamic Island to open review modal
     window.openReviewModal = (category) => {

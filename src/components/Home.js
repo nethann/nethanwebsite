@@ -42,9 +42,12 @@ const Home = () => {
         const shuffled = [...allPhotos].sort(() => 0.5 - Math.random());
         setFeaturedPhotos(shuffled.slice(0, 6));
 
-        // Load latest reviews
-        const reviews = getLatestReviews(4);
-        setLatestReviews(reviews);
+        // Load latest reviews asynchronously
+        const loadReviews = async () => {
+            const reviews = await getLatestReviews(4);
+            setLatestReviews(reviews);
+        };
+        loadReviews();
 
         // Fetch latest YouTube video from both channels
         const fetchLatestVideo = async () => {
