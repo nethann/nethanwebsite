@@ -34,10 +34,10 @@ function App() {
         <div>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/projects/dev" element={<Projects />} />
+            <Route path="/dev" element={<Projects />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/projects/music" element={<Music />} />
-            <Route path="/projects/photography" element={<Photography />} />
+            <Route path="/music" element={<Music />} />
+            <Route path="/photography" element={<Photography />} />
             <Route path="/projects/gameDevelopment" element={<Modeling />} />
             <Route path="/spotify-auth" element={<SpotifyAuth />} />
 

@@ -69,7 +69,7 @@ export default function IOS26Navbar() {
             Home
           </Link>
 
-          <Link to="/projects/dev" className="ios26-nav-item" onClick={handleLinkClick}>
+          <Link to="/dev" className="ios26-nav-item" onClick={handleLinkClick}>
             Dev Projects
           </Link>
 
@@ -93,7 +93,7 @@ export default function IOS26Navbar() {
             Home
           </Link>
 
-          <Link to="/projects/dev" className="ios26-mobile-item" onClick={handleLinkClick}>
+          <Link to="/dev" className="ios26-mobile-item" onClick={handleLinkClick}>
             Dev Projects
           </Link>
 

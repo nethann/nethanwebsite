@@ -16,6 +16,7 @@ export default function Contact() {
   const [selectedService, setSelectedService] = useState('');
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const params = new URLSearchParams(location.search);
     const service = params.get('service');
     if (service) {

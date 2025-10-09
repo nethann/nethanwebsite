@@ -36,11 +36,11 @@ const Home = () => {
                 </header>
 
                 <section className="intro">
-                    <Link to="/projects/photography" className="card" data-aos="fade-up" data-aos-delay="200">
+                    <Link to="/photography" className="card" data-aos="fade-up" data-aos-delay="200">
                         <h3>Photography</h3>
                         <p>Capturing moments and telling stories through the lens</p>
                     </Link>
-                    <Link to="/projects/music" className="card" data-aos="fade-up" data-aos-delay="100">
+                    <Link to="/music" className="card" data-aos="fade-up" data-aos-delay="100">
                         <h3>Music</h3>
                         <p>Creating and performing music across multiple instruments</p>
                     </Link>
