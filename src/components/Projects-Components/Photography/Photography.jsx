@@ -106,47 +106,45 @@ export default function Photography() {
         <div className="pricing-grid">
           <div className="pricing-card">
             <div className="pricing-header">
-              <h3>Portrait Session</h3>
-              <div className="price">$150</div>
+              <h3>1 Hour Session</h3>
+              <div className="price">$60</div>
             </div>
             <ul className="pricing-features">
-              <li>1-hour session</li>
-              <li>1 location</li>
+              <li>1-hour photography</li>
+              <li>Camera & drone available</li>
+              <li>Portraits, scenic, or product shots</li>
+              <li>15 edited photos</li>
+              <li>Online gallery</li>
+            </ul>
+            <a href="/contact?service=photography" className="pricing-button">Book Now</a>
+          </div>
+
+          <div className="pricing-card">
+            <div className="pricing-header">
+              <h3>2 Hour Session</h3>
+              <div className="price">$100</div>
+            </div>
+            <ul className="pricing-features">
+              <li>2-hour photography</li>
+              <li>Camera & drone available</li>
+              <li>Multiple locations or setups</li>
               <li>20 edited photos</li>
               <li>Online gallery</li>
-              <li>Personal use rights</li>
             </ul>
             <a href="/contact?service=photography" className="pricing-button">Book Now</a>
           </div>
 
           <div className="pricing-card">
             <div className="pricing-header">
-              <h3>Event Coverage</h3>
-              <div className="price">$350</div>
+              <h3>3 Hour Session</h3>
+              <div className="price">$135</div>
             </div>
             <ul className="pricing-features">
-              <li>3-hour coverage</li>
-              <li>Multiple locations</li>
-              <li>75+ edited photos</li>
+              <li>3-hour photography</li>
+              <li>Camera & drone available</li>
+              <li>Multiple locations & variety</li>
+              <li>30 edited photos</li>
               <li>Online gallery</li>
-              <li>Commercial use rights</li>
-              <li>Same-day highlights</li>
-            </ul>
-            <a href="/contact?service=photography" className="pricing-button">Book Now</a>
-          </div>
-
-          <div className="pricing-card">
-            <div className="pricing-header">
-              <h3>Full Day</h3>
-              <div className="price">$600</div>
-            </div>
-            <ul className="pricing-features">
-              <li>8-hour coverage</li>
-              <li>Unlimited locations</li>
-              <li>150+ edited photos</li>
-              <li>Online gallery</li>
-              <li>Full commercial rights</li>
-              <li>Prints included</li>
             </ul>
             <a href="/contact?service=photography" className="pricing-button">Book Now</a>
           </div>
