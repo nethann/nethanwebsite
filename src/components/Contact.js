@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
-import { FaInstagram, FaLinkedinIn, FaYoutube, FaGithub } from 'react-icons/fa';
 
 // importing CSS
 import "../CSS/Contact/Contact.css"
@@ -30,12 +29,6 @@ export default function Contact() {
     }
   }, [location]);
 
-  const socialLinks = [
-    { icon: FaGithub, url: 'https://github.com/yourusername', label: 'GitHub' },
-    { icon: FaLinkedinIn, url: 'https://linkedin.com/in/yourusername', label: 'LinkedIn' },
-    { icon: FaInstagram, url: 'https://instagram.com/yourusername', label: 'Instagram' },
-    { icon: FaYoutube, url: 'https://youtube.com/@yourusername', label: 'YouTube' }
-  ];
 
   useEffect(() => {
     Aos.init({
@@ -130,26 +123,6 @@ export default function Contact() {
           </form>
         </div>
 
-        <div className="contact-social" data-aos="fade-up" data-aos-delay="200">
-          <p className="social-heading">Or connect with me on</p>
-          <div className="social-links">
-            {socialLinks.map((social, index) => {
-              const IconComponent = social.icon;
-              return (
-                <a
-                  key={index}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={social.label}
-                  className="social-link"
-                >
-                  <IconComponent />
-                </a>
-              );
-            })}
-          </div>
-        </div>
       </div>
     </div>
   )
