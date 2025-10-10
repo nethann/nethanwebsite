@@ -263,24 +263,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <section className="about-section" data-aos="fade-up">
-                <div className="about-card">
-                    <img src={NethanPC} alt="Nethan Nagendran" className="about-profile-pic" />
-                    <div className="about-content">
-                        <h2>About Me</h2>
-                        <p>
-                            I'm a passionate creator who sees the world through multiple lenses — as a developer crafting digital experiences,
-                            a photographer capturing authentic moments, and a musician bringing emotion to life through sound.
-                        </p>
-                        <p>
-                            Currently based in Atlanta, I'm building my portfolio while collaborating with clients who value fresh perspectives
-                            and dedicated craftsmanship. Let's create something meaningful together.
-                        </p>
-                    </div>
-                </div>
-            </section>
-
-            {/* What I Offer Section */}
+            {/* What I Offer Section - Moved higher for better visibility */}
             <section className="what-i-offer-section" data-aos="fade-up">
                 <h2 className="section-title">What I Offer</h2>
                 <div className="offer-grid">
@@ -340,6 +323,23 @@ const Home = () => {
                         <Link to="/music" className="offer-button">
                             Listen & Book →
                         </Link>
+                    </div>
+                </div>
+            </section>
+
+            <section className="about-section" data-aos="fade-up">
+                <div className="about-card">
+                    <img src={NethanPC} alt="Nethan Nagendran" className="about-profile-pic" />
+                    <div className="about-content">
+                        <h2>About Me</h2>
+                        <p>
+                            I'm a passionate creator who sees the world through multiple lenses — as a developer crafting digital experiences,
+                            a photographer capturing authentic moments, and a musician bringing emotion to life through sound.
+                        </p>
+                        <p>
+                            Currently based in Atlanta, I'm building my portfolio while collaborating with clients who value fresh perspectives
+                            and dedicated craftsmanship. Let's create something meaningful together.
+                        </p>
                     </div>
                 </div>
             </section>
