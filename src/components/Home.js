@@ -269,11 +269,12 @@ const Home = () => {
                     <div className="about-content">
                         <h2>About Me</h2>
                         <p>
-                            I'm a creator at heart — a developer, photographer, and musician exploring how technology and art can amplify each other.
-                            I believe great stories can be told through many mediums, whether it's a line of code, a melody, or a photo that freezes time.
+                            I'm a passionate creator who sees the world through multiple lenses — as a developer crafting digital experiences,
+                            a photographer capturing authentic moments, and a musician bringing emotion to life through sound.
                         </p>
                         <p>
-                            I'm currently based in Atlanta, always experimenting, learning, and building.
+                            Currently based in Atlanta, I'm building my portfolio while collaborating with clients who value fresh perspectives
+                            and dedicated craftsmanship. Let's create something meaningful together.
                         </p>
                     </div>
                 </div>
@@ -287,7 +288,7 @@ const Home = () => {
                         <div className="offer-icon">📸</div>
                         <h3>Photography</h3>
                         <p className="offer-description">
-                            Portraits, events, creative shots, brand sessions. I capture moments that tell your story with authenticity and style.
+                            Specializing in portraits, events, and creative sessions. I bring a fresh eye and technical skills to capture authentic moments that reflect your unique story.
                         </p>
                         {latestReviews.filter(r => r.category === 'photography')[0] ? (
                             <div className="testimonial">
@@ -316,7 +317,7 @@ const Home = () => {
                         <div className="offer-icon">🎵</div>
                         <h3>Music</h3>
                         <p className="offer-description">
-                            Live gigs, production, custom beats, sound design. From performance to production, I bring your sound to life.
+                            Acoustic performances, worship music, and custom arrangements. I'm ready to bring heartfelt music to your events with dedication and skill.
                         </p>
                         {latestReviews.filter(r => r.category === 'music')[0] ? (
                             <div className="testimonial">
