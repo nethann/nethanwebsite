@@ -122,7 +122,7 @@ const Home = () => {
 
                 </section>
 
-                <div className="cta-buttons" data-aos="fade-up" data-aos-delay="300">
+                <div className="cta-buttons">
                     <Link to="/contact?service=photography" className="cta-button cta-primary">
                         Book Me for Photography
                     </Link>

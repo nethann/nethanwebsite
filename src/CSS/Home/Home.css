@@ -28,7 +28,7 @@ body {
     align-items: center;
     min-height: 100vh;
     width: 100%;
-    padding: 3rem 2rem;
+    padding: 8rem 2rem 3rem;
     box-sizing: border-box;
     position: relative;
 }
@@ -559,7 +559,7 @@ body {
 
 @media (max-width: 800px) {
     .hero-section {
-        padding: 2rem 1.5rem;
+        padding: 5rem 1.5rem 2rem;
         min-height: 100vh;
     }
 
