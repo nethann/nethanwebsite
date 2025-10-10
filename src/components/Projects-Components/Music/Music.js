@@ -60,7 +60,7 @@ export default function Music() {
 
   return (
     <div className='Home-container'>
-      <div className='Music' style={{paddingTop: '8rem'}}>
+      <div className='Music'>
         <div className='music-intro' data-aos="fade-up">
           <h1>Music</h1>
           <p>Creating and performing acoustic style covers</p>
