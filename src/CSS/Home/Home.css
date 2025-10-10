@@ -947,6 +947,8 @@ body {
     overflow: hidden;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
     background: #000000;
+    transform: scale(0.7); /* Scale down the entire video by 30% */
+    margin: -8% auto; /* Negative margin to remove extra space from scaling */
 }
 
 .youtube-embed iframe {

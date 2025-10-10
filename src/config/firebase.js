@@ -5,7 +5,7 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBaND8mY7IO_i2BkFIc6S5cy1WmgouWsVw",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "gtmovies-1efd8.firebaseapp.com",
   databaseURL: "https://gtmovies-1efd8-default-rtdb.firebaseio.com",
   projectId: "gtmovies-1efd8",

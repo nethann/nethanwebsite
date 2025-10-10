@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { FaChevronDown, FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes } from 'react-icons/fa';
 import '../../CSS/Global/iOS26Nav.css';
 
 export default function IOS26Navbar() {
@@ -70,8 +70,16 @@ export default function IOS26Navbar() {
             Home
           </Link>
 
+          <Link to="/photography" className="ios26-nav-item" onClick={handleLinkClick}>
+            Photography
+          </Link>
+
+          <Link to="/music" className="ios26-nav-item" onClick={handleLinkClick}>
+            Music
+          </Link>
+
           <Link to="/dev" className="ios26-nav-item" onClick={handleLinkClick}>
-            Dev Projects
+            Code
           </Link>
 
           <Link to="/contact" className="ios26-nav-item" onClick={handleLinkClick}>
@@ -94,8 +102,16 @@ export default function IOS26Navbar() {
             Home
           </Link>
 
+          <Link to="/photography" className="ios26-mobile-item" onClick={handleLinkClick}>
+            Photography
+          </Link>
+
+          <Link to="/music" className="ios26-mobile-item" onClick={handleLinkClick}>
+            Music
+          </Link>
+
           <Link to="/dev" className="ios26-mobile-item" onClick={handleLinkClick}>
-            Dev Projects
+            Code
           </Link>
 
           <Link to="/contact" className="ios26-mobile-item" onClick={handleLinkClick}>

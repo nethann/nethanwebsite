@@ -10,7 +10,7 @@ const YouTubeChannels = () => {
   const [loading, setLoading] = useState(false);
 
   // YouTube API Key
-  const YOUTUBE_API_KEY = 'AIzaSyB1RMivMQohGsZOhPudzSLGHurf9bZDYRA';
+  const YOUTUBE_API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
 
   // YouTube channel configurations - descriptions will be fetched from API
   const [channels, setChannels] = useState({

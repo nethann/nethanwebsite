@@ -3,6 +3,24 @@
   background: #faf9f5;
 }
 
+/* Image placeholder for lazy loading */
+.image-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  background: #f5f5f5;
+  color: #9ca3af;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
 .photography-page {
   min-height: 100vh;
   padding: 2rem;

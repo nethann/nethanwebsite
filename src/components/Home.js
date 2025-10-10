@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import LazyLoad from 'react-lazyload';
 
 import '../CSS/Global/Global.css';
 import '../CSS/Home/Home.css';
@@ -10,7 +11,7 @@ import Aos from 'aos';
 import "aos/dist/aos.css";
 
 // Review service
-import { getLatestReviews, formatDate } from '../services/reviewService';
+import { getLatestReviews } from '../services/reviewService';
 import { FaStar } from 'react-icons/fa';
 
 // Profile photo
@@ -49,52 +50,182 @@ const Home = () => {
         };
         loadReviews();
 
-        // Fetch latest YouTube video from both channels
+        // Fetch latest YouTube video from all your channels
         const fetchLatestVideo = async () => {
             try {
-                const YOUTUBE_API_KEY = 'AIzaSyB1RMivMQohGsZOhPudzSLGHurf9bZDYRA';
-                const NETHAN_JOURNEY_ID = 'UCcjyzmhL8hoJEQhjNin3wdw';
-                const WORSHIP_AVENUE_ID = 'UCzhoMRmdkQLjr7O3PoddKPw';
+                const YOUTUBE_API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
 
-                // Fetch from both channels
-                const channel1Response = await fetch(
-                    `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${NETHAN_JOURNEY_ID}&part=snippet,id&order=date&maxResults=1&type=video`
-                );
-                const channel2Response = await fetch(
-                    `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${WORSHIP_AVENUE_ID}&part=snippet,id&order=date&maxResults=1&type=video`
-                );
+                console.log('🔑 API Key Status:', {
+                    hasApiKey: !!YOUTUBE_API_KEY,
+                    apiKeyLength: YOUTUBE_API_KEY ? YOUTUBE_API_KEY.length : 0,
+                    apiKeyFirst10: YOUTUBE_API_KEY ? YOUTUBE_API_KEY.substring(0, 10) + '...' : 'none'
+                });
 
-                const channel1Data = await channel1Response.json();
-                const channel2Data = await channel2Response.json();
+                // Check cache first
+                const CACHE_KEY = 'youtube_latest_video';
+                const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 
-                // Get the latest video from both channels by comparing dates
-                const video1 = channel1Data.items?.[0];
-                const video2 = channel2Data.items?.[0];
+                const cached = localStorage.getItem(CACHE_KEY);
+                if (cached) {
+                    try {
+                        const { videoId, timestamp } = JSON.parse(cached);
+                        const isExpired = Date.now() - timestamp > CACHE_DURATION;
 
-                let latestVideoId = null;
-
-                if (video1 && video2) {
-                    const date1 = new Date(video1.snippet.publishedAt);
-                    const date2 = new Date(video2.snippet.publishedAt);
-                    latestVideoId = date1 > date2 ? video1.id.videoId : video2.id.videoId;
-                } else if (video1) {
-                    latestVideoId = video1.id.videoId;
-                } else if (video2) {
-                    latestVideoId = video2.id.videoId;
+                        if (!isExpired) {
+                            console.log('📦 Using cached video:', videoId);
+                            console.log('🎯 Setting video from cache - this should be final');
+                            setLatestVideo(videoId);
+                            return;
+                        } else {
+                            console.log('🗑️ Cache expired, fetching new video');
+                            localStorage.removeItem(CACHE_KEY);
+                        }
+                    } catch (cacheError) {
+                        console.warn('⚠️ Cache parse error:', cacheError);
+                        localStorage.removeItem(CACHE_KEY);
+                    }
                 }
 
-                if (latestVideoId) {
-                    setLatestVideo(latestVideoId);
+                if (!YOUTUBE_API_KEY) {
+                    console.error('❌ YouTube API key not found in environment variables');
+                    console.log('Please check your .env file for REACT_APP_YOUTUBE_API_KEY');
+                    setLatestVideo('dQw4w9WgXcQ');
+                    return;
                 }
+
+                // Temporary: Check quota status first
+                console.log('🔍 Testing API quota with a simple request...');
+                const testResponse = await fetch(`https://www.googleapis.com/youtube/v3/channels?key=${YOUTUBE_API_KEY}&id=UCcjyzmhL8hoJEQhjNin3wdw&part=id`);
+
+                if (!testResponse.ok) {
+                    const errorData = await testResponse.json();
+                    if (errorData.error?.errors?.[0]?.reason === 'quotaExceeded') {
+                        console.warn('📊 YouTube API quota exceeded. Using your latest video.');
+                        console.log('🎯 Setting your video due to quota - this should be final');
+                        // Using your latest video: https://youtu.be/AjZG2xYZmAs
+                        setLatestVideo('AjZG2xYZmAs');
+                        return;
+                    }
+                }
+
+                // Your YouTube channels
+                const channels = [
+                    { name: 'Nethan Journey', id: 'UCcjyzmhL8hoJEQhjNin3wdw' },
+                    { name: 'Worship Avenue', id: 'UCzhoMRmdkQLjr7O3PoddKPw' }
+                ];
+
+                console.log('🎬 Fetching from channels:', channels.map(c => c.name));
+
+                const allVideos = [];
+
+                // Try different approach - use channel uploads playlist
+                for (const channel of channels) {
+                    try {
+                        console.log(`📡 Fetching from ${channel.name}...`);
+
+                        // First get the channel info to find uploads playlist
+                        const channelUrl = `https://www.googleapis.com/youtube/v3/channels?key=${YOUTUBE_API_KEY}&id=${channel.id}&part=contentDetails`;
+                        console.log(`🔍 Channel URL: ${channelUrl}`);
+
+                        const channelResponse = await fetch(channelUrl);
+
+                        if (!channelResponse.ok) {
+                            const errorText = await channelResponse.text();
+                            console.error(`❌ Channel API Error for ${channel.name}:`, channelResponse.status, errorText);
+
+                            // Fallback to search API
+                            console.log(`🔄 Trying search API for ${channel.name}...`);
+                            const searchUrl = `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${channel.id}&part=snippet,id&order=date&maxResults=1&type=video`;
+                            const searchResponse = await fetch(searchUrl);
+
+                            if (!searchResponse.ok) {
+                                const searchErrorText = await searchResponse.text();
+                                console.error(`❌ Search API Error for ${channel.name}:`, searchResponse.status, searchErrorText);
+                                continue;
+                            }
+
+                            const searchData = await searchResponse.json();
+                            if (searchData.items && searchData.items.length > 0) {
+                                const video = searchData.items[0];
+                                allVideos.push({
+                                    ...video,
+                                    channelName: channel.name,
+                                    publishedAt: video.snippet.publishedAt
+                                });
+                                console.log(`📹 Found video via search from ${channel.name}:`, video.snippet.title);
+                            }
+                            continue;
+                        }
+
+                        const channelData = await channelResponse.json();
+                        console.log(`✅ Channel response from ${channel.name}:`, channelData);
+
+                        if (channelData.items && channelData.items.length > 0) {
+                            const uploadsPlaylistId = channelData.items[0].contentDetails.relatedPlaylists.uploads;
+                            console.log(`📂 Uploads playlist for ${channel.name}: ${uploadsPlaylistId}`);
+
+                            // Get latest video from uploads playlist
+                            const playlistUrl = `https://www.googleapis.com/youtube/v3/playlistItems?key=${YOUTUBE_API_KEY}&playlistId=${uploadsPlaylistId}&part=snippet&maxResults=1&order=date`;
+                            const playlistResponse = await fetch(playlistUrl);
+
+                            if (playlistResponse.ok) {
+                                const playlistData = await playlistResponse.json();
+                                if (playlistData.items && playlistData.items.length > 0) {
+                                    const video = playlistData.items[0];
+                                    allVideos.push({
+                                        id: { videoId: video.snippet.resourceId.videoId },
+                                        snippet: video.snippet,
+                                        channelName: channel.name,
+                                        publishedAt: video.snippet.publishedAt
+                                    });
+                                    console.log(`📹 Found video via playlist from ${channel.name}:`, video.snippet.title);
+                                }
+                            }
+                        } else {
+                            console.warn(`⚠️ No channel data found for ${channel.name}`);
+                        }
+                    } catch (channelError) {
+                        console.error(`❌ Error fetching from ${channel.name}:`, channelError);
+                    }
+                }
+
+                if (allVideos.length > 0) {
+                    // Sort by publication date (newest first)
+                    allVideos.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
+
+                    const latestVideo = allVideos[0];
+                    console.log(`🎯 Latest video selected:`, {
+                        title: latestVideo.snippet.title,
+                        channel: latestVideo.channelName,
+                        publishedAt: latestVideo.publishedAt,
+                        videoId: latestVideo.id.videoId
+                    });
+
+                    const videoId = latestVideo.id.videoId;
+                    setLatestVideo(videoId);
+
+                    // Cache the result
+                    const cacheData = {
+                        videoId: videoId,
+                        timestamp: Date.now(),
+                        title: latestVideo.snippet.title,
+                        channel: latestVideo.channelName
+                    };
+                    localStorage.setItem('youtube_latest_video', JSON.stringify(cacheData));
+                    console.log('💾 Video cached for 24 hours');
+                } else {
+                    console.warn('⚠️ No videos found from any channel, using your latest video');
+                    setLatestVideo('AjZG2xYZmAs'); // Your latest video
+                }
+
             } catch (error) {
-                console.error('Error fetching YouTube video:', error);
-                // Fallback to a default video if API fails
-                setLatestVideo('dQw4w9WgXcQ');
+                console.error('❌ Critical error fetching YouTube videos:', error);
+                setLatestVideo('AjZG2xYZmAs'); // Your latest video
             }
         };
 
         fetchLatestVideo();
-    }, []);
+    }, []); // Empty dependency array - only run once on mount
 
     return (
         <div className="homepage">
@@ -227,7 +358,9 @@ const Home = () => {
                                 data-aos="zoom-in"
                                 data-aos-delay={100 + (index * 50)}
                             >
-                                <img src={photo.src} alt={photo.alt} />
+                                <LazyLoad height={200} offset={100}>
+                                    <img src={photo.src} alt={photo.alt} loading="lazy" />
+                                </LazyLoad>
                             </div>
                         ))}
                     </div>

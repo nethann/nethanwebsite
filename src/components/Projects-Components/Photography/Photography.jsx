@@ -1,4 +1,5 @@
 import React, { useMemo, useEffect, useState } from "react";
+import LazyLoad from 'react-lazyload';
 import "../../../CSS/Projects/Photography/Photography.css";
 
 import Aos from 'aos';
@@ -213,7 +214,9 @@ export default function Photography() {
 
         <div className="photo-grid">
           {filteredImages.map((img, index) => (
-            <img key={index} src={img.src} alt={img.alt} className="photo" />
+            <LazyLoad key={index} height={300} offset={100} placeholder={<div className="image-placeholder">Loading...</div>}>
+              <img src={img.src} alt={img.alt} className="photo" loading="lazy" />
+            </LazyLoad>
           ))}
         </div>
       </section>

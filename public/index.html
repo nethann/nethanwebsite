@@ -2,26 +2,86 @@
 <html lang="en">
 
 <head>
-  <!-- apple meta color -->
-  <meta property="title" content="Nethan Nagendran" />
-  <meta name="description" content="Nethan Nagendran Personal Website" />
-
-  <meta name=" theme-color" content="#17191c">
+  <!-- Essential Meta Tags -->
   <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
   <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
 
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Nethan Nagendran - Professional Photographer, Musician & Developer based in Atlanta, Georgia. Specializing in portrait photography, acoustic music performances, and web development." />
+  <meta name="keywords" content="Nethan Nagendran, photographer, musician, developer, Atlanta, Georgia, portrait photography, acoustic music, web development, React, JavaScript" />
+  <meta name="author" content="Nethan Nagendran" />
+  <meta name="robots" content="index, follow" />
 
-  <script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js" crossorigin></script>
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="Nethan Nagendran - Photographer, Musician & Developer" />
+  <meta property="og:description" content="Professional photographer, musician & developer based in Atlanta, Georgia. Book photography sessions, music performances, or development projects." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://your-domain.com" />
+  <meta property="og:image" content="%PUBLIC_URL%/social-preview.jpg" />
+  <meta property="og:site_name" content="Nethan Nagendran Portfolio" />
 
-  <script src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js" crossorigin></script>
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Nethan Nagendran - Photographer, Musician & Developer" />
+  <meta name="twitter:description" content="Professional photographer, musician & developer based in Atlanta, Georgia." />
+  <meta name="twitter:image" content="%PUBLIC_URL%/social-preview.jpg" />
 
-  <script src="https://cdn.jsdelivr.net/npm/react-bootstrap@next/dist/react-bootstrap.min.js" crossorigin></script>
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Nethan Nagendran",
+    "jobTitle": ["Photographer", "Musician", "Web Developer"],
+    "description": "Professional photographer, musician, and web developer based in Atlanta, Georgia",
+    "url": "https://your-domain.com",
+    "image": "https://your-domain.com/profile-image.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Atlanta",
+      "addressRegion": "Georgia",
+      "addressCountry": "United States"
+    },
+    "knowsAbout": ["Photography", "Music", "Web Development", "React", "JavaScript"],
+    "hasOccupation": [
+      {
+        "@type": "Occupation",
+        "name": "Photographer",
+        "description": "Portrait and event photography"
+      },
+      {
+        "@type": "Occupation",
+        "name": "Musician",
+        "description": "Acoustic guitar and vocal performances"
+      },
+      {
+        "@type": "Occupation",
+        "name": "Web Developer",
+        "description": "Full-stack web development"
+      }
+    ],
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Photography Services",
+        "description": "Professional photography for portraits, events, and creative sessions",
+        "priceRange": "$60-$135"
+      },
+      {
+        "@type": "Offer",
+        "name": "Music Performances",
+        "description": "Solo acoustic performances and worship services",
+        "priceRange": "$200-$500"
+      }
+    ]
+  }
+  </script>
 
-  <script>var Alert = ReactBootstrap.Alert;</script>
 
+  <!-- Bootstrap CSS (keeping only the CSS since you have react-bootstrap installed via npm) -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
     integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous" />
 
