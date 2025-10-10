@@ -363,6 +363,10 @@ export default function DynamicIsland() {
               })}
             </div>
           </div>
+
+          <div className="tech-row">
+            <span className="tech-badge">Built with React</span>
+          </div>
         </div>
       </div>
     );
