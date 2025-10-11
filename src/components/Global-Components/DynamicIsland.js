@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { FaCode, FaMusic, FaClock, FaInstagram, FaLinkedinIn, FaTiktok, FaYoutube } from 'react-icons/fa';
+import { FaCode, FaMusic, FaClock, FaInstagram, FaLinkedinIn, FaTiktok, FaYoutube, FaStar, FaTimes } from 'react-icons/fa';
 import { AiFillGithub } from 'react-icons/ai';
 import { MdNotifications, MdCheck, MdError } from 'react-icons/md';
+import { addReview } from '../../services/reviewService';
 import '../../CSS/Global/DynamicIsland.css';
 
 export default function DynamicIsland() {
@@ -23,6 +24,16 @@ export default function DynamicIsland() {
   const [currentActivity, setCurrentActivity] = useState('Building cool things');
   const [latestCommit, setLatestCommit] = useState(null);
   const [siteLastUpdated, setSiteLastUpdated] = useState(null);
+
+  // Review form states
+  const [showReviewForm, setShowReviewForm] = useState(false);
+  const [reviewCategory, setReviewCategory] = useState(null);
+  const [reviewName, setReviewName] = useState('');
+  const [reviewRating, setReviewRating] = useState(0);
+  const [hoverRating, setHoverRating] = useState(0);
+  const [reviewComment, setReviewComment] = useState('');
+  const [reviewErrors, setReviewErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Fetch latest GitHub commit from any repository
   useEffect(() => {
@@ -252,6 +263,133 @@ export default function DynamicIsland() {
     };
   }, []);
 
+  // Handle opening review form (only on desktop)
+  const openReviewForm = (category) => {
+    // Check if we're on desktop (>= 768px)
+    if (window.innerWidth >= 768) {
+      setReviewCategory(category);
+      setShowReviewForm(true);
+      setIsExpanded(false); // Close normal expansion
+
+      // Reset form
+      setReviewName('');
+      setReviewRating(0);
+      setHoverRating(0);
+      setReviewComment('');
+      setReviewErrors({});
+
+      // Check if user can submit
+      const lastReviewKey = `lastReview_${category}`;
+      const lastReviewTime = localStorage.getItem(lastReviewKey);
+
+      if (lastReviewTime) {
+        const hoursSinceLastReview = (Date.now() - parseInt(lastReviewTime)) / (1000 * 60 * 60);
+
+        if (hoursSinceLastReview < 24) {
+          const hoursRemaining = Math.ceil(24 - hoursSinceLastReview);
+          setReviewErrors({
+            submit: `You can only submit one review per day. Please wait ${hoursRemaining} hour${hoursRemaining !== 1 ? 's' : ''} before submitting another review.`
+          });
+        }
+      }
+    } else {
+      // On mobile, fall back to modal
+      if (window.openReviewModal) {
+        window.openReviewModal(category);
+      }
+    }
+  };
+
+  // Expose review form function globally
+  useEffect(() => {
+    window.openDynamicIslandReview = openReviewForm;
+    return () => {
+      delete window.openDynamicIslandReview;
+    };
+  }, []);
+
+  // Validate review form
+  const validateReviewForm = () => {
+    const newErrors = {};
+
+    if (!reviewName.trim()) {
+      newErrors.name = 'Please enter your name';
+    }
+
+    if (reviewRating === 0) {
+      newErrors.rating = 'Please select a rating';
+    }
+
+    if (!reviewComment.trim()) {
+      newErrors.comment = 'Please write a review';
+    } else if (reviewComment.trim().length < 10) {
+      newErrors.comment = 'Review must be at least 10 characters';
+    }
+
+    setReviewErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  // Handle review form submission
+  const handleReviewSubmit = async (e) => {
+    e.preventDefault();
+
+    // Check rate limit
+    const lastReviewKey = `lastReview_${reviewCategory}`;
+    const lastReviewTime = localStorage.getItem(lastReviewKey);
+
+    if (lastReviewTime) {
+      const hoursSinceLastReview = (Date.now() - parseInt(lastReviewTime)) / (1000 * 60 * 60);
+
+      if (hoursSinceLastReview < 24) {
+        const hoursRemaining = Math.ceil(24 - hoursSinceLastReview);
+        setReviewErrors({
+          submit: `You can only submit one review per day. Please wait ${hoursRemaining} hour${hoursRemaining !== 1 ? 's' : ''} before submitting another review.`
+        });
+        return;
+      }
+    }
+
+    if (!validateReviewForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      await addReview(reviewCategory, {
+        name: reviewName.trim(),
+        rating: reviewRating,
+        comment: reviewComment.trim()
+      });
+
+      localStorage.setItem(lastReviewKey, Date.now().toString());
+
+      // Close form
+      setShowReviewForm(false);
+
+      // Show success notification
+      showNotification('success', 'Review submitted! Thank you!');
+
+      // Refresh page after delay
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+
+    } catch (error) {
+      console.error('Error submitting review:', error);
+      setReviewErrors({ submit: 'Failed to submit review. Please try again.' });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  // Close review form
+  const closeReviewForm = () => {
+    setShowReviewForm(false);
+    setReviewCategory(null);
+  };
+
 
   const getMinimalContent = () => {
     if (notification) {
@@ -377,14 +515,95 @@ export default function DynamicIsland() {
     localStorage.setItem('dynamicIslandFloatingTooltipSeen', 'true');
   };
 
+  // Get review form content
+  const getReviewFormContent = () => {
+    return (
+      <div className="review-form-container">
+        <div className="review-form-header">
+          <h3>Leave a Review</h3>
+          <p className="review-category-label">
+            {reviewCategory === 'photography' ? '📸 Photography' : '🎵 Music'}
+          </p>
+          <button className="review-form-close" onClick={closeReviewForm}>
+            <FaTimes />
+          </button>
+        </div>
+
+        <form onSubmit={handleReviewSubmit} className="review-form-island">
+          {/* Name Input */}
+          <div className="form-group-island">
+            <label htmlFor="review-name">Your Name *</label>
+            <input
+              type="text"
+              id="review-name"
+              value={reviewName}
+              onChange={(e) => setReviewName(e.target.value)}
+              placeholder="Enter your name"
+              className={reviewErrors.name ? 'error' : ''}
+              disabled={isSubmitting}
+            />
+            {reviewErrors.name && <span className="error-message">{reviewErrors.name}</span>}
+          </div>
+
+          {/* Star Rating */}
+          <div className="form-group-island">
+            <label>Rating *</label>
+            <div className="star-rating-island">
+              {[1, 2, 3, 4, 5].map((star) => (
+                <FaStar
+                  key={star}
+                  className={`star ${star <= (hoverRating || reviewRating) ? 'filled' : ''}`}
+                  onClick={() => setReviewRating(star)}
+                  onMouseEnter={() => setHoverRating(star)}
+                  onMouseLeave={() => setHoverRating(0)}
+                />
+              ))}
+            </div>
+            {reviewErrors.rating && <span className="error-message">{reviewErrors.rating}</span>}
+          </div>
+
+          {/* Comment Textarea */}
+          <div className="form-group-island">
+            <label htmlFor="review-comment">Your Review *</label>
+            <textarea
+              id="review-comment"
+              value={reviewComment}
+              onChange={(e) => setReviewComment(e.target.value)}
+              placeholder={`Share your experience with Nethan's ${reviewCategory}...`}
+              rows="4"
+              className={reviewErrors.comment ? 'error' : ''}
+              disabled={isSubmitting}
+            />
+            <span className="character-count">{reviewComment.length} characters</span>
+            {reviewErrors.comment && <span className="error-message">{reviewErrors.comment}</span>}
+          </div>
+
+          {/* Submit Error */}
+          {reviewErrors.submit && (
+            <div className="error-message submit-error">{reviewErrors.submit}</div>
+          )}
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className="review-submit-button-island"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Submitting...' : 'Submit Review'}
+          </button>
+        </form>
+      </div>
+    );
+  };
+
   return (
     <div className="dynamic-island-container">
       <div
-        className={`dynamic-island ${notification ? `notification notification-${notification.type}` : 'minimal'} ${isExpanded ? 'expanded' : ''} ${isNotificationHiding ? 'hiding' : ''}`}
-        onMouseEnter={() => !notification && setIsExpanded(true)}
-        onMouseLeave={() => setIsExpanded(false)}
+        className={`dynamic-island ${notification ? `notification notification-${notification.type}` : 'minimal'} ${isExpanded ? 'expanded' : ''} ${showReviewForm ? 'review-form-expanded' : ''} ${isNotificationHiding ? 'hiding' : ''}`}
+        onMouseEnter={() => !notification && !showReviewForm && setIsExpanded(true)}
+        onMouseLeave={() => !showReviewForm && setIsExpanded(false)}
       >
-        {isExpanded && !notification ? getExpandedContent() : getMinimalContent()}
+        {showReviewForm ? getReviewFormContent() : (isExpanded && !notification ? getExpandedContent() : getMinimalContent())}
       </div>
 
       {showFloatingTooltip && (

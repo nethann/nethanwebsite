@@ -1454,3 +1454,222 @@
     border-color: rgba(255, 255, 255, 0.25);
   }
 }
+
+/* Review Form Expansion Styles */
+.dynamic-island.review-form-expanded {
+  width: 500px;
+  height: auto;
+  max-height: 600px;
+  border-radius: 24px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(30px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(30px) saturate(180%) !important;
+  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  animation: reviewFormExpand 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  overflow-y: auto;
+}
+
+@keyframes reviewFormExpand {
+  0% {
+    width: 44px;
+    height: 44px;
+    border-radius: 50px;
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+  100% {
+    width: 500px;
+    height: auto;
+    border-radius: 24px;
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.review-form-container {
+  width: 100%;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.review-form-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.review-form-header h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.9);
+  margin: 0 0 8px 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+}
+
+.review-form-header .review-category-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.6);
+  margin: 0;
+}
+
+.review-form-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.05);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 16px;
+  transition: all 0.2s ease;
+}
+
+.review-form-close:hover {
+  background: rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.9);
+  transform: scale(1.1);
+}
+
+.review-form-island {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group-island {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group-island label {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.8);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+}
+
+.form-group-island input,
+.form-group-island textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+  background: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 0, 0, 0.9);
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.form-group-island input:focus,
+.form-group-island textarea:focus {
+  outline: none;
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.form-group-island input.error,
+.form-group-island textarea.error {
+  border-color: rgba(239, 68, 68, 0.5);
+}
+
+.form-group-island input:disabled,
+.form-group-island textarea:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.form-group-island textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.star-rating-island {
+  display: flex;
+  gap: 8px;
+}
+
+.star-rating-island .star {
+  font-size: 24px;
+  color: rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.star-rating-island .star.filled {
+  color: #ffd700;
+  filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.4));
+}
+
+.star-rating-island .star:hover {
+  transform: scale(1.15);
+}
+
+.character-count {
+  font-size: 11px;
+  color: rgba(0, 0, 0, 0.5);
+  text-align: right;
+}
+
+.error-message {
+  color: rgba(239, 68, 68, 0.9);
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.error-message.submit-error {
+  background: rgba(239, 68, 68, 0.1);
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.review-submit-button-island {
+  width: 100%;
+  padding: 12px 20px;
+  background: linear-gradient(135deg, rgba(59, 130, 246, 0.9) 0%, rgba(37, 99, 235, 0.9) 100%);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.review-submit-button-island:hover:not(:disabled) {
+  background: linear-gradient(135deg, rgba(59, 130, 246, 1) 0%, rgba(37, 99, 235, 1) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.review-submit-button-island:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+.review-submit-button-island:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Mobile: Hide review form expansion (use modal instead) */
+@media (max-width: 767px) {
+  .dynamic-island.review-form-expanded {
+    display: none;
+  }
+}

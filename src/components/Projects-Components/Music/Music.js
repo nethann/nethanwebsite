@@ -238,7 +238,15 @@ export default function Music() {
         <ReviewDisplay
           reviews={reviews}
           category="music"
-          onAddReviewClick={() => setIsReviewModalOpen(true)}
+          onAddReviewClick={() => {
+            // Try dynamic island first (desktop only)
+            if (window.openDynamicIslandReview) {
+              window.openDynamicIslandReview('music');
+            } else {
+              // Fallback to modal
+              setIsReviewModalOpen(true);
+            }
+          }}
         />
 
         {/* Review Modal */}

@@ -225,7 +225,15 @@ export default function Photography() {
       <ReviewDisplay
         reviews={reviews}
         category="photography"
-        onAddReviewClick={() => setIsReviewModalOpen(true)}
+        onAddReviewClick={() => {
+          // Try dynamic island first (desktop only)
+          if (window.openDynamicIslandReview) {
+            window.openDynamicIslandReview('photography');
+          } else {
+            // Fallback to modal
+            setIsReviewModalOpen(true);
+          }
+        }}
       />
 
       {/* Review Modal */}
