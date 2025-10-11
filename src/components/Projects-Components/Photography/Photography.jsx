@@ -107,46 +107,50 @@ export default function Photography() {
         <div className="pricing-grid">
           <div className="pricing-card">
             <div className="pricing-header">
-              <h3>1 Hour Session</h3>
-              <div className="price">$60</div>
+              <h3>Mini Portrait Session</h3>
+              <div className="price">$75</div>
             </div>
+            <p className="pricing-description">Quick, simple, and personal. Perfect for headshots, creative portraits, or social content.</p>
             <ul className="pricing-features">
-              <li>1-hour photography</li>
-              <li>Camera & drone available</li>
-              <li>Portraits, scenic, or product shots</li>
-              <li>15 edited photos</li>
-              <li>Online gallery</li>
+              <li>30-minute session</li>
+              <li>1 outfit / 1 location</li>
+              <li>10–15 edited photos</li>
+              <li>Online gallery delivery</li>
             </ul>
+            <p className="pricing-addons">Add-ons: extra photo $5 each, extra outfit +$15</p>
             <a href="/contact?service=photography" className="pricing-button">Book Now</a>
           </div>
 
           <div className="pricing-card">
             <div className="pricing-header">
-              <h3>2 Hour Session</h3>
-              <div className="price">$100</div>
+              <h3>Full Portrait / Family Session</h3>
+              <div className="price">$150</div>
             </div>
+            <p className="pricing-description">A relaxed session built for stories — families, couples, or anyone who wants variety and depth.</p>
             <ul className="pricing-features">
-              <li>2-hour photography</li>
-              <li>Camera & drone available</li>
-              <li>Multiple locations or setups</li>
-              <li>20 edited photos</li>
-              <li>Online gallery</li>
+              <li>1-hour session</li>
+              <li>Up to 2 locations</li>
+              <li>20–25 edited photos</li>
+              <li>Online gallery with full-resolution downloads</li>
             </ul>
+            <p className="pricing-addons">Add-ons: drone shots +$20, extra 10 photos +$15</p>
             <a href="/contact?service=photography" className="pricing-button">Book Now</a>
           </div>
 
           <div className="pricing-card">
             <div className="pricing-header">
-              <h3>3 Hour Session</h3>
-              <div className="price">$135</div>
+              <h3>Business / Venue & Lifestyle Shoot</h3>
+              <div className="price">$200</div>
             </div>
+            <p className="pricing-description">Capture the essence of your brand — restaurants, local venues, or creative spaces brought to life through clean visuals.</p>
             <ul className="pricing-features">
-              <li>3-hour photography</li>
-              <li>Camera & drone available</li>
-              <li>Multiple locations & variety</li>
-              <li>30 edited photos</li>
-              <li>Online gallery</li>
+              <li>1–2 hour shoot</li>
+              <li>Camera + drone coverage</li>
+              <li>25–35 edited photos</li>
+              <li>Commercial usage rights</li>
+              <li>Online gallery for easy sharing</li>
             </ul>
+            <p className="pricing-addons">Add-ons: video clips +$40, extended coverage available</p>
             <a href="/contact?service=photography" className="pricing-button">Book Now</a>
           </div>
         </div>
