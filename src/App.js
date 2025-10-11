@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 
 import Home from "./components/Home";
 import Projects from "./components/Projects";
-import Contact from "./components/Contact";
+// import Contact from "./components/Contact"; // Temporarily disabled - using Dynamic Island contact form instead
 import Modeling from './components/Projects-Components/3d-modeling/Modeling';
 import Music from './components/Projects-Components/Music/Music';
 import Photography from './components/Projects-Components/Photography/Photography';
@@ -37,7 +37,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/dev" element={<Projects />} />
-            <Route path="/contact" element={<Contact />} />
+            {/* <Route path="/contact" element={<Contact />} /> */}
+            {/* Contact page temporarily disabled - using Dynamic Island contact form instead */}
             <Route path="/music" element={<Music />} />
             <Route path="/photography" element={<Photography />} />
             <Route path="/projects/gameDevelopment" element={<Modeling />} />

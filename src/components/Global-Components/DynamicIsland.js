@@ -4,6 +4,7 @@ import { AiFillGithub } from 'react-icons/ai';
 import { MdNotifications, MdCheck, MdError } from 'react-icons/md';
 import { addReview } from '../../services/reviewService';
 import emailjs from '@emailjs/browser';
+import ContactModal from './ContactModal';
 import '../../CSS/Global/DynamicIsland.css';
 
 export default function DynamicIsland() {
@@ -44,6 +45,10 @@ export default function DynamicIsland() {
   const [contactMessage, setContactMessage] = useState('');
   const [contactErrors, setContactErrors] = useState({});
   const contactFormRef = useRef();
+
+  // Contact modal states (for mobile)
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const [contactModalService, setContactModalService] = useState('');
 
   // Fetch latest GitHub commit from any repository
   useEffect(() => {
@@ -400,7 +405,7 @@ export default function DynamicIsland() {
     setReviewCategory(null);
   };
 
-  // Handle opening contact form (only on desktop)
+  // Handle opening contact form (desktop) or modal (mobile)
   const openContactForm = (service) => {
     // Check if we're on desktop (>= 768px)
     if (window.innerWidth >= 768) {
@@ -415,8 +420,9 @@ export default function DynamicIsland() {
       setContactMessage('');
       setContactErrors({});
     } else {
-      // On mobile, redirect to contact page
-      window.location.href = `/contact?service=${service}`;
+      // On mobile, show modal
+      setIsContactModalOpen(true);
+      setContactModalService(service);
     }
   };
 
@@ -815,6 +821,13 @@ export default function DynamicIsland() {
           </div>
         </div>
       )}
+
+      {/* Contact Modal for mobile */}
+      <ContactModal
+        isOpen={isContactModalOpen}
+        onClose={() => setIsContactModalOpen(false)}
+        service={contactModalService}
+      />
     </div>
   );
 }
