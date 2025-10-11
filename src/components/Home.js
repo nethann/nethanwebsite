@@ -366,7 +366,7 @@ const Home = () => {
                         ))}
                     </div>
                     <Link to="/photography" className="view-all-link">
-                        View Full Portfolio →
+                        View Portfolio →
                     </Link>
                 </div>
 
@@ -389,7 +389,7 @@ const Home = () => {
                         )}
                     </div>
                     <Link to="/music" className="view-all-link">
-                        Explore More Music →
+                        Explore Music →
                     </Link>
                 </div>
             </section>

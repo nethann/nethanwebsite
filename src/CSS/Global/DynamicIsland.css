@@ -1668,22 +1668,23 @@
 .review-submit-button-island {
   width: 100%;
   padding: 13px 20px;
-  background: rgba(0, 0, 0, 0.9);
+  background: #000000;
   border: none;
   border-radius: 12px;
   color: white;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .review-submit-button-island:hover:not(:disabled) {
-  background: rgba(0, 0, 0, 1);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  background: #2d2d2d;
+  color: #f97316;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .review-submit-button-island:active:not(:disabled) {
