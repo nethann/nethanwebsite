@@ -1457,17 +1457,19 @@
 
 /* Review Form Expansion Styles */
 .dynamic-island.review-form-expanded {
-  width: 500px;
+  width: 480px;
   height: auto;
   max-height: 600px;
   border-radius: 24px;
-  padding: 24px;
-  background: rgba(255, 255, 255, 0.95) !important;
-  backdrop-filter: blur(30px) saturate(180%) !important;
-  -webkit-backdrop-filter: blur(30px) saturate(180%) !important;
-  border: 1px solid rgba(0, 0, 0, 0.1) !important;
+  padding: 28px;
+  background: rgba(255, 255, 255, 0.75) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12) !important;
   animation: reviewFormExpand 0.4s cubic-bezier(0.16, 1, 0.3, 1) !important;
   overflow-y: auto;
+  position: relative;
 }
 
 @keyframes reviewFormExpand {
@@ -1475,11 +1477,11 @@
     width: 44px;
     height: 44px;
     border-radius: 50px;
-    opacity: 0.5;
-    transform: scale(0.8);
+    opacity: 0;
+    transform: scale(0.5);
   }
   100% {
-    width: 500px;
+    width: 480px;
     height: auto;
     border-radius: 24px;
     opacity: 1;
@@ -1489,7 +1491,7 @@
 
 .review-form-container {
   width: 100%;
-  color: rgba(0, 0, 0, 0.85);
+  color: rgba(0, 0, 0, 0.9);
 }
 
 .review-form-header {
@@ -1498,18 +1500,21 @@
   align-items: flex-start;
   margin-bottom: 20px;
   position: relative;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 .review-form-header h3 {
   font-size: 24px;
-  font-weight: 700;
+  font-weight: 600;
   color: rgba(0, 0, 0, 0.9);
-  margin: 0 0 8px 0;
+  margin: 0 0 6px 0;
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  letter-spacing: -0.3px;
 }
 
 .review-form-header .review-category-label {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   color: rgba(0, 0, 0, 0.6);
   margin: 0;
@@ -1519,7 +1524,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(0, 0, 0, 0.04);
   border: none;
   border-radius: 50%;
   width: 32px;
@@ -1534,15 +1539,15 @@
 }
 
 .review-form-close:hover {
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.08);
   color: rgba(0, 0, 0, 0.9);
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .review-form-island {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
 }
 
 .form-group-island {
@@ -1561,27 +1566,34 @@
 .form-group-island input,
 .form-group-island textarea {
   width: 100%;
-  padding: 10px 14px;
-  border: 1.5px solid rgba(0, 0, 0, 0.15);
-  border-radius: 10px;
-  font-size: 14px;
+  padding: 12px 14px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  border-radius: 12px;
+  font-size: 15px;
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.5);
   color: rgba(0, 0, 0, 0.9);
   transition: all 0.2s ease;
   box-sizing: border-box;
 }
 
+.form-group-island input::placeholder,
+.form-group-island textarea::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
 .form-group-island input:focus,
 .form-group-island textarea:focus {
   outline: none;
-  border-color: rgba(59, 130, 246, 0.5);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  border-color: rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .form-group-island input.error,
 .form-group-island textarea.error {
   border-color: rgba(239, 68, 68, 0.5);
+  background: rgba(255, 220, 220, 0.3);
 }
 
 .form-group-island input:disabled,
@@ -1592,12 +1604,14 @@
 
 .form-group-island textarea {
   resize: vertical;
-  min-height: 80px;
+  min-height: 90px;
+  line-height: 1.5;
 }
 
 .star-rating-island {
   display: flex;
   gap: 8px;
+  padding: 4px 0;
 }
 
 .star-rating-island .star {
@@ -1609,11 +1623,10 @@
 
 .star-rating-island .star.filled {
   color: #ffd700;
-  filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.4));
 }
 
 .star-rating-island .star:hover {
-  transform: scale(1.15);
+  transform: scale(1.1);
 }
 
 .character-count {
@@ -1623,48 +1636,66 @@
 }
 
 .error-message {
-  color: rgba(239, 68, 68, 0.9);
+  color: rgba(220, 38, 38, 1);
   font-size: 12px;
   font-weight: 500;
   margin-top: 4px;
 }
 
 .error-message.submit-error {
-  background: rgba(239, 68, 68, 0.1);
+  background: rgba(254, 226, 226, 0.6);
   padding: 10px 12px;
   border-radius: 8px;
-  border: 1px solid rgba(239, 68, 68, 0.3);
+  border: 1px solid rgba(220, 38, 38, 0.3);
 }
 
 .review-submit-button-island {
   width: 100%;
-  padding: 12px 20px;
-  background: linear-gradient(135deg, rgba(59, 130, 246, 0.9) 0%, rgba(37, 99, 235, 0.9) 100%);
+  padding: 13px 20px;
+  background: rgba(0, 0, 0, 0.9);
   border: none;
   border-radius: 12px;
   color: white;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .review-submit-button-island:hover:not(:disabled) {
-  background: linear-gradient(135deg, rgba(59, 130, 246, 1) 0%, rgba(37, 99, 235, 1) 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+  background: rgba(0, 0, 0, 1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .review-submit-button-island:active:not(:disabled) {
   transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
 }
 
 .review-submit-button-island:disabled {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: not-allowed;
+}
+
+/* Custom Scrollbar for Review Form */
+.dynamic-island.review-form-expanded::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dynamic-island.review-form-expanded::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dynamic-island.review-form-expanded::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.dynamic-island.review-form-expanded::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.3);
 }
 
 /* Mobile: Hide review form expansion (use modal instead) */
