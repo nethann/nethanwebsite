@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { FaCode, FaMusic, FaClock, FaInstagram, FaLinkedinIn, FaTiktok, FaYoutube, FaStar, FaTimes } from 'react-icons/fa';
+import { FaCode, FaMusic, FaClock, FaInstagram, FaLinkedinIn, FaTiktok, FaYoutube, FaStar, FaTimes, FaEnvelope } from 'react-icons/fa';
 import { AiFillGithub } from 'react-icons/ai';
 import { MdNotifications, MdCheck, MdError } from 'react-icons/md';
 import { addReview } from '../../services/reviewService';
@@ -10,6 +10,7 @@ import '../../CSS/Global/DynamicIsland.css';
 export default function DynamicIsland() {
   // Social links configuration - moved to top to avoid hoisting issues
   const socialLinks = [
+    { icon: FaEnvelope, url: null, label: 'Contact', platform: 'contact', isContact: true },
     { icon: FaInstagram, url: 'https://www.instagram.com/nethan_journey/', label: 'Instagram', platform: 'instagram' },
     { icon: FaLinkedinIn, url: 'https://www.linkedin.com/in/nethan-nagendran/', label: 'LinkedIn', platform: 'linkedin' },
     { icon: AiFillGithub, url: 'https://github.com/nethann', label: 'GitHub', platform: 'github' },
@@ -584,7 +585,7 @@ export default function DynamicIsland() {
 
           {/* Social Links */}
           <div className="social-links-row">
-            {socialLinks.map((social, index) => {
+            {socialLinks.filter(social => !social.isContact).map((social, index) => {
               const IconComponent = social.icon;
               return (
                 <a
@@ -601,6 +602,15 @@ export default function DynamicIsland() {
               );
             })}
           </div>
+
+          {/* Contact Button */}
+          <button
+            className="contact-button-island"
+            onClick={() => openContactForm('general')}
+          >
+            <FaEnvelope />
+            <span>Contact Me</span>
+          </button>
 
           <div className="tech-row">
             <span className="tech-badge">Programmed with React by Nethan</span>

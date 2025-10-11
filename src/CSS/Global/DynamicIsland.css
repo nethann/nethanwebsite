@@ -729,6 +729,10 @@
   background: linear-gradient(135deg, #000000 0%, #ff0050 50%, #00f2ea 100%);
 }
 
+.minimal-social-preview[data-platform="contact"]::before {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+}
+
 @keyframes colorPillPulse {
   0%, 100% {
     opacity: 0.12;
@@ -1446,6 +1450,64 @@
 
 .music-minimal.recent .artist-name {
   color: rgba(0, 0, 0, 0.45);
+}
+
+/* Contact Button */
+.contact-button-island {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.08) 100%);
+  border: 1.5px solid rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.85);
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-button-island::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.5s ease;
+}
+
+.contact-button-island:hover::before {
+  left: 100%;
+}
+
+.contact-button-island:hover {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.12) 100%);
+  border-color: rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  color: rgba(0, 0, 0, 0.95);
+}
+
+.contact-button-island:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.contact-button-island svg {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.contact-button-island:hover svg {
+  transform: scale(1.1);
 }
 
 /* Tech Badge Row */

@@ -82,9 +82,10 @@ export default function IOS26Navbar() {
             Code
           </Link>
 
-          <Link to="/contact" className="ios26-nav-item" onClick={handleLinkClick}>
+          {/* Temporarily disabled - using Dynamic Island contact form instead */}
+          {/* <Link to="/contact" className="ios26-nav-item" onClick={handleLinkClick}>
             Contact
-          </Link>
+          </Link> */}
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -114,9 +115,10 @@ export default function IOS26Navbar() {
             Code
           </Link>
 
-          <Link to="/contact" className="ios26-mobile-item" onClick={handleLinkClick}>
+          {/* Temporarily disabled - using Dynamic Island contact form instead */}
+          {/* <Link to="/contact" className="ios26-mobile-item" onClick={handleLinkClick}>
             Contact
-          </Link>
+          </Link> */}
         </div>
       </div>
     </nav>
