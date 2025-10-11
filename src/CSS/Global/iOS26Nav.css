@@ -55,6 +55,11 @@
   white-space: nowrap;
   line-height: 1;
   letter-spacing: -0.01em;
+  transition: color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ios26-nav-brand:hover {
+  color: #f97316;
 }
 
 .ios26-nav-menu {
