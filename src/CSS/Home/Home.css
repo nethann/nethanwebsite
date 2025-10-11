@@ -773,6 +773,7 @@ body {
     gap: 1.5rem;
     transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    min-height: 500px; /* Ensure consistent height */
 }
 
 .offer-card:hover {
@@ -780,11 +781,6 @@ body {
     background: rgba(255, 255, 255, 0.85);
     border-color: rgba(0, 0, 0, 0.12);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-}
-
-.offer-icon {
-    font-size: 3.5rem;
-    line-height: 1;
 }
 
 .offer-card h3 {
@@ -863,11 +859,13 @@ body {
     font-weight: 600;
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    align-self: flex-start;
+    margin-top: auto; /* Push button to bottom */
+    width: 100%; /* Full width button */
 }
 
 .offer-button:hover {
     background: #2d2d2d;
+    color: #f97316;
     transform: translateY(-2px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }

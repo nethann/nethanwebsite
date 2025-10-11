@@ -286,7 +286,6 @@ const Home = () => {
                 <h2 className="section-title">What I Offer</h2>
                 <div className="offer-grid">
                     <div className="offer-card photography-card" data-aos="fade-right">
-                        <div className="offer-icon">📸</div>
                         <h3>Photography</h3>
                         <p className="offer-description">
                             Specializing in portraits, events, and creative sessions. I bring a fresh eye and technical skills to capture authentic moments that reflect your unique story.
@@ -315,7 +314,6 @@ const Home = () => {
                     </div>
 
                     <div className="offer-card music-card" data-aos="fade-left">
-                        <div className="offer-icon">🎵</div>
                         <h3>Music</h3>
                         <p className="offer-description">
                             Acoustic performances, worship music, and custom arrangements. I'm ready to bring heartfelt music to your events with dedication and skill.
