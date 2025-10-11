@@ -1434,7 +1434,7 @@
   white-space: nowrap;
   line-height: 1;
   letter-spacing: 0.01em;
-  text-transform: lowercase;
+  text-transform: none;
 }
 
 /* High contrast mode */
