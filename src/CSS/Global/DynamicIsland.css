@@ -95,11 +95,12 @@
     0 4px 16px rgba(0, 0, 0, 0.08),
     inset 0 1px 0 rgba(255, 255, 255, 0.5);
 
-  /* Jello effect on load + subtle floating + breathing glow */
+  /* Jello effect on load + subtle floating + breathing glow + periodic bounce */
   animation:
     jelloLoad 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55),
     subtleFloat 6s ease-in-out infinite 1s,
-    gentleBreathingGlowLight 4s ease-in-out infinite 2s;
+    gentleBreathingGlowLight 4s ease-in-out infinite 2s,
+    subtleBounce 8s ease-in-out infinite 1s;
 }
 
 /* Jello Animation Keyframes */
@@ -582,6 +583,24 @@
   }
   75% {
     transform: translateY(-1px) rotate(-0.2deg);
+  }
+}
+
+@keyframes subtleBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  5% {
+    transform: translateY(-8px);
+  }
+  10% {
+    transform: translateY(0);
+  }
+  15% {
+    transform: translateY(-4px);
+  }
+  20% {
+    transform: translateY(0);
   }
 }
 
