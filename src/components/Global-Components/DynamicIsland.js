@@ -479,8 +479,28 @@ export default function DynamicIsland() {
             </div>
           </div>
 
+          {/* Social Links */}
+          <div className="social-links-row">
+            {socialLinks.map((social, index) => {
+              const IconComponent = social.icon;
+              return (
+                <a
+                  key={index}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="social-link-item"
+                  data-platform={social.platform}
+                  aria-label={social.label}
+                >
+                  <IconComponent />
+                </a>
+              );
+            })}
+          </div>
+
           <div className="tech-row">
-            <span className="tech-badge">Programmed with React By Nethan</span>
+            <span className="tech-badge">Programmed with React by Nethan</span>
           </div>
         </div>
       </div>
