@@ -444,12 +444,6 @@ export default function DynamicIsland() {
     return (
       <div className="dynamic-island-expanded">
         <div className="expanded-section">
-          {/* Current Activity Status */}
-          <div className="activity-status-row">
-            <div className="status-indicator"></div>
-            <span className="current-activity">{currentActivity}</span>
-          </div>
-
           {/* Latest GitHub Commit */}
           {latestCommit && (
             <div className="github-commit-row">
