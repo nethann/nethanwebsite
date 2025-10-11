@@ -301,24 +301,24 @@
   -webkit-backdrop-filter: blur(20px) saturate(180%);
 }
 
-/* Success Notification (Blue Pill) - Morphs from Island */
+/* Success Notification - Minimal Glassy Style */
 .dynamic-island.notification-success {
-  background: #3b82f6;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   animation: morphFromIsland 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow:
-    0 10px 40px rgba(59, 130, 246, 0.3),
-    0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
 }
 
-/* Error Notification (Red) - Morphs from Island */
+/* Error Notification - Minimal Glassy Style */
 .dynamic-island.notification-error {
-  background: #ef4444;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(0, 0, 0, 0.08);
   animation: morphFromIsland 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow:
-    0 10px 40px rgba(239, 68, 68, 0.25),
-    0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
 }
 
 .dynamic-island.notification.hiding {
@@ -1114,14 +1114,14 @@
 }
 
 
-/* Notification Content - Fades during morph */
+/* Notification Content - Minimal Style with Black Text */
 .dynamic-island.notification .dynamic-island-content {
-  color: #ffffff;
+  color: rgba(0, 0, 0, 0.9);
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   gap: 10px;
   animation: contentFadeInDuringMorph 0.4s ease-out 0.25s backwards;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.01em;
 }
 
 .dynamic-island.notification.hiding .dynamic-island-content {
@@ -1129,8 +1129,18 @@
 }
 
 .dynamic-island.notification .dynamic-island-content svg {
-  font-size: 20px;
-  color: #ffffff;
+  font-size: 18px;
+  color: rgba(0, 0, 0, 0.85);
+}
+
+/* Success icon color */
+.dynamic-island.notification-success .dynamic-island-content svg {
+  color: #10b981;
+}
+
+/* Error icon color */
+.dynamic-island.notification-error .dynamic-island-content svg {
+  color: #ef4444;
 }
 
 @keyframes contentFadeInDuringMorph {
