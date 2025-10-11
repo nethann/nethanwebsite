@@ -118,7 +118,18 @@ export default function Photography() {
               <li>Online gallery delivery</li>
             </ul>
             <p className="pricing-addons">Add-ons: extra photo $5 each, extra outfit +$15</p>
-            <a href="/contact?service=photography" className="pricing-button">Book Now</a>
+            <button
+              onClick={() => {
+                if (window.openDynamicIslandContact) {
+                  window.openDynamicIslandContact('photography');
+                } else {
+                  window.location.href = '/contact?service=photography';
+                }
+              }}
+              className="pricing-button"
+            >
+              Book Now
+            </button>
           </div>
 
           <div className="pricing-card">
@@ -134,7 +145,18 @@ export default function Photography() {
               <li>Online gallery with full-resolution downloads</li>
             </ul>
             <p className="pricing-addons">Add-ons: drone shots +$20, extra 10 photos +$15</p>
-            <a href="/contact?service=photography" className="pricing-button">Book Now</a>
+            <button
+              onClick={() => {
+                if (window.openDynamicIslandContact) {
+                  window.openDynamicIslandContact('photography');
+                } else {
+                  window.location.href = '/contact?service=photography';
+                }
+              }}
+              className="pricing-button"
+            >
+              Book Now
+            </button>
           </div>
 
           <div className="pricing-card">
@@ -151,7 +173,18 @@ export default function Photography() {
               <li>Online gallery for easy sharing</li>
             </ul>
             <p className="pricing-addons">Add-ons: video clips +$40, extended coverage available</p>
-            <a href="/contact?service=photography" className="pricing-button">Book Now</a>
+            <button
+              onClick={() => {
+                if (window.openDynamicIslandContact) {
+                  window.openDynamicIslandContact('photography');
+                } else {
+                  window.location.href = '/contact?service=photography';
+                }
+              }}
+              className="pricing-button"
+            >
+              Book Now
+            </button>
           </div>
         </div>
       </section>

@@ -82,7 +82,18 @@ export default function Music() {
                 <li>Personal events</li>
                 <li>Travel within 20 miles</li>
               </ul>
-              <a href="/contact?service=music" className="pricing-button">Book Now</a>
+              <button
+                onClick={() => {
+                  if (window.openDynamicIslandContact) {
+                    window.openDynamicIslandContact('music');
+                  } else {
+                    window.location.href = '/contact?service=music';
+                  }
+                }}
+                className="pricing-button"
+              >
+                Book Now
+              </button>
             </div>
 
             <div className="pricing-card">
@@ -97,7 +108,18 @@ export default function Music() {
                 <li>Multi-instrument capability</li>
                 <li>Communion songs</li>
               </ul>
-              <a href="/contact?service=music" className="pricing-button">Book Now</a>
+              <button
+                onClick={() => {
+                  if (window.openDynamicIslandContact) {
+                    window.openDynamicIslandContact('music');
+                  } else {
+                    window.location.href = '/contact?service=music';
+                  }
+                }}
+                className="pricing-button"
+              >
+                Book Now
+              </button>
             </div>
 
             <div className="pricing-card">
@@ -112,7 +134,18 @@ export default function Music() {
                 <li>Sound system setup</li>
                 <li>Custom song requests</li>
               </ul>
-              <a href="/contact?service=music" className="pricing-button">Book Now</a>
+              <button
+                onClick={() => {
+                  if (window.openDynamicIslandContact) {
+                    window.openDynamicIslandContact('music');
+                  } else {
+                    window.location.href = '/contact?service=music';
+                  }
+                }}
+                className="pricing-button"
+              >
+                Book Now
+              </button>
             </div>
           </div>
         </section>

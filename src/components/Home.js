@@ -254,12 +254,30 @@ const Home = () => {
                 </section>
 
                 <div className="cta-buttons">
-                    <Link to="/contact?service=photography" className="cta-button cta-primary">
+                    <button
+                        onClick={() => {
+                            if (window.openDynamicIslandContact) {
+                                window.openDynamicIslandContact('photography');
+                            } else {
+                                window.location.href = '/contact?service=photography';
+                            }
+                        }}
+                        className="cta-button cta-primary"
+                    >
                         Book Me for Photography
-                    </Link>
-                    <Link to="/contact?service=music" className="cta-button cta-secondary">
+                    </button>
+                    <button
+                        onClick={() => {
+                            if (window.openDynamicIslandContact) {
+                                window.openDynamicIslandContact('music');
+                            } else {
+                                window.location.href = '/contact?service=music';
+                            }
+                        }}
+                        className="cta-button cta-secondary"
+                    >
                         Hire Me for Gigs
-                    </Link>
+                    </button>
                 </div>
             </div>
 

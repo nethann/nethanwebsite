@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FaCode, FaMusic, FaClock, FaInstagram, FaLinkedinIn, FaTiktok, FaYoutube, FaStar, FaTimes } from 'react-icons/fa';
 import { AiFillGithub } from 'react-icons/ai';
 import { MdNotifications, MdCheck, MdError } from 'react-icons/md';
 import { addReview } from '../../services/reviewService';
+import emailjs from '@emailjs/browser';
 import '../../CSS/Global/DynamicIsland.css';
 
 export default function DynamicIsland() {
@@ -34,6 +35,15 @@ export default function DynamicIsland() {
   const [reviewComment, setReviewComment] = useState('');
   const [reviewErrors, setReviewErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Contact form states
+  const [showContactForm, setShowContactForm] = useState(false);
+  const [contactService, setContactService] = useState('');
+  const [contactName, setContactName] = useState('');
+  const [contactEmail, setContactEmail] = useState('');
+  const [contactMessage, setContactMessage] = useState('');
+  const [contactErrors, setContactErrors] = useState({});
+  const contactFormRef = useRef();
 
   // Fetch latest GitHub commit from any repository
   useEffect(() => {
@@ -390,6 +400,99 @@ export default function DynamicIsland() {
     setReviewCategory(null);
   };
 
+  // Handle opening contact form (only on desktop)
+  const openContactForm = (service) => {
+    // Check if we're on desktop (>= 768px)
+    if (window.innerWidth >= 768) {
+      setContactService(service);
+      setShowContactForm(true);
+      setIsExpanded(false); // Close normal expansion
+      setShowReviewForm(false); // Close review form if open
+
+      // Reset form
+      setContactName('');
+      setContactEmail('');
+      setContactMessage('');
+      setContactErrors({});
+    } else {
+      // On mobile, redirect to contact page
+      window.location.href = `/contact?service=${service}`;
+    }
+  };
+
+  // Expose contact form function globally
+  useEffect(() => {
+    window.openDynamicIslandContact = openContactForm;
+    return () => {
+      delete window.openDynamicIslandContact;
+    };
+  }, []);
+
+  // Validate contact form
+  const validateContactForm = () => {
+    const newErrors = {};
+
+    if (!contactService) {
+      newErrors.service = 'Please select a service';
+    }
+
+    if (!contactName.trim()) {
+      newErrors.name = 'Please enter your name';
+    }
+
+    if (!contactEmail.trim()) {
+      newErrors.email = 'Please enter your email';
+    } else if (!/\S+@\S+\.\S+/.test(contactEmail)) {
+      newErrors.email = 'Please enter a valid email';
+    }
+
+    if (!contactMessage.trim()) {
+      newErrors.message = 'Please enter a message';
+    } else if (contactMessage.trim().length < 10) {
+      newErrors.message = 'Message must be at least 10 characters';
+    }
+
+    setContactErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  // Handle contact form submission
+  const handleContactSubmit = (e) => {
+    e.preventDefault();
+
+    if (!validateContactForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    emailjs.sendForm('service_ll8kobo', 'template_i3gb2es', contactFormRef.current, 'CIjfNKb1UjuFlNTVl')
+      .then((result) => {
+        // Close form
+        setShowContactForm(false);
+
+        // Show success notification
+        showNotification('success', 'Message sent successfully!');
+
+        // Reset form
+        setContactName('');
+        setContactEmail('');
+        setContactMessage('');
+        setContactService('');
+      }, (error) => {
+        setContactErrors({ submit: 'Failed to send message. Please try again.' });
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
+  };
+
+  // Close contact form
+  const closeContactForm = () => {
+    setShowContactForm(false);
+    setContactService('');
+  };
+
 
   const getMinimalContent = () => {
     if (notification) {
@@ -587,14 +690,122 @@ export default function DynamicIsland() {
     );
   };
 
+  // Get contact form content
+  const getContactFormContent = () => {
+    const serviceLabels = {
+      'photography': 'Photography Session',
+      'music': 'Music Gig/Performance',
+      'development': 'Development Project',
+      'general': 'General Inquiry'
+    };
+
+    return (
+      <div className="review-form-container">
+        <div className="review-form-header">
+          <h3>Contact Me</h3>
+          <button className="review-form-close" onClick={closeContactForm}>
+            <FaTimes />
+          </button>
+        </div>
+
+        <form ref={contactFormRef} onSubmit={handleContactSubmit} className="review-form-island">
+          {/* Hidden service field for EmailJS */}
+          <input type="hidden" name="service_type" value={serviceLabels[contactService] || 'General Inquiry'} />
+
+          {/* Service Selector */}
+          <div className="form-group-island">
+            <label htmlFor="contact-service">I'm interested in *</label>
+            <select
+              id="contact-service"
+              value={contactService}
+              onChange={(e) => setContactService(e.target.value)}
+              className={contactErrors.service ? 'error' : ''}
+              disabled={isSubmitting}
+            >
+              <option value="">Select a service...</option>
+              <option value="photography">📸 Photography Session</option>
+              <option value="music">🎵 Music Gig/Performance</option>
+              <option value="development">💻 Development Project</option>
+              <option value="general">💬 General Inquiry</option>
+            </select>
+            {contactErrors.service && <span className="error-message">{contactErrors.service}</span>}
+          </div>
+
+          {/* Name Input */}
+          <div className="form-group-island">
+            <label htmlFor="contact-name">Your Name *</label>
+            <input
+              type="text"
+              id="contact-name"
+              name="from_name"
+              value={contactName}
+              onChange={(e) => setContactName(e.target.value)}
+              placeholder="John Doe"
+              className={contactErrors.name ? 'error' : ''}
+              disabled={isSubmitting}
+            />
+            {contactErrors.name && <span className="error-message">{contactErrors.name}</span>}
+          </div>
+
+          {/* Email Input */}
+          <div className="form-group-island">
+            <label htmlFor="contact-email">Email Address *</label>
+            <input
+              type="email"
+              id="contact-email"
+              name="from_email"
+              value={contactEmail}
+              onChange={(e) => setContactEmail(e.target.value)}
+              placeholder="john@example.com"
+              className={contactErrors.email ? 'error' : ''}
+              disabled={isSubmitting}
+            />
+            {contactErrors.email && <span className="error-message">{contactErrors.email}</span>}
+          </div>
+
+          {/* Message Textarea */}
+          <div className="form-group-island">
+            <label htmlFor="contact-message">Your Message *</label>
+            <textarea
+              id="contact-message"
+              name="message"
+              value={contactMessage}
+              onChange={(e) => setContactMessage(e.target.value)}
+              placeholder="Tell me about your project..."
+              rows="4"
+              className={contactErrors.message ? 'error' : ''}
+              disabled={isSubmitting}
+            />
+            <span className="character-count">{contactMessage.length} characters</span>
+            {contactErrors.message && <span className="error-message">{contactErrors.message}</span>}
+          </div>
+
+          {/* Submit Error */}
+          {contactErrors.submit && (
+            <div className="error-message submit-error">{contactErrors.submit}</div>
+          )}
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className="review-submit-button-island"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Sending...' : 'Send Message'}
+          </button>
+        </form>
+      </div>
+    );
+  };
+
   return (
     <div className="dynamic-island-container">
       <div
-        className={`dynamic-island ${notification ? `notification notification-${notification.type}` : 'minimal'} ${isExpanded ? 'expanded' : ''} ${showReviewForm ? 'review-form-expanded' : ''} ${isNotificationHiding ? 'hiding' : ''}`}
-        onMouseEnter={() => !notification && !showReviewForm && setIsExpanded(true)}
-        onMouseLeave={() => !showReviewForm && setIsExpanded(false)}
+        className={`dynamic-island ${notification ? `notification notification-${notification.type}` : 'minimal'} ${isExpanded ? 'expanded' : ''} ${showReviewForm ? 'review-form-expanded' : ''} ${showContactForm ? 'review-form-expanded' : ''} ${isNotificationHiding ? 'hiding' : ''}`}
+        onMouseEnter={() => !notification && !showReviewForm && !showContactForm && setIsExpanded(true)}
+        onMouseLeave={() => !showReviewForm && !showContactForm && setIsExpanded(false)}
       >
-        {showReviewForm ? getReviewFormContent() : (isExpanded && !notification ? getExpandedContent() : getMinimalContent())}
+        {showContactForm ? getContactFormContent() : (showReviewForm ? getReviewFormContent() : (isExpanded && !notification ? getExpandedContent() : getMinimalContent()))}
       </div>
 
       {showFloatingTooltip && (
