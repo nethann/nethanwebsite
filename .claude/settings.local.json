@@ -16,7 +16,10 @@
       "Bash(open http://localhost:3000)",
       "Bash(open http://localhost:3000/music)",
       "Bash(npm install:*)",
-      "Bash(PORT=3001 npm start)"
+      "Bash(PORT=3001 npm start)",
+      "Bash(npm audit:*)",
+      "Bash(git rm:*)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []

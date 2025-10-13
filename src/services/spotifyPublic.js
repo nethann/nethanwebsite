@@ -16,36 +16,43 @@ class SpotifyPublicService {
     }
 
     try {
-      // Using a public Spotify status service that you can set up
-      // For now, using Last.fm as an alternative approach
-      const response = await fetch('https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=nethan_journey&api_key=YOUR_LASTFM_API_KEY&format=json&limit=1');
-      
-      if (response.ok) {
-        const data = await response.json();
-        const track = data?.recenttracks?.track?.[0];
-        
-        if (track && track['@attr']?.nowplaying) {
-          const trackData = {
-            song: track.name,
-            artist: track.artist['#text'] || track.artist.name,
-            album: track.album['#text'],
-            albumArt: track.image?.[3]?.['#text'] || track.image?.[2]?.['#text'], // Large or medium image
-            isPlaying: true,
-            service: 'lastfm'
-          };
-          
-          this.cachedData = trackData;
-          this.lastFetch = Date.now();
-          return trackData;
+      // Last.fm API integration disabled
+      // To enable: Add REACT_APP_LASTFM_API_KEY to your .env file
+      // and uncomment the code below
+
+      /*
+      const lastfmApiKey = process.env.REACT_APP_LASTFM_API_KEY;
+
+      if (lastfmApiKey) {
+        const response = await fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=nethan_journey&api_key=${lastfmApiKey}&format=json&limit=1`);
+
+        if (response.ok) {
+          const data = await response.json();
+          const track = data?.recenttracks?.track?.[0];
+
+          if (track && track['@attr']?.nowplaying) {
+            const trackData = {
+              song: track.name,
+              artist: track.artist['#text'] || track.artist.name,
+              album: track.album['#text'],
+              albumArt: track.image?.[3]?.['#text'] || track.image?.[2]?.['#text'],
+              isPlaying: true,
+              service: 'lastfm'
+            };
+
+            this.cachedData = trackData;
+            this.lastFetch = Date.now();
+            return trackData;
+          }
         }
       }
+      */
 
-      // Alternative: Try a direct Spotify approach (requires backend)
-      // For now, return null if no service is available
+      // Return null if Last.fm is not configured
       this.cachedData = null;
       this.lastFetch = Date.now();
       return null;
-      
+
     } catch (error) {
       console.error('Error fetching current track:', error);
       return null;

@@ -66,7 +66,12 @@ export default function ContactModal({ isOpen, onClose, service = '' }) {
 
     setIsSubmitting(true);
 
-    emailjs.sendForm('service_ll8kobo', 'template_i3gb2es', formRef.current, 'CIjfNKb1UjuFlNTVl')
+    emailjs.sendForm(
+      process.env.REACT_APP_EMAILJS_SERVICE_ID,
+      process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+      formRef.current,
+      process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+    )
       .then((result) => {
         // Show success notification in Dynamic Island
         if (window.showDynamicIslandNotification) {

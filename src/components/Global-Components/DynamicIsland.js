@@ -473,7 +473,12 @@ export default function DynamicIsland() {
 
     setIsSubmitting(true);
 
-    emailjs.sendForm('service_ll8kobo', 'template_i3gb2es', contactFormRef.current, 'CIjfNKb1UjuFlNTVl')
+    emailjs.sendForm(
+      process.env.REACT_APP_EMAILJS_SERVICE_ID,
+      process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+      contactFormRef.current,
+      process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+    )
       .then((result) => {
         // Close form
         setShowContactForm(false);
