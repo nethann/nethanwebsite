@@ -13,6 +13,7 @@ export default function Contact() {
   const location = useLocation();
   const form = useRef();
   const [selectedService, setSelectedService] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -41,6 +42,25 @@ export default function Contact() {
   const sendEmail = (e) => {
     e.preventDefault();
 
+    // Rate limiting: Check if user sent a message recently
+    const lastMessageTime = localStorage.getItem('lastContactMessageTime');
+    const now = Date.now();
+
+    if (lastMessageTime) {
+      const timeSinceLastMessage = now - parseInt(lastMessageTime);
+      const cooldownPeriod = 5 * 60 * 1000; // 5 minutes
+
+      if (timeSinceLastMessage < cooldownPeriod) {
+        const minutesRemaining = Math.ceil((cooldownPeriod - timeSinceLastMessage) / 60000);
+        if (window.showDynamicIslandNotification) {
+          window.showDynamicIslandNotification('error', `Please wait ${minutesRemaining} minute(s) before sending another message`);
+        }
+        return;
+      }
+    }
+
+    setIsSubmitting(true);
+
     emailjs.sendForm(
       process.env.REACT_APP_EMAILJS_SERVICE_ID,
       process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
@@ -48,6 +68,7 @@ export default function Contact() {
       process.env.REACT_APP_EMAILJS_PUBLIC_KEY
     )
       .then((result) => {
+        localStorage.setItem('lastContactMessageTime', now.toString());
         if (window.showDynamicIslandNotification) {
           window.showDynamicIslandNotification('success', 'Message sent successfully!');
         }
@@ -57,6 +78,9 @@ export default function Contact() {
         if (window.showDynamicIslandNotification) {
           window.showDynamicIslandNotification('error', 'Failed to send message');
         }
+      })
+      .finally(() => {
+        setIsSubmitting(false);
       });
   };
 
@@ -122,8 +146,8 @@ export default function Contact() {
               ></textarea>
             </div>
 
-            <button type="submit" className="submit-button">
-              Send Message
+            <button type="submit" className="submit-button" disabled={isSubmitting}>
+              {isSubmitting ? 'Sending...' : 'Send Message'}
             </button>
           </form>
         </div>

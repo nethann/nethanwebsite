@@ -471,6 +471,21 @@ export default function DynamicIsland() {
       return;
     }
 
+    // Rate limiting: Check if user sent a message recently
+    const lastMessageTime = localStorage.getItem('lastContactMessageTime');
+    const now = Date.now();
+
+    if (lastMessageTime) {
+      const timeSinceLastMessage = now - parseInt(lastMessageTime);
+      const cooldownPeriod = 5 * 60 * 1000; // 5 minutes
+
+      if (timeSinceLastMessage < cooldownPeriod) {
+        const minutesRemaining = Math.ceil((cooldownPeriod - timeSinceLastMessage) / 60000);
+        setContactErrors({ submit: `Please wait ${minutesRemaining} minute(s) before sending another message` });
+        return;
+      }
+    }
+
     setIsSubmitting(true);
 
     emailjs.sendForm(
@@ -480,6 +495,7 @@ export default function DynamicIsland() {
       process.env.REACT_APP_EMAILJS_PUBLIC_KEY
     )
       .then((result) => {
+        localStorage.setItem('lastContactMessageTime', now.toString());
         // Close form
         setShowContactForm(false);
 

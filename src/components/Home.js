@@ -366,7 +366,7 @@ const Home = () => {
 
                 {/* Photography Gallery */}
                 <div className="featured-subsection">
-                    <h3 className="subsection-title">📸 Photography</h3>
+                    <h3 className="subsection-title">Photography</h3>
                     <div className="photo-gallery">
                         {featuredPhotos.map((photo, index) => (
                             <div
@@ -388,7 +388,7 @@ const Home = () => {
 
                 {/* Music Section */}
                 <div className="featured-subsection" data-aos="fade-up">
-                    <h3 className="subsection-title">🎵 Music</h3>
+                    <h3 className="subsection-title">Music</h3>
                     <div className="music-featured">
                         {latestVideo ? (
                             <div className="youtube-embed">
