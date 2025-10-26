@@ -936,8 +936,8 @@ body {
     overflow: hidden;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
     background: #000000;
-    transform: scale(0.7); /* Scale down the entire video by 30% */
-    margin: -8% auto; /* Negative margin to remove extra space from scaling */
+    transform: scale(1.0); /* Full size video */
+    margin: 0 auto; /* Center the video */
 }
 
 .youtube-embed iframe {
@@ -966,6 +966,14 @@ body {
     margin-top: 1.5rem;
     cursor: pointer;
     max-width: 35%;
+}
+
+/* Mobile: Make buttons wider */
+@media (max-width: 768px) {
+    .view-all-link {
+        max-width: 70%;
+        width: 100%;
+    }
 }
 
 .view-all-link:hover {

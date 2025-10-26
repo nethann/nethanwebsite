@@ -51,28 +51,52 @@ const YouTubeChannels = () => {
   const fetchChannelVideos = async (channelId) => {
     try {
       setLoading(true);
-      console.log(`Fetching videos for channel: ${channelId}`);
-      
+      console.log(`[YouTube API] Fetching videos for channel: ${channelId}`);
+      console.log(`[YouTube API] API Key present: ${!!YOUTUBE_API_KEY}`);
+
       // Get channel's uploads playlist ID
       const channelResponse = await fetch(
         `https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${channelId}&key=${YOUTUBE_API_KEY}`
       );
       const channelData = await channelResponse.json();
-      console.log('Channel data:', channelData);
+
+      // Check for API errors
+      if (channelData.error) {
+        console.error('[YouTube API] API Error:', channelData.error);
+        console.error('[YouTube API] Error Code:', channelData.error.code);
+        console.error('[YouTube API] Error Message:', channelData.error.message);
+        if (channelData.error.code === 403) {
+          console.error('[YouTube API] This is likely due to:');
+          console.error('  - Invalid or expired API key');
+          console.error('  - YouTube Data API v3 not enabled in Google Cloud Console');
+          console.error('  - API quota exceeded');
+          console.error('  - Domain restrictions blocking the request');
+        }
+        throw new Error(`YouTube API Error: ${channelData.error.message}`);
+      }
+
+      console.log('[YouTube API] Channel data received:', channelData);
       
       if (!channelData.items || channelData.items.length === 0) {
         throw new Error('Channel not found');
       }
       
       const uploadsPlaylistId = channelData.items[0].contentDetails.relatedPlaylists.uploads;
-      
+
       // Get videos from uploads playlist
-      console.log(`Fetching playlist items for: ${uploadsPlaylistId}`);
+      console.log(`[YouTube API] Fetching playlist items for: ${uploadsPlaylistId}`);
       const videosResponse = await fetch(
         `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=50&key=${YOUTUBE_API_KEY}`
       );
       const videosData = await videosResponse.json();
-      console.log(`Found ${videosData.items?.length || 0} videos`);
+
+      // Check for API errors on playlist fetch
+      if (videosData.error) {
+        console.error('[YouTube API] Playlist API Error:', videosData.error.message);
+        throw new Error(`YouTube API Error: ${videosData.error.message}`);
+      }
+
+      console.log(`[YouTube API] Found ${videosData.items?.length || 0} videos`);
       
       if (!videosData.items) {
         throw new Error('No videos found');
@@ -128,12 +152,13 @@ const YouTubeChannels = () => {
           videos.push(videoData);
         }
       });
-      
-      console.log(`Final results: ${videos.length} videos, ${shorts.length} shorts`);
+
+      console.log(`[YouTube API] ✅ Successfully fetched: ${videos.length} videos, ${shorts.length} shorts`);
       return { videos, shorts };
-      
+
     } catch (error) {
-      console.error('Error fetching YouTube data:', error);
+      console.error('[YouTube API] ❌ Error fetching YouTube data:', error);
+      console.error('[YouTube API] Falling back to mock data');
       // Return fallback mock data if API fails
       return getFallbackData(channelId);
     } finally {
@@ -168,13 +193,13 @@ const YouTubeChannels = () => {
 
   // Fallback data function
   const getFallbackData = (channelId) => {
-    console.log('Using fallback data for channel:', channelId);
+    console.log('[YouTube API] ⚠️ Using fallback/mock data for channel:', channelId);
     if (channelId === 'UCcjyzmhL8hoJEQhjNin3wdw') {
-      console.log('Returning Nethan Journey mock data:', mockData.nethan_journey);
+      console.log('[YouTube API] Returning Nethan Journey mock data (1 video, 1 short)');
       return mockData.nethan_journey;
     }
     if (channelId === 'UCzhoMRmdkQLjr7O3PoddKPw') {
-      console.log('Returning Worship Avenue mock data:', mockData.worship_avenue);
+      console.log('[YouTube API] Returning Worship Avenue mock data (2 videos, 0 shorts)');
       return mockData.worship_avenue;
     }
     return { videos: [], shorts: [] };
@@ -264,7 +289,7 @@ const YouTubeChannels = () => {
 
         // Check cache first
         if (isCacheValid()) {
-          console.log('Using cached YouTube data');
+          console.log('[YouTube Cache] ✅ Using cached YouTube data (cache is valid)');
           const cachedNethanData = getCachedData('nethan_journey');
           const cachedNethanInfo = getCachedData('nethan_journey_info');
           const cachedWorshipData = getCachedData('worship_avenue');
@@ -293,7 +318,7 @@ const YouTubeChannels = () => {
         }
 
         // Cache is invalid or doesn't exist, fetch fresh data
-        console.log('Cache expired or missing, fetching fresh YouTube data');
+        console.log('[YouTube Cache] ⚠️ Cache expired or missing, fetching fresh YouTube data from API');
 
         // Load Nethan Journey data and info
         try {
