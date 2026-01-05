@@ -1,7 +1,7 @@
-/* Contact Page - Light Mode Glassy Design */
+/* Contact Page - Dark Mode Glassy Design */
 .contact-page {
     min-height: 100vh;
-    background: #faf9f5;
+    background: #0a0a0a;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     padding: 8rem 2rem 4rem;
 }
@@ -22,33 +22,33 @@
 .contact-hero h1 {
     font-size: 3rem;
     font-weight: 700;
-    color: #0a0a0a;
+    color: #f5f5f5;
     margin: 0 0 1rem 0;
     letter-spacing: -0.03em;
 }
 
 .contact-hero p {
     font-size: 1.2rem;
-    color: #6b7280;
+    color: #a0a0a0;
     margin: 0.5rem 0;
     line-height: 1.6;
 }
 
 .contact-hero .location {
     font-size: 1rem;
-    color: #9ca3af;
+    color: #808080;
     margin-top: 1rem;
 }
 
 /* Contact Form Wrapper with Glassy Effect */
 .contact-form-wrapper {
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: 24px;
     padding: 3rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
 .contact-form {
@@ -66,7 +66,7 @@
 .form-group label {
     font-size: 0.95rem;
     font-weight: 600;
-    color: #374151;
+    color: #a0a0a0;
     letter-spacing: 0.01em;
 }
 
@@ -75,12 +75,12 @@
 .form-group textarea {
     width: 100%;
     padding: 0.875rem 1rem;
-    background: #ffffff;
-    border: 1.5px solid #e5e7eb;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     font-size: 1rem;
-    color: #1f2937;
+    color: #f5f5f5;
     transition: all 0.3s ease;
     box-sizing: border-box;
 }
@@ -89,14 +89,15 @@
 .form-group input:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: #6366f1;
-    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+    border-color: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
 }
 
 .service-select {
     cursor: pointer;
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23374151' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23a0a0a0' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 1rem center;
     padding-right: 3rem;
@@ -116,8 +117,8 @@
 
 .submit-button {
     padding: 1rem 2rem;
-    background: #000000;
-    color: #ffffff;
+    background: #ffffff;
+    color: #0a0a0a;
     border: none;
     border-radius: 12px;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
@@ -125,14 +126,14 @@
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.15);
     letter-spacing: 0.01em;
 }
 
 .submit-button:hover {
-    background: #2d2d2d;
+    background: #e0e0e0;
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
 }
 
 .submit-button:active {
@@ -146,7 +147,7 @@
 
 .social-heading {
     font-size: 1rem;
-    color: #6b7280;
+    color: #a0a0a0;
     margin-bottom: 1.5rem;
 }
 
@@ -163,21 +164,21 @@
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(20px) saturate(180%);
     -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid rgba(0, 0, 0, 0.08);
-    color: #374151;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #a0a0a0;
     font-size: 1.3rem;
     transition: all 0.3s ease;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
 .social-link:hover {
-    background: #000000;
-    color: #ffffff;
+    background: #ffffff;
+    color: #0a0a0a;
     transform: translateY(-4px);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 40px rgba(255, 255, 255, 0.2);
 }
 
 /* Responsive Design */

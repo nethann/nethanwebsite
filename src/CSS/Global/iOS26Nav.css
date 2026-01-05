@@ -9,33 +9,33 @@
   min-width: 550px;
   max-width: 90vw;
 
-  /* iOS 26 Translucent Material - Light Mode Glass */
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(10px) saturate(180%);
-  -webkit-backdrop-filter: blur(10px) saturate(180%);
+  /* iOS 26 Translucent Material - Dark Mode Glass */
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
 
-  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  border: 0.5px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   padding: 8px 16px;
 
-  /* Light mode shadow */
+  /* Dark mode shadow */
   box-shadow:
-    0 4px 16px rgba(0, 0, 0, 0.1),
-    0 1px 0 rgba(255, 255, 255, 0.8),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    0 4px 16px rgba(0, 0, 0, 0.5),
+    0 1px 0 rgba(255, 255, 255, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .ios26-navbar.scrolled {
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px) saturate(180%);
-  -webkit-backdrop-filter: blur(10px) saturate(180%);
-  border-color: rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-color: rgba(255, 255, 255, 0.15);
   box-shadow:
-    0 6px 20px rgba(0, 0, 0, 0.15),
-    0 1px 0 rgba(255, 255, 255, 0.9),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+    0 6px 20px rgba(0, 0, 0, 0.7),
+    0 1px 0 rgba(255, 255, 255, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
 }
 
 .ios26-nav-container {
@@ -50,7 +50,7 @@
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
   font-weight: 600;
   font-size: 15px;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(255, 255, 255, 0.95);
   text-decoration: none;
   white-space: nowrap;
   line-height: 1;
@@ -72,7 +72,7 @@
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
   font-weight: 500;
   font-size: 14px;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   padding: 8px 12px;
   border-radius: 8px;
@@ -88,8 +88,8 @@
 }
 
 .ios26-nav-item:hover {
-  color: rgba(0, 0, 0, 1);
-  background: rgba(0, 0, 0, 0.05);
+  color: rgba(255, 255, 255, 1);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Dropdown */
@@ -121,19 +121,19 @@
   margin-top: 8px;
   min-width: 180px;
 
-  /* Light Mode Frosted Glass Material */
-  background: rgba(255, 255, 255, 0.9);
+  /* Dark Mode Frosted Glass Material */
+  background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(30px) saturate(180%);
   -webkit-backdrop-filter: blur(30px) saturate(180%);
 
-  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  border: 0.5px solid rgba(255, 255, 255, 0.15);
   border-radius: 12px;
   padding: 6px;
 
   box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.15),
-    0 2px 6px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    0 8px 24px rgba(0, 0, 0, 0.8),
+    0 2px 6px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 
   opacity: 0;
   visibility: hidden;
@@ -153,7 +153,7 @@
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
   font-weight: 500;
   font-size: 14px;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   padding: 8px 12px;
   border-radius: 6px;
@@ -163,8 +163,8 @@
 }
 
 .ios26-dropdown-link:hover {
-  background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 1);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 1);
 }
 
 
@@ -172,18 +172,18 @@
 .ios26-mobile-toggle {
   display: none;
   background: none;
-  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  border: 0.5px solid rgba(255, 255, 255, 0.15);
   border-radius: 6px;
   padding: 6px;
-  color: rgba(0, 0, 0, 0.7);
+  color: rgba(255, 255, 255, 0.8);
   cursor: pointer;
   font-size: 12px;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .ios26-mobile-toggle:hover {
-  color: rgba(0, 0, 0, 1);
-  background: rgba(0, 0, 0, 0.05);
+  color: rgba(255, 255, 255, 1);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Mobile Menu */
@@ -195,19 +195,19 @@
   right: 0;
   margin-top: 8px;
 
-  /* Light Mode frosted material */
-  background: rgba(255, 255, 255, 0.9);
+  /* Dark Mode frosted material */
+  background: rgba(0, 0, 0, 0.85);
   backdrop-filter: blur(30px) saturate(180%);
   -webkit-backdrop-filter: blur(30px) saturate(180%);
 
-  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  border: 0.5px solid rgba(255, 255, 255, 0.15);
   border-radius: 12px;
   padding: 8px;
 
   box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.15),
-    0 2px 6px rgba(0, 0, 0, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    0 8px 24px rgba(0, 0, 0, 0.8),
+    0 2px 6px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 
   opacity: 0;
   visibility: hidden;
@@ -227,7 +227,7 @@
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
   font-weight: 500;
   font-size: 14px;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   padding: 10px 12px;
   border-radius: 6px;
@@ -245,8 +245,8 @@
 }
 
 .ios26-mobile-item:hover {
-  background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 1);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 1);
 }
 
 .ios26-mobile-dropdown {
@@ -272,7 +272,7 @@
   font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif;
   font-weight: 400;
   font-size: 13px;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   padding: 6px 10px;
   border-radius: 4px;
@@ -283,8 +283,8 @@
 }
 
 .ios26-mobile-dropdown-link:hover {
-  background: rgba(0, 0, 0, 0.05);
-  color: rgba(0, 0, 0, 0.9);
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.95);
 }
 
 

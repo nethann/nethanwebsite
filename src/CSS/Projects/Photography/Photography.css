@@ -1,6 +1,6 @@
 .photography-wrapper {
   min-height: 100vh;
-  background: #faf9f5;
+  background: #0a0a0a;
 }
 
 /* Image placeholder for lazy loading */
@@ -9,8 +9,8 @@
   align-items: center;
   justify-content: center;
   height: 300px;
-  background: #f5f5f5;
-  color: #9ca3af;
+  background: rgba(255, 255, 255, 0.03);
+  color: #808080;
   font-size: 0.9rem;
   border-radius: 8px;
   animation: pulse 2s infinite;
@@ -24,7 +24,7 @@
 .photography-page {
   min-height: 100vh;
   padding: 2rem;
-  color: #0a0a0a;
+  color: #f5f5f5;
   max-width: 1200px;
   margin: 0 auto;
   text-align: center;
@@ -41,21 +41,21 @@
 .photograph-intro h1 {
   font-size: 3rem;
   font-weight: 700;
-  color: #0a0a0a;
+  color: #f5f5f5;
   margin: 0 0 1rem 0;
   letter-spacing: -0.03em;
 }
 
 .photograph-intro p {
   font-size: 1.2rem;
-  color: #6b7280;
+  color: #a0a0a0;
   line-height: 1.6;
   margin: 0.5rem 0;
 }
 
 .photograph-intro .location {
   font-size: 1rem;
-  color: #9ca3af;
+  color: #808080;
   margin-top: 1rem;
 }
 
@@ -117,16 +117,16 @@
   border-radius: 16px;
   margin-bottom: 1rem;
   break-inside: avoid;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
 }
 
 .photo:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
-  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.6);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 /* Pricing Section */
@@ -138,7 +138,7 @@
 .pricing-section h2 {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #0a0a0a;
+  color: #f5f5f5;
   margin-bottom: 2.5rem;
   letter-spacing: -0.03em;
 }
@@ -152,29 +152,29 @@
 }
 
 .pricing-card {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 24px;
   padding: 2.5rem 2rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
 }
 
 .pricing-card:hover {
   transform: translateY(-8px);
-  background: rgba(255, 255, 255, 0.85);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
-  border-color: rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
 .pricing-card.featured {
   border: 2px solid #6366f1;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(99, 102, 241, 0.08);
 }
 
 .pricing-card .badge {
@@ -198,20 +198,20 @@
 .pricing-header h3 {
   font-size: 1.5rem;
   font-weight: 650;
-  color: #0a0a0a;
+  color: #f5f5f5;
   margin: 0 0 1rem 0;
 }
 
 .price {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #0a0a0a;
+  color: #f5f5f5;
   margin: 0;
 }
 
 .pricing-description {
   font-size: 0.95rem;
-  color: #6b7280;
+  color: #a0a0a0;
   line-height: 1.6;
   margin: 1.5rem 0;
   text-align: center;
@@ -227,7 +227,7 @@
 
 .pricing-addons {
   font-size: 0.875rem;
-  color: #9ca3af;
+  color: #808080;
   font-style: italic;
   margin: 0 0 1.5rem 0;
   text-align: center;
@@ -237,9 +237,9 @@
 
 .pricing-features li {
   padding: 0.75rem 0;
-  color: #4b5563;
+  color: #a0a0a0;
   font-size: 0.95rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .pricing-features li:last-child {
@@ -257,8 +257,8 @@
   display: block;
   width: 100%;
   padding: 0.875rem 1.5rem;
-  background: #000000;
-  color: #ffffff;
+  background: #ffffff;
+  color: #0a0a0a;
   text-decoration: none;
   border-radius: 12px;
   font-weight: 600;
@@ -268,9 +268,9 @@
 }
 
 .pricing-button:hover {
-  background: #2d2d2d;
+  background: #e0e0e0;
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
 }
 
 .pricing-card.featured .pricing-button {
@@ -290,7 +290,7 @@
 .equipment-section h2 {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #0a0a0a;
+  color: #f5f5f5;
   margin-bottom: 2.5rem;
   letter-spacing: -0.03em;
 }
@@ -304,27 +304,27 @@
 }
 
 .equipment-category {
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 24px;
   padding: 2rem;
   text-align: left;
   transition: all 0.3s ease;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
 .equipment-category:hover {
   transform: translateY(-4px);
-  background: rgba(255, 255, 255, 0.85);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
 }
 
 .equipment-category h3 {
   font-size: 1.3rem;
   font-weight: 650;
-  color: #0a0a0a;
+  color: #f5f5f5;
   margin: 0 0 1rem 0;
 }
 
@@ -336,9 +336,9 @@
 
 .equipment-category li {
   padding: 0.5rem 0;
-  color: #4b5563;
+  color: #a0a0a0;
   font-size: 0.95rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .equipment-category li:last-child {
@@ -354,7 +354,7 @@
 .photograph-gallery h2 {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #0a0a0a;
+  color: #f5f5f5;
   margin-bottom: 2rem;
   letter-spacing: -0.03em;
 }
@@ -371,38 +371,39 @@
 
 .category-btn {
   padding: 0.75rem 1.5rem;
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 12px;
-  color: #4b5563;
+  color: #a0a0a0;
   font-size: 0.95rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
 }
 
 .category-btn:hover {
   transform: translateY(-2px);
-  background: rgba(255, 255, 255, 0.85);
-  border-color: rgba(0, 0, 0, 0.12);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.12);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.7);
+  color: #f5f5f5;
 }
 
 .category-btn.active {
-  background: #000000;
-  color: #ffffff;
-  border-color: #000000;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  background: #ffffff;
+  color: #0a0a0a;
+  border-color: #ffffff;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.15);
 }
 
 .category-btn.active:hover {
-  background: #2d2d2d;
+  background: #e0e0e0;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
 }
 
 /* Responsive Design */

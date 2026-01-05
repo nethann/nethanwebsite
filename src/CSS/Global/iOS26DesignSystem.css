@@ -60,7 +60,7 @@
 
 /* iOS 26 Dynamic Background System */
 .ios-background {
-  background: #faf9f5;
+  background: #0a0a0a;
   position: relative;
   overflow: hidden;
 }
@@ -238,15 +238,7 @@
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -0.03em;
-  background: linear-gradient(135deg,
-    rgba(255, 255, 255, 0.98) 0%,
-    rgba(200, 200, 255, 0.95) 30%,
-    rgba(139, 92, 246, 0.92) 60%,
-    rgba(99, 102, 241, 0.88) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  filter: drop-shadow(0 4px 24px rgba(139, 92, 246, 0.4));
+  color: #f5f5f5;
 }
 
 .ios-title-medium {
@@ -255,7 +247,7 @@
   font-weight: 700;
   line-height: 1.2;
   letter-spacing: -0.02em;
-  color: #0a0a0a;
+  color: #f5f5f5;
 }
 
 .ios-body {
