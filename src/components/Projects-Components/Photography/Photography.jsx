@@ -103,7 +103,7 @@ export default function Photography() {
 
       {/* Pricing Packages Section */}
       <section className="pricing-section" data-aos="fade-up" data-aos-delay="100">
-        <h2>Pricing Packages</h2>
+        <h2 >Pricing Packages</h2>
         <div className="pricing-grid">
           <div className="pricing-card">
             <div className="pricing-header">

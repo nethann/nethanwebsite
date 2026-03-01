@@ -231,7 +231,7 @@ const Home = () => {
         <div className="homepage">
             <div className="hero-section">
                 <header className="hero">
-                    <h1 data-aos="fade-up">Nethan Nagendran</h1>
+                    <h1 className="name-title" data-aos="fade-up">Nethan Nagendran</h1>
                     <p data-aos="fade-up" data-aos-delay="100">
                         Photographer • Musician • Developer
                     </p>
@@ -283,7 +283,7 @@ const Home = () => {
 
             {/* What I Offer Section - Moved higher for better visibility */}
             <section className="what-i-offer-section" data-aos="fade-up">
-                <h2 className="section-title">What I Offer</h2>
+                <h2 className="section-title ">What I Offer</h2>
                 <div className="offer-grid">
                     <div className="offer-card photography-card" data-aos="fade-right">
                         <h3>Photography</h3>
